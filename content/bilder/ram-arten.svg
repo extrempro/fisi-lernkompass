@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+  <defs><marker id="ram-arten-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-box" x="260" y="12" width="150" height="40" rx="6"/>
+  <text class="sv-tb" x="335" y="36.5" text-anchor="middle">Halbleiter-RAM</text>
+  <rect class="sv-a" x="30" y="92" width="190" height="52" rx="6"/>
+  <text class="sv-tb" x="125" y="116" text-anchor="middle">SRAM</text>
+  <text class="sv-tk" x="125" y="130" text-anchor="middle">schnell, teuer, ohne Refresh</text>
+  <rect class="sv-b" x="370" y="92" width="210" height="52" rx="6"/>
+  <text class="sv-tb" x="475" y="116" text-anchor="middle">DRAM</text>
+  <text class="sv-tk" x="475" y="130" text-anchor="middle">Kondensator, braucht Refresh</text>
+  <line class="sv-ln" x1="310" y1="54" x2="125" y2="90" marker-end="url(#ram-arten-pf)"/>
+  <line class="sv-ln" x1="360" y1="54" x2="475" y2="90" marker-end="url(#ram-arten-pf)"/>
+  <rect class="sv-box" x="30" y="176" width="190" height="44" rx="6"/>
+  <text class="sv-t" x="125" y="202.5" text-anchor="middle">Cache in der CPU</text>
+  <line class="sv-ln" x1="125" y1="146" x2="125" y2="174" marker-end="url(#ram-arten-pf)"/>
+  <rect class="sv-b" x="250" y="172" width="104" height="96" rx="6"/>
+  <text class="sv-tb" x="302" y="192" text-anchor="middle">DDR4 / DDR5</text>
+  <text class="sv-tk" x="302" y="214" text-anchor="middle">Riegel: DIMM,</text>
+  <text class="sv-tk" x="302" y="228" text-anchor="middle">SO-DIMM</text>
+  <text class="sv-t" x="302" y="254" text-anchor="middle">PCs, Server</text>
+  <line class="sv-ln-d" x1="475" y1="146" x2="302" y2="170"/>
+  <rect class="sv-b" x="362" y="172" width="104" height="96" rx="6"/>
+  <text class="sv-tb" x="414" y="192" text-anchor="middle">LPDDR5X</text>
+  <text class="sv-tk" x="414" y="214" text-anchor="middle">aufgelötet</text>
+  <text class="sv-tk" x="414" y="228" text-anchor="middle">oder LPCAMM2</text>
+  <text class="sv-t" x="414" y="254" text-anchor="middle">Notebooks</text>
+  <line class="sv-ln-d" x1="475" y1="146" x2="414" y2="170"/>
+  <rect class="sv-b" x="474" y="172" width="104" height="96" rx="6"/>
+  <text class="sv-tb" x="526" y="192" text-anchor="middle">GDDR6 / 7</text>
+  <text class="sv-tk" x="526" y="214" text-anchor="middle">auf der</text>
+  <text class="sv-tk" x="526" y="228" text-anchor="middle">Grafikkarte</text>
+  <text class="sv-t" x="526" y="254" text-anchor="middle">Grafik</text>
+  <line class="sv-ln-d" x1="475" y1="146" x2="526" y2="170"/>
+  <rect class="sv-b" x="586" y="172" width="104" height="96" rx="6"/>
+  <text class="sv-tb" x="638" y="192" text-anchor="middle">HBM3e</text>
+  <text class="sv-tk" x="638" y="214" text-anchor="middle">gestapelt</text>
+  <text class="sv-tk" x="638" y="228" text-anchor="middle">neben dem Chip</text>
+  <text class="sv-t" x="638" y="254" text-anchor="middle">KI-Rechner</text>
+  <line class="sv-ln-d" x1="475" y1="146" x2="638" y2="170"/>
+  <text class="sv-tk" x="350" y="292" text-anchor="middle">Alle Arten sind flüchtig: ohne Strom ist der Inhalt weg.</text>
+</svg>

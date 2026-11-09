@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380">
+  <defs><marker id="hypervisor-typen-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="190" y="24" text-anchor="middle">Typ 1 – Bare Metal</text>
+  <text class="sv-tk" x="190" y="42" text-anchor="middle">Rechenzentrum, Server</text>
+  <text class="sv-tb" x="570" y="24" text-anchor="middle">Typ 2 – Hosted</text>
+  <text class="sv-tk" x="570" y="42" text-anchor="middle">Test, Schulung, Laptop</text>
+  <rect class="sv-box" x="20" y="60" width="108" height="110" rx="6" stroke-dasharray="5 4"/>
+  <text class="sv-tk" x="74.0" y="78" text-anchor="middle">VM 1</text>
+  <rect class="sv-a" x="28" y="86" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="74.0" y="108.0" text-anchor="middle">Anwendung</text>
+  <rect class="sv-b" x="28" y="126" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="74.0" y="148.0" text-anchor="middle">Gast-OS</text>
+  <rect class="sv-box" x="136" y="60" width="108" height="110" rx="6" stroke-dasharray="5 4"/>
+  <text class="sv-tk" x="190.0" y="78" text-anchor="middle">VM 2</text>
+  <rect class="sv-a" x="144" y="86" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="190.0" y="108.0" text-anchor="middle">Anwendung</text>
+  <rect class="sv-b" x="144" y="126" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="190.0" y="148.0" text-anchor="middle">Gast-OS</text>
+  <rect class="sv-box" x="252" y="60" width="108" height="110" rx="6" stroke-dasharray="5 4"/>
+  <text class="sv-tk" x="306.0" y="78" text-anchor="middle">VM 3</text>
+  <rect class="sv-a" x="260" y="86" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="306.0" y="108.0" text-anchor="middle">Anwendung</text>
+  <rect class="sv-b" x="260" y="126" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="306.0" y="148.0" text-anchor="middle">Gast-OS</text>
+  <rect class="sv-c" x="20" y="182" width="340" height="50" rx="6"/>
+  <text class="sv-tb" x="190.0" y="204.0" text-anchor="middle">Hypervisor</text>
+  <text class="sv-tk" x="190.0" y="220.0" text-anchor="middle">z. B. VMware ESXi, Hyper-V, Proxmox VE</text>
+  <rect class="sv-d" x="20" y="240" width="340" height="50" rx="6"/>
+  <text class="sv-tb" x="190.0" y="262.0" text-anchor="middle">Hardware</text>
+  <text class="sv-tk" x="190.0" y="278.0" text-anchor="middle">CPU, RAM, Datenträger, Netzwerk</text>
+  <rect class="sv-box" x="400" y="60" width="108" height="110" rx="6" stroke-dasharray="5 4"/>
+  <text class="sv-tk" x="454.0" y="78" text-anchor="middle">VM 1</text>
+  <rect class="sv-a" x="408" y="86" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="454.0" y="108.0" text-anchor="middle">Anwendung</text>
+  <rect class="sv-b" x="408" y="126" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="454.0" y="148.0" text-anchor="middle">Gast-OS</text>
+  <rect class="sv-box" x="516" y="60" width="108" height="110" rx="6" stroke-dasharray="5 4"/>
+  <text class="sv-tk" x="570.0" y="78" text-anchor="middle">VM 2</text>
+  <rect class="sv-a" x="524" y="86" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="570.0" y="108.0" text-anchor="middle">Anwendung</text>
+  <rect class="sv-b" x="524" y="126" width="92" height="34" rx="6"/>
+  <text class="sv-tb" x="570.0" y="148.0" text-anchor="middle">Gast-OS</text>
+  <rect class="sv-box" x="632" y="60" width="108" height="110" rx="6"/>
+  <text class="sv-t" x="686" y="108" text-anchor="middle">andere</text>
+  <text class="sv-t" x="686" y="124" text-anchor="middle">Programme</text>
+  <rect class="sv-c" x="400" y="182" width="340" height="50" rx="6"/>
+  <text class="sv-tb" x="570.0" y="204.0" text-anchor="middle">Hypervisor als Programm</text>
+  <text class="sv-tk" x="570.0" y="220.0" text-anchor="middle">z. B. VirtualBox, VMware Workstation</text>
+  <rect class="sv-b" x="400" y="240" width="340" height="50" rx="6"/>
+  <text class="sv-tb" x="570.0" y="262.0" text-anchor="middle">Host-Betriebssystem</text>
+  <text class="sv-tk" x="570.0" y="278.0" text-anchor="middle">Windows, Linux, macOS</text>
+  <rect class="sv-d" x="400" y="298" width="340" height="50" rx="6"/>
+  <text class="sv-tb" x="570.0" y="320.0" text-anchor="middle">Hardware</text>
+  <text class="sv-tk" x="570.0" y="336.0" text-anchor="middle">CPU, RAM, Datenträger, Netzwerk</text>
+  <text class="sv-tk" x="20" y="320">Weniger Schichten → mehr Leistung,</text>
+  <text class="sv-tk" x="20" y="336">direkter Hardwarezugriff, für den Dauerbetrieb.</text>
+</svg>

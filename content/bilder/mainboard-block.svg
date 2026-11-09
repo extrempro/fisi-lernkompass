@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470">
+  <defs><marker id="mainboard-block-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-ln-d" x="4" y="4" width="632" height="462" rx="14"/>
+  <text class="sv-tk" x="16" y="24" text-anchor="start">Mainboard</text>
+  <rect class="sv-d" x="240" y="22" width="200" height="50" rx="6"/>
+  <text class="sv-tb" x="340" y="45" text-anchor="middle">Grafikkarte (GPU)</text>
+  <text class="sv-tk" x="340" y="59" text-anchor="middle">eigener Grafikspeicher (VRAM)</text>
+  <rect class="sv-box" x="500" y="30" width="112" height="34" rx="6"/>
+  <text class="sv-t" x="556" y="51.5" text-anchor="middle">Monitor</text>
+  <line class="sv-ln" x1="442" y1="47" x2="498" y2="47" marker-end="url(#mainboard-block-pf)"/>
+  <text class="sv-tk" x="470" y="38" text-anchor="middle">HDMI/DP</text>
+  <rect class="sv-a" x="230" y="116" width="220" height="136" rx="10"/>
+  <text class="sv-tb" x="340" y="136" text-anchor="middle">CPU (Prozessor)</text>
+  <rect class="sv-box" x="244" y="146" width="192" height="28" rx="6"/>
+  <text class="sv-t" x="340" y="164.5" text-anchor="middle">Kerne + Cache (L1–L3)</text>
+  <rect class="sv-box" x="244" y="180" width="192" height="28" rx="6"/>
+  <text class="sv-t" x="340" y="198.5" text-anchor="middle">Speichercontroller</text>
+  <rect class="sv-box" x="244" y="214" width="192" height="28" rx="6"/>
+  <text class="sv-t" x="340" y="232.5" text-anchor="middle">PCIe-Controller</text>
+  <line class="sv-ln-a" x1="340" y1="74" x2="340" y2="114" marker-end="url(#mainboard-block-pf)" marker-start="url(#mainboard-block-pf)"/>
+  <text class="sv-xa" x="348" y="98" text-anchor="start">PCIe x16</text>
+  <rect class="sv-b" x="28" y="128" width="150" height="48" rx="6"/>
+  <text class="sv-tb" x="103" y="150" text-anchor="middle">RAM – Kanal A</text>
+  <text class="sv-tk" x="103" y="164" text-anchor="middle">DDR5-Riegel</text>
+  <line class="sv-ln-b" x1="180" y1="152" x2="242" y2="190" marker-end="url(#mainboard-block-pf)" marker-start="url(#mainboard-block-pf)"/>
+  <rect class="sv-b" x="28" y="192" width="150" height="48" rx="6"/>
+  <text class="sv-tb" x="103" y="214" text-anchor="middle">RAM – Kanal B</text>
+  <text class="sv-tk" x="103" y="228" text-anchor="middle">DDR5-Riegel</text>
+  <line class="sv-ln-b" x1="180" y1="216" x2="242" y2="198" marker-end="url(#mainboard-block-pf)" marker-start="url(#mainboard-block-pf)"/>
+  <text class="sv-xb" x="104" y="254" text-anchor="middle">Speicherbus</text>
+  <rect class="sv-box" x="498" y="150" width="122" height="48" rx="6"/>
+  <text class="sv-tb" x="559" y="172" text-anchor="middle">NVMe-SSD</text>
+  <text class="sv-tk" x="559" y="186" text-anchor="middle">M.2-Steckplatz</text>
+  <line class="sv-ln-a" x1="438" y1="228" x2="470" y2="228"/>
+  <path class="sv-ln-a" d="M470 228 V174 H496" marker-end="url(#mainboard-block-pf)"/>
+  <text class="sv-xa" x="478" y="214" text-anchor="start">PCIe x4</text>
+  <rect class="sv-e" x="498" y="268" width="122" height="48" rx="6"/>
+  <text class="sv-tb" x="559" y="290" text-anchor="middle">VRM</text>
+  <text class="sv-tk" x="559" y="304" text-anchor="middle">Spannungswandler</text>
+  <path class="sv-ln-e" d="M498 292 H420 V254" marker-end="url(#mainboard-block-pf)"/>
+  <text class="sv-xe" x="458" y="286" text-anchor="middle">Strom</text>
+  <rect class="sv-box" x="498" y="404" width="122" height="48" rx="6"/>
+  <text class="sv-tb" x="559" y="426" text-anchor="middle">Netzteil</text>
+  <text class="sv-tk" x="559" y="440" text-anchor="middle">ATX 24-Pin + EPS</text>
+  <line class="sv-ln-e" x1="559" y1="402" x2="559" y2="318" marker-end="url(#mainboard-block-pf)"/>
+  <rect class="sv-c" x="230" y="300" width="220" height="52" rx="6"/>
+  <text class="sv-tb" x="340" y="324" text-anchor="middle">Chipsatz (PCH)</text>
+  <text class="sv-tk" x="340" y="338" text-anchor="middle">verteilt Ein- und Ausgabe</text>
+  <line class="sv-ln-c" x1="300" y1="254" x2="300" y2="298" marker-end="url(#mainboard-block-pf)" marker-start="url(#mainboard-block-pf)"/>
+  <text class="sv-xc" x="308" y="282" text-anchor="start">DMI / PCIe-Link</text>
+  <rect class="sv-box" x="28" y="300" width="150" height="46" rx="6"/>
+  <text class="sv-tb" x="103" y="321" text-anchor="middle">UEFI-Flash</text>
+  <text class="sv-tk" x="103" y="335" text-anchor="middle">Firmware (SPI)</text>
+  <path class="sv-ln-c" d="M180 323 H204 V326 H228" marker-end="url(#mainboard-block-pf)"/>
+  <rect class="sv-box" x="28" y="358" width="150" height="46" rx="6"/>
+  <text class="sv-tb" x="103" y="379" text-anchor="middle">TPM 2.0</text>
+  <text class="sv-tk" x="103" y="393" text-anchor="middle">Schlüssel, Secure Boot</text>
+  <path class="sv-ln-c" d="M180 381 H204 V326 H228" marker-end="url(#mainboard-block-pf)"/>
+  <rect class="sv-box" x="210" y="404" width="60" height="32" rx="6"/>
+  <text class="sv-tk" x="240" y="424.5" text-anchor="middle">SATA</text>
+  <line class="sv-ln-c" x1="240" y1="354" x2="240" y2="402" marker-end="url(#mainboard-block-pf)"/>
+  <rect class="sv-box" x="276" y="404" width="60" height="32" rx="6"/>
+  <text class="sv-tk" x="306" y="424.5" text-anchor="middle">USB</text>
+  <line class="sv-ln-c" x1="306" y1="354" x2="306" y2="402" marker-end="url(#mainboard-block-pf)"/>
+  <rect class="sv-box" x="342" y="404" width="60" height="32" rx="6"/>
+  <text class="sv-tk" x="372" y="424.5" text-anchor="middle">LAN</text>
+  <line class="sv-ln-c" x1="372" y1="354" x2="372" y2="402" marker-end="url(#mainboard-block-pf)"/>
+  <rect class="sv-box" x="408" y="404" width="60" height="32" rx="6"/>
+  <text class="sv-tk" x="438" y="424.5" text-anchor="middle">Audio</text>
+  <line class="sv-ln-c" x1="438" y1="354" x2="438" y2="402" marker-end="url(#mainboard-block-pf)"/>
+</svg>

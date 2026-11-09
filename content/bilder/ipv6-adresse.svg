@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <defs><marker id="ipv6-adresse-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Aufbau einer globalen IPv6-Adresse (128 Bit, 8 Blöcke à 16 Bit, hexadezimal)</text>
+  <rect class="sv-a" x="20" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="62.0" y="64.0" text-anchor="middle">2001</text>
+  <text class="sv-tb" x="107" y="64" text-anchor="middle">:</text>
+  <rect class="sv-a" x="110" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="152.0" y="64.0" text-anchor="middle">0db8</text>
+  <text class="sv-tb" x="197" y="64" text-anchor="middle">:</text>
+  <rect class="sv-a" x="200" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="242.0" y="64.0" text-anchor="middle">0a0b</text>
+  <text class="sv-tb" x="287" y="64" text-anchor="middle">:</text>
+  <rect class="sv-b" x="290" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="332.0" y="64.0" text-anchor="middle">0001</text>
+  <text class="sv-tb" x="377" y="64" text-anchor="middle">:</text>
+  <rect class="sv-c" x="380" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="422.0" y="64.0" text-anchor="middle">0000</text>
+  <text class="sv-tb" x="467" y="64" text-anchor="middle">:</text>
+  <rect class="sv-c" x="470" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="512.0" y="64.0" text-anchor="middle">0000</text>
+  <text class="sv-tb" x="557" y="64" text-anchor="middle">:</text>
+  <rect class="sv-c" x="560" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="602.0" y="64.0" text-anchor="middle">0000</text>
+  <text class="sv-tb" x="647" y="64" text-anchor="middle">:</text>
+  <rect class="sv-c" x="650" y="40" width="84" height="38" rx="6"/>
+  <text class="sv-tc" x="692.0" y="64.0" text-anchor="middle">0001</text>
+  <path class="sv-ln" d="M20 86 L20 92 L284 92 L284 86"/>
+  <text class="sv-xa" x="152.0" y="110" text-anchor="middle">Globales Routing-Präfix · 48 Bit</text>
+  <text class="sv-tk" x="152.0" y="126" text-anchor="middle">vom Provider</text>
+  <path class="sv-ln" d="M290 86 L290 92 L374 92 L374 86"/>
+  <text class="sv-xb" x="332.0" y="110" text-anchor="middle">Subnetz-ID · 16 Bit</text>
+  <text class="sv-tk" x="332.0" y="126" text-anchor="middle"></text>
+  <path class="sv-ln" d="M380 86 L380 92 L734 92 L734 86"/>
+  <text class="sv-xc" x="557.0" y="110" text-anchor="middle">Interface-ID · 64 Bit</text>
+  <text class="sv-tk" x="557.0" y="126" text-anchor="middle">vom Gerät (SLAAC, zufällig) oder DHCPv6</text>
+  <text class="sv-tb" x="20" y="160">Kürzen in zwei Schritten</text>
+  <text class="sv-t" x="20" y="184">1. Führende Nullen je Block weglassen:</text>
+  <text class="sv-tc" x="300" y="184">2001:db8:a0b:1:0:0:0:1</text>
+  <text class="sv-t" x="20" y="208">2. Eine Folge von Null-Blöcken durch :: ersetzen (nur einmal!):</text>
+  <text class="sv-tc" x="470" y="208">2001:db8:a0b:1::1</text>
+  <text class="sv-tb" x="20" y="248">Wichtige Adressbereiche</text>
+  <text class="sv-tc" x="20" y="270">2000::/3</text>
+  <text class="sv-tb" x="130" y="270">Global Unicast</text>
+  <text class="sv-tk" x="260" y="270">öffentlich routbar</text>
+  <text class="sv-tc" x="20" y="287">fe80::/10</text>
+  <text class="sv-tb" x="130" y="287">Link-Local</text>
+  <text class="sv-tk" x="260" y="287">nur im eigenen Segment</text>
+  <text class="sv-tc" x="20" y="304">fc00::/7</text>
+  <text class="sv-tb" x="130" y="304">Unique Local</text>
+  <text class="sv-tk" x="260" y="304">privat, wie 10.0.0.0/8</text>
+  <text class="sv-tc" x="20" y="321">ff00::/8</text>
+  <text class="sv-tb" x="130" y="321">Multicast</text>
+  <text class="sv-tk" x="260" y="321">z. B. ff02::1 alle Knoten</text>
+  <text class="sv-tc" x="20" y="338">::1/128</text>
+  <text class="sv-tb" x="130" y="338">Loopback</text>
+  <text class="sv-tk" x="260" y="338">wie 127.0.0.1</text>
+  <text class="sv-tk" x="520" y="270">Ein /64 ist das normale Subnetz.</text>
+  <text class="sv-tk" x="520" y="287">Mit einem /48 hat ein Standort 65.536</text>
+  <text class="sv-tk" x="520" y="304">Subnetze à 2⁶⁴ Adressen.</text>
+</svg>

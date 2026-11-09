@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">MTP/MPO</text>
+  <text class="sv-tk" x="110" y="138" text-anchor="middle">Frontansicht: 12 oder 24 Fasern</text>
+  <text class="sv-tk" x="110" y="152" text-anchor="middle">Rechenzentrum, 40/100G</text>
+  <rect class="sv-box" x="30" y="46" width="160" height="52" rx="6"/>
+  <rect class="sv-glas" x="48" y="58" width="124" height="28" rx="3"/>
+  <circle class="sv-a" cx="57" cy="72" r="3"/>
+  <circle class="sv-a" cx="66.6" cy="72" r="3"/>
+  <circle class="sv-a" cx="76.2" cy="72" r="3"/>
+  <circle class="sv-a" cx="85.8" cy="72" r="3"/>
+  <circle class="sv-a" cx="95.4" cy="72" r="3"/>
+  <circle class="sv-a" cx="105" cy="72" r="3"/>
+  <circle class="sv-a" cx="114.6" cy="72" r="3"/>
+  <circle class="sv-a" cx="124.2" cy="72" r="3"/>
+  <circle class="sv-a" cx="133.8" cy="72" r="3"/>
+  <circle class="sv-a" cx="143.4" cy="72" r="3"/>
+  <circle class="sv-a" cx="153" cy="72" r="3"/>
+  <circle class="sv-a" cx="162.6" cy="72" r="3"/>
+  <circle class="sv-c" cx="40" cy="72" r="4"/>
+  <circle class="sv-c" cx="180" cy="72" r="4"/>
+  <text class="sv-xc" x="110" y="112" text-anchor="middle">Führungsstifte außen</text>
+</svg>

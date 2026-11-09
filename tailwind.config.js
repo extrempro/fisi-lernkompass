@@ -1,0 +1,46 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        bg: 'var(--c-bg)',
+        card: 'var(--c-card)',
+        ink: 'var(--c-text)',
+        muted: 'var(--c-muted)',
+        line: 'var(--c-border)',
+        accent: 'var(--c-accent)',
+        'accent-soft': 'var(--c-accent-soft)',
+        'on-accent': 'var(--c-on-accent)',
+        track: 'var(--c-track)',
+        chip: 'var(--c-chip)',
+        code: 'var(--c-code)',
+        'code-ink': 'var(--c-code-text)',
+        warn: 'var(--c-warn-bg)',
+        'warn-ink': 'var(--c-warn-fg)',
+        schule: 'var(--c-schule)',
+        'schule-soft': 'var(--c-schule-soft)',
+        ferien: 'var(--c-ferien)',
+        'ferien-soft': 'var(--c-ferien-soft)',
+        rot: '#DC2626',
+        gelb: '#F59E0B',
+        gruen: '#16A34A',
+        'seg-rot': 'var(--c-seg-rot-bg)',
+        'seg-rot-ink': 'var(--c-seg-rot-fg)',
+        'seg-gelb': 'var(--c-seg-gelb-bg)',
+        'seg-gelb-ink': 'var(--c-seg-gelb-fg)',
+        'seg-gruen': 'var(--c-seg-gruen-bg)',
+        'seg-gruen-ink': 'var(--c-seg-gruen-fg)',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      maxWidth: {
+        page: '1200px',
+      },
+    },
+  },
+  plugins: [],
+};

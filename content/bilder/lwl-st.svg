@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">ST</text>
+  <text class="sv-tk" x="110" y="138" text-anchor="middle">rund, Bajonett (drücken und drehen)</text>
+  <text class="sv-tk" x="110" y="152" text-anchor="middle">älter, oft noch in Bestandsnetzen</text>
+  <rect class="sv-glas" x="28" y="66" width="18" height="8" rx="1"/>
+  <rect class="sv-box" x="46" y="56" width="24" height="28" rx="2"/>
+  <rect class="sv-box" x="70" y="50" width="30" height="40" rx="4"/>
+  <line class="sv-ln-d" x1="74" y1="52" x2="74" y2="88"/>
+  <line class="sv-ln-d" x1="79" y1="52" x2="79" y2="88"/>
+  <line class="sv-ln-d" x1="84" y1="52" x2="84" y2="88"/>
+  <line class="sv-ln-d" x1="89" y1="52" x2="89" y2="88"/>
+  <line class="sv-ln-d" x1="94" y1="52" x2="94" y2="88"/>
+  <line class="sv-ln-d" x1="99" y1="52" x2="99" y2="88"/>
+  <path class="sv-box" d="M100 56L136 66V74L100 84z"/>
+  <line class="sv-ln" x1="136" y1="70" x2="210" y2="70"/>
+</svg>

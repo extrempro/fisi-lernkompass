@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420">
+  <defs><marker id="pki-kette-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-ln-d" x="20" y="14" width="300" height="104" rx="10"/>
+  <text class="sv-tk" x="34" y="32">Vertrauensspeicher (Trust Store) im Browser/OS</text>
+  <rect class="sv-b" x="40" y="42" width="260" height="62" rx="6"/>
+  <text class="sv-tb" x="170" y="66" text-anchor="middle">Root-CA</text>
+  <text class="sv-tk" x="170" y="84" text-anchor="middle">signiert sich selbst · 20–25 Jahre gültig</text>
+  <rect class="sv-c" x="40" y="168" width="260" height="62" rx="6"/>
+  <text class="sv-tb" x="170" y="192" text-anchor="middle">Zwischenzertifikat (Intermediate)</text>
+  <text class="sv-tk" x="170" y="210" text-anchor="middle">von der Root-CA signiert</text>
+  <rect class="sv-a" x="40" y="280" width="260" height="62" rx="6"/>
+  <text class="sv-tb" x="170" y="304" text-anchor="middle">Serverzertifikat (Leaf)</text>
+  <text class="sv-tk" x="170" y="322" text-anchor="middle">www.example.de · vom Intermediate signiert</text>
+  <line class="sv-ln" x1="170" y1="106" x2="170" y2="164" marker-end="url(#pki-kette-pf)"/>
+  <text class="sv-tk" x="180" y="140">signiert</text>
+  <line class="sv-ln" x1="170" y1="232" x2="170" y2="276" marker-end="url(#pki-kette-pf)"/>
+  <text class="sv-tk" x="180" y="258">signiert</text>
+  <line class="sv-ln-a" x1="316" y1="300" x2="316" y2="80" marker-end="url(#pki-kette-pf)"/>
+  <text class="sv-xa" x="326" y="196">Browser prüft</text>
+  <text class="sv-xa" x="326" y="212">von unten nach oben</text>
+  <rect class="sv-box" x="470" y="14" width="270" height="328" rx="8"/>
+  <text class="sv-tb" x="486" y="38">Inhalt eines X.509-Zertifikats</text>
+  <text class="sv-t" x="486" y="66">Subject: CN=www.example.de</text>
+  <text class="sv-t" x="486" y="90">SAN: www.example.de, example.de</text>
+  <text class="sv-t" x="486" y="114">Issuer: Zwischen-CA</text>
+  <text class="sv-t" x="486" y="138">Gültig von … bis …</text>
+  <text class="sv-t" x="486" y="162">Öffentlicher Schlüssel (RSA/ECC)</text>
+  <text class="sv-t" x="486" y="186">Verwendung: Serverauthentifizierung</text>
+  <text class="sv-t" x="486" y="210">Seriennummer</text>
+  <text class="sv-t" x="486" y="234">Sperrinfo: CRL- bzw. OCSP-Adresse</text>
+  <text class="sv-tb" x="486" y="262">Signatur der ausstellenden CA</text>
+  <text class="sv-tk" x="486" y="290">Der private Schlüssel steht nicht im</text>
+  <text class="sv-tk" x="486" y="306">Zertifikat – er bleibt auf dem Server.</text>
+  <text class="sv-tk" x="20" y="374">Prüfung: Signatur jeder Stufe passt · Name steht im SAN · Datum gültig · nicht gesperrt · Root ist im Trust Store.</text>
+  <text class="sv-tk" x="20" y="394">Der Server muss das Zwischenzertifikat mitschicken – fehlt es, scheitern manche Clients („unvollständige Kette“).</text>
+</svg>

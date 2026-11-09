@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">LC</text>
+  <text class="sv-tk" x="110" y="138" text-anchor="middle">klein, Ferrule 1,25 mm, meist Duplex</text>
+  <text class="sv-tk" x="110" y="152" text-anchor="middle">Hebel einrasten – Standard in SFPs</text>
+  <rect class="sv-glas" x="32" y="69.5" width="16" height="5" rx="1"/>
+  <rect class="sv-a" x="46" y="62" width="50" height="20" rx="3"/>
+  <path class="sv-box" d="M96 65L130 68.0V76.0L96 79z"/>
+  <line class="sv-ln" x1="130" y1="72" x2="210" y2="72"/>
+  <path class="sv-ln-a" d="M54 62L98 44"/>
+  <text class="sv-xa" x="112" y="48" text-anchor="start">Hebel</text>
+</svg>

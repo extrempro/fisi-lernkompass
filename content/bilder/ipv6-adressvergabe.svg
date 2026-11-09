@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 450">
+  <defs><marker id="ipv6-adressvergabe-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-box" x="40" y="12" width="170" height="50" rx="6"/>
+  <text class="sv-tb" x="125" y="34" text-anchor="middle">Client</text>
+  <text class="sv-tk" x="125" y="50" text-anchor="middle">hat nur fe80::… (Link-Local)</text>
+  <rect class="sv-a" x="550" y="12" width="170" height="50" rx="6"/>
+  <text class="sv-tb" x="635" y="34" text-anchor="middle">Router</text>
+  <text class="sv-tk" x="635" y="50" text-anchor="middle">kennt Präfix 2001:db8:1::/64</text>
+  <line class="sv-ln-d" x1="125" y1="62" x2="125" y2="170"/>
+  <line class="sv-ln-d" x1="635" y1="62" x2="635" y2="170"/>
+  <line class="sv-ln" x1="127" y1="94" x2="631" y2="94" marker-end="url(#ipv6-adressvergabe-pf)"/>
+  <circle class="sv-c" cx="380" cy="94" r="11"/><text class="sv-tb" x="380" y="98" text-anchor="middle">1</text>
+  <text class="sv-tb" x="150" y="86">Router Solicitation (RS)</text>
+  <text class="sv-tk" x="150" y="112">an ff02::2 (alle Router) · „Welcher Router ist hier?“</text>
+  <line class="sv-ln-a" x1="633" y1="146" x2="129" y2="146" marker-end="url(#ipv6-adressvergabe-pf)"/>
+  <circle class="sv-c" cx="380" cy="146" r="11"/><text class="sv-tb" x="380" y="150" text-anchor="middle">2</text>
+  <text class="sv-tb" x="610" y="138" text-anchor="end">Router Advertisement (RA)</text>
+  <text class="sv-tk" x="610" y="164" text-anchor="end">an ff02::1 · Präfix /64, Gateway = Router, Flags M und O</text>
+  <text class="sv-tb" x="40" y="204">3 Die Flags im RA entscheiden, wie es weitergeht:</text>
+  <rect class="sv-b" x="40" y="218" width="220" height="150" rx="8"/>
+  <text class="sv-tb" x="150" y="242" text-anchor="middle">M = 0, O = 0</text>
+  <text class="sv-t" x="150" y="262" text-anchor="middle">nur SLAAC</text>
+  <text class="sv-tk" x="56" y="288">Client bildet die Adresse selbst:</text>
+  <text class="sv-tk" x="56" y="304">Präfix + eigene Interface-ID</text>
+  <text class="sv-tk" x="56" y="320">DNS-Server über das RA (RDNSS)</text>
+  <text class="sv-tk" x="56" y="336">Kein Server merkt sich etwas</text>
+  <rect class="sv-c" x="270" y="218" width="220" height="150" rx="8"/>
+  <text class="sv-tb" x="380" y="242" text-anchor="middle">M = 0, O = 1</text>
+  <text class="sv-t" x="380" y="262" text-anchor="middle">SLAAC + stateless DHCPv6</text>
+  <text class="sv-tk" x="286" y="288">Adresse per SLAAC</text>
+  <text class="sv-tk" x="286" y="304">DNS, Domäne, NTP vom</text>
+  <text class="sv-tk" x="286" y="320">DHCPv6-Server (Information-</text>
+  <text class="sv-tk" x="286" y="336">Request → Reply)</text>
+  <rect class="sv-d" x="500" y="218" width="220" height="150" rx="8"/>
+  <text class="sv-tb" x="610" y="242" text-anchor="middle">M = 1</text>
+  <text class="sv-t" x="610" y="262" text-anchor="middle">stateful DHCPv6</text>
+  <text class="sv-tk" x="516" y="288">Adresse vom DHCPv6-Server:</text>
+  <text class="sv-tk" x="516" y="304">Solicit → Advertise →</text>
+  <text class="sv-tk" x="516" y="320">Request → Reply (SARR)</text>
+  <text class="sv-tk" x="516" y="336">Server führt Liste der Leases</text>
+  <text class="sv-tk" x="40" y="398">Immer gilt: Das Standard-Gateway kommt aus dem RA (Link-Local-Adresse des Routers), nie per DHCPv6.</text>
+  <text class="sv-tk" x="40" y="416">Vor der Nutzung prüft der Client mit Duplicate Address Detection (DAD), ob die Adresse schon vergeben ist.</text>
+  <text class="sv-tk" x="40" y="434">DHCPv6 nutzt UDP 546 (Client) und 547 (Server); Anfragen gehen an die Multicast-Adresse ff02::1:2.</text>
+</svg>

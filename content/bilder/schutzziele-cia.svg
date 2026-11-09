@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470">
+  <defs><marker id="schutzziele-cia-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <polygon class="sv-box" points="380,70 600,330 160,330"/>
+  <text class="sv-tb" x="380" y="250" text-anchor="middle">Schutzziele</text>
+  <text class="sv-tk" x="380" y="268" text-anchor="middle">der Informationssicherheit</text>
+  <rect class="sv-a" x="270" y="40" width="220" height="60" rx="6"/>
+  <text class="sv-tb" x="380.0" y="67.0" text-anchor="middle">Vertraulichkeit</text>
+  <text class="sv-tk" x="380.0" y="83.0" text-anchor="middle">Confidentiality</text>
+  <rect class="sv-b" x="50" y="300" width="220" height="60" rx="6"/>
+  <text class="sv-tb" x="160.0" y="327.0" text-anchor="middle">Integrität</text>
+  <text class="sv-tk" x="160.0" y="343.0" text-anchor="middle">Integrity</text>
+  <rect class="sv-c" x="490" y="300" width="220" height="60" rx="6"/>
+  <text class="sv-tb" x="600.0" y="327.0" text-anchor="middle">Verfügbarkeit</text>
+  <text class="sv-tk" x="600.0" y="343.0" text-anchor="middle">Availability</text>
+  <text class="sv-t" x="510" y="40">Nur Befugte können lesen.</text>
+  <text class="sv-tk" x="510" y="57">Bedroht durch: Abhören, Datendiebstahl</text>
+  <text class="sv-tk" x="510" y="74">Maßnahmen: Verschlüsselung,</text>
+  <text class="sv-tk" x="510" y="91">Berechtigungen, MFA</text>
+  <text class="sv-t" x="50" y="380">Daten sind korrekt und unverändert.</text>
+  <text class="sv-tk" x="50" y="397">Bedroht durch: Manipulation, Fehler</text>
+  <text class="sv-tk" x="50" y="414">Maßnahmen: Hashwerte, Signaturen,</text>
+  <text class="sv-tk" x="50" y="431">Protokollierung, Versionierung</text>
+  <text class="sv-t" x="490" y="380">Systeme und Daten sind nutzbar,</text>
+  <text class="sv-t" x="490" y="397">wenn sie gebraucht werden.</text>
+  <text class="sv-tk" x="490" y="414">Bedroht durch: Ausfall, DDoS, Ransomware</text>
+  <text class="sv-tk" x="490" y="431">Maßnahmen: Redundanz, USV, Backup</text>
+  <text class="sv-tb" x="20" y="40">Erweiterte Schutzziele:</text>
+  <text class="sv-tk" x="20" y="58">Authentizität – echt, von wem es</text>
+  <text class="sv-tk" x="20" y="75">vorgibt zu sein</text>
+  <text class="sv-tk" x="20" y="92">Nichtabstreitbarkeit – Handlung</text>
+  <text class="sv-tk" x="20" y="109">lässt sich später beweisen</text>
+</svg>

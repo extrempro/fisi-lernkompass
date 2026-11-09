@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <defs><marker id="proxy-forward-reverse-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Forward Proxy – steht vor den Clients</text>
+  <rect class="sv-b" x="20" y="40" width="100" height="32" rx="6"/>
+  <text class="sv-t" x="70.0" y="61.0" text-anchor="middle">Client 1</text>
+  <rect class="sv-b" x="20" y="80" width="100" height="32" rx="6"/>
+  <text class="sv-t" x="70.0" y="101.0" text-anchor="middle">Client 2</text>
+  <rect class="sv-b" x="20" y="120" width="100" height="32" rx="6"/>
+  <text class="sv-t" x="70.0" y="141.0" text-anchor="middle">Client 3</text>
+  <line class="sv-ln" x1="120" y1="56" x2="210" y2="96" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <line class="sv-ln" x1="120" y1="96" x2="210" y2="96" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <line class="sv-ln" x1="120" y1="136" x2="210" y2="96" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <rect class="sv-c" x="210" y="70" width="150" height="52" rx="6"/>
+  <text class="sv-tb" x="285.0" y="93.0" text-anchor="middle">Forward Proxy</text>
+  <text class="sv-tk" x="285.0" y="109.0" text-anchor="middle">filtert, protokolliert, cacht</text>
+  <line class="sv-ln" x1="360" y1="96" x2="440" y2="96" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <ellipse class="sv-box" cx="510" cy="96" rx="70" ry="34" stroke-dasharray="6 4"/>
+  <text class="sv-t" x="510" y="100" text-anchor="middle">Internet</text>
+  <line class="sv-ln" x1="580" y1="96" x2="630" y2="96" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <rect class="sv-box" x="630" y="72" width="110" height="48" rx="6"/>
+  <text class="sv-tb" x="685.0" y="93.0" text-anchor="middle">Webseiten</text>
+  <text class="sv-tk" x="685.0" y="109.0" text-anchor="middle">sehen nur den Proxy</text>
+  <text class="sv-tb" x="20" y="196">Reverse Proxy – steht vor den Servern</text>
+  <rect class="sv-box" x="20" y="228" width="100" height="48" rx="6"/>
+  <text class="sv-tb" x="70.0" y="249.0" text-anchor="middle">Nutzer</text>
+  <text class="sv-tk" x="70.0" y="265.0" text-anchor="middle">im Internet</text>
+  <line class="sv-ln" x1="120" y1="252" x2="160" y2="252" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <ellipse class="sv-box" cx="225" cy="252" rx="62" ry="32" stroke-dasharray="6 4"/>
+  <text class="sv-t" x="225" y="256" text-anchor="middle">Internet</text>
+  <line class="sv-ln" x1="287" y1="252" x2="330" y2="252" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <rect class="sv-c" x="330" y="222" width="170" height="60" rx="6"/>
+  <text class="sv-tb" x="415.0" y="249.0" text-anchor="middle">Reverse Proxy</text>
+  <text class="sv-tk" x="415.0" y="265.0" text-anchor="middle">TLS, Lastverteilung, WAF</text>
+  <line class="sv-ln" x1="500" y1="252" x2="600" y2="216" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <rect class="sv-a" x="600" y="200" width="140" height="32" rx="6"/>
+  <text class="sv-t" x="670.0" y="221.0" text-anchor="middle">Webserver 1</text>
+  <line class="sv-ln" x1="500" y1="252" x2="600" y2="256" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <rect class="sv-a" x="600" y="240" width="140" height="32" rx="6"/>
+  <text class="sv-t" x="670.0" y="261.0" text-anchor="middle">Webserver 2</text>
+  <line class="sv-ln" x1="500" y1="252" x2="600" y2="296" marker-end="url(#proxy-forward-reverse-pf)"/>
+  <rect class="sv-a" x="600" y="280" width="140" height="32" rx="6"/>
+  <text class="sv-t" x="670.0" y="301.0" text-anchor="middle">Webserver 3</text>
+  <text class="sv-tk" x="20" y="318">Forward schützt und kontrolliert die Nutzer, Reverse schützt und entlastet die Server.</text>
+</svg>

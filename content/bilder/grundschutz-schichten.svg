@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250">
+  <text class="sv-tb" x="8" y="18" text-anchor="start">Prozess-Bausteine</text>
+  <rect class="sv-b" x="8" y="26" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="63" y="48" text-anchor="middle">ISMS</text>
+  <text class="sv-tk" x="63" y="68" text-anchor="middle">Sicherheits-</text>
+  <text class="sv-tk" x="63" y="82" text-anchor="middle">management</text>
+  <rect class="sv-b" x="126" y="26" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="181" y="48" text-anchor="middle">ORP</text>
+  <text class="sv-tk" x="181" y="68" text-anchor="middle">Organisation</text>
+  <text class="sv-tk" x="181" y="82" text-anchor="middle">und Personal</text>
+  <rect class="sv-b" x="244" y="26" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="299" y="48" text-anchor="middle">CON</text>
+  <text class="sv-tk" x="299" y="68" text-anchor="middle">Konzepte und</text>
+  <text class="sv-tk" x="299" y="82" text-anchor="middle">Vorgehen</text>
+  <rect class="sv-b" x="362" y="26" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="417" y="48" text-anchor="middle">OPS</text>
+  <text class="sv-tk" x="417" y="68" text-anchor="middle">Betrieb</text>
+  <rect class="sv-b" x="480" y="26" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="535" y="48" text-anchor="middle">DER</text>
+  <text class="sv-tk" x="535" y="68" text-anchor="middle">Detektion und</text>
+  <text class="sv-tk" x="535" y="82" text-anchor="middle">Reaktion</text>
+  <text class="sv-tb" x="8" y="118" text-anchor="start">System-Bausteine</text>
+  <rect class="sv-a" x="8" y="126" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="63" y="148" text-anchor="middle">APP</text>
+  <text class="sv-tk" x="63" y="168" text-anchor="middle">Anwendungen</text>
+  <rect class="sv-a" x="126" y="126" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="181" y="148" text-anchor="middle">SYS</text>
+  <text class="sv-tk" x="181" y="168" text-anchor="middle">IT-Systeme</text>
+  <rect class="sv-a" x="244" y="126" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="299" y="148" text-anchor="middle">IND</text>
+  <text class="sv-tk" x="299" y="168" text-anchor="middle">Industrielle IT</text>
+  <rect class="sv-a" x="362" y="126" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="417" y="148" text-anchor="middle">NET</text>
+  <text class="sv-tk" x="417" y="168" text-anchor="middle">Netze und</text>
+  <text class="sv-tk" x="417" y="182" text-anchor="middle">Kommunikation</text>
+  <rect class="sv-a" x="480" y="126" width="110" height="70" rx="6"/>
+  <text class="sv-tb" x="535" y="148" text-anchor="middle">INF</text>
+  <text class="sv-tk" x="535" y="168" text-anchor="middle">Infrastruktur</text>
+  <text class="sv-tk" x="535" y="182" text-anchor="middle">(Gebäude, Räume)</text>
+  <text class="sv-tk" x="300" y="240" text-anchor="middle">Beispiele: SYS.2.1 Allgemeiner Client · NET.1.1 Netzarchitektur · OPS.1.2.4 Telearbeit</text>
+</svg>

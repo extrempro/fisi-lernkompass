@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <defs><marker id="ha-cluster-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Aktiv/Passiv-Cluster mit Failover</text>
+  <rect class="sv-b" x="280" y="40" width="200" height="50" rx="6"/>
+  <text class="sv-tb" x="380.0" y="62.0" text-anchor="middle">Clients</text>
+  <text class="sv-tk" x="380.0" y="78.0" text-anchor="middle">sprechen nur die virtuelle IP an</text>
+  <rect class="sv-a" x="280" y="110" width="200" height="44" rx="6"/>
+  <text class="sv-t" x="380.0" y="137.0" text-anchor="middle">Virtuelle IP 10.0.0.50</text>
+  <line class="sv-ln" x1="380" y1="90" x2="380" y2="108" marker-end="url(#ha-cluster-pf)"/>
+  <rect class="sv-c" x="60" y="190" width="200" height="60" rx="6"/>
+  <text class="sv-tb" x="160.0" y="217.0" text-anchor="middle">Knoten 1 – aktiv</text>
+  <text class="sv-tk" x="160.0" y="233.0" text-anchor="middle">Dienst läuft hier</text>
+  <rect class="sv-box" x="500" y="190" width="200" height="60" rx="6"/>
+  <text class="sv-tb" x="600.0" y="217.0" text-anchor="middle">Knoten 2 – passiv</text>
+  <text class="sv-tk" x="600.0" y="233.0" text-anchor="middle">übernimmt bei Ausfall</text>
+  <path class="sv-ln-a" d="M330 154 L 160 188" marker-end="url(#ha-cluster-pf)"/>
+  <path class="sv-ln-d" d="M430 154 L 600 188" marker-end="url(#ha-cluster-pf)"/>
+  <line class="sv-ln-d" x1="260" y1="212" x2="500" y2="212" marker-end="url(#ha-cluster-pf)" marker-start="url(#ha-cluster-pf)"/>
+  <text class="sv-tk" x="380" y="206" text-anchor="middle">Heartbeat</text>
+  <rect class="sv-d" x="280" y="280" width="200" height="50" rx="6"/>
+  <text class="sv-tb" x="380.0" y="302.0" text-anchor="middle">Gemeinsamer Speicher</text>
+  <text class="sv-tk" x="380.0" y="318.0" text-anchor="middle">SAN oder repliziert</text>
+  <line class="sv-ln" x1="160" y1="250" x2="300" y2="280"/>
+  <line class="sv-ln" x1="600" y1="250" x2="460" y2="280"/>
+  <text class="sv-tk" x="20" y="120">Fällt Knoten 1 aus, bleibt</text>
+  <text class="sv-tk" x="20" y="137">der Heartbeat aus. Knoten 2</text>
+  <text class="sv-tk" x="20" y="154">übernimmt virtuelle IP und</text>
+  <text class="sv-tk" x="20" y="171">Dienst – nach kurzer Pause.</text>
+  <text class="sv-tk" x="530" y="290">Quorum/Zeuge verhindert,</text>
+  <text class="sv-tk" x="530" y="307">dass beide Knoten sich für</text>
+  <text class="sv-tk" x="530" y="324">aktiv halten (Split Brain).</text>
+</svg>

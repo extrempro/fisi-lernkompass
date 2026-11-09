@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 200">
+  <line class="sv-ln-d" x1="220" y1="26" x2="362.658" y2="77.1327"/>
+  <line class="sv-ln-d" x1="220" y1="26" x2="308.168" y2="159.867"/>
+  <line class="sv-ln-d" x1="220" y1="26" x2="131.832" y2="159.867"/>
+  <line class="sv-ln-d" x1="220" y1="26" x2="77.3415" y2="77.1327"/>
+  <line class="sv-ln-d" x1="362.658" y1="77.1327" x2="308.168" y2="159.867"/>
+  <line class="sv-ln-d" x1="362.658" y1="77.1327" x2="131.832" y2="159.867"/>
+  <line class="sv-ln-d" x1="362.658" y1="77.1327" x2="77.3415" y2="77.1327"/>
+  <line class="sv-ln-d" x1="308.168" y1="159.867" x2="131.832" y2="159.867"/>
+  <line class="sv-ln-d" x1="308.168" y1="159.867" x2="77.3415" y2="77.1327"/>
+  <line class="sv-ln-d" x1="131.832" y1="159.867" x2="77.3415" y2="77.1327"/>
+  <rect class="sv-b" x="184" y="10" width="72" height="32" rx="6"/>
+  <text class="sv-t" x="220" y="30.5" text-anchor="middle">PC</text>
+  <rect class="sv-b" x="326.658" y="61.1327" width="72" height="32" rx="6"/>
+  <text class="sv-t" x="362.658" y="81.6327" text-anchor="middle">PC</text>
+  <rect class="sv-b" x="272.168" y="143.867" width="72" height="32" rx="6"/>
+  <text class="sv-t" x="308.168" y="164.367" text-anchor="middle">PC</text>
+  <rect class="sv-b" x="95.8322" y="143.867" width="72" height="32" rx="6"/>
+  <text class="sv-t" x="131.832" y="164.367" text-anchor="middle">PC</text>
+  <rect class="sv-b" x="41.3415" y="61.1327" width="72" height="32" rx="6"/>
+  <text class="sv-t" x="77.3415" y="81.6327" text-anchor="middle">PC</text>
+</svg>

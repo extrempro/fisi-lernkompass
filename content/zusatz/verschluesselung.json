@@ -1,0 +1,874 @@
+{
+  "szenarien": [
+    {
+      "id": "symmetrisch",
+      "label": "Symmetrisch",
+      "spalten": [
+        "Feld",
+        "Inhalt",
+        "Eve sieht"
+      ],
+      "zeilenTitel": "Was übertragen wird",
+      "merksatz": "Ein gemeinsamer Schlüssel für Ver- und Entschlüsselung. Schnell (AES), aber: Wie kommt der Schlüssel sicher zu Bob? Bei n Partnern braucht man n·(n−1)/2 Schlüssel.",
+      "geraete": [
+        {
+          "name": "Alice",
+          "sub": "Absenderin"
+        },
+        {
+          "name": "Internet",
+          "sub": "Eve liest mit"
+        },
+        {
+          "name": "Bob",
+          "sub": "Empfänger"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Gemeinsamer Schlüssel",
+          "text": "Alice und Bob brauchen denselben geheimen Schlüssel K. Den müssen sie vorher sicher austauschen – z. B. persönlich. Über das Internet ginge das nicht, Eve würde mitlesen.",
+          "aktiv": [
+            0,
+            2
+          ],
+          "position": 0,
+          "paket": "K",
+          "zeilen": [],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "K (geheim)",
+                "ja",
+                "ja",
+                "nein"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Verschlüsseln",
+          "text": "Alice verschlüsselt „Treffen 12 Uhr“ mit AES und dem Schlüssel K.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "Chiffrat",
+          "zeilen": [
+            [
+              "Klartext",
+              "Treffen 12 Uhr",
+              "–",
+              false
+            ],
+            [
+              "Chiffrat",
+              "7f3a9c…e21b",
+              "–",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "K (geheim)",
+                "ja",
+                "ja",
+                "nein"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Übertragung",
+          "text": "Das Chiffrat geht über das Internet. Eve fängt es ab, kann ohne K aber nichts damit anfangen.",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "Chiffrat",
+          "zeilen": [
+            [
+              "Chiffrat",
+              "7f3a9c…e21b",
+              "7f3a9c…e21b",
+              true
+            ],
+            [
+              "Klartext",
+              "–",
+              "nicht lesbar",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "K (geheim)",
+                "ja",
+                "ja",
+                "nein"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Entschlüsseln",
+          "text": "Bob entschlüsselt mit demselben Schlüssel K und liest den Klartext.",
+          "aktiv": [
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "Klartext",
+          "zeilen": [
+            [
+              "Chiffrat",
+              "7f3a9c…e21b",
+              "",
+              false
+            ],
+            [
+              "Klartext",
+              "Treffen 12 Uhr",
+              "–",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "K (geheim)",
+                "ja",
+                "ja",
+                "nein"
+              ]
+            ]
+          },
+          "hinweis": "Verfahren: AES (Standard), ChaCha20. Veraltet und unsicher: DES, 3DES, RC4."
+        }
+      ]
+    },
+    {
+      "id": "asymmetrisch",
+      "label": "Asymmetrisch",
+      "spalten": [
+        "Feld",
+        "Inhalt",
+        "Eve sieht"
+      ],
+      "zeilenTitel": "Was übertragen wird",
+      "merksatz": "Verschlüsseln mit dem öffentlichen Schlüssel des Empfängers, entschlüsseln nur mit seinem privaten. Kein Geheimnis muss übertragen werden – aber das Verfahren ist langsam.",
+      "geraete": [
+        {
+          "name": "Alice",
+          "sub": "Absenderin"
+        },
+        {
+          "name": "Internet",
+          "sub": "Eve liest mit"
+        },
+        {
+          "name": "Bob",
+          "sub": "Empfänger"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Schlüsselpaar erzeugen",
+          "text": "Bob erzeugt ein Schlüsselpaar: einen privaten Schlüssel, den nur er hat, und einen öffentlichen, den jeder kennen darf.",
+          "aktiv": [
+            2
+          ],
+          "position": 2,
+          "paket": "Schlüssel",
+          "zeilen": [],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "nein",
+                "ja",
+                "nein"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ]
+            ],
+            "neu": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "titel": "Öffentlichen Schlüssel verteilen",
+          "text": "Bob schickt Alice seinen öffentlichen Schlüssel. Eve darf ihn ruhig sehen – damit kann man nur verschlüsseln, nicht entschlüsseln.",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "Schlüssel",
+          "zeilen": [
+            [
+              "Bob öffentlich",
+              "Bob → Alice",
+              "ja",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Mit Bobs öffentlichem Schlüssel verschlüsseln",
+          "text": "Alice verschlüsselt ihre Nachricht mit Bobs öffentlichem Schlüssel und schickt sie ab.",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "Chiffrat",
+          "zeilen": [
+            [
+              "Chiffrat",
+              "a91f…0c7d",
+              "a91f…0c7d",
+              true
+            ],
+            [
+              "Klartext",
+              "–",
+              "nicht lesbar",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Nur Bob kann entschlüsseln",
+          "text": "Nur der passende private Schlüssel kann die Nachricht öffnen – und den hat nur Bob. Selbst Alice könnte ihr eigenes Chiffrat nicht mehr lesen.",
+          "aktiv": [
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "Klartext",
+          "zeilen": [
+            [
+              "Klartext",
+              "Treffen 12 Uhr",
+              "–",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          },
+          "hinweis": "Offene Frage: Ist der öffentliche Schlüssel wirklich von Bob – oder hat Eve ihren eigenen untergeschoben (Man-in-the-Middle)? Das löst ein Zertifikat einer vertrauenswürdigen CA (PKI)."
+        }
+      ]
+    },
+    {
+      "id": "hybrid",
+      "label": "Hybrid (wie bei TLS)",
+      "spalten": [
+        "Feld",
+        "Inhalt",
+        "Eve sieht"
+      ],
+      "zeilenTitel": "Was übertragen wird",
+      "merksatz": "Hybrid = asymmetrisch für den Schlüsselaustausch, symmetrisch für die Daten. Sicher und schnell – so arbeiten TLS/HTTPS, S/MIME und PGP.",
+      "geraete": [
+        {
+          "name": "Alice",
+          "sub": "Absenderin"
+        },
+        {
+          "name": "Internet",
+          "sub": "Eve liest mit"
+        },
+        {
+          "name": "Bob",
+          "sub": "Empfänger"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Bobs Zertifikat",
+          "text": "Bob (der Webserver) schickt sein Zertifikat mit seinem öffentlichen Schlüssel. Alice prüft es gegen ihre vertrauenswürdigen CAs.",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "Zertifikat",
+          "zeilen": [
+            [
+              "Zertifikat",
+              "CN=bob.example, öffentl. Schlüssel",
+              "ja",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Sitzungsschlüssel erzeugen",
+          "text": "Alice erzeugt einen zufälligen symmetrischen Sitzungsschlüssel S – nur für diese Verbindung.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "S",
+          "zeilen": [],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ],
+              [
+                "S (Sitzung)",
+                "ja",
+                "nein",
+                "nein"
+              ]
+            ],
+            "neu": [
+              2
+            ]
+          }
+        },
+        {
+          "titel": "S verschlüsselt übertragen",
+          "text": "Alice verschlüsselt S mit Bobs öffentlichem Schlüssel und schickt ihn. Eve sieht nur ein Chiffrat.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "S verschl.",
+          "zeilen": [
+            [
+              "S verschlüsselt",
+              "c04e…19aa",
+              "c04e…19aa",
+              true
+            ],
+            [
+              "S im Klartext",
+              "–",
+              "nicht lesbar",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ],
+              [
+                "S (Sitzung)",
+                "ja",
+                "ja",
+                "nein"
+              ]
+            ],
+            "neu": [
+              2
+            ]
+          }
+        },
+        {
+          "titel": "Daten schnell symmetrisch",
+          "text": "Ab jetzt verschlüsseln beide alle Daten mit AES und S – das ist um ein Vielfaches schneller als asymmetrisch.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "Chiffrat",
+          "zeilen": [
+            [
+              "Daten",
+              "AES mit S",
+              "nur Chiffrat",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Bob öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ],
+              [
+                "Bob privat",
+                "nein",
+                "ja",
+                "nein"
+              ],
+              [
+                "S (Sitzung)",
+                "ja",
+                "ja",
+                "nein"
+              ]
+            ]
+          },
+          "hinweis": "TLS 1.3 verschickt S nicht verschlüsselt, sondern beide berechnen ihn per (EC)DHE. Das Zertifikat sichert den Austausch nur noch per Signatur ab. Vorteil: Forward Secrecy – auch ein später gestohlener privater Schlüssel entschlüsselt alte Mitschnitte nicht."
+        }
+      ]
+    },
+    {
+      "id": "signatur",
+      "label": "Digitale Signatur",
+      "spalten": [
+        "Feld",
+        "Wert",
+        "Anmerkung"
+      ],
+      "zeilenTitel": "Nachricht und Signatur",
+      "merksatz": "Signieren mit dem eigenen privaten Schlüssel, prüfen mit dem öffentlichen des Absenders. Signatur sichert Integrität, Authentizität und Nichtabstreitbarkeit – aber keine Vertraulichkeit.",
+      "geraete": [
+        {
+          "name": "Alice",
+          "sub": "Absenderin"
+        },
+        {
+          "name": "Internet",
+          "sub": "Eve liest mit"
+        },
+        {
+          "name": "Bob",
+          "sub": "Empfänger"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Hashwert bilden",
+          "text": "Alice will beweisen, dass die Nachricht von ihr stammt und unverändert ist. Sie berechnet zuerst den Hashwert (SHA-256) der Nachricht.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "Hash",
+          "zeilen": [
+            [
+              "Nachricht",
+              "Überweise 100 €",
+              "",
+              false
+            ],
+            [
+              "Hash",
+              "4be2…a9f0",
+              "Fingerabdruck der Nachricht",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Alice privat",
+                "ja",
+                "nein",
+                "nein"
+              ],
+              [
+                "Alice öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Mit privatem Schlüssel signieren",
+          "text": "Alice verschlüsselt den Hash mit ihrem privaten Schlüssel. Das Ergebnis ist die Signatur.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "Signatur",
+          "zeilen": [
+            [
+              "Nachricht",
+              "Überweise 100 €",
+              "",
+              false
+            ],
+            [
+              "Signatur",
+              "sig(4be2…a9f0)",
+              "nur mit Alices privatem Schlüssel erzeugbar",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Alice privat",
+                "ja",
+                "nein",
+                "nein"
+              ],
+              [
+                "Alice öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Übertragen",
+          "text": "Nachricht und Signatur gehen gemeinsam los – die Nachricht im Klartext! Eve kann sie lesen. Eine Signatur schützt nicht die Vertraulichkeit.",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "Signatur",
+          "zeilen": [
+            [
+              "Nachricht",
+              "Überweise 100 €",
+              "Eve kann sie lesen",
+              true
+            ],
+            [
+              "Signatur",
+              "sig(4be2…a9f0)",
+              "Eve sieht sie, kann aber keine neue erzeugen",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Alice privat",
+                "ja",
+                "nein",
+                "nein"
+              ],
+              [
+                "Alice öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Bob prüft",
+          "text": "Bob entschlüsselt die Signatur mit Alices öffentlichem Schlüssel und erhält 4be2…a9f0. Er berechnet selbst den Hash der Nachricht – gleicher Wert. Echt und unverändert.",
+          "aktiv": [
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "gültig",
+          "zeilen": [
+            [
+              "Hash aus Signatur",
+              "4be2…a9f0",
+              "mit Alices öffentlichem Schlüssel entschlüsselt",
+              false
+            ],
+            [
+              "Hash selbst berechnet",
+              "4be2…a9f0",
+              "stimmt überein",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Alice privat",
+                "ja",
+                "nein",
+                "nein"
+              ],
+              [
+                "Alice öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          }
+        },
+        {
+          "titel": "Eve fälscht",
+          "text": "Eve ändert die Nachricht auf „Überweise 900 €“. Ohne Alices privaten Schlüssel kann sie keine passende Signatur erzeugen. Bobs Hash passt nicht mehr – die Fälschung fällt auf.",
+          "aktiv": [
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "Fälschung",
+          "zeilen": [
+            [
+              "Nachricht",
+              "Überweise 900 €",
+              "von Eve geändert",
+              true
+            ],
+            [
+              "Hash selbst berechnet",
+              "91c7…3d02",
+              "≠ 4be2…a9f0",
+              true
+            ]
+          ],
+          "blockiert": true,
+          "tabelle": {
+            "titel": "Wer kennt welchen Schlüssel?",
+            "kopf": [
+              "Schlüssel",
+              "Alice",
+              "Bob",
+              "Eve"
+            ],
+            "zeilen": [
+              [
+                "Alice privat",
+                "ja",
+                "nein",
+                "nein"
+              ],
+              [
+                "Alice öffentlich",
+                "ja",
+                "ja",
+                "ja"
+              ]
+            ]
+          },
+          "hinweis": "Merkregel: Verschlüsseln → öffentlicher Schlüssel des Empfängers. Signieren → privater Schlüssel des Absenders."
+        }
+      ]
+    }
+  ]
+}

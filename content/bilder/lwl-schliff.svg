@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 190">
+  <defs><marker id="lwl-schliff-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <path class="sv-glas" d="M20 40H174Q180 70 174 100H20z"/>
+  <rect class="sv-a" x="20" y="66" width="154" height="8" rx="1"/>
+  <text class="sv-tb" x="97" y="24" text-anchor="middle">PC / UPC – gerade</text>
+  <text class="sv-xa" x="97" y="182" text-anchor="middle">Stecker blau</text>
+  <line class="sv-ln" x1="30" y1="116" x2="140" y2="116" marker-end="url(#lwl-schliff-pf)"/>
+  <text class="sv-tk" x="30" y="132" text-anchor="start">Licht</text>
+  <path class="sv-ln-e" d="M170 70 H60" marker-end="url(#lwl-schliff-pf)"/>
+  <text class="sv-xe" x="97" y="160" text-anchor="middle">Reflexion läuft in die Faser zurück</text>
+  <path class="sv-glas" d="M250 40H400L408 100H250z"/>
+  <rect class="sv-b" x="250" y="66" width="154" height="8" rx="1"/>
+  <text class="sv-tb" x="327" y="24" text-anchor="middle">APC – 8° schräg</text>
+  <text class="sv-xb" x="327" y="182" text-anchor="middle">Stecker grün</text>
+  <line class="sv-ln" x1="260" y1="116" x2="370" y2="116" marker-end="url(#lwl-schliff-pf)"/>
+  <text class="sv-tk" x="260" y="132" text-anchor="start">Licht</text>
+  <path class="sv-ln-e" d="M402 70 L340 116" marker-end="url(#lwl-schliff-pf)"/>
+  <text class="sv-xb" x="327" y="160" text-anchor="middle">Reflexion geht seitlich weg</text>
+</svg>

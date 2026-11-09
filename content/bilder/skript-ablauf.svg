@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250">
+  <defs><marker id="skript-ablauf-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-box" x="10" y="40" width="114" height="92" rx="8"/>
+  <text class="sv-tb" x="67" y="64" text-anchor="middle">1. Aufschreiben</text>
+  <text class="sv-tk" x="67" y="92" text-anchor="middle">Ziel, Eingaben,</text>
+  <text class="sv-tk" x="67" y="108" text-anchor="middle">Sonderfälle</text>
+  <line class="sv-ln" x1="126" y1="86" x2="132" y2="86" marker-end="url(#skript-ablauf-pf)"/>
+  <rect class="sv-box" x="134" y="40" width="114" height="92" rx="8"/>
+  <text class="sv-tb" x="191" y="64" text-anchor="middle">2. Planen</text>
+  <text class="sv-tk" x="191" y="92" text-anchor="middle">Pseudocode</text>
+  <text class="sv-tk" x="191" y="108" text-anchor="middle">oder PAP</text>
+  <line class="sv-ln" x1="250" y1="86" x2="256" y2="86" marker-end="url(#skript-ablauf-pf)"/>
+  <rect class="sv-a" x="258" y="40" width="114" height="92" rx="8"/>
+  <text class="sv-tb" x="315" y="64" text-anchor="middle">3. Schreiben</text>
+  <text class="sv-tk" x="315" y="92" text-anchor="middle">Parameter, Fehler-</text>
+  <text class="sv-tk" x="315" y="108" text-anchor="middle">behandlung, Log</text>
+  <line class="sv-ln" x1="374" y1="86" x2="380" y2="86" marker-end="url(#skript-ablauf-pf)"/>
+  <rect class="sv-c" x="382" y="40" width="114" height="92" rx="8"/>
+  <text class="sv-tb" x="439" y="64" text-anchor="middle">4. Probelauf</text>
+  <text class="sv-tk" x="439" y="92" text-anchor="middle">-WhatIf oder</text>
+  <text class="sv-tk" x="439" y="108" text-anchor="middle">Testsystem</text>
+  <line class="sv-ln" x1="498" y1="86" x2="504" y2="86" marker-end="url(#skript-ablauf-pf)"/>
+  <rect class="sv-b" x="506" y="40" width="114" height="92" rx="8"/>
+  <text class="sv-tb" x="563" y="64" text-anchor="middle">5. Ausführen</text>
+  <text class="sv-tk" x="563" y="92" text-anchor="middle">mit Protokoll,</text>
+  <text class="sv-tk" x="563" y="108" text-anchor="middle">Ergebnis prüfen</text>
+  <line class="sv-ln" x1="622" y1="86" x2="628" y2="86" marker-end="url(#skript-ablauf-pf)"/>
+  <rect class="sv-box" x="630" y="40" width="114" height="92" rx="8"/>
+  <text class="sv-tb" x="687" y="64" text-anchor="middle">6. Ablegen</text>
+  <text class="sv-tk" x="687" y="92" text-anchor="middle">Git, Kommentare,</text>
+  <text class="sv-tk" x="687" y="108" text-anchor="middle">Dokumentation</text>
+  <path class="sv-ln-d" d="M439 134 V166 H315 V136" marker-end="url(#skript-ablauf-pf)"/>
+  <text class="sv-xc" x="380" y="188" text-anchor="middle">Fehler im Probelauf? Zurück zum Schreiben – nie direkt im Echtbetrieb „ausprobieren“</text>
+  <text class="sv-tb" x="380" y="20" text-anchor="middle">Erst denken, dann tippen, dann gefahrlos testen</text>
+  <text class="sv-tk" x="380" y="230" text-anchor="middle">Löschen, Verschieben, Deaktivieren: immer erst Probelauf und Liste der betroffenen Objekte</text>
+</svg>

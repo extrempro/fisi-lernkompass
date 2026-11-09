@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280">
+  <defs><marker id="nac-8021x-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-box" x="14" y="60" width="160" height="56" rx="6"/>
+  <text class="sv-tb" x="94" y="86" text-anchor="middle">Endgerät</text>
+  <text class="sv-tk" x="94" y="100" text-anchor="middle">Supplicant</text>
+  <rect class="sv-a" x="240" y="60" width="160" height="56" rx="6"/>
+  <text class="sv-tb" x="320" y="86" text-anchor="middle">Switch / Access Point</text>
+  <text class="sv-tk" x="320" y="100" text-anchor="middle">Authenticator</text>
+  <rect class="sv-c" x="466" y="60" width="160" height="56" rx="6"/>
+  <text class="sv-tb" x="546" y="86" text-anchor="middle">RADIUS-Server</text>
+  <text class="sv-tk" x="546" y="100" text-anchor="middle">Authentication Server</text>
+  <line class="sv-ln" x1="176" y1="88" x2="238" y2="88" marker-end="url(#nac-8021x-pf)" marker-start="url(#nac-8021x-pf)"/>
+  <text class="sv-tk" x="207" y="80" text-anchor="middle">EAPoL</text>
+  <line class="sv-ln" x1="402" y1="88" x2="464" y2="88" marker-end="url(#nac-8021x-pf)" marker-start="url(#nac-8021x-pf)"/>
+  <text class="sv-tk" x="433" y="80" text-anchor="middle">RADIUS</text>
+  <text class="sv-tk" x="320" y="30" text-anchor="middle">1. Gerät meldet sich mit Zertifikat oder Benutzerdaten an</text>
+  <text class="sv-tk" x="320" y="46" text-anchor="middle">2. Switch leitet weiter · 3. RADIUS prüft (z. B. gegen Active Directory) und entscheidet</text>
+  <line class="sv-ln" x1="320" y1="118" x2="320" y2="150" marker-end="url(#nac-8021x-pf)"/>
+  <text class="sv-tk" x="328" y="140" text-anchor="start">4. Port freigeben und VLAN zuweisen</text>
+  <rect class="sv-b" x="14" y="156" width="148" height="52" rx="6"/>
+  <text class="sv-tb" x="88" y="180" text-anchor="middle">Mitarbeiter-VLAN</text>
+  <text class="sv-tk" x="88" y="194" text-anchor="middle">bekannt und konform</text>
+  <rect class="sv-c" x="170" y="156" width="148" height="52" rx="6"/>
+  <text class="sv-tb" x="244" y="180" text-anchor="middle">Quarantäne-VLAN</text>
+  <text class="sv-tk" x="244" y="194" text-anchor="middle">Updates fehlen</text>
+  <rect class="sv-box" x="326" y="156" width="148" height="52" rx="6"/>
+  <text class="sv-tb" x="400" y="180" text-anchor="middle">Gäste-VLAN</text>
+  <text class="sv-tk" x="400" y="194" text-anchor="middle">nur Internet</text>
+  <rect class="sv-e" x="482" y="156" width="148" height="52" rx="6"/>
+  <text class="sv-tb" x="556" y="180" text-anchor="middle">Port bleibt zu</text>
+  <text class="sv-tk" x="556" y="194" text-anchor="middle">unbekannt</text>
+  <text class="sv-tk" x="320" y="240" text-anchor="middle">Vor der Anmeldung lässt der Port nur Anmeldeverkehr (EAP) durch.</text>
+  <text class="sv-tk" x="320" y="256" text-anchor="middle">Geräte ohne 802.1X (Drucker, Telefone): MAC-basierte Anmeldung (MAB) als Notlösung.</text>
+</svg>

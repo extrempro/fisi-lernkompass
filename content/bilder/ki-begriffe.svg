@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300">
+  <rect class="sv-box" x="10" y="10" width="600" height="280" rx="18"/>
+  <text class="sv-tb" x="28" y="36" text-anchor="start">Künstliche Intelligenz</text>
+  <text class="sv-tk" x="28" y="54" text-anchor="start">Maschinen lösen Aufgaben, die „Intelligenz“ erfordern – auch feste Regeln</text>
+  <rect class="sv-a" x="40" y="70" width="550" height="206" rx="16"/>
+  <text class="sv-tb" x="58" y="94" text-anchor="start">Maschinelles Lernen</text>
+  <text class="sv-tk" x="58" y="112" text-anchor="start">lernt Muster aus Daten statt fester Regeln (z. B. Spamfilter)</text>
+  <rect class="sv-d" x="70" y="126" width="500" height="136" rx="14"/>
+  <text class="sv-tb" x="88" y="150" text-anchor="start">Deep Learning</text>
+  <text class="sv-tk" x="88" y="168" text-anchor="start">neuronale Netze mit vielen Schichten (Bild- und Spracherkennung)</text>
+  <rect class="sv-b" x="100" y="182" width="450" height="66" rx="12"/>
+  <text class="sv-tb" x="118" y="206" text-anchor="start">Generative KI und Sprachmodelle (LLMs)</text>
+  <text class="sv-tk" x="118" y="226" text-anchor="start">erzeugen neue Inhalte: Text, Code, Bilder – z. B. Chat-Assistenten</text>
+</svg>

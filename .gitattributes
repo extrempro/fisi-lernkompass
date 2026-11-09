@@ -1,0 +1,2 @@
+# Shell-Skripte immer mit Linux-Zeilenenden, sonst startet der Container nicht
+*.sh text eol=lf

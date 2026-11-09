@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350">
+  <defs><marker id="einfuehrungsstrategien-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="14" y="22" text-anchor="start">Einführung eines neuen Systems – vier Strategien</text>
+  <line class="sv-ln" x1="190" y1="322" x2="690" y2="322" marker-end="url(#einfuehrungsstrategien-pf)"/>
+  <text class="sv-tk" x="690" y="340" text-anchor="end">Zeit</text>
+  <text class="sv-tb" x="14" y="62" text-anchor="start">Big Bang</text>
+  <text class="sv-tk" x="14" y="78" text-anchor="start">alles an einem Stichtag</text>
+  <rect class="sv-box" x="190" y="44" width="248" height="17" rx="3"/>
+  <text class="sv-tk" x="198" y="57" text-anchor="start">alt</text>
+  <rect class="sv-b" x="440" y="44" width="248" height="17" rx="3"/>
+  <text class="sv-tk" x="448" y="57" text-anchor="start">neu</text>
+  <text class="sv-tb" x="14" y="130" text-anchor="start">Pilot</text>
+  <text class="sv-tk" x="14" y="146" text-anchor="start">erst eine Gruppe testet</text>
+  <rect class="sv-box" x="190" y="112" width="273" height="17" rx="3"/>
+  <text class="sv-tk" x="198" y="125" text-anchor="start">alt</text>
+  <rect class="sv-b" x="465" y="112" width="223" height="17" rx="3"/>
+  <text class="sv-tk" x="473" y="125" text-anchor="start">neu für alle</text>
+  <rect class="sv-c" x="315" y="131" width="148" height="17" rx="3"/>
+  <text class="sv-tk" x="323" y="144" text-anchor="start">Pilotgruppe</text>
+  <text class="sv-tb" x="14" y="198" text-anchor="start">Stufenweise</text>
+  <text class="sv-tk" x="14" y="214" text-anchor="start">Bereich für Bereich</text>
+  <rect class="sv-b" x="290" y="180" width="398" height="17" rx="3"/>
+  <text class="sv-tk" x="298" y="193" text-anchor="start">Bereich 1</text>
+  <rect class="sv-b" x="390" y="199" width="298" height="17" rx="3"/>
+  <text class="sv-tk" x="398" y="212" text-anchor="start">Bereich 2</text>
+  <rect class="sv-b" x="490" y="218" width="198" height="17" rx="3"/>
+  <text class="sv-tk" x="498" y="231" text-anchor="start">Bereich 3</text>
+  <text class="sv-tb" x="14" y="266" text-anchor="start">Parallelbetrieb</text>
+  <text class="sv-tk" x="14" y="282" text-anchor="start">alt und neu gleichzeitig</text>
+  <rect class="sv-box" x="190" y="248" width="373" height="17" rx="3"/>
+  <text class="sv-tk" x="198" y="261" text-anchor="start">alt</text>
+  <rect class="sv-b" x="365" y="267" width="323" height="17" rx="3"/>
+  <text class="sv-tk" x="373" y="280" text-anchor="start">neu</text>
+</svg>

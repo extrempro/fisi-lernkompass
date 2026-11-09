@@ -1,0 +1,13 @@
+# Nicht ins Image: Abhängigkeiten werden im Container neu installiert,
+# Lernstand und Build-Ergebnisse entstehen dort selbst.
+node_modules
+dist
+data
+.git
+.gitignore
+*.zip
+*.log
+.env
+.DS_Store
+# Lock-Datei von Windows/macOS enthält oft nicht die Linux-Varianten von Rollup/esbuild
+package-lock.json

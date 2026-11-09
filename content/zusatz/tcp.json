@@ -1,0 +1,576 @@
+{
+  "szenarien": [
+    {
+      "id": "handshake",
+      "label": "Verbindungsaufbau (3-Way-Handshake)",
+      "spalten": [
+        "Feld",
+        "Wert",
+        "Bedeutung"
+      ],
+      "zeilenTitel": "TCP-Header (Auszug)",
+      "merksatz": "SYN → SYN-ACK → ACK. Ack = „das nächste Byte, das ich erwarte“ (Seq der Gegenseite + empfangene Länge).",
+      "geraete": [
+        {
+          "name": "Client",
+          "sub": "192.168.1.10 · Port 50123"
+        },
+        {
+          "name": "Router",
+          "sub": "Internet"
+        },
+        {
+          "name": "Webserver",
+          "sub": "203.0.113.5 · Port 443"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Server wartet",
+          "text": "Der Webserver lauscht auf Port 443 (Zustand LISTEN). Der Client will eine Verbindung aufbauen.",
+          "aktiv": [
+            2
+          ],
+          "position": 0,
+          "paket": "–",
+          "zeilen": [],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "CLOSED"
+              ],
+              [
+                "Server",
+                "LISTEN"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          }
+        },
+        {
+          "titel": "SYN",
+          "text": "Der Client schickt ein Segment mit gesetztem SYN-Flag und einer zufälligen Startnummer (Initial Sequence Number).",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "SYN",
+          "zeilen": [
+            [
+              "Ports",
+              "50123 → 443",
+              "Quellport zufällig, Zielport fest",
+              false
+            ],
+            [
+              "Flags",
+              "SYN",
+              "Verbindungswunsch",
+              true
+            ],
+            [
+              "Seq",
+              "1000",
+              "Startnummer des Clients",
+              true
+            ],
+            [
+              "Ack",
+              "–",
+              "noch nichts zu bestätigen",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "SYN-SENT"
+              ],
+              [
+                "Server",
+                "LISTEN"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "SYN-ACK",
+          "text": "Der Server bestätigt (Ack = 1000 + 1) und schickt gleichzeitig seine eigene Startnummer.",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "SYN-ACK",
+          "zeilen": [
+            [
+              "Ports",
+              "443 → 50123",
+              "Rückweg: Ports vertauscht",
+              false
+            ],
+            [
+              "Flags",
+              "SYN, ACK",
+              "Bestätigung + eigener Verbindungswunsch",
+              true
+            ],
+            [
+              "Seq",
+              "5000",
+              "Startnummer des Servers",
+              true
+            ],
+            [
+              "Ack",
+              "1001",
+              "erwarte als Nächstes Byte 1001",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "SYN-SENT"
+              ],
+              [
+                "Server",
+                "SYN-RECEIVED"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          }
+        },
+        {
+          "titel": "ACK",
+          "text": "Der Client bestätigt die Startnummer des Servers. Die Verbindung steht auf beiden Seiten.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "ACK",
+          "zeilen": [
+            [
+              "Ports",
+              "50123 → 443",
+              "",
+              false
+            ],
+            [
+              "Flags",
+              "ACK",
+              "Handshake abgeschlossen",
+              true
+            ],
+            [
+              "Seq",
+              "1001",
+              "",
+              false
+            ],
+            [
+              "Ack",
+              "5001",
+              "erwarte Byte 5001",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "ESTABLISHED"
+              ],
+              [
+                "Server",
+                "ESTABLISHED"
+              ]
+            ],
+            "neu": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "titel": "Daten senden",
+          "text": "Der Client schickt 500 Byte Nutzdaten (z. B. den Anfang des TLS-Handshakes).",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "Daten",
+          "zeilen": [
+            [
+              "Ports",
+              "50123 → 443",
+              "",
+              false
+            ],
+            [
+              "Flags",
+              "PSH, ACK",
+              "Daten an die Anwendung weiterreichen",
+              false
+            ],
+            [
+              "Seq",
+              "1001",
+              "erstes Byte dieser Daten",
+              true
+            ],
+            [
+              "Länge",
+              "500 Byte",
+              "Bytes 1001–1500",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "ESTABLISHED"
+              ],
+              [
+                "Server",
+                "ESTABLISHED"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Bestätigung",
+          "text": "Der Server bestätigt den Empfang: Ack = 1001 + 500 = 1501. Kommt keine Bestätigung, sendet der Client nach einer Wartezeit erneut (Retransmission).",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "ACK",
+          "zeilen": [
+            [
+              "Ports",
+              "443 → 50123",
+              "",
+              false
+            ],
+            [
+              "Flags",
+              "ACK",
+              "",
+              false
+            ],
+            [
+              "Seq",
+              "5001",
+              "",
+              false
+            ],
+            [
+              "Ack",
+              "1501",
+              "alles bis Byte 1500 angekommen",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "ESTABLISHED"
+              ],
+              [
+                "Server",
+                "ESTABLISHED"
+              ]
+            ]
+          },
+          "hinweis": "UDP kennt das alles nicht: kein Handshake, keine Bestätigung, keine Wiederholung – dafür schneller (DNS, VoIP, Streaming)."
+        }
+      ]
+    },
+    {
+      "id": "abbau",
+      "label": "Verbindungsabbau (FIN)",
+      "spalten": [
+        "Feld",
+        "Wert",
+        "Bedeutung"
+      ],
+      "zeilenTitel": "TCP-Header (Auszug)",
+      "merksatz": "Abbau in beide Richtungen getrennt: FIN → ACK, FIN → ACK. Wer zuerst schließt, wartet in TIME-WAIT. RST bricht sofort ab.",
+      "geraete": [
+        {
+          "name": "Client",
+          "sub": "192.168.1.10 · Port 50123"
+        },
+        {
+          "name": "Router",
+          "sub": "Internet"
+        },
+        {
+          "name": "Webserver",
+          "sub": "203.0.113.5 · Port 443"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Client ist fertig",
+          "text": "Der Client will nichts mehr senden und schickt FIN.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "FIN",
+          "zeilen": [
+            [
+              "Flags",
+              "FIN, ACK",
+              "ich sende nichts mehr",
+              true
+            ],
+            [
+              "Seq",
+              "2400",
+              "",
+              false
+            ],
+            [
+              "Ack",
+              "9800",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "FIN-WAIT-1"
+              ],
+              [
+                "Server",
+                "ESTABLISHED"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Server bestätigt",
+          "text": "Der Server bestätigt das FIN. Er darf aber noch Daten schicken – die Verbindung ist erst halb geschlossen.",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "ACK",
+          "zeilen": [
+            [
+              "Flags",
+              "ACK",
+              "FIN angekommen",
+              true
+            ],
+            [
+              "Seq",
+              "9800",
+              "",
+              false
+            ],
+            [
+              "Ack",
+              "2401",
+              "FIN zählt wie ein Byte",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "FIN-WAIT-2"
+              ],
+              [
+                "Server",
+                "CLOSE-WAIT"
+              ]
+            ],
+            "neu": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "titel": "Server ist auch fertig",
+          "text": "Hat der Server alles gesendet, schickt er sein eigenes FIN.",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "FIN",
+          "zeilen": [
+            [
+              "Flags",
+              "FIN, ACK",
+              "ich sende auch nichts mehr",
+              true
+            ],
+            [
+              "Seq",
+              "9800",
+              "",
+              false
+            ],
+            [
+              "Ack",
+              "2401",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "FIN-WAIT-2"
+              ],
+              [
+                "Server",
+                "LAST-ACK"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          }
+        },
+        {
+          "titel": "Letztes ACK",
+          "text": "Der Client bestätigt. Der Server schließt sofort; der Client wartet noch kurz in TIME-WAIT, falls das letzte ACK verloren geht.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "ACK",
+          "zeilen": [
+            [
+              "Flags",
+              "ACK",
+              "",
+              true
+            ],
+            [
+              "Seq",
+              "2401",
+              "",
+              false
+            ],
+            [
+              "Ack",
+              "9801",
+              "",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Verbindungszustand",
+            "kopf": [
+              "Seite",
+              "Zustand"
+            ],
+            "zeilen": [
+              [
+                "Client",
+                "TIME-WAIT → CLOSED"
+              ],
+              [
+                "Server",
+                "CLOSED"
+              ]
+            ],
+            "neu": [
+              0,
+              1
+            ]
+          },
+          "hinweis": "In netstat -an oder ss -tan siehst du diese Zustände. Viele CLOSE-WAIT deuten auf eine Anwendung hin, die Verbindungen nicht sauber schließt."
+        }
+      ]
+    }
+  ]
+}

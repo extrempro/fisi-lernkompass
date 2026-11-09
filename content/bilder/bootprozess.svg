@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260">
+  <defs><marker id="bootprozess-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-d" x="20" y="40" width="132" height="60" rx="6"/>
+  <text class="sv-tb" x="86" y="62" text-anchor="middle">1. Firmware</text>
+  <text class="sv-tk" x="86" y="82" text-anchor="middle">UEFI oder BIOS</text>
+  <line class="sv-ln" x1="152" y1="70" x2="166" y2="70" marker-end="url(#bootprozess-pf)"/>
+  <text class="sv-tk" x="86" y="124" text-anchor="middle">POST: Hardware prüfen</text>
+  <rect class="sv-c" x="168" y="40" width="132" height="60" rx="6"/>
+  <text class="sv-tb" x="234" y="62" text-anchor="middle">2. Bootloader</text>
+  <text class="sv-tk" x="234" y="82" text-anchor="middle">EFI-Partition</text>
+  <line class="sv-ln" x1="300" y1="70" x2="314" y2="70" marker-end="url(#bootprozess-pf)"/>
+  <text class="sv-tk" x="234" y="124" text-anchor="middle">Win: Windows Boot Manager</text>
+  <text class="sv-tk" x="234" y="141" text-anchor="middle">Linux: GRUB</text>
+  <rect class="sv-b" x="316" y="40" width="132" height="60" rx="6"/>
+  <text class="sv-tb" x="382" y="62" text-anchor="middle">3. Kernel</text>
+  <text class="sv-tk" x="382" y="82" text-anchor="middle">lädt in den RAM</text>
+  <line class="sv-ln" x1="448" y1="70" x2="462" y2="70" marker-end="url(#bootprozess-pf)"/>
+  <text class="sv-tk" x="382" y="124" text-anchor="middle">Win: ntoskrnl.exe</text>
+  <text class="sv-tk" x="382" y="141" text-anchor="middle">Linux: vmlinuz + initramfs</text>
+  <rect class="sv-a" x="464" y="40" width="132" height="60" rx="6"/>
+  <text class="sv-tb" x="530" y="62" text-anchor="middle">4. Dienste</text>
+  <text class="sv-tk" x="530" y="82" text-anchor="middle">Treiber, Dienste</text>
+  <line class="sv-ln" x1="596" y1="70" x2="610" y2="70" marker-end="url(#bootprozess-pf)"/>
+  <text class="sv-tk" x="530" y="124" text-anchor="middle">Win: Windows-Dienste</text>
+  <text class="sv-tk" x="530" y="141" text-anchor="middle">Linux: systemd</text>
+  <rect class="sv-box" x="612" y="40" width="132" height="60" rx="6"/>
+  <text class="sv-tb" x="678" y="62" text-anchor="middle">5. Anmeldung</text>
+  <text class="sv-tk" x="678" y="82" text-anchor="middle">Benutzerkonto</text>
+  <text class="sv-tk" x="678" y="124" text-anchor="middle">Win: Anmeldebildschirm</text>
+  <text class="sv-tk" x="678" y="141" text-anchor="middle">Linux: Login</text>
+  <text class="sv-tk" x="20" y="190">Secure Boot (UEFI) startet nur signierte Bootloader – Schutz gegen Bootkits.</text>
+  <text class="sv-tk" x="20" y="207">Fehler eingrenzen: Wie weit kommt der Start? Kein POST → Hardware, „No boot device“ → Datenträger/Bootreihenfolge,</text>
+  <text class="sv-tk" x="20" y="224">Bluescreen/Kernel Panic → Treiber oder Kernel, Dienst startet nicht → Ereignisanzeige bzw. journalctl.</text>
+</svg>

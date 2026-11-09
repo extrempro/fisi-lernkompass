@@ -1,0 +1,134 @@
+{
+  "szenarien": [
+    {
+      "id": "routing",
+      "label": "Ping über Router",
+      "merksatz": "IP-Adressen bleiben von Ende zu Ende gleich, MAC-Adressen werden an jedem Router neu gesetzt (ohne NAT).",
+      "geraete": [
+        { "name": "Client A", "sub": "192.168.1.10/24 · MAC-A" },
+        { "name": "Switch 1", "sub": "Schicht 2" },
+        { "name": "Router", "sub": ".1.1 | 10.0.0.1 · MAC-R1 | MAC-R2" },
+        { "name": "Switch 2", "sub": "Schicht 2" },
+        { "name": "Client B", "sub": "10.0.0.20/24 · MAC-B" }
+      ],
+      "schritte": [
+        {
+          "titel": "Ziel prüfen",
+          "text": "Client A vergleicht 10.0.0.20 mit seinem eigenen Netz 192.168.1.0/24. Das Ziel liegt in einem anderen Subnetz, also muss das Paket ans Default-Gateway 192.168.1.1.",
+          "aktiv": [0], "position": 0, "paket": "Ping",
+          "zeilen": [["MAC (Schicht 2)", "–", "–", false], ["IP (Schicht 3)", "192.168.1.10", "10.0.0.20", false]]
+        },
+        {
+          "titel": "ARP: MAC des Gateways finden",
+          "text": "Client A kennt die MAC-Adresse des Gateways noch nicht. Er fragt per ARP-Broadcast: „Wer hat 192.168.1.1?“ Der Switch flutet die Anfrage, der Router antwortet mit MAC-R1.",
+          "aktiv": [0, 1, 2], "position": 2, "paket": "ARP",
+          "zeilen": [["MAC (Schicht 2)", "MAC-A", "Broadcast", true], ["IP (Schicht 3)", "–", "–", false]]
+        },
+        {
+          "titel": "Frame bauen",
+          "text": "Client A packt das IP-Paket in einen Ethernet-Frame. Ziel-IP ist Client B, Ziel-MAC aber der Router – denn der Frame muss nur bis zum nächsten Schritt kommen.",
+          "aktiv": [0], "position": 0, "paket": "Frame",
+          "zeilen": [["MAC (Schicht 2)", "MAC-A", "MAC-R1", true], ["IP (Schicht 3)", "192.168.1.10", "10.0.0.20", false]]
+        },
+        {
+          "titel": "Switch 1 leitet weiter",
+          "text": "Der Switch liest die Ziel-MAC, findet MAC-R1 in seiner MAC-Tabelle und schickt den Frame nur an den Port, an dem der Router hängt.",
+          "aktiv": [1], "position": 1, "paket": "Frame",
+          "zeilen": [["MAC (Schicht 2)", "MAC-A", "MAC-R1", false], ["IP (Schicht 3)", "192.168.1.10", "10.0.0.20", false]]
+        },
+        {
+          "titel": "Router entscheidet",
+          "text": "Der Router entfernt den Ethernet-Rahmen, liest die Ziel-IP und schaut in seine Routingtabelle: 10.0.0.0/24 ist direkt an seiner rechten Schnittstelle angeschlossen. Die TTL sinkt um 1.",
+          "aktiv": [2], "position": 2, "paket": "Paket",
+          "zeilen": [["MAC (Schicht 2)", "–", "–", false], ["IP (Schicht 3)", "192.168.1.10", "10.0.0.20", false]]
+        },
+        {
+          "titel": "ARP im Zielnetz",
+          "text": "Jetzt braucht der Router die MAC von 10.0.0.20. Er fragt per ARP im Zielnetz, Client B antwortet mit MAC-B.",
+          "aktiv": [2, 3, 4], "position": 4, "paket": "ARP",
+          "zeilen": [["MAC (Schicht 2)", "MAC-R2", "Broadcast", true], ["IP (Schicht 3)", "–", "–", false]]
+        },
+        {
+          "titel": "Neuer Frame",
+          "text": "Der Router baut einen neuen Ethernet-Frame. Die IP-Adressen bleiben gleich, die MAC-Adressen sind komplett neu: von MAC-R2 an MAC-B.",
+          "aktiv": [2], "position": 2, "paket": "Frame",
+          "zeilen": [["MAC (Schicht 2)", "MAC-R2", "MAC-B", true], ["IP (Schicht 3)", "192.168.1.10", "10.0.0.20", false]]
+        },
+        {
+          "titel": "Zustellung",
+          "text": "Switch 2 leitet den Frame an Client B. B prüft Ziel-MAC und Ziel-IP, nimmt das Paket an und antwortet. Die Antwort läuft denselben Weg zurück – diesmal ohne ARP, weil die Adressen im ARP-Cache stehen.",
+          "aktiv": [3, 4], "position": 4, "paket": "Frame",
+          "zeilen": [["MAC (Schicht 2)", "MAC-R2", "MAC-B", false], ["IP (Schicht 3)", "192.168.1.10", "10.0.0.20", false]]
+        }
+      ]
+    },
+    {
+      "id": "firewall",
+      "label": "Zugriff durch die Firewall",
+      "merksatz": "Regeln werden von oben nach unten geprüft, die erste passende gewinnt – und ganz unten steht immer: alles andere verwerfen.",
+      "geraete": [
+        { "name": "Client", "sub": "Internet · 203.0.113.50" },
+        { "name": "Internet", "sub": "Router der Provider" },
+        { "name": "Firewall", "sub": "Stateful · Regelwerk" },
+        { "name": "Switch", "sub": "DMZ · Schicht 2" },
+        { "name": "Webserver", "sub": "198.51.100.10 · Port 443" }
+      ],
+      "regeln": [
+        ["1", "Internet", "Webserver (DMZ)", "443/TCP", "erlauben"],
+        ["2", "LAN", "Internet", "80, 443/TCP", "erlauben"],
+        ["3", "beliebig", "beliebig", "beliebig", "verwerfen"]
+      ],
+      "schritte": [
+        {
+          "titel": "Verbindung anfragen",
+          "text": "Der Client ruft https://www.beispiel.de auf. DNS hat den Namen schon aufgelöst, jetzt schickt er ein TCP-SYN an 198.51.100.10, Port 443. Sein Quellport ist zufällig gewählt.",
+          "aktiv": [0], "position": 0, "paket": "SYN",
+          "zeilen": [["IP (Schicht 3)", "203.0.113.50", "198.51.100.10", false], ["Port (Schicht 4)", "51515", "443 (HTTPS)", true], ["TCP-Flag", "–", "SYN", false]]
+        },
+        {
+          "titel": "Durchs Internet",
+          "text": "Die Router der Provider leiten das Paket anhand der Ziel-IP weiter, bis es an der Firewall des Unternehmens ankommt.",
+          "aktiv": [0, 1], "position": 1, "paket": "SYN",
+          "zeilen": [["IP (Schicht 3)", "203.0.113.50", "198.51.100.10", false], ["Port (Schicht 4)", "51515", "443 (HTTPS)", false], ["TCP-Flag", "–", "SYN", false]]
+        },
+        {
+          "titel": "Firewall prüft",
+          "text": "Die Firewall vergleicht das Paket von oben nach unten mit ihrem Regelwerk. Schon Regel 1 passt: Internet zum Webserver auf 443/TCP ist erlaubt. Sie trägt die Verbindung in ihre Statustabelle ein.",
+          "aktiv": [2], "position": 2, "paket": "SYN", "regel": 0,
+          "zeilen": [["IP (Schicht 3)", "203.0.113.50", "198.51.100.10", false], ["Port (Schicht 4)", "51515", "443 (HTTPS)", true], ["TCP-Flag", "–", "SYN", false]]
+        },
+        {
+          "titel": "Zustellung",
+          "text": "Über den DMZ-Switch erreicht das Paket den Webserver. Er lauscht auf Port 443 und nimmt die Verbindung an.",
+          "aktiv": [3, 4], "position": 4, "paket": "SYN",
+          "zeilen": [["IP (Schicht 3)", "203.0.113.50", "198.51.100.10", false], ["Port (Schicht 4)", "51515", "443 (HTTPS)", false], ["TCP-Flag", "–", "SYN", false]]
+        },
+        {
+          "titel": "Antwort darf zurück",
+          "text": "Der Webserver antwortet mit SYN-ACK. Eine eigene Regel für diese Richtung gibt es nicht – die Firewall erkennt die Antwort aber in ihrer Statustabelle und lässt sie durch (Stateful Inspection).",
+          "aktiv": [0, 1, 2, 3, 4], "position": 0, "paket": "SYN-ACK",
+          "hinweis": "Kein Regelabgleich nötig: Die Verbindung steht bereits in der Statustabelle.",
+          "zeilen": [["IP (Schicht 3)", "198.51.100.10", "203.0.113.50", false], ["Port (Schicht 4)", "443", "51515", false], ["TCP-Flag", "–", "SYN-ACK", false]]
+        },
+        {
+          "titel": "Zweiter Versuch: SSH",
+          "text": "Jetzt versucht derselbe Client, sich per SSH auf Port 22 mit dem Webserver zu verbinden – zum Beispiel ein Angreifer, der nach offenen Zugängen sucht.",
+          "aktiv": [0], "position": 0, "paket": "SSH",
+          "zeilen": [["IP (Schicht 3)", "203.0.113.50", "198.51.100.10", false], ["Port (Schicht 4)", "51600", "22 (SSH)", true], ["TCP-Flag", "–", "SYN", false]]
+        },
+        {
+          "titel": "Firewall verwirft",
+          "text": "Regel 1 passt nicht (falscher Port), Regel 2 nicht (falsche Quelle). Erst Regel 3 greift: verwerfen. Das Paket wird stillschweigend verworfen, der Client bekommt keine Antwort.",
+          "aktiv": [2], "position": 2, "paket": "SSH", "blockiert": true, "regel": 2,
+          "zeilen": [["IP (Schicht 3)", "203.0.113.50", "198.51.100.10", false], ["Port (Schicht 4)", "51600", "22 (SSH)", true], ["TCP-Flag", "–", "SYN", false]]
+        },
+        {
+          "titel": "Protokollieren",
+          "text": "Die Firewall schreibt den abgewiesenen Versuch ins Log. Viele solcher Einträge von derselben Adresse können auf einen Portscan hindeuten – ein Fall fürs Monitoring.",
+          "aktiv": [2], "position": 2, "paket": "SSH", "blockiert": true, "regel": 2,
+          "zeilen": [["IP (Schicht 3)", "203.0.113.50", "198.51.100.10", false], ["Port (Schicht 4)", "51600", "22 (SSH)", false], ["TCP-Flag", "–", "SYN", false]]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "szenarien": [
+    {
+      "id": "vlan",
+      "label": "Broadcast im VLAN über einen Trunk",
+      "spalten": [
+        "Feld",
+        "Wert",
+        "Bedeutung"
+      ],
+      "zeilenTitel": "Was im Frame steht",
+      "merksatz": "Access-Port: ein VLAN, Frames ohne Tag. Trunk: mehrere VLANs, Frames mit 802.1Q-Tag (VLAN-ID). Zwischen VLANs vermittelt nur ein Router oder Layer-3-Switch.",
+      "geraete": [
+        {
+          "name": "PC A",
+          "sub": "VLAN 10"
+        },
+        {
+          "name": "PC X",
+          "sub": "VLAN 20"
+        },
+        {
+          "name": "Switch 1",
+          "sub": "Access + Trunk"
+        },
+        {
+          "name": "Switch 2",
+          "sub": "Trunk + Access"
+        },
+        {
+          "name": "PC B",
+          "sub": "VLAN 10"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Broadcast ohne Tag",
+          "text": "PC A schickt einen Broadcast (z. B. eine ARP-Anfrage). PC A weiß nichts von VLANs – der Frame hat kein Tag.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "Ziel-MAC",
+              "ff:ff:ff:ff:ff:ff",
+              "Broadcast",
+              false
+            ],
+            [
+              "802.1Q-Tag",
+              "–",
+              "Endgeräte senden ohne Tag",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Port-Konfiguration Switch 1",
+            "kopf": [
+              "Port",
+              "Modus",
+              "VLAN"
+            ],
+            "zeilen": [
+              [
+                "Port 1 (PC A)",
+                "Access",
+                "10"
+              ],
+              [
+                "Port 2 (PC X)",
+                "Access",
+                "20"
+              ],
+              [
+                "Port 24 (zu Switch 2)",
+                "Trunk",
+                "10, 20 (tagged)"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Switch ordnet VLAN 10 zu",
+          "text": "Port 1 ist Access-Port in VLAN 10, also gehört der Frame zu VLAN 10. Der Switch flutet ihn nur an Ports desselben VLANs – PC X in VLAN 20 bekommt nichts.",
+          "aktiv": [
+            0,
+            2
+          ],
+          "position": 2,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "Ziel-MAC",
+              "ff:ff:ff:ff:ff:ff",
+              "Broadcast",
+              false
+            ],
+            [
+              "VLAN (intern)",
+              "10",
+              "von Port 1 übernommen",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Port-Konfiguration Switch 1",
+            "kopf": [
+              "Port",
+              "Modus",
+              "VLAN"
+            ],
+            "zeilen": [
+              [
+                "Port 1 (PC A)",
+                "Access",
+                "10"
+              ],
+              [
+                "Port 2 (PC X)",
+                "Access",
+                "20"
+              ],
+              [
+                "Port 24 (zu Switch 2)",
+                "Trunk",
+                "10, 20 (tagged)"
+              ]
+            ],
+            "neu": [
+              0,
+              1
+            ]
+          },
+          "hinweis": "Jedes VLAN ist eine eigene Broadcast-Domäne. Weniger Broadcasts, und Abteilungen sind sauber getrennt."
+        },
+        {
+          "titel": "Über den Trunk mit Tag",
+          "text": "Der Trunk-Port transportiert mehrere VLANs über ein Kabel. Damit Switch 2 weiß, wohin der Frame gehört, fügt Switch 1 ein 802.1Q-Tag mit VLAN-ID 10 ein.",
+          "aktiv": [
+            2,
+            3
+          ],
+          "position": 3,
+          "paket": "Frame 10",
+          "zeilen": [
+            [
+              "Ziel-MAC",
+              "ff:ff:ff:ff:ff:ff",
+              "Broadcast",
+              false
+            ],
+            [
+              "802.1Q-Tag",
+              "VID 10",
+              "4 Byte im Ethernet-Header",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Port-Konfiguration Switch 1",
+            "kopf": [
+              "Port",
+              "Modus",
+              "VLAN"
+            ],
+            "zeilen": [
+              [
+                "Port 1 (PC A)",
+                "Access",
+                "10"
+              ],
+              [
+                "Port 2 (PC X)",
+                "Access",
+                "20"
+              ],
+              [
+                "Port 24 (zu Switch 2)",
+                "Trunk",
+                "10, 20 (tagged)"
+              ]
+            ],
+            "neu": [
+              2
+            ]
+          }
+        },
+        {
+          "titel": "Tag entfernen, zustellen",
+          "text": "Switch 2 liest VLAN-ID 10, entfernt das Tag und gibt den Frame an seine Access-Ports in VLAN 10 – PC B bekommt ihn ohne Tag.",
+          "aktiv": [
+            3,
+            4
+          ],
+          "position": 4,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "Ziel-MAC",
+              "ff:ff:ff:ff:ff:ff",
+              "Broadcast",
+              false
+            ],
+            [
+              "802.1Q-Tag",
+              "–",
+              "am Access-Port entfernt",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Port-Konfiguration Switch 1",
+            "kopf": [
+              "Port",
+              "Modus",
+              "VLAN"
+            ],
+            "zeilen": [
+              [
+                "Port 1 (PC A)",
+                "Access",
+                "10"
+              ],
+              [
+                "Port 2 (PC X)",
+                "Access",
+                "20"
+              ],
+              [
+                "Port 24 (zu Switch 2)",
+                "Trunk",
+                "10, 20 (tagged)"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "PC A → PC X geht nicht",
+          "text": "PC A will PC X erreichen. Beide hängen am selben Switch, aber in verschiedenen VLANs. Ohne Router bleibt der Frame in VLAN 10 – PC X ist nicht erreichbar.",
+          "aktiv": [
+            0,
+            2
+          ],
+          "position": 2,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "VLAN (intern)",
+              "10",
+              "PC X liegt in VLAN 20",
+              true
+            ]
+          ],
+          "blockiert": true,
+          "tabelle": {
+            "titel": "Port-Konfiguration Switch 1",
+            "kopf": [
+              "Port",
+              "Modus",
+              "VLAN"
+            ],
+            "zeilen": [
+              [
+                "Port 1 (PC A)",
+                "Access",
+                "10"
+              ],
+              [
+                "Port 2 (PC X)",
+                "Access",
+                "20"
+              ],
+              [
+                "Port 24 (zu Switch 2)",
+                "Trunk",
+                "10, 20 (tagged)"
+              ]
+            ],
+            "neu": [
+              0,
+              1
+            ]
+          },
+          "hinweis": "Lösung: Inter-VLAN-Routing über einen Router (Router-on-a-Stick mit Subinterfaces) oder einen Layer-3-Switch. Dort kann auch eine Firewall regeln, was zwischen den VLANs erlaubt ist."
+        }
+      ]
+    }
+  ]
+}

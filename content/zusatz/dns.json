@@ -1,0 +1,660 @@
+{
+  "szenarien": [
+    {
+      "id": "rekursiv",
+      "label": "Erste Auflösung (leerer Cache)",
+      "spalten": [
+        "Feld",
+        "Wert",
+        "Bedeutung"
+      ],
+      "zeilenTitel": "DNS-Nachricht",
+      "merksatz": "Client → Resolver: rekursiv („liefere mir die Antwort“). Resolver → Root, TLD, autoritativ: iterativ („sag mir, wen ich fragen soll“). Danach liegt alles im Cache – bis die TTL abläuft.",
+      "geraete": [
+        {
+          "name": "Client",
+          "sub": "Stub-Resolver"
+        },
+        {
+          "name": "Resolver",
+          "sub": "DNS der Firma"
+        },
+        {
+          "name": "Root-Server",
+          "sub": "."
+        },
+        {
+          "name": "TLD-Server",
+          "sub": ".de"
+        },
+        {
+          "name": "Autoritativ",
+          "sub": "beispiel.de"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Rekursive Anfrage",
+          "text": "Der Client will www.beispiel.de öffnen und fragt den eingetragenen DNS-Server. Er erwartet eine fertige Antwort.",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "A?",
+          "zeilen": [
+            [
+              "Frage",
+              "www.beispiel.de, Typ A",
+              "IPv4-Adresse gesucht",
+              false
+            ],
+            [
+              "Art",
+              "rekursiv (RD = 1)",
+              "Resolver soll die ganze Arbeit machen",
+              true
+            ],
+            [
+              "Transport",
+              "UDP Port 53",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "Root-Server fragen",
+          "text": "Der Cache ist leer. Der Resolver fragt einen der 13 Root-Server (die Adressen kennt er fest aus den Root Hints).",
+          "aktiv": [
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "A?",
+          "zeilen": [
+            [
+              "Frage",
+              "www.beispiel.de, Typ A",
+              "",
+              false
+            ],
+            [
+              "Art",
+              "iterativ (RD = 0)",
+              "nur Verweis erwartet",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "Verweis auf .de",
+          "text": "Der Root-Server kennt die Antwort nicht, aber er weiß, wer für .de zuständig ist (NS-Record + Glue-Record mit IP).",
+          "aktiv": [
+            2,
+            1
+          ],
+          "position": 1,
+          "paket": "Verweis",
+          "zeilen": [
+            [
+              "Antwort",
+              "de. NS a.nic.de",
+              "frag die .de-Server",
+              true
+            ],
+            [
+              "autoritativ",
+              "nein",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "TLD-Server fragen",
+          "text": "Der Resolver fragt den .de-Server (betrieben von der DENIC).",
+          "aktiv": [
+            1,
+            3
+          ],
+          "position": 3,
+          "paket": "A?",
+          "zeilen": [
+            [
+              "Frage",
+              "www.beispiel.de, Typ A",
+              "",
+              false
+            ],
+            [
+              "Art",
+              "iterativ",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Verweis auf beispiel.de",
+          "text": "Der .de-Server verweist auf die Nameserver der Domain beispiel.de.",
+          "aktiv": [
+            3,
+            1
+          ],
+          "position": 1,
+          "paket": "Verweis",
+          "zeilen": [
+            [
+              "Antwort",
+              "beispiel.de. NS ns1.beispiel.de",
+              "frag den Nameserver der Domain",
+              true
+            ],
+            [
+              "autoritativ",
+              "nein",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          }
+        },
+        {
+          "titel": "Autoritativen Server fragen",
+          "text": "Jetzt fragt der Resolver den Server, der die Zone beispiel.de tatsächlich verwaltet.",
+          "aktiv": [
+            1,
+            4
+          ],
+          "position": 4,
+          "paket": "A?",
+          "zeilen": [
+            [
+              "Frage",
+              "www.beispiel.de, Typ A",
+              "",
+              false
+            ],
+            [
+              "Art",
+              "iterativ",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Die echte Antwort",
+          "text": "Der autoritative Server liefert den A-Record mit TTL 3600 Sekunden. Das AA-Flag zeigt: Diese Antwort stammt direkt aus der Zone.",
+          "aktiv": [
+            4,
+            1
+          ],
+          "position": 1,
+          "paket": "A",
+          "zeilen": [
+            [
+              "Antwort",
+              "www.beispiel.de A 203.0.113.80",
+              "",
+              true
+            ],
+            [
+              "autoritativ",
+              "ja (AA = 1)",
+              "",
+              true
+            ],
+            [
+              "TTL",
+              "3600 s",
+              "so lange darf gecacht werden",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ],
+              [
+                "www.beispiel.de.",
+                "A",
+                "203.0.113.80",
+                "3600 s"
+              ]
+            ],
+            "neu": [
+              2
+            ]
+          }
+        },
+        {
+          "titel": "Antwort an den Client",
+          "text": "Der Resolver gibt die Antwort weiter und behält sie im Cache. Der Client verbindet sich jetzt mit 203.0.113.80.",
+          "aktiv": [
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "A",
+          "zeilen": [
+            [
+              "Antwort",
+              "www.beispiel.de A 203.0.113.80",
+              "",
+              false
+            ],
+            [
+              "autoritativ",
+              "nein",
+              "kommt aus dem Resolver, nicht aus der Zone",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ],
+              [
+                "www.beispiel.de.",
+                "A",
+                "203.0.113.80",
+                "3600 s"
+              ]
+            ]
+          },
+          "hinweis": "nslookup zeigt das als „Nicht autorisierende Antwort“ – das ist normal und kein Fehler."
+        }
+      ]
+    },
+    {
+      "id": "cache",
+      "label": "Zweite Anfrage und TTL",
+      "spalten": [
+        "Feld",
+        "Wert",
+        "Bedeutung"
+      ],
+      "zeilenTitel": "DNS-Nachricht",
+      "merksatz": "Solange die TTL läuft, antwortet der Resolver aus dem Cache. Vor einem Umzug die TTL senken – sonst sehen Clients noch stundenlang die alte IP.",
+      "geraete": [
+        {
+          "name": "Client",
+          "sub": "Stub-Resolver"
+        },
+        {
+          "name": "Resolver",
+          "sub": "DNS der Firma"
+        },
+        {
+          "name": "Root-Server",
+          "sub": "."
+        },
+        {
+          "name": "TLD-Server",
+          "sub": ".de"
+        },
+        {
+          "name": "Autoritativ",
+          "sub": "beispiel.de"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Ein Kollege fragt dasselbe",
+          "text": "20 Minuten später fragt ein anderer Client nach www.beispiel.de.",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "A?",
+          "zeilen": [
+            [
+              "Frage",
+              "www.beispiel.de, Typ A",
+              "",
+              false
+            ],
+            [
+              "Art",
+              "rekursiv",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ],
+              [
+                "www.beispiel.de.",
+                "A",
+                "203.0.113.80",
+                "2780 s"
+              ]
+            ],
+            "neu": [
+              2
+            ]
+          }
+        },
+        {
+          "titel": "Antwort aus dem Cache",
+          "text": "Der Eintrag ist noch 2780 Sekunden gültig. Der Resolver antwortet sofort – kein einziger externer Server wird gefragt.",
+          "aktiv": [
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "A",
+          "zeilen": [
+            [
+              "Antwort",
+              "www.beispiel.de A 203.0.113.80",
+              "",
+              true
+            ],
+            [
+              "TTL",
+              "2780 s",
+              "Rest-TTL wird mitgegeben",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ],
+              [
+                "www.beispiel.de.",
+                "A",
+                "203.0.113.80",
+                "2780 s"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "TTL abgelaufen",
+          "text": "Eine Stunde später ist der A-Record verfallen. Die NS-Einträge (TTL 1 Tag) sind noch da – der Resolver fragt deshalb direkt den autoritativen Server, Root und TLD bleiben außen vor.",
+          "aktiv": [
+            1,
+            4
+          ],
+          "position": 4,
+          "paket": "A?",
+          "zeilen": [
+            [
+              "Frage",
+              "www.beispiel.de, Typ A",
+              "",
+              false
+            ],
+            [
+              "Art",
+              "iterativ",
+              "Abkürzung dank gecachter NS-Records",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Neue Adresse",
+          "text": "Die Domain ist inzwischen umgezogen. Die neue Antwort landet im Cache.",
+          "aktiv": [
+            4,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "A",
+          "zeilen": [
+            [
+              "Antwort",
+              "www.beispiel.de A 198.51.100.15",
+              "neue IP",
+              true
+            ],
+            [
+              "TTL",
+              "3600 s",
+              "",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Cache des Resolvers",
+            "kopf": [
+              "Name",
+              "Typ",
+              "Wert",
+              "TTL"
+            ],
+            "zeilen": [
+              [
+                "de.",
+                "NS",
+                "a.nic.de",
+                "86400 s"
+              ],
+              [
+                "beispiel.de.",
+                "NS",
+                "ns1.beispiel.de",
+                "86400 s"
+              ],
+              [
+                "www.beispiel.de.",
+                "A",
+                "198.51.100.15",
+                "3600 s"
+              ]
+            ],
+            "neu": [
+              2
+            ]
+          },
+          "hinweis": "Auch der Client hat einen eigenen Cache: ipconfig /displaydns und ipconfig /flushdns (Windows), resolvectl flush-caches (Linux)."
+        }
+      ]
+    }
+  ]
+}

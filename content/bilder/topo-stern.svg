@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">Stern</text>
+  <text class="sv-tk" x="110" y="172" text-anchor="middle">alle Geräte an einem zentralen Switch</text>
+  <line class="sv-ln" x1="110" y1="94" x2="110" y2="42"/>
+  <line class="sv-ln" x1="110" y1="94" x2="177.55" y2="68"/>
+  <line class="sv-ln" x1="110" y1="94" x2="177.55" y2="120"/>
+  <line class="sv-ln" x1="110" y1="94" x2="110" y2="146"/>
+  <line class="sv-ln" x1="110" y1="94" x2="42.45" y2="120"/>
+  <line class="sv-ln" x1="110" y1="94" x2="42.45" y2="68"/>
+  <rect class="sv-a" x="83" y="83" width="54" height="22" rx="4"/>
+  <text class="sv-xa" x="110" y="98" text-anchor="middle">Switch</text>
+  <rect class="sv-box" x="96" y="29" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="110" y1="47" x2="110" y2="51"/>
+  <line class="sv-ln" x1="103" y1="51" x2="117" y2="51"/>
+  <rect class="sv-box" x="163.55" y="55" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="177.55" y1="73" x2="177.55" y2="77"/>
+  <line class="sv-ln" x1="170.55" y1="77" x2="184.55" y2="77"/>
+  <rect class="sv-box" x="163.55" y="107" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="177.55" y1="125" x2="177.55" y2="129"/>
+  <line class="sv-ln" x1="170.55" y1="129" x2="184.55" y2="129"/>
+  <rect class="sv-box" x="96" y="133" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="110" y1="151" x2="110" y2="155"/>
+  <line class="sv-ln" x1="103" y1="155" x2="117" y2="155"/>
+  <rect class="sv-box" x="28.45" y="107" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="42.45" y1="125" x2="42.45" y2="129"/>
+  <line class="sv-ln" x1="35.45" y1="129" x2="49.45" y2="129"/>
+  <rect class="sv-box" x="28.45" y="55" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="42.45" y1="73" x2="42.45" y2="77"/>
+  <line class="sv-ln" x1="35.45" y1="77" x2="49.45" y2="77"/>
+</svg>

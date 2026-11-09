@@ -1,0 +1,423 @@
+{
+  "szenarien": [
+    {
+      "id": "dora",
+      "label": "DORA im eigenen Netz",
+      "merksatz": "Discover und Request als Broadcast, Offer und Ack je nach Client per Broadcast oder Unicast. Ports: Server 67, Client 68 (UDP).",
+      "geraete": [
+        {
+          "name": "Client",
+          "sub": "MAC-C · noch ohne IP"
+        },
+        {
+          "name": "Switch",
+          "sub": "Schicht 2"
+        },
+        {
+          "name": "DHCP-Server",
+          "sub": "192.168.1.2"
+        },
+        {
+          "name": "Drucker",
+          "sub": "192.168.1.30"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Discover",
+          "text": "Der Client hat noch keine IP-Adresse und kennt keinen Server. Er ruft per Broadcast: „Gibt es hier einen DHCP-Server?“",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "Discover",
+          "zeilen": [
+            [
+              "MAC",
+              "MAC-C",
+              "ff:ff:ff:ff:ff:ff",
+              true
+            ],
+            [
+              "IP",
+              "0.0.0.0",
+              "255.255.255.255",
+              true
+            ],
+            [
+              "UDP-Port",
+              "68",
+              "67",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Lease-Tabelle des DHCP-Servers",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Status"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.50",
+                "–",
+                "frei"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Broadcast erreicht alle",
+          "text": "Der Switch flutet den Broadcast. Der Drucker ignoriert ihn, der DHCP-Server reagiert.",
+          "aktiv": [
+            1,
+            2,
+            3
+          ],
+          "position": 2,
+          "paket": "Discover",
+          "zeilen": [
+            [
+              "MAC",
+              "MAC-C",
+              "ff:ff:ff:ff:ff:ff",
+              false
+            ],
+            [
+              "IP",
+              "0.0.0.0",
+              "255.255.255.255",
+              false
+            ],
+            [
+              "UDP-Port",
+              "68",
+              "67",
+              false
+            ]
+          ],
+          "ziele": [
+            3
+          ],
+          "tabelle": {
+            "titel": "Lease-Tabelle des DHCP-Servers",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Status"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.50",
+                "–",
+                "frei"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Offer",
+          "text": "Der Server bietet 192.168.1.50 an – mit Subnetzmaske, Gateway, DNS-Server und Lease-Dauer – und reserviert die Adresse vorläufig.",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "Offer",
+          "zeilen": [
+            [
+              "MAC",
+              "MAC-S",
+              "MAC-C",
+              false
+            ],
+            [
+              "IP",
+              "192.168.1.2",
+              "192.168.1.50 (angeboten)",
+              true
+            ],
+            [
+              "UDP-Port",
+              "67",
+              "68",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Lease-Tabelle des DHCP-Servers",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Status"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.50",
+                "MAC-C",
+                "angeboten"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Request",
+          "text": "Der Client nimmt das Angebot an – wieder per Broadcast. So erfahren auch andere DHCP-Server, dass ihr Angebot nicht gewählt wurde.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "Request",
+          "zeilen": [
+            [
+              "MAC",
+              "MAC-C",
+              "ff:ff:ff:ff:ff:ff",
+              false
+            ],
+            [
+              "IP",
+              "0.0.0.0",
+              "255.255.255.255",
+              true
+            ],
+            [
+              "UDP-Port",
+              "68",
+              "67",
+              false
+            ],
+            [
+              "Option 54",
+              "Server 192.168.1.2",
+              "",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "Lease-Tabelle des DHCP-Servers",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Status"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.50",
+                "MAC-C",
+                "angeboten"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Ack",
+          "text": "Der Server bestätigt. Ab jetzt gilt die Lease, z. B. 8 Tage.",
+          "aktiv": [
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "Ack",
+          "zeilen": [
+            [
+              "MAC",
+              "MAC-S",
+              "MAC-C",
+              false
+            ],
+            [
+              "IP",
+              "192.168.1.2",
+              "192.168.1.50",
+              false
+            ],
+            [
+              "UDP-Port",
+              "67",
+              "68",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Lease-Tabelle des DHCP-Servers",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Status"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.50",
+                "MAC-C",
+                "vergeben (8 Tage)"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Adresse prüfen und nutzen",
+          "text": "Der Client prüft per ARP, dass niemand 192.168.1.50 schon benutzt, und richtet die Adresse ein.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "ARP",
+          "zeilen": [],
+          "tabelle": {
+            "titel": "Lease-Tabelle des DHCP-Servers",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Status"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.50",
+                "MAC-C",
+                "vergeben (8 Tage)"
+              ]
+            ]
+          },
+          "hinweis": "Nach 50 % der Lease-Zeit (T1) verlängert der Client per Unicast-Request direkt beim Server, nach 87,5 % (T2) per Broadcast bei jedem Server."
+        }
+      ]
+    },
+    {
+      "id": "relay",
+      "label": "DHCP-Relay über Subnetze",
+      "merksatz": "Router leiten keine Broadcasts weiter. Der DHCP-Relay-Agent (ip helper-address) macht daraus einen Unicast an den Server und trägt sein Interface als giaddr ein – daran erkennt der Server den richtigen Bereich.",
+      "geraete": [
+        {
+          "name": "Client",
+          "sub": "VLAN 20 · ohne IP"
+        },
+        {
+          "name": "Router",
+          "sub": "192.168.20.1 | 10.0.0.1 · Relay"
+        },
+        {
+          "name": "DHCP-Server",
+          "sub": "10.0.0.2"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Discover im VLAN 20",
+          "text": "Der Client sendet seinen Broadcast. Ein DHCP-Server steht nur im Server-Netz 10.0.0.0/24 – ohne Hilfe käme der Broadcast nie dort an.",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "Discover",
+          "zeilen": [
+            [
+              "IP",
+              "0.0.0.0",
+              "255.255.255.255",
+              false
+            ],
+            [
+              "giaddr",
+              "0.0.0.0",
+              "",
+              true
+            ]
+          ]
+        },
+        {
+          "titel": "Relay macht Unicast daraus",
+          "text": "Der Router ist als DHCP-Relay konfiguriert. Er schickt die Anfrage als Unicast an 10.0.0.2 und trägt in giaddr die IP seines Client-Interfaces ein.",
+          "aktiv": [
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "Discover",
+          "zeilen": [
+            [
+              "IP",
+              "10.0.0.1",
+              "10.0.0.2",
+              true
+            ],
+            [
+              "giaddr",
+              "192.168.20.1",
+              "",
+              true
+            ]
+          ]
+        },
+        {
+          "titel": "Server wählt den Bereich",
+          "text": "Aus giaddr 192.168.20.1 erkennt der Server: Der Client sitzt im Netz 192.168.20.0/24. Er nimmt eine Adresse aus diesem Bereich und schickt das Offer an den Relay zurück.",
+          "aktiv": [
+            2,
+            1
+          ],
+          "position": 1,
+          "paket": "Offer",
+          "zeilen": [
+            [
+              "IP",
+              "10.0.0.2",
+              "192.168.20.1",
+              true
+            ],
+            [
+              "angeboten",
+              "192.168.20.77",
+              "",
+              true
+            ],
+            [
+              "Gateway",
+              "192.168.20.1",
+              "",
+              false
+            ]
+          ]
+        },
+        {
+          "titel": "Relay stellt zu",
+          "text": "Der Router reicht das Offer ins VLAN 20 an den Client. Request und Ack laufen genauso über den Relay.",
+          "aktiv": [
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "Offer",
+          "zeilen": [
+            [
+              "IP",
+              "192.168.20.1",
+              "192.168.20.77 / Broadcast",
+              false
+            ],
+            [
+              "angeboten",
+              "192.168.20.77",
+              "",
+              false
+            ]
+          ],
+          "hinweis": "Cisco: ip helper-address 10.0.0.2 auf dem VLAN-Interface. Auf Windows-Servern heißt die Rolle „DHCP-Relay-Agent“ (RRAS)."
+        }
+      ]
+    }
+  ]
+}

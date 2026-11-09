@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380">
+  <defs><marker id="wasserfall-scrum-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Wasserfall: Phasen nacheinander</text>
+  <rect class="sv-a" x="20" y="40" width="110" height="28" rx="6"/>
+  <text class="sv-t" x="75.0" y="59.0" text-anchor="middle">Analyse</text>
+  <path class="sv-ln" d="M130 54 L145 54 L145 70" marker-end="url(#wasserfall-scrum-pf)"/>
+  <rect class="sv-b" x="90" y="70" width="110" height="28" rx="6"/>
+  <text class="sv-t" x="145.0" y="89.0" text-anchor="middle">Entwurf</text>
+  <path class="sv-ln" d="M200 84 L215 84 L215 100" marker-end="url(#wasserfall-scrum-pf)"/>
+  <rect class="sv-c" x="160" y="100" width="110" height="28" rx="6"/>
+  <text class="sv-t" x="215.0" y="119.0" text-anchor="middle">Umsetzung</text>
+  <path class="sv-ln" d="M270 114 L285 114 L285 130" marker-end="url(#wasserfall-scrum-pf)"/>
+  <rect class="sv-d" x="230" y="130" width="110" height="28" rx="6"/>
+  <text class="sv-t" x="285.0" y="149.0" text-anchor="middle">Test</text>
+  <path class="sv-ln" d="M340 144 L355 144 L355 160" marker-end="url(#wasserfall-scrum-pf)"/>
+  <rect class="sv-box" x="300" y="160" width="110" height="28" rx="6"/>
+  <text class="sv-t" x="355.0" y="179.0" text-anchor="middle">Einführung</text>
+  <text class="sv-t" x="20" y="220">+ klar planbar, fester Umfang, gut für Festpreis</text>
+  <text class="sv-t" x="20" y="239">+ passt, wenn die Anforderungen feststehen</text>
+  <text class="sv-t" x="20" y="258">− Änderungen spät und teuer</text>
+  <text class="sv-t" x="20" y="277">− Ergebnis erst am Ende sichtbar</text>
+  <text class="sv-tb" x="420" y="24">Scrum: in kurzen Sprints iterativ</text>
+  <rect class="sv-a" x="420" y="44" width="120" height="44" rx="6"/>
+  <text class="sv-tk" x="480.0" y="71.0" text-anchor="middle">Product Backlog</text>
+  <rect class="sv-b" x="420" y="104" width="120" height="44" rx="6"/>
+  <text class="sv-tk" x="480.0" y="123.0" text-anchor="middle">Sprint Backlog</text>
+  <text class="sv-tk" x="480.0" y="139.0" text-anchor="middle">Sprint Planning</text>
+  <line class="sv-ln" x1="480" y1="88" x2="480" y2="102" marker-end="url(#wasserfall-scrum-pf)"/>
+  <circle class="sv-c" cx="630" cy="126" r="54"/>
+  <text class="sv-tb" x="630" y="116" text-anchor="middle">Sprint</text>
+  <text class="sv-tk" x="630" y="133" text-anchor="middle">1–4 Wochen</text>
+  <text class="sv-tk" x="630" y="149" text-anchor="middle">Daily Scrum</text>
+  <line class="sv-ln" x1="540" y1="126" x2="574" y2="126" marker-end="url(#wasserfall-scrum-pf)"/>
+  <rect class="sv-d" x="570" y="196" width="120" height="44" rx="6"/>
+  <text class="sv-tk" x="630.0" y="215.0" text-anchor="middle">Inkrement</text>
+  <text class="sv-tk" x="630.0" y="231.0" text-anchor="middle">lauffähig</text>
+  <line class="sv-ln" x1="630" y1="180" x2="630" y2="194" marker-end="url(#wasserfall-scrum-pf)"/>
+  <path class="sv-ln-d" d="M570 218 C 470 218 450 190 450 150" marker-end="url(#wasserfall-scrum-pf)"/>
+  <text class="sv-tk" x="430" y="236">Review + Retro</text>
+  <text class="sv-t" x="420" y="270">Rollen: Product Owner, Scrum Master, Developer</text>
+  <text class="sv-t" x="420" y="289">+ früh nutzbare Ergebnisse, Änderungen jederzeit</text>
+  <text class="sv-t" x="420" y="308">+ passt, wenn Anforderungen unklar sind</text>
+  <text class="sv-t" x="420" y="327">− Umfang und Kosten schwerer festzulegen</text>
+</svg>

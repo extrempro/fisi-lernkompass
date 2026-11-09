@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 170">
+  <defs><marker id="ethernet-frame-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-box" x="14" y="40" width="94" height="52" rx="3"/>
+  <text class="sv-t" x="61" y="64" text-anchor="middle">Präambel+SFD</text>
+  <text class="sv-tk" x="61" y="78" text-anchor="middle">8 Byte</text>
+  <rect class="sv-a" x="110" y="40" width="84" height="52" rx="3"/>
+  <text class="sv-t" x="152" y="64" text-anchor="middle">Ziel-MAC</text>
+  <text class="sv-tk" x="152" y="78" text-anchor="middle">6 Byte</text>
+  <rect class="sv-a" x="196" y="40" width="84" height="52" rx="3"/>
+  <text class="sv-t" x="238" y="64" text-anchor="middle">Quell-MAC</text>
+  <text class="sv-tk" x="238" y="78" text-anchor="middle">6 Byte</text>
+  <rect class="sv-d" x="282" y="40" width="102" height="52" rx="3"/>
+  <text class="sv-t" x="333" y="64" text-anchor="middle">VLAN-Tag</text>
+  <text class="sv-tk" x="333" y="78" text-anchor="middle">4 B, optional</text>
+  <rect class="sv-a" x="386" y="40" width="82" height="52" rx="3"/>
+  <text class="sv-t" x="427" y="64" text-anchor="middle">EtherType</text>
+  <text class="sv-tk" x="427" y="78" text-anchor="middle">2 Byte</text>
+  <rect class="sv-box" x="470" y="40" width="168" height="52" rx="3"/>
+  <text class="sv-t" x="554" y="64" text-anchor="middle">Nutzdaten</text>
+  <text class="sv-tk" x="554" y="78" text-anchor="middle">46–1500 Byte</text>
+  <rect class="sv-c" x="640" y="40" width="58" height="52" rx="3"/>
+  <text class="sv-t" x="669" y="64" text-anchor="middle">FCS</text>
+  <text class="sv-tk" x="669" y="78" text-anchor="middle">4 Byte</text>
+  <text class="sv-tb" x="14" y="24" text-anchor="start">Ethernet-II-Frame (IEEE 802.3)</text>
+  <line class="sv-ln-d" x1="110" y1="106" x2="698" y2="106" marker-end="url(#ethernet-frame-pf)" marker-start="url(#ethernet-frame-pf)"/>
+  <text class="sv-tk" x="404" y="124" text-anchor="middle">Frame: 64 bis 1518 Byte (mit VLAN-Tag 1522)</text>
+  <text class="sv-tk" x="14" y="150" text-anchor="start">EtherType: 0x0800 = IPv4, 0x86DD = IPv6, 0x0806 = ARP · FCS: Prüfsumme (CRC) gegen Übertragungsfehler</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+  <defs><marker id="mitbestimmung-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Wie stark der Betriebsrat beteiligt ist – von schwach nach stark</text>
+  <rect class="sv-box" x="20" y="220" width="700" height="48" rx="4"/>
+  <text class="sv-tb" x="32" y="240">Information</text>
+  <text class="sv-tk" x="32" y="258">muss unterrichtet werden</text>
+  <text class="sv-t" x="708" y="250" text-anchor="end">Planung neuer Arbeitsplätze</text>
+  <rect class="sv-a" x="80" y="164" width="640" height="48" rx="4"/>
+  <text class="sv-tb" x="92" y="184">Anhörung</text>
+  <text class="sv-tk" x="92" y="202">muss angehört werden</text>
+  <text class="sv-t" x="708" y="194" text-anchor="end">Kündigung (§ 102 BetrVG)</text>
+  <rect class="sv-b" x="140" y="108" width="580" height="48" rx="4"/>
+  <text class="sv-tb" x="152" y="128">Zustimmungsverweigerung</text>
+  <text class="sv-tk" x="152" y="146">kann widersprechen</text>
+  <text class="sv-t" x="708" y="138" text-anchor="end">Einstellung, Versetzung (§ 99)</text>
+  <rect class="sv-c" x="200" y="52" width="520" height="48" rx="4"/>
+  <text class="sv-tb" x="212" y="72">Echte Mitbestimmung</text>
+  <text class="sv-tk" x="212" y="90">ohne Zustimmung keine Umsetzung</text>
+  <text class="sv-t" x="708" y="82" text-anchor="end">Arbeitszeit, Überwachungstechnik (§ 87)</text>
+  <text class="sv-tk" x="20" y="292">Für die IT wichtig: Software, die Leistung oder Verhalten überwachen kann (z. B. Ticketsystem mit</text>
+  <text class="sv-tk" x="20" y="308">Zeiterfassung, Monitoring), ist nach § 87 mitbestimmungspflichtig.</text>
+</svg>

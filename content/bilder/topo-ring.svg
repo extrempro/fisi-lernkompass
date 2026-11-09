@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180">
+  <defs><marker id="topo-ring-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">Ring</text>
+  <text class="sv-tk" x="110" y="172" text-anchor="middle">Daten laufen reihum (eine Richtung)</text>
+  <path class="sv-ln" d="M127.6 40.8A56 56 0 0 1 147.2 52.2" marker-end="url(#topo-ring-pf)"/>
+  <path class="sv-ln" d="M164.8 82.7A56 56 0 0 1 164.8 105.3" marker-end="url(#topo-ring-pf)"/>
+  <path class="sv-ln" d="M147.2 135.8A56 56 0 0 1 127.6 147.2" marker-end="url(#topo-ring-pf)"/>
+  <path class="sv-ln" d="M92.4 147.2A56 56 0 0 1 72.8 135.8" marker-end="url(#topo-ring-pf)"/>
+  <path class="sv-ln" d="M55.2 105.3A56 56 0 0 1 55.2 82.7" marker-end="url(#topo-ring-pf)"/>
+  <path class="sv-ln" d="M72.8 52.2A56 56 0 0 1 92.4 40.8" marker-end="url(#topo-ring-pf)"/>
+  <rect class="sv-box" x="96" y="25" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="110" y1="43" x2="110" y2="47"/>
+  <line class="sv-ln" x1="103" y1="47" x2="117" y2="47"/>
+  <rect class="sv-box" x="144.497" y="53" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="158.497" y1="71" x2="158.497" y2="75"/>
+  <line class="sv-ln" x1="151.497" y1="75" x2="165.497" y2="75"/>
+  <rect class="sv-box" x="144.497" y="109" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="158.497" y1="127" x2="158.497" y2="131"/>
+  <line class="sv-ln" x1="151.497" y1="131" x2="165.497" y2="131"/>
+  <rect class="sv-box" x="96" y="137" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="110" y1="155" x2="110" y2="159"/>
+  <line class="sv-ln" x1="103" y1="159" x2="117" y2="159"/>
+  <rect class="sv-box" x="47.5026" y="109" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="61.5026" y1="127" x2="61.5026" y2="131"/>
+  <line class="sv-ln" x1="54.5026" y1="131" x2="68.5026" y2="131"/>
+  <rect class="sv-box" x="47.5026" y="53" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="61.5026" y1="71" x2="61.5026" y2="75"/>
+  <line class="sv-ln" x1="54.5026" y1="75" x2="68.5026" y2="75"/>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 230">
+  <defs><marker id="cpu-soc-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="130" y="20" text-anchor="middle">Klassischer PC</text>
+  <rect class="sv-a" x="20" y="36" width="100" height="50" rx="6"/>
+  <text class="sv-tb" x="70" y="65.5" text-anchor="middle">CPU</text>
+  <rect class="sv-d" x="150" y="36" width="100" height="50" rx="6"/>
+  <text class="sv-tb" x="200" y="59" text-anchor="middle">GPU</text>
+  <text class="sv-tk" x="200" y="73" text-anchor="middle">Steckkarte</text>
+  <rect class="sv-b" x="20" y="120" width="100" height="50" rx="6"/>
+  <text class="sv-tb" x="70" y="143" text-anchor="middle">RAM</text>
+  <text class="sv-tk" x="70" y="157" text-anchor="middle">Riegel</text>
+  <rect class="sv-c" x="150" y="120" width="100" height="50" rx="6"/>
+  <text class="sv-tb" x="200" y="149.5" text-anchor="middle">Chipsatz</text>
+  <line class="sv-ln" x1="70" y1="88" x2="70" y2="118" marker-end="url(#cpu-soc-pf)" marker-start="url(#cpu-soc-pf)"/>
+  <line class="sv-ln" x1="122" y1="61" x2="148" y2="61" marker-end="url(#cpu-soc-pf)" marker-start="url(#cpu-soc-pf)"/>
+  <line class="sv-ln" x1="122" y1="145" x2="148" y2="145" marker-end="url(#cpu-soc-pf)" marker-start="url(#cpu-soc-pf)"/>
+  <text class="sv-tk" x="135" y="200" text-anchor="middle">einzelne Bauteile auf dem Mainboard</text>
+  <text class="sv-tb" x="440" y="20" text-anchor="middle">System on a Chip (SoC)</text>
+  <rect class="sv-ln-d" x="330" y="34" width="230" height="140" rx="12"/>
+  <rect class="sv-a" x="340" y="44" width="210" height="120" rx="10"/>
+  <rect class="sv-box" x="350" y="54" width="92" height="28" rx="4"/>
+  <text class="sv-tk" x="396" y="72.5" text-anchor="middle">CPU-Kerne</text>
+  <rect class="sv-box" x="450" y="54" width="92" height="28" rx="4"/>
+  <text class="sv-tk" x="496" y="72.5" text-anchor="middle">GPU</text>
+  <rect class="sv-box" x="350" y="88" width="92" height="28" rx="4"/>
+  <text class="sv-tk" x="396" y="106.5" text-anchor="middle">NPU (KI)</text>
+  <rect class="sv-box" x="450" y="88" width="92" height="28" rx="4"/>
+  <text class="sv-tk" x="496" y="106.5" text-anchor="middle">Media/I/O</text>
+  <rect class="sv-b" x="350" y="124" width="192" height="30" rx="4"/>
+  <text class="sv-tk" x="446" y="143.5" text-anchor="middle">RAM im Gehäuse (geteilt)</text>
+  <text class="sv-tk" x="445" y="200" text-anchor="middle">alles in einem Gehäuse: sparsam,</text>
+  <text class="sv-tk" x="445" y="214" text-anchor="middle">aber nicht aufrüstbar</text>
+</svg>

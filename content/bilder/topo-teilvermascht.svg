@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">Teilvermascht</text>
+  <text class="sv-tk" x="110" y="172" text-anchor="middle">wichtige Knoten mehrfach verbunden</text>
+  <line class="sv-ln" x1="40" y1="60" x2="110" y2="44"/>
+  <line class="sv-ln" x1="110" y1="44" x2="180" y2="62"/>
+  <line class="sv-ln" x1="40" y1="60" x2="34" y2="128"/>
+  <line class="sv-ln" x1="40" y1="60" x2="112" y2="112"/>
+  <line class="sv-ln" x1="110" y1="44" x2="112" y2="112"/>
+  <line class="sv-ln" x1="180" y1="62" x2="112" y2="112"/>
+  <line class="sv-ln" x1="180" y1="62" x2="184" y2="134"/>
+  <line class="sv-ln" x1="34" y1="128" x2="112" y2="112"/>
+  <line class="sv-ln" x1="112" y1="112" x2="184" y2="134"/>
+  <circle class="sv-b" cx="40" cy="60" r="13"/>
+  <circle class="sv-b" cx="110" cy="44" r="13"/>
+  <circle class="sv-b" cx="180" cy="62" r="13"/>
+  <circle class="sv-b" cx="34" cy="128" r="13"/>
+  <circle class="sv-b" cx="112" cy="112" r="13"/>
+  <circle class="sv-b" cx="184" cy="134" r="13"/>
+</svg>

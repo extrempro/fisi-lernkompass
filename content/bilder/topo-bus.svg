@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">Bus</text>
+  <text class="sv-tk" x="110" y="172" text-anchor="middle">Abschlusswiderstand an beiden Enden</text>
+  <line class="sv-ln" x1="22" y1="95" x2="198" y2="95"/>
+  <rect class="sv-e" x="14" y="86" width="8" height="18" rx="2"/>
+  <rect class="sv-e" x="198" y="86" width="8" height="18" rx="2"/>
+  <line class="sv-ln" x1="50" y1="95" x2="50" y2="63"/>
+  <rect class="sv-box" x="36" y="41" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="50" y1="59" x2="50" y2="63"/>
+  <line class="sv-ln" x1="43" y1="63" x2="57" y2="63"/>
+  <line class="sv-ln" x1="90" y1="95" x2="90" y2="127"/>
+  <rect class="sv-box" x="76" y="127" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="90" y1="145" x2="90" y2="149"/>
+  <line class="sv-ln" x1="83" y1="149" x2="97" y2="149"/>
+  <line class="sv-ln" x1="130" y1="95" x2="130" y2="63"/>
+  <rect class="sv-box" x="116" y="41" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="130" y1="59" x2="130" y2="63"/>
+  <line class="sv-ln" x1="123" y1="63" x2="137" y2="63"/>
+  <line class="sv-ln" x1="170" y1="95" x2="170" y2="127"/>
+  <rect class="sv-box" x="156" y="127" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="170" y1="145" x2="170" y2="149"/>
+  <line class="sv-ln" x1="163" y1="149" x2="177" y2="149"/>
+</svg>

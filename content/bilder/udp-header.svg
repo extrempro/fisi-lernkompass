@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 170">
+  <text class="sv-tb" x="64" y="18" text-anchor="start">UDP-Header (8 Byte)</text>
+  <text class="sv-tk" x="72" y="40" text-anchor="middle">0</text>
+  <text class="sv-tk" x="200" y="40" text-anchor="middle">8</text>
+  <text class="sv-tk" x="328" y="40" text-anchor="middle">16</text>
+  <text class="sv-tk" x="456" y="40" text-anchor="middle">24</text>
+  <text class="sv-tk" x="568" y="40" text-anchor="middle">31</text>
+  <text class="sv-tk" x="56" y="69" text-anchor="end">0 B</text>
+  <rect class="sv-c" x="64" y="48" width="254" height="34" rx="3"/>
+  <text class="sv-t" x="191" y="69.5" text-anchor="middle">Quellport</text>
+  <rect class="sv-c" x="320" y="48" width="254" height="34" rx="3"/>
+  <text class="sv-t" x="447" y="69.5" text-anchor="middle">Zielport</text>
+  <text class="sv-tk" x="56" y="107" text-anchor="end">4 B</text>
+  <rect class="sv-box" x="64" y="86" width="254" height="34" rx="3"/>
+  <text class="sv-t" x="191" y="107.5" text-anchor="middle">Länge</text>
+  <rect class="sv-box" x="320" y="86" width="254" height="34" rx="3"/>
+  <text class="sv-t" x="447" y="107.5" text-anchor="middle">Prüfsumme</text>
+  <text class="sv-tk" x="64" y="146" text-anchor="start">keine Verbindung, keine Bestätigung – dafür schlank und schnell</text>
+</svg>

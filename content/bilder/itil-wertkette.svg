@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320">
+  <text class="sv-tb" x="320" y="20" text-anchor="middle">ITIL 4: Service-Wertschöpfungskette</text>
+  <rect class="sv-b" x="250" y="136" width="140" height="56" rx="6"/>
+  <text class="sv-tb" x="320" y="162" text-anchor="middle">Wert für</text>
+  <text class="sv-tk" x="320" y="176" text-anchor="middle">Kunden und Nutzer</text>
+  <rect class="sv-box" x="232" y="30" width="176" height="48" rx="6"/>
+  <text class="sv-tb" x="320" y="52" text-anchor="middle">Planen</text>
+  <text class="sv-tk" x="320" y="66" text-anchor="middle">Plan</text>
+  <line class="sv-ln-d" x1="320" y1="108" x2="320" y2="130"/>
+  <rect class="sv-box" x="422.526" y="85" width="176" height="48" rx="6"/>
+  <text class="sv-tb" x="510.526" y="107" text-anchor="middle">Verbessern</text>
+  <text class="sv-tk" x="510.526" y="121" text-anchor="middle">Improve</text>
+  <line class="sv-ln-d" x1="423.923" y1="136" x2="389.282" y2="147"/>
+  <rect class="sv-a" x="422.526" y="195" width="176" height="48" rx="6"/>
+  <text class="sv-tb" x="510.526" y="217" text-anchor="middle">Einbinden</text>
+  <text class="sv-tk" x="510.526" y="231" text-anchor="middle">Engage</text>
+  <line class="sv-ln-d" x1="423.923" y1="192" x2="389.282" y2="181"/>
+  <rect class="sv-box" x="232" y="250" width="176" height="48" rx="6"/>
+  <text class="sv-tb" x="320" y="272" text-anchor="middle">Entwerfen &amp; Überführen</text>
+  <text class="sv-tk" x="320" y="286" text-anchor="middle">Design &amp; Transition</text>
+  <line class="sv-ln-d" x1="320" y1="220" x2="320" y2="198"/>
+  <rect class="sv-box" x="41.4744" y="195" width="176" height="48" rx="6"/>
+  <text class="sv-tb" x="129.474" y="217" text-anchor="middle">Beschaffen / Erstellen</text>
+  <text class="sv-tk" x="129.474" y="231" text-anchor="middle">Obtain / Build</text>
+  <line class="sv-ln-d" x1="216.077" y1="192" x2="250.718" y2="181"/>
+  <rect class="sv-c" x="41.4744" y="85" width="176" height="48" rx="6"/>
+  <text class="sv-tb" x="129.474" y="107" text-anchor="middle">Liefern &amp; Unterstützen</text>
+  <text class="sv-tk" x="129.474" y="121" text-anchor="middle">Deliver &amp; Support</text>
+  <line class="sv-ln-d" x1="216.077" y1="136" x2="250.718" y2="147"/>
+  <text class="sv-tk" x="320" y="312" text-anchor="middle">Einbinden = Kontakt zu Kunden (z. B. Service Desk) · Liefern &amp; Unterstützen = Betrieb, Störungen beheben</text>
+</svg>

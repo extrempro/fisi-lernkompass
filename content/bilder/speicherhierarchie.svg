@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300">
+  <text class="sv-tk" x="190" y="18" text-anchor="middle">schnell · klein · teuer</text>
+  <rect class="sv-a" x="105" y="30" width="170" height="32" rx="4"/>
+  <text class="sv-t" x="190" y="50.5" text-anchor="middle">Register</text>
+  <text class="sv-t" x="382" y="50.5" text-anchor="start">&lt; 1 ns</text>
+  <rect class="sv-a" x="90" y="66" width="200" height="32" rx="4"/>
+  <text class="sv-t" x="190" y="86.5" text-anchor="middle">L1 · 32–64 KB je Kern</text>
+  <text class="sv-t" x="382" y="86.5" text-anchor="start">≈ 1 ns</text>
+  <rect class="sv-a" x="75" y="102" width="230" height="32" rx="4"/>
+  <text class="sv-t" x="190" y="122.5" text-anchor="middle">L2 · 1–3 MB je Kern</text>
+  <text class="sv-t" x="382" y="122.5" text-anchor="start">≈ 4 ns</text>
+  <rect class="sv-a" x="60" y="138" width="260" height="32" rx="4"/>
+  <text class="sv-t" x="190" y="158.5" text-anchor="middle">L3 · 8–100 MB, geteilt</text>
+  <text class="sv-t" x="382" y="158.5" text-anchor="start">≈ 15 ns</text>
+  <rect class="sv-b" x="45" y="174" width="290" height="32" rx="4"/>
+  <text class="sv-t" x="190" y="194.5" text-anchor="middle">RAM · 16–128 GB</text>
+  <text class="sv-t" x="382" y="194.5" text-anchor="start">≈ 80 ns</text>
+  <rect class="sv-c" x="30" y="210" width="320" height="32" rx="4"/>
+  <text class="sv-t" x="190" y="230.5" text-anchor="middle">NVMe-SSD · bis einige TB</text>
+  <text class="sv-t" x="382" y="230.5" text-anchor="start">≈ 0,1 ms</text>
+  <rect class="sv-c" x="15" y="246" width="350" height="32" rx="4"/>
+  <text class="sv-t" x="190" y="266.5" text-anchor="middle">Festplatte (HDD)</text>
+  <text class="sv-t" x="382" y="266.5" text-anchor="start">≈ 5–10 ms</text>
+  <text class="sv-tk" x="382" y="18" text-anchor="start">Zugriffszeit</text>
+  <text class="sv-tk" x="190" y="294" text-anchor="middle">langsam · groß · günstig</text>
+  <line class="sv-ln-d" x1="372" y1="30" x2="372" y2="276"/>
+</svg>

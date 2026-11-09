@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430">
+  <defs><marker id="ad-struktur-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-box" x="20" y="20" width="400" height="300" rx="8"/>
+  <text class="sv-tb" x="32" y="42">Gesamtstruktur (Forest)</text>
+  <rect class="sv-box" x="36" y="54" width="368" height="254" rx="8" stroke-dasharray="5 4"/>
+  <text class="sv-tb" x="48" y="76">Domäne ad.firma.de</text>
+  <rect class="sv-c" x="310" y="62" width="84" height="40" rx="6"/>
+  <text class="sv-t" x="352.0" y="87.0" text-anchor="middle">DC 1</text>
+  <rect class="sv-c" x="310" y="108" width="84" height="40" rx="6"/>
+  <text class="sv-t" x="352.0" y="133.0" text-anchor="middle">DC 2</text>
+  <rect class="sv-a" x="52" y="92" width="150" height="36" rx="6"/>
+  <text class="sv-t" x="127.0" y="115.0" text-anchor="middle">OU Hamburg</text>
+  <path class="sv-ln" d="M70 128 L70 168 L90 168"/>
+  <rect class="sv-b" x="90" y="150" width="150" height="36" rx="6"/>
+  <text class="sv-t" x="165.0" y="173.0" text-anchor="middle">OU Benutzer</text>
+  <path class="sv-ln" d="M70 128 L70 218 L90 218"/>
+  <rect class="sv-b" x="90" y="200" width="150" height="36" rx="6"/>
+  <text class="sv-t" x="165.0" y="223.0" text-anchor="middle">OU Computer</text>
+  <path class="sv-ln" d="M70 128 L70 268 L90 268"/>
+  <rect class="sv-b" x="90" y="250" width="150" height="36" rx="6"/>
+  <text class="sv-t" x="165.0" y="273.0" text-anchor="middle">OU Gruppen</text>
+  <rect class="sv-d" x="260" y="196" width="130" height="44" rx="6"/>
+  <text class="sv-tb" x="325.0" y="215.0" text-anchor="middle">GPO</text>
+  <text class="sv-tk" x="325.0" y="231.0" text-anchor="middle">z. B. Laufwerke</text>
+  <line class="sv-ln-d" x1="260" y1="218" x2="240" y2="218" marker-end="url(#ad-struktur-pf)"/>
+  <text class="sv-tk" x="260" y="258">an OU verknüpft,</text>
+  <text class="sv-tk" x="260" y="274">wirkt auf alles darin</text>
+  <text class="sv-tb" x="450" y="40">AGDLP: Rechte über Gruppen vergeben</text>
+  <rect class="sv-b" x="450" y="56" width="290" height="48" rx="6"/>
+  <text class="sv-tb" x="462" y="77">A – Account</text>
+  <text class="sv-tc" x="462" y="94">mmuster</text>
+  <line class="sv-ln" x1="595" y1="104" x2="595" y2="120" marker-end="url(#ad-struktur-pf)"/>
+  <rect class="sv-a" x="450" y="122" width="290" height="48" rx="6"/>
+  <text class="sv-tb" x="462" y="143">G – Globale Gruppe</text>
+  <text class="sv-tc" x="462" y="160">GG_Vertrieb</text>
+  <line class="sv-ln" x1="595" y1="170" x2="595" y2="186" marker-end="url(#ad-struktur-pf)"/>
+  <rect class="sv-c" x="450" y="188" width="290" height="48" rx="6"/>
+  <text class="sv-tb" x="462" y="209">DL – Domänenlokale Gruppe</text>
+  <text class="sv-tc" x="462" y="226">DL_Share_Vertrieb_Lesen</text>
+  <line class="sv-ln" x1="595" y1="236" x2="595" y2="252" marker-end="url(#ad-struktur-pf)"/>
+  <rect class="sv-d" x="450" y="254" width="290" height="48" rx="6"/>
+  <text class="sv-tb" x="462" y="275">P – Permission</text>
+  <text class="sv-tc" x="462" y="292">Lesen auf \\fs01\Vertrieb</text>
+  <text class="sv-tk" x="450" y="340">Benutzer kommen in globale Gruppen (nach Rolle),</text>
+  <text class="sv-tk" x="450" y="356">globale in domänenlokale Gruppen (nach Ressource),</text>
+  <text class="sv-tk" x="450" y="372">und nur die domänenlokale Gruppe bekommt das Recht.</text>
+  <text class="sv-tk" x="20" y="346">Mindestens zwei Domänencontroller, damit Anmeldung und DNS</text>
+  <text class="sv-tk" x="20" y="362">weiterlaufen, wenn einer ausfällt. Interne Domäne am besten als</text>
+  <text class="sv-tk" x="20" y="378">Subdomain einer eigenen registrierten Domain (ad.firma.de).</text>
+</svg>

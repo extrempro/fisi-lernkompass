@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <defs><marker id="speicher-vergleich-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Sequenzielles Lesen (ca.) – Balken maßstabsgetreu</text>
+  <text class="sv-t" x="20" y="66">HDD 7200 U/min</text>
+  <rect class="sv-box" x="170" y="48" width="16.0" height="28" rx="4"/>
+  <text class="sv-tb" x="194.0" y="67">200 MB/s</text>
+  <text class="sv-t" x="20" y="110">SATA-SSD</text>
+  <rect class="sv-b" x="170" y="92" width="44.0" height="28" rx="4"/>
+  <text class="sv-tb" x="222.0" y="111">550 MB/s</text>
+  <text class="sv-t" x="20" y="154">NVMe-SSD PCIe 4.0</text>
+  <rect class="sv-a" x="170" y="136" width="560.0" height="28" rx="4"/>
+  <text class="sv-tb" x="722" y="155" text-anchor="end">7.000 MB/s</text>
+  <text class="sv-tb" x="20" y="200">Zugriffszeit (Suchen einer Stelle)</text>
+  <text class="sv-t" x="20" y="224">HDD: ca. 8 ms – der Lesekopf muss mechanisch zur Spur fahren.</text>
+  <text class="sv-t" x="20" y="244">SSD: unter 0,1 ms – Flash-Speicher ohne bewegliche Teile, also rund 80-mal schneller.</text>
+  <text class="sv-tk" x="20" y="276">Bei vielen kleinen Zugriffen (Betriebssystem, Datenbank) zählen IOPS und Zugriffszeit mehr als die Lesegeschwindigkeit.</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400">
+  <defs><marker id="schutzbedarf-maximum-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Maximumprinzip: Der Server erbt den höchsten Schutzbedarf</text>
+  <rect class="sv-box" x="40" y="44" width="160" height="52" rx="6"/>
+  <text class="sv-tb" x="120.0" y="67.0" text-anchor="middle">Intranet</text>
+  <text class="sv-tk" x="120.0" y="83.0" text-anchor="middle">Vertraulichkeit: normal</text>
+  <line class="sv-ln" x1="120" y1="96" x2="300" y2="150" marker-end="url(#schutzbedarf-maximum-pf)"/>
+  <rect class="sv-b" x="220" y="44" width="160" height="52" rx="6"/>
+  <text class="sv-tb" x="300.0" y="67.0" text-anchor="middle">Zeiterfassung</text>
+  <text class="sv-tk" x="300.0" y="83.0" text-anchor="middle">Vertraulichkeit: hoch</text>
+  <line class="sv-ln" x1="300" y1="96" x2="300" y2="150" marker-end="url(#schutzbedarf-maximum-pf)"/>
+  <rect class="sv-e" x="400" y="44" width="160" height="52" rx="6"/>
+  <text class="sv-tb" x="480.0" y="67.0" text-anchor="middle">Lohnbuchhaltung</text>
+  <text class="sv-tk" x="480.0" y="83.0" text-anchor="middle">Vertraulichkeit: sehr hoch</text>
+  <line class="sv-ln" x1="480" y1="96" x2="300" y2="150" marker-end="url(#schutzbedarf-maximum-pf)"/>
+  <rect class="sv-e" x="200" y="150" width="200" height="56" rx="6"/>
+  <text class="sv-tb" x="300.0" y="175.0" text-anchor="middle">Server SRV01</text>
+  <text class="sv-tk" x="300.0" y="191.0" text-anchor="middle">Vertraulichkeit: sehr hoch</text>
+  <text class="sv-tk" x="420" y="172">← das Maximum der Anwendungen</text>
+  <text class="sv-tb" x="20" y="250">Abweichungen vom Maximumprinzip</text>
+  <rect class="sv-b" x="20" y="266" width="350" height="56" rx="6"/>
+  <text class="sv-tb" x="195.0" y="291.0" text-anchor="middle">Kumulationseffekt</text>
+  <text class="sv-tk" x="195.0" y="307.0" text-anchor="middle">viele „normale“ Anwendungen → zusammen „hoch“</text>
+  <rect class="sv-a" x="390" y="266" width="350" height="56" rx="6"/>
+  <text class="sv-tb" x="565.0" y="291.0" text-anchor="middle">Verteilungseffekt</text>
+  <text class="sv-tk" x="565.0" y="307.0" text-anchor="middle">Anwendung redundant auf 2 Servern → je Server niedriger</text>
+  <text class="sv-tk" x="20" y="350">Die Feststellung erfolgt je Schutzziel (Vertraulichkeit, Integrität, Verfügbarkeit) und vererbt sich weiter:</text>
+  <text class="sv-tk" x="20" y="367">Anwendungen → IT-Systeme → Räume → Kommunikationsverbindungen.</text>
+</svg>

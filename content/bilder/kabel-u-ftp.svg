@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210">
+  <circle class="sv-box" cx="100" cy="92" r="82"/>
+  <ellipse class="sv-ln-c" cx="70.0" cy="62" rx="27" ry="16"/>
+  <circle class="sv-ader-bl" cx="59" cy="62" r="10"/>
+  <circle class="sv-ader-ws" cx="81" cy="62" r="10"/>
+  <circle class="sv-ader-bl" cx="81" cy="62" r="4"/>
+  <ellipse class="sv-ln-c" cx="130.0" cy="62" rx="27" ry="16"/>
+  <circle class="sv-ader-or" cx="119" cy="62" r="10"/>
+  <circle class="sv-ader-ws" cx="141" cy="62" r="10"/>
+  <circle class="sv-ader-or" cx="141" cy="62" r="4"/>
+  <ellipse class="sv-ln-c" cx="70.0" cy="122" rx="27" ry="16"/>
+  <circle class="sv-ader-gn" cx="59" cy="122" r="10"/>
+  <circle class="sv-ader-ws" cx="81" cy="122" r="10"/>
+  <circle class="sv-ader-gn" cx="81" cy="122" r="4"/>
+  <ellipse class="sv-ln-c" cx="130.0" cy="122" rx="27" ry="16"/>
+  <circle class="sv-ader-br" cx="119" cy="122" r="10"/>
+  <circle class="sv-ader-ws" cx="141" cy="122" r="10"/>
+  <circle class="sv-ader-br" cx="141" cy="122" r="4"/>
+  <text class="sv-tb" x="100" y="194" text-anchor="middle">U/FTP</text>
+  <text class="sv-tk" x="100" y="207" text-anchor="middle">Folie um jedes Paar</text>
+</svg>

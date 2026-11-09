@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330">
+  <defs><marker id="ransomware-kette-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Typischer Ablauf eines Ransomware-Angriffs – und wo man ihn stoppen kann</text>
+  <rect class="sv-e" x="20" y="44" width="118" height="64" rx="6"/>
+  <text class="sv-xe" x="79.0" y="64" text-anchor="middle">1</text>
+  <text class="sv-tb" x="79.0" y="82" text-anchor="middle">Erstzugang</text>
+  <text class="sv-tk" x="79.0" y="128" text-anchor="middle">Phishing-Mail,</text>
+  <text class="sv-tk" x="79.0" y="143" text-anchor="middle">offenes RDP, Lücke</text>
+  <text class="sv-tk" x="79.0" y="158" text-anchor="middle">im VPN</text>
+  <rect class="sv-c" x="20" y="176" width="118" height="80" rx="6"/>
+  <text class="sv-t" x="79.0" y="196" text-anchor="middle">Awareness,</text>
+  <text class="sv-t" x="79.0" y="212" text-anchor="middle">MFA, Patchen</text>
+  <line class="sv-ln" x1="138" y1="76" x2="144" y2="76"/>
+  <rect class="sv-e" x="144" y="44" width="118" height="64" rx="6"/>
+  <text class="sv-xe" x="203.0" y="64" text-anchor="middle">2</text>
+  <text class="sv-tb" x="203.0" y="82" text-anchor="middle">Ausführen</text>
+  <text class="sv-tk" x="203.0" y="128" text-anchor="middle">Makro oder Loader</text>
+  <text class="sv-tk" x="203.0" y="143" text-anchor="middle">startet Schadcode</text>
+  <rect class="sv-c" x="144" y="176" width="118" height="80" rx="6"/>
+  <text class="sv-t" x="203.0" y="196" text-anchor="middle">Makros</text>
+  <text class="sv-t" x="203.0" y="212" text-anchor="middle">sperren, EDR</text>
+  <line class="sv-ln" x1="262" y1="76" x2="268" y2="76"/>
+  <rect class="sv-e" x="268" y="44" width="118" height="64" rx="6"/>
+  <text class="sv-xe" x="327.0" y="64" text-anchor="middle">3</text>
+  <text class="sv-tb" x="327.0" y="82" text-anchor="middle">Rechte</text>
+  <text class="sv-tb" x="327.0" y="97" text-anchor="middle">ausweiten</text>
+  <text class="sv-tk" x="327.0" y="128" text-anchor="middle">Admin-Konten</text>
+  <text class="sv-tk" x="327.0" y="143" text-anchor="middle">übernehmen</text>
+  <rect class="sv-c" x="268" y="176" width="118" height="80" rx="6"/>
+  <text class="sv-t" x="327.0" y="196" text-anchor="middle">Tiering, LAPS,</text>
+  <text class="sv-t" x="327.0" y="212" text-anchor="middle">keine</text>
+  <text class="sv-t" x="327.0" y="228" text-anchor="middle">Admin-Rechte</text>
+  <text class="sv-t" x="327.0" y="244" text-anchor="middle">im Alltag</text>
+  <line class="sv-ln" x1="386" y1="76" x2="392" y2="76"/>
+  <rect class="sv-e" x="392" y="44" width="118" height="64" rx="6"/>
+  <text class="sv-xe" x="451.0" y="64" text-anchor="middle">4</text>
+  <text class="sv-tb" x="451.0" y="82" text-anchor="middle">Ausbreiten</text>
+  <text class="sv-tk" x="451.0" y="128" text-anchor="middle">über Netz auf</text>
+  <text class="sv-tk" x="451.0" y="143" text-anchor="middle">Server und DCs</text>
+  <rect class="sv-c" x="392" y="176" width="118" height="80" rx="6"/>
+  <text class="sv-t" x="451.0" y="196" text-anchor="middle">Segmentierung,</text>
+  <text class="sv-t" x="451.0" y="212" text-anchor="middle">Firewall</text>
+  <text class="sv-t" x="451.0" y="228" text-anchor="middle">zwischen Zonen</text>
+  <line class="sv-ln" x1="510" y1="76" x2="516" y2="76"/>
+  <rect class="sv-e" x="516" y="44" width="118" height="64" rx="6"/>
+  <text class="sv-xe" x="575.0" y="64" text-anchor="middle">5</text>
+  <text class="sv-tb" x="575.0" y="82" text-anchor="middle">Backups</text>
+  <text class="sv-tb" x="575.0" y="97" text-anchor="middle">löschen</text>
+  <text class="sv-tk" x="575.0" y="128" text-anchor="middle">Schattenkopien und</text>
+  <text class="sv-tk" x="575.0" y="143" text-anchor="middle">Backup-Server</text>
+  <rect class="sv-c" x="516" y="176" width="118" height="80" rx="6"/>
+  <text class="sv-t" x="575.0" y="196" text-anchor="middle">Offline- oder</text>
+  <text class="sv-t" x="575.0" y="212" text-anchor="middle">unveränderliche</text>
+  <text class="sv-t" x="575.0" y="228" text-anchor="middle">Backups</text>
+  <line class="sv-ln" x1="634" y1="76" x2="640" y2="76"/>
+  <rect class="sv-e" x="640" y="44" width="118" height="64" rx="6"/>
+  <text class="sv-xe" x="699.0" y="64" text-anchor="middle">6</text>
+  <text class="sv-tb" x="699.0" y="82" text-anchor="middle">Verschlüsseln,</text>
+  <text class="sv-tb" x="699.0" y="97" text-anchor="middle">erpressen</text>
+  <text class="sv-tk" x="699.0" y="128" text-anchor="middle">Daten unlesbar,</text>
+  <text class="sv-tk" x="699.0" y="143" text-anchor="middle">oft vorher</text>
+  <text class="sv-tk" x="699.0" y="158" text-anchor="middle">gestohlen</text>
+  <rect class="sv-c" x="640" y="176" width="118" height="80" rx="6"/>
+  <text class="sv-t" x="699.0" y="196" text-anchor="middle">Notfallplan,</text>
+  <text class="sv-t" x="699.0" y="212" text-anchor="middle">Wiederanlauf</text>
+  <text class="sv-t" x="699.0" y="228" text-anchor="middle">üben</text>
+  <text class="sv-tk" x="20" y="276">Obere Reihe: Schritt des Angreifers · untere Reihe: Gegenmaßnahme</text>
+  <text class="sv-tk" x="20" y="296">Je früher die Kette unterbrochen wird, desto kleiner der Schaden. Das Backup ist die letzte Verteidigungslinie –</text>
+  <text class="sv-tk" x="20" y="312">es muss deshalb für den Angreifer unerreichbar sein (offline, getrennte Anmeldedaten, unveränderlich).</text>
+</svg>

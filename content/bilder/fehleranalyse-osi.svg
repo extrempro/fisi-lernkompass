@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330">
+  <defs><marker id="fehleranalyse-osi-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Netzwerkfehler von unten nach oben eingrenzen</text>
+  <rect class="sv-d" x="20" y="268" width="440" height="30" rx="4"/>
+  <text class="sv-t" x="32" y="288">Link-LED, Kabel, WLAN verbunden?</text>
+  <text class="sv-tk" x="450" y="288" text-anchor="end">Schicht 1/2</text>
+  <rect class="sv-box" x="20" y="232" width="440" height="30" rx="4"/>
+  <text class="sv-tc" x="32" y="252">ipconfig /all: IP, Maske, Gateway, DNS?</text>
+  <text class="sv-tk" x="450" y="252" text-anchor="end">Konfiguration</text>
+  <rect class="sv-c" x="20" y="196" width="440" height="30" rx="4"/>
+  <text class="sv-tc" x="32" y="216">ping 127.0.0.1</text>
+  <text class="sv-tk" x="450" y="216" text-anchor="end">TCP/IP-Stack</text>
+  <rect class="sv-c" x="20" y="160" width="440" height="30" rx="4"/>
+  <text class="sv-tc" x="32" y="180">ping eigene IP / Gateway</text>
+  <text class="sv-tk" x="450" y="180" text-anchor="end">lokales Netz</text>
+  <rect class="sv-c" x="20" y="124" width="440" height="30" rx="4"/>
+  <text class="sv-tc" x="32" y="144">ping 8.8.8.8</text>
+  <text class="sv-tk" x="450" y="144" text-anchor="end">Internet, Routing</text>
+  <rect class="sv-b" x="20" y="88" width="440" height="30" rx="4"/>
+  <text class="sv-tc" x="32" y="108">nslookup beispiel.de</text>
+  <text class="sv-tk" x="450" y="108" text-anchor="end">DNS</text>
+  <rect class="sv-a" x="20" y="52" width="440" height="30" rx="4"/>
+  <text class="sv-t" x="32" y="72">Browser, Anwendung, Proxy</text>
+  <text class="sv-tk" x="450" y="72" text-anchor="end">Schicht 7</text>
+  <line class="sv-ln" x1="480" y1="296" x2="480" y2="54" marker-end="url(#fehleranalyse-osi-pf)"/>
+  <text class="sv-t" x="500" y="80">Unten anfangen: Der erste Test,</text>
+  <text class="sv-t" x="500" y="99">der scheitert, zeigt die Ebene</text>
+  <text class="sv-t" x="500" y="118">des Fehlers.</text>
+  <text class="sv-t" x="500" y="137"></text>
+  <text class="sv-t" x="500" y="156">Beispiel: ping 8.8.8.8 klappt,</text>
+  <text class="sv-t" x="500" y="175">nslookup nicht → DNS-Problem,</text>
+  <text class="sv-t" x="500" y="194">nicht „das Internet“.</text>
+  <text class="sv-t" x="500" y="213"></text>
+  <text class="sv-t" x="500" y="232">Klappt der Ping auf das Gateway</text>
+  <text class="sv-t" x="500" y="251">nicht, hilft kein Neustart des</text>
+  <text class="sv-t" x="500" y="270">Browsers.</text>
+</svg>

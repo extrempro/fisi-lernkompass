@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230">
+  <defs><marker id="compiler-interpreter-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="14" y="22" text-anchor="start">Compiler</text>
+  <rect class="sv-box" x="14" y="36" width="130" height="46" rx="6"/>
+  <text class="sv-t" x="79" y="57" text-anchor="middle">Quellcode</text>
+  <text class="sv-tk" x="79" y="71" text-anchor="middle">z. B. C, Go</text>
+  <line class="sv-ln" x1="146" y1="59" x2="186" y2="59" marker-end="url(#compiler-interpreter-pf)"/>
+  <rect class="sv-a" x="188" y="36" width="140" height="46" rx="6"/>
+  <text class="sv-tb" x="258" y="57" text-anchor="middle">Compiler</text>
+  <text class="sv-tk" x="258" y="71" text-anchor="middle">einmal übersetzen</text>
+  <line class="sv-ln" x1="330" y1="59" x2="370" y2="59" marker-end="url(#compiler-interpreter-pf)"/>
+  <rect class="sv-b" x="372" y="36" width="150" height="46" rx="6"/>
+  <text class="sv-t" x="447" y="57" text-anchor="middle">ausführbare Datei</text>
+  <text class="sv-tk" x="447" y="71" text-anchor="middle">Maschinencode</text>
+  <line class="sv-ln" x1="524" y1="59" x2="564" y2="59" marker-end="url(#compiler-interpreter-pf)"/>
+  <rect class="sv-box" x="566" y="36" width="140" height="46" rx="6"/>
+  <text class="sv-t" x="636" y="57" text-anchor="middle">läuft schnell</text>
+  <text class="sv-tk" x="636" y="71" text-anchor="middle">nur auf der Zielplattform</text>
+  <text class="sv-tb" x="14" y="120" text-anchor="start">Interpreter</text>
+  <rect class="sv-box" x="14" y="134" width="130" height="46" rx="6"/>
+  <text class="sv-t" x="79" y="155" text-anchor="middle">Quellcode</text>
+  <text class="sv-tk" x="79" y="169" text-anchor="middle">z. B. Python, Bash</text>
+  <line class="sv-ln" x1="146" y1="157" x2="186" y2="157" marker-end="url(#compiler-interpreter-pf)"/>
+  <rect class="sv-c" x="188" y="134" width="140" height="46" rx="6"/>
+  <text class="sv-tb" x="258" y="155" text-anchor="middle">Interpreter</text>
+  <text class="sv-tk" x="258" y="169" text-anchor="middle">Zeile für Zeile</text>
+  <line class="sv-ln" x1="330" y1="157" x2="370" y2="157" marker-end="url(#compiler-interpreter-pf)"/>
+  <rect class="sv-b" x="372" y="134" width="150" height="46" rx="6"/>
+  <text class="sv-t" x="447" y="155" text-anchor="middle">Ausführung</text>
+  <text class="sv-tk" x="447" y="169" text-anchor="middle">bei jedem Start neu</text>
+  <text class="sv-tk" x="360" y="218" text-anchor="middle">Mischform: Java und C# übersetzen in Bytecode, den eine Laufzeitumgebung (JVM, .NET) ausführt</text>
+</svg>

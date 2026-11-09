@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 260">
+  <defs><marker id="rag-ablauf-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="365" y="20" text-anchor="middle">RAG: Antworten aus eigenen Dokumenten (Retrieval-Augmented Generation)</text>
+  <rect class="sv-box" x="14" y="90" width="140" height="56" rx="6"/>
+  <text class="sv-tb" x="84" y="116" text-anchor="middle">Frage</text>
+  <text class="sv-tk" x="84" y="130" text-anchor="middle">z. B. zum VPN-Antrag</text>
+  <line class="sv-ln" x1="156" y1="118" x2="184" y2="118" marker-end="url(#rag-ablauf-pf)"/>
+  <rect class="sv-c" x="186" y="90" width="150" height="56" rx="6"/>
+  <text class="sv-tb" x="261" y="116" text-anchor="middle">Suche</text>
+  <text class="sv-tk" x="261" y="130" text-anchor="middle">passende Abschnitte</text>
+  <path class="sv-c" d="M219 178v44a42 6 0 0 0 84 0v-44a42 6 0 0 0 -84 0z"/>
+  <ellipse class="sv-c" cx="261" cy="178" rx="42" ry="6"/>
+  <text class="sv-t" x="261" y="208" text-anchor="middle">Wissen</text>
+  <line class="sv-ln" x1="261" y1="170" x2="261" y2="148" marker-end="url(#rag-ablauf-pf)" marker-start="url(#rag-ablauf-pf)"/>
+  <text class="sv-tk" x="261" y="248" text-anchor="middle">Handbücher, Wiki, Tickets</text>
+  <line class="sv-ln" x1="338" y1="118" x2="366" y2="118" marker-end="url(#rag-ablauf-pf)"/>
+  <rect class="sv-box" x="368" y="82" width="170" height="72" rx="6"/>
+  <text class="sv-tb" x="453" y="116" text-anchor="middle">Frage + Abschnitte</text>
+  <text class="sv-tk" x="453" y="130" text-anchor="middle">gehen als Kontext</text>
+  <text class="sv-tk" x="453" y="142" text-anchor="middle">an das Modell</text>
+  <line class="sv-ln" x1="540" y1="118" x2="568" y2="118" marker-end="url(#rag-ablauf-pf)"/>
+  <rect class="sv-a" x="570" y="82" width="150" height="72" rx="6"/>
+  <text class="sv-tb" x="645" y="116" text-anchor="middle">Sprachmodell</text>
+  <text class="sv-tk" x="645" y="130" text-anchor="middle">Antwort mit</text>
+  <text class="sv-tk" x="645" y="142" text-anchor="middle">Quellenangabe</text>
+  <text class="sv-tk" x="530" y="196" text-anchor="middle">Vorteil: aktuelles, eigenes Wissen ohne</text>
+  <text class="sv-tk" x="530" y="212" text-anchor="middle">neues Training. Achtung: Die Suche darf</text>
+  <text class="sv-tk" x="530" y="228" text-anchor="middle">nur finden, was der Nutzer sehen darf.</text>
+</svg>

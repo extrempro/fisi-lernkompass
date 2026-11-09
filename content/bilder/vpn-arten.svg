@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440">
+  <defs><marker id="vpn-arten-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="26">Site-to-Site: zwei Standorte dauerhaft verbinden</text>
+  <ellipse class="sv-box" cx="380.0" cy="111.0" rx="170.0" ry="65.0" stroke-dasharray="6 4"/>
+  <text class="sv-tk" x="380.0" y="66" text-anchor="middle">Internet (unsicher)</text>
+  <rect class="sv-box" x="20" y="70" width="90" height="46" rx="6"/>
+  <text class="sv-tb" x="65.0" y="90.0" text-anchor="middle">LAN A</text>
+  <text class="sv-tk" x="65.0" y="106.0" text-anchor="middle">10.1.0.0/16</text>
+  <rect class="sv-c" x="130" y="70" width="100" height="46" rx="6"/>
+  <text class="sv-tb" x="180.0" y="90.0" text-anchor="middle">Firewall A</text>
+  <text class="sv-tk" x="180.0" y="106.0" text-anchor="middle">VPN-Gateway</text>
+  <rect class="sv-c" x="530" y="70" width="100" height="46" rx="6"/>
+  <text class="sv-tb" x="580.0" y="90.0" text-anchor="middle">Firewall B</text>
+  <text class="sv-tk" x="580.0" y="106.0" text-anchor="middle">VPN-Gateway</text>
+  <rect class="sv-box" x="650" y="70" width="90" height="46" rx="6"/>
+  <text class="sv-tb" x="695.0" y="90.0" text-anchor="middle">LAN B</text>
+  <text class="sv-tk" x="695.0" y="106.0" text-anchor="middle">10.2.0.0/16</text>
+  <line class="sv-ln" x1="110" y1="93" x2="130" y2="93"/>
+  <line class="sv-ln" x1="630" y1="93" x2="650" y2="93"/>
+  <rect class="sv-a" x="230" y="80" width="300" height="26" rx="13"/>
+  <text class="sv-xa" x="380" y="98" text-anchor="middle">verschlüsselter Tunnel (IPsec)</text>
+  <text class="sv-tk" x="380" y="138" text-anchor="middle">Außen: öffentliche IPs der Firewalls</text>
+  <text class="sv-tk" x="380" y="154" text-anchor="middle">Innen: privates Paket, verschlüsselt verpackt</text>
+  <text class="sv-tb" x="20" y="226">Remote Access (Client-to-Site): einzelne Geräte ins Firmennetz</text>
+  <ellipse class="sv-box" cx="380.0" cy="321.0" rx="170.0" ry="75.0" stroke-dasharray="6 4"/>
+  <text class="sv-tk" x="380.0" y="266" text-anchor="middle">Internet (unsicher)</text>
+  <rect class="sv-b" x="20" y="276" width="110" height="50" rx="6"/>
+  <text class="sv-tb" x="75.0" y="298.0" text-anchor="middle">Notebook</text>
+  <text class="sv-tk" x="75.0" y="314.0" text-anchor="middle">VPN-Client</text>
+  <rect class="sv-c" x="530" y="276" width="100" height="50" rx="6"/>
+  <text class="sv-tb" x="580.0" y="298.0" text-anchor="middle">Firewall</text>
+  <text class="sv-tk" x="580.0" y="314.0" text-anchor="middle">VPN-Gateway</text>
+  <rect class="sv-box" x="650" y="276" width="90" height="50" rx="6"/>
+  <text class="sv-tb" x="695.0" y="298.0" text-anchor="middle">Firmennetz</text>
+  <text class="sv-tk" x="695.0" y="314.0" text-anchor="middle">Server, Dateien</text>
+  <line class="sv-ln" x1="630" y1="301" x2="650" y2="301"/>
+  <rect class="sv-a" x="130" y="288" width="400" height="26" rx="13"/>
+  <text class="sv-xa" x="330" y="306" text-anchor="middle">Tunnel für Firmenverkehr</text>
+  <path class="sv-ln-d" d="M75 326 C 75 362 200 358 298 358" marker-end="url(#vpn-arten-pf)"/>
+  <rect class="sv-box" x="300" y="338" width="160" height="40" rx="6"/>
+  <text class="sv-tb" x="380.0" y="363.0" text-anchor="middle">Webseiten im Internet</text>
+  <text class="sv-tk" x="20" y="412">Split Tunneling: Internetverkehr geht direkt, nur Firmenverkehr durch den Tunnel.</text>
+  <text class="sv-tk" x="20" y="428">Full Tunnel: alles läuft durch den Tunnel und die Firewall der Firma.</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <defs><marker id="wlan-zellplan-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <polygon class="sv-a" points="112.0,70.0 86.0,115.0 34.0,115.0 8.0,70.0 34.0,25.0 86.0,25.0"/>
+  <text class="sv-tb" x="60.0" y="68.0" text-anchor="middle">Kanal 1</text>
+  <text class="sv-tk" x="60.0" y="84.0" text-anchor="middle">AP</text>
+  <polygon class="sv-b" points="190.0,115.0 164.0,160.1 112.0,160.1 86.0,115.0 112.0,70.0 164.0,70.0"/>
+  <text class="sv-tb" x="138.0" y="113.0333209967908" text-anchor="middle">Kanal 6</text>
+  <text class="sv-tk" x="138.0" y="129.0333209967908" text-anchor="middle">AP</text>
+  <polygon class="sv-a" points="268.0,70.0 242.0,115.0 190.0,115.0 164.0,70.0 190.0,25.0 242.0,25.0"/>
+  <text class="sv-tb" x="216.0" y="68.0" text-anchor="middle">Kanal 1</text>
+  <text class="sv-tk" x="216.0" y="84.0" text-anchor="middle">AP</text>
+  <polygon class="sv-b" points="346.0,115.0 320.0,160.1 268.0,160.1 242.0,115.0 268.0,70.0 320.0,70.0"/>
+  <text class="sv-tb" x="294.0" y="113.0333209967908" text-anchor="middle">Kanal 6</text>
+  <text class="sv-tk" x="294.0" y="129.0333209967908" text-anchor="middle">AP</text>
+  <polygon class="sv-a" points="424.0,70.0 398.0,115.0 346.0,115.0 320.0,70.0 346.0,25.0 398.0,25.0"/>
+  <text class="sv-tb" x="372.0" y="68.0" text-anchor="middle">Kanal 1</text>
+  <text class="sv-tk" x="372.0" y="84.0" text-anchor="middle">AP</text>
+  <polygon class="sv-c" points="112.0,160.1 86.0,205.1 34.0,205.1 8.0,160.1 34.0,115.0 86.0,115.0"/>
+  <text class="sv-tb" x="60.0" y="158.0666419935816" text-anchor="middle">Kanal 11</text>
+  <text class="sv-tk" x="60.0" y="174.0666419935816" text-anchor="middle">AP</text>
+  <polygon class="sv-a" points="190.0,205.1 164.0,250.1 112.0,250.1 86.0,205.1 112.0,160.1 164.0,160.1"/>
+  <text class="sv-tb" x="138.0" y="203.09996299037243" text-anchor="middle">Kanal 1</text>
+  <text class="sv-tk" x="138.0" y="219.09996299037243" text-anchor="middle">AP</text>
+  <polygon class="sv-c" points="268.0,160.1 242.0,205.1 190.0,205.1 164.0,160.1 190.0,115.0 242.0,115.0"/>
+  <text class="sv-tb" x="216.0" y="158.0666419935816" text-anchor="middle">Kanal 11</text>
+  <text class="sv-tk" x="216.0" y="174.0666419935816" text-anchor="middle">AP</text>
+  <polygon class="sv-a" points="346.0,205.1 320.0,250.1 268.0,250.1 242.0,205.1 268.0,160.1 320.0,160.1"/>
+  <text class="sv-tb" x="294.0" y="203.09996299037243" text-anchor="middle">Kanal 1</text>
+  <text class="sv-tk" x="294.0" y="219.09996299037243" text-anchor="middle">AP</text>
+  <polygon class="sv-c" points="424.0,160.1 398.0,205.1 346.0,205.1 320.0,160.1 346.0,115.0 398.0,115.0"/>
+  <text class="sv-tb" x="372.0" y="158.0666419935816" text-anchor="middle">Kanal 11</text>
+  <text class="sv-tk" x="372.0" y="174.0666419935816" text-anchor="middle">AP</text>
+  <polygon class="sv-b" points="112.0,250.1 86.0,295.2 34.0,295.2 8.0,250.1 34.0,205.1 86.0,205.1"/>
+  <text class="sv-tb" x="60.0" y="248.13328398716322" text-anchor="middle">Kanal 6</text>
+  <text class="sv-tk" x="60.0" y="264.1332839871632" text-anchor="middle">AP</text>
+  <polygon class="sv-c" points="190.0,295.2 164.0,340.2 112.0,340.2 86.0,295.2 112.0,250.1 164.0,250.1"/>
+  <text class="sv-tb" x="138.0" y="293.166604983954" text-anchor="middle">Kanal 11</text>
+  <text class="sv-tk" x="138.0" y="309.166604983954" text-anchor="middle">AP</text>
+  <polygon class="sv-b" points="268.0,250.1 242.0,295.2 190.0,295.2 164.0,250.1 190.0,205.1 242.0,205.1"/>
+  <text class="sv-tb" x="216.0" y="248.13328398716322" text-anchor="middle">Kanal 6</text>
+  <text class="sv-tk" x="216.0" y="264.1332839871632" text-anchor="middle">AP</text>
+  <polygon class="sv-c" points="346.0,295.2 320.0,340.2 268.0,340.2 242.0,295.2 268.0,250.1 320.0,250.1"/>
+  <text class="sv-tb" x="294.0" y="293.166604983954" text-anchor="middle">Kanal 11</text>
+  <text class="sv-tk" x="294.0" y="309.166604983954" text-anchor="middle">AP</text>
+  <polygon class="sv-b" points="424.0,250.1 398.0,295.2 346.0,295.2 320.0,250.1 346.0,205.1 398.0,205.1"/>
+  <text class="sv-tb" x="372.0" y="248.13328398716322" text-anchor="middle">Kanal 6</text>
+  <text class="sv-tk" x="372.0" y="264.1332839871632" text-anchor="middle">AP</text>
+  <text class="sv-tb" x="470" y="60">Zellplanung im 2,4-GHz-Band</text>
+  <text class="sv-tk" x="470" y="84">Nur die Kanäle 1, 6 und 11 überlappen</text>
+  <text class="sv-tk" x="470" y="102">sich nicht. Benachbarte Zellen bekommen</text>
+  <text class="sv-tk" x="470" y="120">unterschiedliche Kanäle – gleiche Kanäle</text>
+  <text class="sv-tk" x="470" y="138">liegen möglichst weit auseinander.</text>
+  <text class="sv-tk" x="470" y="156"></text>
+  <text class="sv-tk" x="470" y="174">Zellen überlappen etwa 15–20 %,</text>
+  <text class="sv-tk" x="470" y="192">damit Roaming ohne Abbruch klappt.</text>
+  <text class="sv-tk" x="470" y="210"></text>
+  <text class="sv-tk" x="470" y="228">Im 5-GHz-Band gibt es viel mehr</text>
+  <text class="sv-tk" x="470" y="246">Kanäle – dort ist die Planung leichter.</text>
+</svg>

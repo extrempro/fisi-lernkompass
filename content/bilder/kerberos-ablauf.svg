@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400">
+  <defs><marker id="kerberos-ablauf-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-box" x="20" y="140" width="150" height="74" rx="6"/>
+  <text class="sv-tb" x="95" y="175" text-anchor="middle">Client</text>
+  <text class="sv-tk" x="95" y="189" text-anchor="middle">Benutzer meldet sich an</text>
+  <rect class="sv-ln-d" x="300" y="16" width="230" height="168" rx="12"/>
+  <text class="sv-tb" x="415" y="38" text-anchor="middle">Domänencontroller = KDC</text>
+  <rect class="sv-a" x="315" y="52" width="200" height="50" rx="6"/>
+  <text class="sv-tb" x="415" y="75" text-anchor="middle">Authentication Service</text>
+  <text class="sv-tk" x="415" y="89" text-anchor="middle">prüft die Anmeldung</text>
+  <rect class="sv-a" x="315" y="120" width="200" height="50" rx="6"/>
+  <text class="sv-tb" x="415" y="143" text-anchor="middle">Ticket Granting Service</text>
+  <text class="sv-tk" x="415" y="157" text-anchor="middle">stellt Service-Tickets aus</text>
+  <rect class="sv-b" x="590" y="230" width="150" height="74" rx="6"/>
+  <text class="sv-tb" x="665" y="265" text-anchor="middle">Server</text>
+  <text class="sv-tk" x="665" y="279" text-anchor="middle">z. B. Dateifreigabe</text>
+  <line class="sv-ln" x1="172" y1="150" x2="312" y2="70" marker-end="url(#kerberos-ablauf-pf)"/>
+  <circle class="sv-c" cx="232" cy="106" r="10"/>
+  <text class="sv-tb" x="232" y="110" text-anchor="middle">1</text>
+  <line class="sv-ln-d" x1="312" y1="88" x2="172" y2="164" marker-end="url(#kerberos-ablauf-pf)"/>
+  <circle class="sv-c" cx="258" cy="134" r="10"/>
+  <text class="sv-tb" x="258" y="138" text-anchor="middle">2</text>
+  <line class="sv-ln" x1="172" y1="180" x2="312" y2="138" marker-end="url(#kerberos-ablauf-pf)"/>
+  <circle class="sv-c" cx="238" cy="160" r="10"/>
+  <text class="sv-tb" x="238" y="164" text-anchor="middle">3</text>
+  <line class="sv-ln-d" x1="312" y1="156" x2="172" y2="194" marker-end="url(#kerberos-ablauf-pf)"/>
+  <circle class="sv-c" cx="270" cy="178" r="10"/>
+  <text class="sv-tb" x="270" y="182" text-anchor="middle">4</text>
+  <line class="sv-ln" x1="172" y1="206" x2="588" y2="254" marker-end="url(#kerberos-ablauf-pf)"/>
+  <circle class="sv-c" cx="380" cy="230" r="10"/>
+  <text class="sv-tb" x="380" y="234" text-anchor="middle">5</text>
+  <line class="sv-ln-d" x1="588" y1="278" x2="172" y2="210" marker-end="url(#kerberos-ablauf-pf)"/>
+  <circle class="sv-c" cx="450" cy="256" r="10"/>
+  <text class="sv-tb" x="450" y="260" text-anchor="middle">6</text>
+  <text class="sv-tk" x="20" y="330" text-anchor="start">1 Anmeldung (Zeitstempel, verschlüsselt mit dem Passwort-Hash)</text>
+  <text class="sv-tk" x="20" y="348" text-anchor="start">2 TGT – das „Eintrittsband“ für ca. 10 Stunden</text>
+  <text class="sv-tk" x="20" y="366" text-anchor="start">3 TGT + gewünschter Dienst (SPN)</text>
+  <text class="sv-tk" x="390" y="330" text-anchor="start">4 Service-Ticket für genau diesen Server</text>
+  <text class="sv-tk" x="390" y="348" text-anchor="start">5 Service-Ticket an den Server</text>
+  <text class="sv-tk" x="390" y="366" text-anchor="start">6 Zugriff – der Server prüft das Ticket selbst</text>
+  <text class="sv-tk" x="20" y="392" text-anchor="start">Das Passwort selbst geht nie über das Netz. Uhrzeiten dürfen höchstens 5 Minuten abweichen.</text>
+</svg>

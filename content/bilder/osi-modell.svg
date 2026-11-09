@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs><marker id="osi-modell-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="18" y="26">Nr.</text>
+  <text class="sv-tb" x="58" y="26">OSI-Schicht</text>
+  <text class="sv-tb" x="238" y="26">Dateneinheit</text>
+  <text class="sv-tb" x="338" y="26">Geräte</text>
+  <text class="sv-tb" x="458" y="26">Beispiele</text>
+  <text class="sv-tb" x="648" y="26">TCP/IP</text>
+  <rect class="sv-a" x="10" y="43" width="630" height="40" rx="6"/>
+  <text class="sv-tb" x="30" y="68.0" text-anchor="middle">7</text>
+  <text class="sv-tb" x="58" y="68.0">Anwendung</text>
+  <text class="sv-t" x="238" y="68.0">Daten</text>
+  <text class="sv-t" x="338" y="68.0">–</text>
+  <text class="sv-tc" x="458" y="68.0">HTTP, DNS, SMTP, SSH</text>
+  <rect class="sv-a" x="10" y="89" width="630" height="40" rx="6"/>
+  <text class="sv-tb" x="30" y="114.0" text-anchor="middle">6</text>
+  <text class="sv-tb" x="58" y="114.0">Darstellung</text>
+  <text class="sv-t" x="238" y="114.0">Daten</text>
+  <text class="sv-t" x="338" y="114.0">–</text>
+  <text class="sv-tc" x="458" y="114.0">TLS, JPEG, UTF-8</text>
+  <rect class="sv-a" x="10" y="135" width="630" height="40" rx="6"/>
+  <text class="sv-tb" x="30" y="160.0" text-anchor="middle">5</text>
+  <text class="sv-tb" x="58" y="160.0">Sitzung</text>
+  <text class="sv-t" x="238" y="160.0">Daten</text>
+  <text class="sv-t" x="338" y="160.0">–</text>
+  <text class="sv-tc" x="458" y="160.0">RPC, Sitzungen</text>
+  <rect class="sv-b" x="10" y="181" width="630" height="40" rx="6"/>
+  <text class="sv-tb" x="30" y="206.0" text-anchor="middle">4</text>
+  <text class="sv-tb" x="58" y="206.0">Transport</text>
+  <text class="sv-t" x="238" y="206.0">Segment</text>
+  <text class="sv-t" x="338" y="206.0">Firewall (L4)</text>
+  <text class="sv-tc" x="458" y="206.0">TCP, UDP, Ports</text>
+  <rect class="sv-c" x="10" y="227" width="630" height="40" rx="6"/>
+  <text class="sv-tb" x="30" y="252.0" text-anchor="middle">3</text>
+  <text class="sv-tb" x="58" y="252.0">Vermittlung</text>
+  <text class="sv-t" x="238" y="252.0">Paket</text>
+  <text class="sv-t" x="338" y="252.0">Router, L3-Switch</text>
+  <text class="sv-tc" x="458" y="252.0">IP, ICMP, Routing</text>
+  <rect class="sv-d" x="10" y="273" width="630" height="40" rx="6"/>
+  <text class="sv-tb" x="30" y="298.0" text-anchor="middle">2</text>
+  <text class="sv-tb" x="58" y="298.0">Sicherung</text>
+  <text class="sv-t" x="238" y="298.0">Frame</text>
+  <text class="sv-t" x="338" y="298.0">Switch, Bridge</text>
+  <text class="sv-tc" x="458" y="298.0">Ethernet, MAC, VLAN</text>
+  <rect class="sv-d" x="10" y="319" width="630" height="40" rx="6"/>
+  <text class="sv-tb" x="30" y="344.0" text-anchor="middle">1</text>
+  <text class="sv-tb" x="58" y="344.0">Bitübertragung</text>
+  <text class="sv-t" x="238" y="344.0">Bit</text>
+  <text class="sv-t" x="338" y="344.0">Hub, Kabel</text>
+  <text class="sv-tc" x="458" y="344.0">Kupfer, LWL, Funk</text>
+  <rect class="sv-a" x="650" y="43" width="140" height="132" rx="6"/>
+  <text class="sv-tb" x="720.0" y="114.0" text-anchor="middle">Anwendung</text>
+  <rect class="sv-b" x="650" y="181" width="140" height="40" rx="6"/>
+  <text class="sv-tb" x="720.0" y="206.0" text-anchor="middle">Transport</text>
+  <rect class="sv-c" x="650" y="227" width="140" height="40" rx="6"/>
+  <text class="sv-tb" x="720.0" y="252.0" text-anchor="middle">Internet</text>
+  <rect class="sv-d" x="650" y="273" width="140" height="86" rx="6"/>
+  <text class="sv-tb" x="720.0" y="321.0" text-anchor="middle">Netzzugang</text>
+  <line class="sv-ln" x1="20" y1="384" x2="300" y2="384" marker-end="url(#osi-modell-pf)"/>
+  <text class="sv-tk" x="310" y="389">Senden: jede Schicht fügt ihren Header hinzu (Kapselung)</text>
+  <line class="sv-ln-d" x1="300" y1="406" x2="20" y2="406" marker-end="url(#osi-modell-pf)"/>
+  <text class="sv-tk" x="310" y="411">Empfangen: Header werden wieder entfernt</text>
+</svg>

@@ -1,0 +1,482 @@
+{
+  "szenarien": [
+    {
+      "id": "switch",
+      "label": "Switch lernt MAC-Adressen",
+      "merksatz": "Ein Switch lernt aus der Quell-MAC, entscheidet nach der Ziel-MAC: bekannt → nur an diesen Port, unbekannt oder Broadcast → an alle anderen Ports (Flooding).",
+      "geraete": [
+        {
+          "name": "PC A",
+          "sub": "MAC-A · Port 1"
+        },
+        {
+          "name": "PC B",
+          "sub": "MAC-B · Port 2"
+        },
+        {
+          "name": "Switch",
+          "sub": "Schicht 2"
+        },
+        {
+          "name": "PC C",
+          "sub": "MAC-C · Port 3"
+        },
+        {
+          "name": "PC D",
+          "sub": "MAC-D · Port 4"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Frisch eingeschaltet",
+          "text": "Die MAC-Adresstabelle (CAM-Tabelle) des Switches ist leer. PC A schickt einen Frame an PC C.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-A",
+              "MAC-C",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "MAC-Adresstabelle des Switches",
+            "kopf": [
+              "MAC-Adresse",
+              "Port"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "Quell-MAC lernen",
+          "text": "Der Frame kommt an Port 1 an. Der Switch merkt sich: MAC-A ist an Port 1 erreichbar. Gelernt wird immer aus der Quell-Adresse.",
+          "aktiv": [
+            0,
+            2
+          ],
+          "position": 2,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-A",
+              "MAC-C",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "MAC-Adresstabelle des Switches",
+            "kopf": [
+              "MAC-Adresse",
+              "Port"
+            ],
+            "zeilen": [
+              [
+                "MAC-A",
+                "Port 1"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Ziel unbekannt: Flooding",
+          "text": "MAC-C steht noch nicht in der Tabelle. Der Switch schickt den Frame an alle Ports außer dem Eingangsport. PC B und PC D sehen, dass die Ziel-MAC nicht ihre ist, und verwerfen ihn.",
+          "aktiv": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": 3,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-A",
+              "MAC-C",
+              false
+            ]
+          ],
+          "ziele": [
+            1,
+            4
+          ],
+          "tabelle": {
+            "titel": "MAC-Adresstabelle des Switches",
+            "kopf": [
+              "MAC-Adresse",
+              "Port"
+            ],
+            "zeilen": [
+              [
+                "MAC-A",
+                "Port 1"
+              ]
+            ]
+          },
+          "hinweis": "Flooding ist kein Fehler, sondern das normale Verhalten bei unbekannten Zielen und bei Broadcasts (ff:ff:ff:ff:ff:ff)."
+        },
+        {
+          "titel": "PC C antwortet",
+          "text": "PC C schickt eine Antwort an PC A zurück.",
+          "aktiv": [
+            3
+          ],
+          "position": 3,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-C",
+              "MAC-A",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "MAC-Adresstabelle des Switches",
+            "kopf": [
+              "MAC-Adresse",
+              "Port"
+            ],
+            "zeilen": [
+              [
+                "MAC-A",
+                "Port 1"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Lernen und gezielt weiterleiten",
+          "text": "Der Switch lernt MAC-C an Port 3. Die Ziel-MAC MAC-A kennt er schon – der Frame geht nur an Port 1 (Forwarding).",
+          "aktiv": [
+            2,
+            3
+          ],
+          "position": 2,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-C",
+              "MAC-A",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "MAC-Adresstabelle des Switches",
+            "kopf": [
+              "MAC-Adresse",
+              "Port"
+            ],
+            "zeilen": [
+              [
+                "MAC-A",
+                "Port 1"
+              ],
+              [
+                "MAC-C",
+                "Port 3"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          }
+        },
+        {
+          "titel": "Zugestellt",
+          "text": "Nur PC A bekommt den Frame. PC B und PC D sehen davon nichts – genau das unterscheidet einen Switch vom Hub.",
+          "aktiv": [
+            0,
+            2
+          ],
+          "position": 0,
+          "paket": "Frame",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-C",
+              "MAC-A",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "MAC-Adresstabelle des Switches",
+            "kopf": [
+              "MAC-Adresse",
+              "Port"
+            ],
+            "zeilen": [
+              [
+                "MAC-A",
+                "Port 1"
+              ],
+              [
+                "MAC-C",
+                "Port 3"
+              ]
+            ]
+          },
+          "hinweis": "Einträge altern: Meldet sich ein Gerät etwa 5 Minuten nicht (Aging Time), wird es aus der Tabelle gelöscht."
+        }
+      ]
+    },
+    {
+      "id": "arp",
+      "label": "ARP: IP zu MAC auflösen",
+      "merksatz": "ARP-Request als Broadcast („Wer hat 192.168.1.30?“), ARP-Reply als Unicast. Das Ergebnis landet im ARP-Cache – ARP funktioniert nur im eigenen Subnetz.",
+      "geraete": [
+        {
+          "name": "PC A",
+          "sub": "192.168.1.10 · MAC-A"
+        },
+        {
+          "name": "Switch",
+          "sub": "Schicht 2"
+        },
+        {
+          "name": "PC B",
+          "sub": "192.168.1.20 · MAC-B"
+        },
+        {
+          "name": "PC C",
+          "sub": "192.168.1.30 · MAC-C"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "MAC-Adresse fehlt",
+          "text": "PC A will 192.168.1.30 anpingen. Das Ziel liegt im eigenen Subnetz, aber für den Ethernet-Frame braucht PC A die MAC-Adresse – und der ARP-Cache ist leer.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "Ping",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-A",
+              "?",
+              true
+            ],
+            [
+              "IP (Schicht 3)",
+              "192.168.1.10",
+              "192.168.1.30",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "ARP-Cache von PC A",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Typ"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "ARP-Request als Broadcast",
+          "text": "PC A fragt alle: „Wer hat 192.168.1.30? Antwort an 192.168.1.10.“ Die Ziel-MAC ist die Broadcast-Adresse.",
+          "aktiv": [
+            0,
+            1
+          ],
+          "position": 1,
+          "paket": "ARP",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-A",
+              "ff:ff:ff:ff:ff:ff",
+              true
+            ],
+            [
+              "ARP: IP",
+              "192.168.1.10",
+              "192.168.1.30",
+              false
+            ],
+            [
+              "ARP: MAC",
+              "MAC-A",
+              "00:00:00:00:00:00",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "ARP-Cache von PC A",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Typ"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "Alle bekommen die Frage",
+          "text": "Der Switch flutet den Broadcast. PC B prüft die gesuchte IP, sie ist nicht seine – er verwirft die Anfrage. PC C erkennt seine IP und merkt sich nebenbei IP und MAC von PC A.",
+          "aktiv": [
+            1,
+            2,
+            3
+          ],
+          "position": 3,
+          "paket": "ARP",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-A",
+              "ff:ff:ff:ff:ff:ff",
+              false
+            ],
+            [
+              "ARP: IP",
+              "192.168.1.10",
+              "192.168.1.30",
+              false
+            ],
+            [
+              "ARP: MAC",
+              "MAC-A",
+              "00:00:00:00:00:00",
+              false
+            ]
+          ],
+          "ziele": [
+            2
+          ],
+          "tabelle": {
+            "titel": "ARP-Cache von PC A",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Typ"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "ARP-Reply als Unicast",
+          "text": "PC C antwortet direkt an PC A: „192.168.1.30 hat MAC-C.“ Die Antwort ist kein Broadcast mehr.",
+          "aktiv": [
+            3,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "ARP",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-C",
+              "MAC-A",
+              true
+            ],
+            [
+              "ARP: IP",
+              "192.168.1.30",
+              "192.168.1.10",
+              false
+            ],
+            [
+              "ARP: MAC",
+              "MAC-C",
+              "MAC-A",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "ARP-Cache von PC A",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Typ"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "Eintrag im ARP-Cache",
+          "text": "PC A speichert die Zuordnung im ARP-Cache. Ansehen kannst du ihn mit arp -a (Windows) oder ip neigh (Linux).",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "ARP",
+          "zeilen": [],
+          "tabelle": {
+            "titel": "ARP-Cache von PC A",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Typ"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.30",
+                "MAC-C",
+                "dynamisch"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Jetzt klappt der Ping",
+          "text": "Mit der bekannten MAC baut PC A den Frame und schickt den Ping direkt an PC C.",
+          "aktiv": [
+            0,
+            1,
+            3
+          ],
+          "position": 3,
+          "paket": "Ping",
+          "zeilen": [
+            [
+              "MAC (Schicht 2)",
+              "MAC-A",
+              "MAC-C",
+              true
+            ],
+            [
+              "IP (Schicht 3)",
+              "192.168.1.10",
+              "192.168.1.30",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "ARP-Cache von PC A",
+            "kopf": [
+              "IP-Adresse",
+              "MAC-Adresse",
+              "Typ"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.30",
+                "MAC-C",
+                "dynamisch"
+              ]
+            ]
+          },
+          "hinweis": "Liegt das Ziel in einem anderen Subnetz, fragt PC A per ARP nicht nach dem Ziel, sondern nach der MAC des Default-Gateways."
+        }
+      ]
+    }
+  ]
+}

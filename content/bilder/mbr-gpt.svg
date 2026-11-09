@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <defs><marker id="mbr-gpt-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">MBR (BIOS, alt)</text>
+  <rect class="sv-e" x="20" y="36" width="70" height="44" rx="6"/>
+  <text class="sv-t" x="55.0" y="63.0" text-anchor="middle">MBR</text>
+  <rect class="sv-a" x="90" y="36" width="150" height="44" rx="6"/>
+  <text class="sv-t" x="165.0" y="63.0" text-anchor="middle">Primär 1</text>
+  <rect class="sv-a" x="240" y="36" width="150" height="44" rx="6"/>
+  <text class="sv-t" x="315.0" y="63.0" text-anchor="middle">Primär 2</text>
+  <rect class="sv-a" x="390" y="36" width="150" height="44" rx="6"/>
+  <text class="sv-t" x="465.0" y="63.0" text-anchor="middle">Primär 3</text>
+  <rect class="sv-b" x="540" y="36" width="160" height="44" rx="6"/>
+  <text class="sv-t" x="620.0" y="63.0" text-anchor="middle">Erweitert: logische</text>
+  <text class="sv-tk" x="20" y="100">höchstens 4 primäre Partitionen (oder 3 + eine erweiterte), Datenträger bis 2 TiB,</text>
+  <text class="sv-tk" x="20" y="117">Partitionstabelle nur einmal am Anfang – ist sie defekt, ist alles weg.</text>
+  <text class="sv-tb" x="20" y="160">GPT (UEFI, heute Standard)</text>
+  <rect class="sv-box" x="20" y="172" width="80" height="44" rx="6"/>
+  <text class="sv-tk" x="60.0" y="199.0" text-anchor="middle">Schutz-MBR</text>
+  <rect class="sv-e" x="100" y="172" width="80" height="44" rx="6"/>
+  <text class="sv-tk" x="140.0" y="199.0" text-anchor="middle">GPT-Kopf</text>
+  <rect class="sv-d" x="180" y="172" width="90" height="44" rx="6"/>
+  <text class="sv-t" x="225.0" y="199.0" text-anchor="middle">EFI (ESP)</text>
+  <rect class="sv-box" x="270" y="172" width="60" height="44" rx="6"/>
+  <text class="sv-tk" x="300.0" y="199.0" text-anchor="middle">MSR</text>
+  <rect class="sv-a" x="330" y="172" width="230" height="44" rx="6"/>
+  <text class="sv-t" x="445.0" y="199.0" text-anchor="middle">Windows (C:)</text>
+  <rect class="sv-c" x="560" y="172" width="100" height="44" rx="6"/>
+  <text class="sv-t" x="610.0" y="199.0" text-anchor="middle">Recovery</text>
+  <rect class="sv-e" x="660" y="172" width="80" height="44" rx="6"/>
+  <text class="sv-tk" x="700.0" y="199.0" text-anchor="middle">GPT-Kopie</text>
+  <text class="sv-tk" x="20" y="236">bis 128 Partitionen (Windows), riesige Datenträger, Kopie der Partitionstabelle am Ende,</text>
+  <text class="sv-tk" x="20" y="253">Prüfsummen. UEFI bootet aus der EFI-Systempartition (FAT32).</text>
+</svg>

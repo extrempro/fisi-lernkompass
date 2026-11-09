@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 450">
+  <defs><marker id="struktogramm-pap-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">Dieselbe Aufgabe viermal: Summe der Zahlen 1 bis n</text>
+  <text class="sv-xa" x="20" y="52">Struktogramm (Nassi-Shneiderman)</text>
+  <rect class="sv-box" x="20" y="62" width="230" height="30" rx="0"/>
+  <text class="sv-t" x="30" y="82">Eingabe n</text>
+  <rect class="sv-box" x="20" y="92" width="230" height="30" rx="0"/>
+  <text class="sv-t" x="30" y="112">summe ← 0, i ← 1</text>
+  <rect class="sv-box" x="20" y="122" width="230" height="100" rx="0"/>
+  <text class="sv-t" x="30" y="142">solange i ≤ n</text>
+  <rect class="sv-a" x="44" y="150" width="206" height="36" rx="0"/>
+  <text class="sv-t" x="54" y="172">summe ← summe + i</text>
+  <rect class="sv-a" x="44" y="186" width="206" height="36" rx="0"/>
+  <text class="sv-t" x="54" y="208">i ← i + 1</text>
+  <rect class="sv-box" x="20" y="222" width="230" height="30" rx="0"/>
+  <text class="sv-t" x="30" y="242">Ausgabe summe</text>
+  <text class="sv-xb" x="280" y="52">Programmablaufplan (DIN 66001)</text>
+  <rect class="sv-b" x="330" y="62" width="100" height="26" rx="13"/>
+  <text class="sv-t" x="380" y="80" text-anchor="middle">Start</text>
+  <polygon class="sv-box" points="325,98 445,98 435,124 315,124"/>
+  <text class="sv-t" x="380" y="116" text-anchor="middle">Eingabe n</text>
+  <rect class="sv-box" x="310" y="134" width="140" height="26" rx="0"/>
+  <text class="sv-tk" x="380" y="152" text-anchor="middle">summe ← 0, i ← 1</text>
+  <polygon class="sv-c" points="380,170 440,192 380,214 320,192"/>
+  <text class="sv-tk" x="380" y="196" text-anchor="middle">i ≤ n ?</text>
+  <rect class="sv-box" x="310" y="232" width="140" height="40" rx="0"/>
+  <text class="sv-tk" x="380" y="249" text-anchor="middle">summe ← summe + i</text>
+  <text class="sv-tk" x="380" y="265" text-anchor="middle">i ← i + 1</text>
+  <polygon class="sv-box" points="475,180 595,180 585,204 465,204"/>
+  <text class="sv-tk" x="530" y="196" text-anchor="middle">Ausgabe summe</text>
+  <rect class="sv-b" x="485" y="232" width="90" height="26" rx="13"/>
+  <text class="sv-t" x="530" y="250" text-anchor="middle">Ende</text>
+  <line class="sv-ln" x1="380" y1="88" x2="380" y2="98" marker-end="url(#struktogramm-pap-pf)"/>
+  <line class="sv-ln" x1="380" y1="124" x2="380" y2="134" marker-end="url(#struktogramm-pap-pf)"/>
+  <line class="sv-ln" x1="380" y1="160" x2="380" y2="170" marker-end="url(#struktogramm-pap-pf)"/>
+  <line class="sv-ln" x1="380" y1="214" x2="380" y2="232" marker-end="url(#struktogramm-pap-pf)"/>
+  <text class="sv-tk" x="388" y="228">ja</text>
+  <text class="sv-tk" x="442" y="186">nein</text>
+  <line class="sv-ln" x1="440" y1="192" x2="468" y2="192" marker-end="url(#struktogramm-pap-pf)"/>
+  <line class="sv-ln" x1="530" y1="204" x2="530" y2="232" marker-end="url(#struktogramm-pap-pf)"/>
+  <path class="sv-ln" d="M310 252 L290 252 L290 192 L318 192" marker-end="url(#struktogramm-pap-pf)"/>
+  <text class="sv-xc" x="20" y="300">Pseudocode</text>
+  <rect class="sv-box" x="20" y="310" width="230" height="110" rx="6"/>
+  <text class="sv-tc" x="32" y="330">EINGABE n</text>
+  <text class="sv-tc" x="32" y="346">summe ← 0</text>
+  <text class="sv-tc" x="32" y="362">FÜR i ← 1 BIS n</text>
+  <text class="sv-tc" x="32" y="378">    summe ← summe + i</text>
+  <text class="sv-tc" x="32" y="394">ENDE FÜR</text>
+  <text class="sv-tc" x="32" y="410">AUSGABE summe</text>
+  <text class="sv-xc" x="280" y="330">PowerShell</text>
+  <rect class="sv-box" x="280" y="340" width="320" height="104" rx="6"/>
+  <text class="sv-tc" x="292" y="360">$n = [int](Read-Host "n")</text>
+  <text class="sv-tc" x="292" y="375">$summe = 0</text>
+  <text class="sv-tc" x="292" y="390">for ($i = 1; $i -le $n; $i++) {</text>
+  <text class="sv-tc" x="292" y="405">    $summe += $i</text>
+  <text class="sv-tc" x="292" y="420">}</text>
+  <text class="sv-tc" x="292" y="435">$summe</text>
+</svg>

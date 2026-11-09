@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340">
+  <text class="sv-tb" x="340" y="22" text-anchor="middle">Vier-Seiten-Modell (Schulz von Thun)</text>
+  <rect class="sv-box" x="240" y="110" width="200" height="110" rx="10"/>
+  <text class="sv-tb" x="340" y="156" text-anchor="middle">„Der Drucker geht</text>
+  <text class="sv-tb" x="340" y="176" text-anchor="middle">schon wieder nicht!“</text>
+  <rect class="sv-a" x="240" y="40" width="200" height="56" rx="8"/>
+  <text class="sv-tb" x="340" y="62" text-anchor="middle">Sachinhalt</text>
+  <text class="sv-tk" x="340" y="82" text-anchor="middle">Der Drucker druckt nicht.</text>
+  <rect class="sv-d" x="14" y="120" width="210" height="90" rx="8"/>
+  <text class="sv-tb" x="119" y="142" text-anchor="middle">Selbstkundgabe</text>
+  <text class="sv-tk" x="119" y="162" text-anchor="middle">Ich bin genervt und</text>
+  <rect class="sv-c" x="456" y="120" width="210" height="90" rx="8"/>
+  <text class="sv-tb" x="561" y="142" text-anchor="middle">Appell</text>
+  <text class="sv-tk" x="561" y="162" text-anchor="middle">Kümmert euch</text>
+  <rect class="sv-e" x="240" y="236" width="200" height="56" rx="8"/>
+  <text class="sv-tb" x="340" y="258" text-anchor="middle">Beziehung</text>
+  <text class="sv-tk" x="340" y="278" text-anchor="middle">„Ihr kriegt das nie hin.“</text>
+  <text class="sv-tk" x="119" y="182" text-anchor="middle">stehe unter Zeitdruck.</text>
+  <text class="sv-tk" x="561" y="182" text-anchor="middle">sofort darum!</text>
+  <text class="sv-tk" x="340" y="318" text-anchor="middle">Jede Nachricht hat vier Seiten – wer nur auf die Beziehungsseite hört, fühlt sich angegriffen.</text>
+  <text class="sv-tk" x="340" y="334" text-anchor="middle">Im Support: Sachinhalt lösen, Selbstkundgabe anerkennen, Appell mit einem konkreten nächsten Schritt beantworten.</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 150">
+  <defs><marker id="arch-3tier-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="72" y="22" text-anchor="middle">1. Präsentation</text>
+  <rect class="sv-box" x="12" y="44" width="120" height="58" rx="6"/>
+  <text class="sv-t" x="72" y="77.5" text-anchor="middle">Browser</text>
+  <line class="sv-ln" x1="134" y1="66" x2="156" y2="66" marker-end="url(#arch-3tier-pf)"/>
+  <line class="sv-ln-d" x1="156" y1="82" x2="134" y2="82" marker-end="url(#arch-3tier-pf)"/>
+  <text class="sv-tb" x="218" y="22" text-anchor="middle">2. Logik</text>
+  <rect class="sv-a" x="158" y="44" width="120" height="58" rx="6"/>
+  <text class="sv-t" x="218" y="77.5" text-anchor="middle">App-Server</text>
+  <line class="sv-ln" x1="280" y1="66" x2="302" y2="66" marker-end="url(#arch-3tier-pf)"/>
+  <line class="sv-ln-d" x1="302" y1="82" x2="280" y2="82" marker-end="url(#arch-3tier-pf)"/>
+  <text class="sv-tb" x="364" y="22" text-anchor="middle">3. Daten</text>
+  <path class="sv-c" d="M310 46v54a54 6 0 0 0 108 0v-54a54 6 0 0 0 -108 0z"/>
+  <ellipse class="sv-c" cx="364" cy="46" rx="54" ry="6"/>
+  <text class="sv-t" x="364" y="81" text-anchor="middle">Datenbank</text>
+  <text class="sv-tk" x="72" y="124" text-anchor="middle">zeigt an</text>
+  <text class="sv-tk" x="218" y="124" text-anchor="middle">rechnet, prüft</text>
+  <text class="sv-tk" x="364" y="124" text-anchor="middle">speichert</text>
+  <text class="sv-tk" x="364" y="138" text-anchor="middle">nur via App-Server</text>
+</svg>

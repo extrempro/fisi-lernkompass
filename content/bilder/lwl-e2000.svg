@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">E-2000 (LSH)</text>
+  <text class="sv-tk" x="110" y="138" text-anchor="middle">Ferrule 2,5 mm, Schutzklappe</text>
+  <text class="sv-tk" x="110" y="152" text-anchor="middle">Hebel – häufig APC, Carrier-Netze</text>
+  <rect class="sv-glas" x="40" y="66.5" width="14" height="7" rx="1"/>
+  <rect class="sv-b" x="52" y="56" width="56" height="28" rx="3"/>
+  <path class="sv-box" d="M108 59L142 66.0V74.0L108 81z"/>
+  <line class="sv-ln" x1="142" y1="70" x2="210" y2="70"/>
+  <path class="sv-ln-b" d="M50 88L38 100"/>
+  <line class="sv-ln-b" x1="50" y1="52" x2="50" y2="88"/>
+  <text class="sv-xb" x="14" y="112" text-anchor="start">Schutzklappe</text>
+  <path class="sv-ln-b" d="M60 56L104 40"/>
+  <text class="sv-xb" x="108" y="42" text-anchor="start">Hebel</text>
+</svg>

@@ -1,0 +1,15 @@
+[
+  { "id": "hardware", "icon": "monitor", "lernfelder": ["LF 2"], "pruefung": ["AP1"] },
+  { "id": "betriebssysteme", "icon": "laptop", "lernfelder": ["LF 2", "LF 3"], "pruefung": ["AP1", "AP2"] },
+  { "id": "netzwerkgrundlagen", "icon": "network", "lernfelder": ["LF 3", "LF 9"], "pruefung": ["AP1", "AP2"] },
+  { "id": "netzwerkdienste", "icon": "globe", "lernfelder": ["LF 9", "LF 10b"], "pruefung": ["AP2"] },
+  { "id": "server", "icon": "server", "lernfelder": ["LF 10b", "LF 12b"], "pruefung": ["AP2"] },
+  { "id": "cloud", "icon": "cloud", "lernfelder": ["LF 8", "LF 12b"], "pruefung": ["AP2"] },
+  { "id": "sicherheit", "icon": "shield", "lernfelder": ["LF 4", "LF 11b"], "pruefung": ["AP1", "AP2"] },
+  { "id": "automatisierung", "icon": "terminal", "lernfelder": ["LF 5", "LF 10b"], "pruefung": ["AP1", "AP2"] },
+  { "id": "datenbanken", "icon": "database", "lernfelder": ["LF 5", "LF 8"], "pruefung": ["AP1", "AP2"] },
+  { "id": "support", "icon": "headphones", "lernfelder": ["LF 6"], "pruefung": ["AP1", "AP2"] },
+  { "id": "projekt", "icon": "clipboard-list", "lernfelder": ["LF 1", "LF 2", "LF 12b"], "pruefung": ["AP1", "AP2"] },
+  { "id": "wiso", "icon": "scale", "lernfelder": ["LF 1"], "pruefung": ["AP2"] },
+  { "id": "ki", "icon": "sparkles", "lernfelder": [], "pruefung": ["AP1", "AP2"] }
+]

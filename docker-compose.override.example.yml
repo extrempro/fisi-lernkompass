@@ -1,0 +1,13 @@
+# Eigene Einstellungen für Docker Compose – nur auf deinem Rechner.
+# Kopieren nach docker-compose.override.yml; Docker Compose liest die Datei automatisch mit.
+# docker-compose.override.yml steht in .gitignore, git pull überschreibt sie also nicht.
+# !override ersetzt die Portzuordnung aus docker-compose.yml (Docker Compose ab Version 2.24).
+
+services:
+  app:
+    ports: !override
+      # links: Adresse und Port auf dem Rechner, rechts: Port im Container (immer 3000)
+      # nur dieser Rechner, z. B. für einen Reverse Proxy auf demselben Rechner → Proxy auf 127.0.0.1:8988
+      - "127.0.0.1:8988:3000"
+      # alle Geräte im Netz – dann den Port per Firewall auf das Heimnetz beschränken:
+      # - "8988:3000"

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 230">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">Singlemode (OS2)</text>
+  <circle class="sv-glas" cx="62" cy="92" r="56"/>
+  <circle class="sv-a" cx="62" cy="92" r="4.032"/>
+  <line class="sv-ln" x1="66.032" y1="92" x2="126" y2="70"/>
+  <text class="sv-xa" x="130" y="74" text-anchor="start">Kern 9 µm</text>
+  <line class="sv-ln" x1="101.2" y1="131.2" x2="126" y2="128"/>
+  <text class="sv-t" x="130" y="132" text-anchor="start">Mantel 125 µm</text>
+  <rect class="sv-glas" x="14" y="154" width="192" height="36" rx="2"/>
+  <rect class="sv-a" x="14" y="170.5" width="192" height="3" rx="1"/>
+  <line class="sv-ln-e" x1="18" y1="172" x2="200" y2="172"/>
+  <text class="sv-tk" x="110" y="220" text-anchor="middle">ein Lichtweg – viele Kilometer</text>
+</svg>

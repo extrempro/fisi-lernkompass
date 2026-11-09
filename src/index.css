@@ -1,0 +1,405 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design-Tokens – Farben nur hier definieren, nie hart im Code */
+:root {
+  --c-bg: #f8fafc;
+  --c-card: #ffffff;
+  --c-text: #0f172a;
+  --c-muted: #475569;
+  --c-border: #e2e8f0;
+  --c-accent: #2563eb;
+  --c-accent-soft: #eff6ff;
+  --c-on-accent: #ffffff;
+  --c-track: #e2e8f0;
+  --c-chip: #f1f5f9;
+  --c-code: #f1f5f9;
+  --c-code-text: #0f172a;
+  --c-warn-bg: #fef3c7;
+  --c-warn-fg: #92400e;
+  --c-seg-rot-bg: #fee2e2;
+  --c-seg-rot-fg: #991b1b;
+  --c-seg-gelb-bg: #fef3c7;
+  --c-seg-gelb-fg: #92400e;
+  --c-seg-gruen-bg: #dcfce7;
+  --c-seg-gruen-fg: #166534;
+  --c-schule: #6d28d9;
+  --c-schule-soft: #ede9fe;
+  --c-ferien: #0f766e;
+  --c-ferien-soft: #ccfbf1;
+  /* Grafiken (content/bilder/*.svg) */
+  --sv-line: #64748b;
+  --sv-a-bg: #dbeafe;
+  --sv-a-fg: #1d4ed8;
+  --sv-b-bg: #dcfce7;
+  --sv-b-fg: #15803d;
+  --sv-c-bg: #fef3c7;
+  --sv-c-fg: #b45309;
+  --sv-d-bg: #ede9fe;
+  --sv-d-fg: #6d28d9;
+  --sv-e-bg: #ffe4e6;
+  --sv-e-fg: #be123c;
+  --sv-glas: #e2e8f0;
+  color-scheme: light;
+}
+
+html.dark {
+  --c-bg: #0f172a;
+  --c-card: #1e293b;
+  --c-text: #f1f5f9;
+  --c-muted: #94a3b8;
+  --c-border: #334155;
+  --c-accent: #60a5fa;
+  --c-accent-soft: #172554;
+  --c-on-accent: #0f172a;
+  --c-track: #334155;
+  --c-chip: #0f172a;
+  --c-code: #0f172a;
+  --c-code-text: #e2e8f0;
+  --c-warn-bg: rgba(245, 158, 11, 0.14);
+  --c-warn-fg: #fcd34d;
+  --c-seg-rot-bg: rgba(220, 38, 38, 0.25);
+  --c-seg-rot-fg: #fca5a5;
+  --c-seg-gelb-bg: rgba(245, 158, 11, 0.25);
+  --c-seg-gelb-fg: #fcd34d;
+  --c-seg-gruen-bg: rgba(22, 163, 74, 0.28);
+  --c-seg-gruen-fg: #86efac;
+  --c-schule: #c4b5fd;
+  --c-schule-soft: #2e1065;
+  --c-ferien: #5eead4;
+  --c-ferien-soft: #134e4a;
+  --sv-line: #94a3b8;
+  --sv-a-bg: #1e3a5f;
+  --sv-a-fg: #93c5fd;
+  --sv-b-bg: #143a2a;
+  --sv-b-fg: #86efac;
+  --sv-c-bg: #3f3214;
+  --sv-c-fg: #fcd34d;
+  --sv-d-bg: #2f2755;
+  --sv-d-fg: #c4b5fd;
+  --sv-e-bg: #4a1d2b;
+  --sv-e-fg: #fda4af;
+  --sv-glas: #475569;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 2px;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .karte {
+    @apply rounded-xl border border-line bg-card shadow-[0_1px_2px_rgba(15,23,42,0.05)];
+  }
+  .karte-hover {
+    @apply transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(15,23,42,0.10)];
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primaer {
+    @apply btn bg-accent text-on-accent hover:opacity-90;
+  }
+  .btn-sekundaer {
+    @apply btn border border-line bg-card text-ink hover:bg-chip;
+  }
+  .eingabe {
+    @apply min-h-[44px] rounded-lg border border-line bg-bg px-3 py-2 text-ink;
+  }
+  .ueberschrift-klein {
+    @apply text-sm font-semibold uppercase tracking-wide text-muted;
+  }
+  .chip {
+    @apply inline-block rounded-md px-2 text-xs font-medium;
+  }
+}
+
+/*
+ * Grafiken: Die SVGs in content/bilder/ nutzen nur diese Klassen statt fester Farben.
+ * Flächen: sv-box (neutral), sv-a (blau), sv-b (grün), sv-c (gelb), sv-d (violett), sv-e (rot)
+ * Linien: sv-ln (durchgezogen), sv-ln-d (gestrichelt), sv-ln-a … sv-ln-e (farbig), sv-pf (Pfeilspitze)
+ * Figuren: sv-koerper, sv-kopf, sv-moebel
+ * Text: sv-t (normal), sv-tb (fett), sv-tk (klein, gedämpft), sv-tc (Code), sv-xa … sv-xe (farbig)
+ */
+.sv-figur svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: Inter, system-ui, sans-serif;
+}
+/* Großansicht: so groß wie möglich, aber ganz sichtbar */
+.sv-lupe svg { max-height: calc(100vh - 160px); }
+.sv-box { fill: var(--c-card); stroke: var(--sv-line); stroke-width: 1.5; }
+.sv-a { fill: var(--sv-a-bg); stroke: var(--sv-a-fg); stroke-width: 1.5; }
+.sv-b { fill: var(--sv-b-bg); stroke: var(--sv-b-fg); stroke-width: 1.5; }
+.sv-c { fill: var(--sv-c-bg); stroke: var(--sv-c-fg); stroke-width: 1.5; }
+.sv-d { fill: var(--sv-d-bg); stroke: var(--sv-d-fg); stroke-width: 1.5; }
+.sv-e { fill: var(--sv-e-bg); stroke: var(--sv-e-fg); stroke-width: 1.5; }
+.sv-ln { fill: none; stroke: var(--sv-line); stroke-width: 2; }
+.sv-ln-d { fill: none; stroke: var(--sv-line); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.sv-ln-a { fill: none; stroke: var(--sv-a-fg); stroke-width: 2; }
+.sv-ln-b { fill: none; stroke: var(--sv-b-fg); stroke-width: 2; }
+.sv-ln-c { fill: none; stroke: var(--sv-c-fg); stroke-width: 2; }
+.sv-ln-e { fill: none; stroke: var(--sv-e-fg); stroke-width: 2; }
+.sv-pf { fill: var(--sv-line); }
+.sv-t { fill: var(--c-text); font-size: 13px; }
+.sv-tb { fill: var(--c-text); font-size: 13px; font-weight: 600; }
+.sv-tk { fill: var(--c-muted); font-size: 11px; }
+.sv-tc { fill: var(--c-text); font-size: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.sv-xa { fill: var(--sv-a-fg); font-size: 12px; font-weight: 600; }
+.sv-xb { fill: var(--sv-b-fg); font-size: 12px; font-weight: 600; }
+.sv-xc { fill: var(--sv-c-fg); font-size: 12px; font-weight: 600; }
+.sv-xd { fill: var(--sv-d-fg); font-size: 12px; font-weight: 600; }
+.sv-xe { fill: var(--sv-e-fg); font-size: 12px; font-weight: 600; }
+/* Aderfarben (echte Farben, in beiden Modi gleich) */
+.sv-ader-or { fill: #f97316; }
+.sv-ader-gn { fill: #16a34a; }
+.sv-ader-bl { fill: #2563eb; }
+.sv-ader-br { fill: #92400e; }
+.sv-ader-ws { fill: #ffffff; stroke: #64748b; stroke-width: 1; }
+.sv-glas { fill: var(--sv-glas); stroke: var(--sv-line); stroke-width: 1; }
+/* Figuren (z. B. Sitzhaltung): Körper als dicke Linien, Möbel als kräftige Linien */
+.sv-koerper { fill: none; stroke: var(--sv-a-fg); stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; }
+.sv-kopf { fill: var(--sv-a-bg); stroke: var(--sv-a-fg); stroke-width: 3; }
+.sv-moebel { fill: none; stroke: var(--sv-line); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/*
+ * Berichtsheft drucken bzw. als PDF speichern (src/bericht/Druck.tsx):
+ * Am Bildschirm unsichtbar; beim Drucken ist nur dieser Bereich zu sehen – immer hell, A4.
+ */
+.druckbereich {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 16mm;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+  }
+  body > *:not(.druckbereich) {
+    display: none !important;
+  }
+  .druckbereich {
+    display: block;
+    color: #0f172a;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+  .druck-seite {
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+    min-height: 266mm;
+    break-after: page;
+  }
+  .druck-seite:last-child {
+    break-after: auto;
+  }
+  .druck-seite h1 {
+    margin: 0;
+    font-size: 17pt;
+    font-weight: 700;
+  }
+  .druck-kopf {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 2mm;
+  }
+  .druck-unter {
+    color: #334155;
+  }
+  .druck-deckblatt {
+    justify-content: center;
+    gap: 10mm;
+  }
+  .druck-deckblatt h1 {
+    font-size: 26pt;
+  }
+  .druck-daten {
+    display: grid;
+    gap: 1.2mm;
+    margin: 0;
+  }
+  .druck-daten > div {
+    display: grid;
+    grid-template-columns: 42mm 1fr;
+    gap: 3mm;
+  }
+  .druck-daten dt {
+    color: #334155;
+  }
+  .druck-daten dd {
+    margin: 0;
+  }
+  /* Eine Tabelle mit Abschnitten; „separate“ statt „collapse“, damit keine Linie beim Skalieren verschwindet */
+  .druck-tabelle {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 0.35mm solid #64748b;
+    border-radius: 1.2mm;
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .druck-tabelle th,
+  .druck-tabelle td {
+    padding: 1.7mm 2.6mm;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 0.25mm solid #cbd5e1;
+  }
+  .druck-tabelle .druck-h {
+    width: 22mm;
+    text-align: right;
+    border-left: 0.25mm solid #cbd5e1;
+    font-variant-numeric: tabular-nums;
+  }
+  .druck-tabelle thead th {
+    background: #e2e8f0;
+    font-size: 9pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #334155;
+    border-bottom: 0.35mm solid #64748b;
+  }
+  .druck-abschnitt th {
+    background: #f1f5f9;
+    font-weight: 600;
+  }
+  .druck-tabelle tr {
+    break-inside: avoid;
+  }
+  .druck-leer {
+    color: #64748b;
+  }
+  .druck-summe th,
+  .druck-summe td {
+    font-weight: 700;
+    border-top: 0.35mm solid #64748b;
+    border-bottom: 0;
+    background: #f8fafc;
+  }
+  .druck-unterschrift {
+    margin-top: auto;
+    break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    gap: 4mm;
+  }
+  .druck-unterschrift p {
+    margin: 0 0 2mm;
+    color: #334155;
+  }
+  .druck-felder {
+    display: grid;
+    grid-template-columns: 45mm 1fr;
+    gap: 8mm;
+    align-items: end;
+  }
+  .druck-feld {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 18mm;
+  }
+  .druck-wert {
+    padding: 0 1mm 1mm;
+  }
+  .druck-signatur {
+    display: block;
+    height: 16mm;
+    width: 48mm;
+    color: #0f172a;
+    margin-bottom: -2mm;
+  }
+  .druck-linie {
+    border-top: 1px solid #0f172a;
+    padding-top: 1mm;
+    font-size: 9pt;
+    color: #334155;
+  }
+  .druck-fuss {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.5mm;
+    font-size: 8.5pt;
+    color: #475569;
+  }
+}
+
+/* Ablauf: Kopien eines Pakets (Broadcast/Flooding) blenden ein */
+@keyframes ablauf-einblenden {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  to { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Companion „Hoodie“ (src/companion): leichtes Atmen, Blinzeln, Hüpfer bei Freude, Wackeln bei Fehlern, blinkender Cursor.
+   Nur ohne „Bewegung reduzieren“ – sonst bleibt nur der Farbwechsel des Lichts. */
+@media (prefers-reduced-motion: no-preference) {
+  .hoodie-atmen { animation: hoodie-atmen 4s ease-in-out infinite; }
+  .hoodie-hops { animation: hoodie-hops 0.6s ease-out; }
+  .hoodie-blase { animation: hoodie-blase 0.2s ease-out; }
+  .hoodie-cursor { animation: hoodie-cursor 1s steps(1) infinite; }
+  .hoodie-wackeln { animation: hoodie-wackeln 0.4s ease-in-out; }
+  .hoodie-blinzeln { animation: hoodie-blinzeln 5s infinite; transform-box: fill-box; transform-origin: center; }
+  .hoodie-licht { transition: stop-color 0.4s, stroke 0.4s; }
+}
+@keyframes hoodie-wackeln {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+@keyframes hoodie-blinzeln {
+  0%, 94%, 100% { transform: scaleY(1); }
+  97% { transform: scaleY(0.1); }
+}
+@keyframes hoodie-atmen {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+@keyframes hoodie-hops {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+}
+@keyframes hoodie-blase {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hoodie-cursor {
+  50% { opacity: 0; }
+}

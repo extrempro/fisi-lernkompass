@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">Baum (erweiterter Stern)</text>
+  <text class="sv-tk" x="110" y="172" text-anchor="middle">Switches hierarchisch verbunden</text>
+  <line class="sv-ln" x1="110" y1="48" x2="58" y2="98"/>
+  <line class="sv-ln" x1="110" y1="48" x2="162" y2="98"/>
+  <line class="sv-ln" x1="58" y1="98" x2="22" y2="140"/>
+  <line class="sv-ln" x1="58" y1="98" x2="58" y2="140"/>
+  <line class="sv-ln" x1="58" y1="98" x2="94" y2="140"/>
+  <line class="sv-ln" x1="162" y1="98" x2="130" y2="140"/>
+  <line class="sv-ln" x1="162" y1="98" x2="166" y2="140"/>
+  <line class="sv-ln" x1="162" y1="98" x2="202" y2="140"/>
+  <rect class="sv-a" x="83" y="37" width="54" height="22" rx="4"/>
+  <text class="sv-xa" x="110" y="52" text-anchor="middle">Core</text>
+  <rect class="sv-a" x="31" y="87" width="54" height="22" rx="4"/>
+  <text class="sv-xa" x="58" y="102" text-anchor="middle">Switch</text>
+  <rect class="sv-a" x="135" y="87" width="54" height="22" rx="4"/>
+  <text class="sv-xa" x="162" y="102" text-anchor="middle">Switch</text>
+  <rect class="sv-box" x="8" y="129" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="22" y1="147" x2="22" y2="151"/>
+  <line class="sv-ln" x1="15" y1="151" x2="29" y2="151"/>
+  <rect class="sv-box" x="44" y="129" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="58" y1="147" x2="58" y2="151"/>
+  <line class="sv-ln" x1="51" y1="151" x2="65" y2="151"/>
+  <rect class="sv-box" x="80" y="129" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="94" y1="147" x2="94" y2="151"/>
+  <line class="sv-ln" x1="87" y1="151" x2="101" y2="151"/>
+  <rect class="sv-box" x="116" y="129" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="130" y1="147" x2="130" y2="151"/>
+  <line class="sv-ln" x1="123" y1="151" x2="137" y2="151"/>
+  <rect class="sv-box" x="152" y="129" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="166" y1="147" x2="166" y2="151"/>
+  <line class="sv-ln" x1="159" y1="151" x2="173" y2="151"/>
+  <rect class="sv-box" x="188" y="129" width="28" height="18" rx="3"/>
+  <line class="sv-ln" x1="202" y1="147" x2="202" y2="151"/>
+  <line class="sv-ln" x1="195" y1="151" x2="209" y2="151"/>
+</svg>

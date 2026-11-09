@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160">
+  <text class="sv-tb" x="110" y="18" text-anchor="middle">SC</text>
+  <text class="sv-tk" x="110" y="138" text-anchor="middle">quadratisch, Ferrule 2,5 mm</text>
+  <text class="sv-tk" x="110" y="152" text-anchor="middle">Push-Pull: stecken, ziehen</text>
+  <rect class="sv-glas" x="32" y="65" width="16" height="8" rx="1"/>
+  <rect class="sv-b" x="46" y="52" width="64" height="34" rx="3"/>
+  <path class="sv-box" d="M110 55L144 65.0V73.0L110 83z"/>
+  <line class="sv-ln" x1="144" y1="69" x2="210" y2="69"/>
+  <text class="sv-tb" x="78" y="74" text-anchor="middle">SC</text>
+</svg>

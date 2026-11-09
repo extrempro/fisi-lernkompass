@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320">
+  <defs><marker id="pdca-zyklus-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <rect class="sv-a" x="30" y="30" width="200" height="64" rx="6"/>
+  <text class="sv-tb" x="130" y="60" text-anchor="middle">Plan</text>
+  <text class="sv-tk" x="130" y="74" text-anchor="middle">Ziel und Maßnahmen planen</text>
+  <rect class="sv-b" x="330" y="30" width="200" height="64" rx="6"/>
+  <text class="sv-tb" x="430" y="60" text-anchor="middle">Do</text>
+  <text class="sv-tk" x="430" y="74" text-anchor="middle">im Kleinen umsetzen</text>
+  <rect class="sv-c" x="330" y="200" width="200" height="64" rx="6"/>
+  <text class="sv-tb" x="430" y="230" text-anchor="middle">Check</text>
+  <text class="sv-tk" x="430" y="244" text-anchor="middle">Ergebnis prüfen (Soll-Ist)</text>
+  <rect class="sv-d" x="30" y="200" width="200" height="64" rx="6"/>
+  <text class="sv-tb" x="130" y="230" text-anchor="middle">Act</text>
+  <text class="sv-tk" x="130" y="244" text-anchor="middle">Standard festlegen oder anpassen</text>
+  <line class="sv-ln" x1="232" y1="62" x2="328" y2="62" marker-end="url(#pdca-zyklus-pf)"/>
+  <line class="sv-ln" x1="430" y1="96" x2="430" y2="198" marker-end="url(#pdca-zyklus-pf)"/>
+  <line class="sv-ln" x1="328" y1="232" x2="232" y2="232" marker-end="url(#pdca-zyklus-pf)"/>
+  <line class="sv-ln" x1="130" y1="198" x2="130" y2="96" marker-end="url(#pdca-zyklus-pf)"/>
+  <text class="sv-tk" x="280" y="142" text-anchor="middle">kontinuierliche</text>
+  <text class="sv-tk" x="280" y="158" text-anchor="middle">Verbesserung (KVP)</text>
+  <text class="sv-tk" x="280" y="304" text-anchor="middle">Der Kreis beginnt immer wieder von vorn – Qualität ist ein Dauerzustand, kein Projekt</text>
+</svg>

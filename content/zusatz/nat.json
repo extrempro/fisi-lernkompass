@@ -1,0 +1,465 @@
+{
+  "szenarien": [
+    {
+      "id": "pat",
+      "label": "PAT: viele PCs, eine öffentliche IP",
+      "merksatz": "Ausgehend ersetzt der Router Quell-IP und Quellport, eingehend Ziel-IP und Zielport – anhand der NAT-Tabelle. Unterschieden werden die Verbindungen am Port.",
+      "geraete": [
+        {
+          "name": "PC A",
+          "sub": "192.168.1.10"
+        },
+        {
+          "name": "PC B",
+          "sub": "192.168.1.11"
+        },
+        {
+          "name": "Router",
+          "sub": "LAN .1.1 | WAN 203.0.113.7"
+        },
+        {
+          "name": "Internet",
+          "sub": ""
+        },
+        {
+          "name": "Webserver",
+          "sub": "198.51.100.20"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "PC A sendet",
+          "text": "PC A ruft eine Webseite auf. Seine private Adresse 192.168.1.10 ist im Internet nicht routbar.",
+          "aktiv": [
+            0
+          ],
+          "position": 0,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "192.168.1.10",
+              "198.51.100.20",
+              false
+            ],
+            [
+              "Port",
+              "50000",
+              "443",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "NAT-Tabelle des Routers",
+            "kopf": [
+              "Intern",
+              "Extern (Router)",
+              "Gegenstelle"
+            ],
+            "zeilen": []
+          }
+        },
+        {
+          "titel": "Router übersetzt",
+          "text": "Der Router ersetzt die Quelle durch seine öffentliche IP und einen freien Port und merkt sich die Zuordnung.",
+          "aktiv": [
+            0,
+            2
+          ],
+          "position": 2,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "203.0.113.7",
+              "198.51.100.20",
+              true
+            ],
+            [
+              "Port",
+              "40001",
+              "443",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "NAT-Tabelle des Routers",
+            "kopf": [
+              "Intern",
+              "Extern (Router)",
+              "Gegenstelle"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.10:50000",
+                "203.0.113.7:40001",
+                "198.51.100.20:443"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Im Internet",
+          "text": "Der Webserver sieht nur die öffentliche Adresse des Routers – nicht PC A.",
+          "aktiv": [
+            2,
+            3,
+            4
+          ],
+          "position": 4,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "203.0.113.7",
+              "198.51.100.20",
+              false
+            ],
+            [
+              "Port",
+              "40001",
+              "443",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "NAT-Tabelle des Routers",
+            "kopf": [
+              "Intern",
+              "Extern (Router)",
+              "Gegenstelle"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.10:50000",
+                "203.0.113.7:40001",
+                "198.51.100.20:443"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Antwort kommt zurück",
+          "text": "Die Antwort geht an 203.0.113.7:40001. Der Router schlägt den Port in der NAT-Tabelle nach.",
+          "aktiv": [
+            4,
+            3,
+            2
+          ],
+          "position": 2,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "198.51.100.20",
+              "203.0.113.7",
+              false
+            ],
+            [
+              "Port",
+              "443",
+              "40001",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "NAT-Tabelle des Routers",
+            "kopf": [
+              "Intern",
+              "Extern (Router)",
+              "Gegenstelle"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.10:50000",
+                "203.0.113.7:40001",
+                "198.51.100.20:443"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Rückübersetzung",
+          "text": "Der Router setzt das Ziel zurück auf 192.168.1.10:50000 und stellt das Paket PC A zu.",
+          "aktiv": [
+            2,
+            0
+          ],
+          "position": 0,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "198.51.100.20",
+              "192.168.1.10",
+              true
+            ],
+            [
+              "Port",
+              "443",
+              "50000",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "NAT-Tabelle des Routers",
+            "kopf": [
+              "Intern",
+              "Extern (Router)",
+              "Gegenstelle"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.10:50000",
+                "203.0.113.7:40001",
+                "198.51.100.20:443"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "PC B mit gleichem Port",
+          "text": "PC B nutzt zufällig auch Quellport 50000 zum selben Server. Der Router vergibt einen anderen externen Port – so bleiben beide Verbindungen unterscheidbar.",
+          "aktiv": [
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "203.0.113.7",
+              "198.51.100.20",
+              true
+            ],
+            [
+              "Port",
+              "40002",
+              "443",
+              true
+            ]
+          ],
+          "tabelle": {
+            "titel": "NAT-Tabelle des Routers",
+            "kopf": [
+              "Intern",
+              "Extern (Router)",
+              "Gegenstelle"
+            ],
+            "zeilen": [
+              [
+                "192.168.1.10:50000",
+                "203.0.113.7:40001",
+                "198.51.100.20:443"
+              ],
+              [
+                "192.168.1.11:50000",
+                "203.0.113.7:40002",
+                "198.51.100.20:443"
+              ]
+            ],
+            "neu": [
+              1
+            ]
+          },
+          "hinweis": "PAT heißt auch NAT-Overload oder Masquerading. Eine öffentliche IPv4 reicht so für ein ganzes Firmennetz."
+        }
+      ]
+    },
+    {
+      "id": "portweiterleitung",
+      "label": "Portweiterleitung zum internen Server",
+      "merksatz": "Von außen kommt nur an, wofür eine Portweiterleitung oder eine bestehende Verbindung existiert. NAT verbirgt das LAN – ersetzt aber keine Firewall.",
+      "geraete": [
+        {
+          "name": "Kunde",
+          "sub": "198.51.100.99"
+        },
+        {
+          "name": "Internet",
+          "sub": ""
+        },
+        {
+          "name": "Router",
+          "sub": "WAN 203.0.113.7 | LAN .1.1"
+        },
+        {
+          "name": "Switch",
+          "sub": ""
+        },
+        {
+          "name": "Webserver",
+          "sub": "192.168.1.50"
+        }
+      ],
+      "schritte": [
+        {
+          "titel": "Anfrage von außen",
+          "text": "Ein Kunde ruft den Firmen-Webshop auf. Er kennt nur die öffentliche IP des Routers.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "198.51.100.99",
+              "203.0.113.7",
+              false
+            ],
+            [
+              "Port",
+              "51234",
+              "443",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Portweiterleitung (Destination-NAT)",
+            "kopf": [
+              "Extern",
+              "Intern"
+            ],
+            "zeilen": [
+              [
+                "203.0.113.7:443",
+                "192.168.1.50:443"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Weiterleitung nach innen",
+          "text": "Für Port 443 gibt es eine feste Regel. Der Router ersetzt das Ziel durch den internen Webserver.",
+          "aktiv": [
+            2,
+            3,
+            4
+          ],
+          "position": 4,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "198.51.100.99",
+              "192.168.1.50",
+              true
+            ],
+            [
+              "Port",
+              "51234",
+              "443",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Portweiterleitung (Destination-NAT)",
+            "kopf": [
+              "Extern",
+              "Intern"
+            ],
+            "zeilen": [
+              [
+                "203.0.113.7:443",
+                "192.168.1.50:443"
+              ]
+            ],
+            "neu": [
+              0
+            ]
+          }
+        },
+        {
+          "titel": "Antwort nach außen",
+          "text": "Der Webserver antwortet. Der Router setzt die Quelle wieder auf seine öffentliche IP.",
+          "aktiv": [
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "position": 0,
+          "paket": "HTTPS",
+          "zeilen": [
+            [
+              "IP",
+              "203.0.113.7",
+              "198.51.100.99",
+              true
+            ],
+            [
+              "Port",
+              "443",
+              "51234",
+              false
+            ]
+          ],
+          "tabelle": {
+            "titel": "Portweiterleitung (Destination-NAT)",
+            "kopf": [
+              "Extern",
+              "Intern"
+            ],
+            "zeilen": [
+              [
+                "203.0.113.7:443",
+                "192.168.1.50:443"
+              ]
+            ]
+          }
+        },
+        {
+          "titel": "Anderer Port: verworfen",
+          "text": "Ein Scanner probiert Port 3389 (RDP). Dafür gibt es keine Weiterleitung und keine bestehende Verbindung – der Router weiß nicht, wohin damit, und verwirft das Paket.",
+          "aktiv": [
+            0,
+            1,
+            2
+          ],
+          "position": 2,
+          "paket": "RDP",
+          "zeilen": [
+            [
+              "IP",
+              "198.51.100.66",
+              "203.0.113.7",
+              false
+            ],
+            [
+              "Port",
+              "40404",
+              "3389",
+              true
+            ]
+          ],
+          "blockiert": true,
+          "tabelle": {
+            "titel": "Portweiterleitung (Destination-NAT)",
+            "kopf": [
+              "Extern",
+              "Intern"
+            ],
+            "zeilen": [
+              [
+                "203.0.113.7:443",
+                "192.168.1.50:443"
+              ]
+            ]
+          },
+          "hinweis": "Interne Server besser in eine DMZ stellen und RDP nie direkt ins Internet freigeben – stattdessen VPN."
+        }
+      ]
+    }
+  ]
+}

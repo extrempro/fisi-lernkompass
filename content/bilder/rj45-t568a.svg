@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 236">
+  <text class="sv-tb" x="16" y="20" text-anchor="start">T568A</text>
+  <text class="sv-tk" x="384" y="20" text-anchor="end">Pin 1 links · Kontakte oben · Rastnase hinten</text>
+  <rect class="sv-box" x="16" y="46" width="368" height="120" rx="10"/>
+  <text class="sv-tb" x="40" y="40" text-anchor="middle">1</text>
+  <rect class="sv-c" x="30" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-ws" x="30" y="68" width="20" height="90" rx="3"/>
+  <path class="sv-ader-gn" d="M30 76L50 70V75L30 81z"/>
+  <path class="sv-ader-gn" d="M30 88L50 82V87L30 93z"/>
+  <path class="sv-ader-gn" d="M30 100L50 94V99L30 105z"/>
+  <path class="sv-ader-gn" d="M30 112L50 106V111L30 117z"/>
+  <path class="sv-ader-gn" d="M30 124L50 118V123L30 129z"/>
+  <path class="sv-ader-gn" d="M30 136L50 130V135L30 141z"/>
+  <path class="sv-ader-gn" d="M30 148L50 142V147L30 153z"/>
+  <text class="sv-t" x="40" y="184" text-anchor="middle">ws/gn</text>
+  <text class="sv-tk" x="40" y="202" text-anchor="middle">TX+</text>
+  <text class="sv-tb" x="84" y="40" text-anchor="middle">2</text>
+  <rect class="sv-c" x="74" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-gn" x="74" y="68" width="20" height="90" rx="3"/>
+  <text class="sv-t" x="84" y="184" text-anchor="middle">gn</text>
+  <text class="sv-tk" x="84" y="202" text-anchor="middle">TX−</text>
+  <text class="sv-tb" x="128" y="40" text-anchor="middle">3</text>
+  <rect class="sv-c" x="118" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-ws" x="118" y="68" width="20" height="90" rx="3"/>
+  <path class="sv-ader-or" d="M118 76L138 70V75L118 81z"/>
+  <path class="sv-ader-or" d="M118 88L138 82V87L118 93z"/>
+  <path class="sv-ader-or" d="M118 100L138 94V99L118 105z"/>
+  <path class="sv-ader-or" d="M118 112L138 106V111L118 117z"/>
+  <path class="sv-ader-or" d="M118 124L138 118V123L118 129z"/>
+  <path class="sv-ader-or" d="M118 136L138 130V135L118 141z"/>
+  <path class="sv-ader-or" d="M118 148L138 142V147L118 153z"/>
+  <text class="sv-t" x="128" y="184" text-anchor="middle">ws/or</text>
+  <text class="sv-tk" x="128" y="202" text-anchor="middle">RX+</text>
+  <text class="sv-tb" x="172" y="40" text-anchor="middle">4</text>
+  <rect class="sv-c" x="162" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-bl" x="162" y="68" width="20" height="90" rx="3"/>
+  <text class="sv-t" x="172" y="184" text-anchor="middle">bl</text>
+  <text class="sv-tb" x="216" y="40" text-anchor="middle">5</text>
+  <rect class="sv-c" x="206" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-ws" x="206" y="68" width="20" height="90" rx="3"/>
+  <path class="sv-ader-bl" d="M206 76L226 70V75L206 81z"/>
+  <path class="sv-ader-bl" d="M206 88L226 82V87L206 93z"/>
+  <path class="sv-ader-bl" d="M206 100L226 94V99L206 105z"/>
+  <path class="sv-ader-bl" d="M206 112L226 106V111L206 117z"/>
+  <path class="sv-ader-bl" d="M206 124L226 118V123L206 129z"/>
+  <path class="sv-ader-bl" d="M206 136L226 130V135L206 141z"/>
+  <path class="sv-ader-bl" d="M206 148L226 142V147L206 153z"/>
+  <text class="sv-t" x="216" y="184" text-anchor="middle">ws/bl</text>
+  <text class="sv-tb" x="260" y="40" text-anchor="middle">6</text>
+  <rect class="sv-c" x="250" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-or" x="250" y="68" width="20" height="90" rx="3"/>
+  <text class="sv-t" x="260" y="184" text-anchor="middle">or</text>
+  <text class="sv-tk" x="260" y="202" text-anchor="middle">RX−</text>
+  <text class="sv-tb" x="304" y="40" text-anchor="middle">7</text>
+  <rect class="sv-c" x="294" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-ws" x="294" y="68" width="20" height="90" rx="3"/>
+  <path class="sv-ader-br" d="M294 76L314 70V75L294 81z"/>
+  <path class="sv-ader-br" d="M294 88L314 82V87L294 93z"/>
+  <path class="sv-ader-br" d="M294 100L314 94V99L294 105z"/>
+  <path class="sv-ader-br" d="M294 112L314 106V111L294 117z"/>
+  <path class="sv-ader-br" d="M294 124L314 118V123L294 129z"/>
+  <path class="sv-ader-br" d="M294 136L314 130V135L294 141z"/>
+  <path class="sv-ader-br" d="M294 148L314 142V147L294 153z"/>
+  <text class="sv-t" x="304" y="184" text-anchor="middle">ws/br</text>
+  <text class="sv-tb" x="348" y="40" text-anchor="middle">8</text>
+  <rect class="sv-c" x="338" y="52" width="20" height="10" rx="2"/>
+  <rect class="sv-ader-br" x="338" y="68" width="20" height="90" rx="3"/>
+  <text class="sv-t" x="348" y="184" text-anchor="middle">br</text>
+  <text class="sv-tk" x="200" y="228" text-anchor="middle">100 Mbit/s nutzt Pins 1, 2, 3, 6 – Gigabit alle vier Paare</text>
+</svg>

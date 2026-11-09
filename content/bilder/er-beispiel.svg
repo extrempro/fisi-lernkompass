@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470">
+  <defs><marker id="er-beispiel-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="20" y="24">ER-Modell (Chen-Notation)</text>
+  <rect class="sv-a" x="40" y="90" width="140" height="50" rx="6"/>
+  <text class="sv-tb" x="110.0" y="120.0" text-anchor="middle">Kunde</text>
+  <rect class="sv-a" x="580" y="90" width="140" height="50" rx="6"/>
+  <text class="sv-tb" x="650.0" y="120.0" text-anchor="middle">Artikel</text>
+  <polygon class="sv-c" points="380,70 450,115 380,160 310,115"/>
+  <text class="sv-tb" x="380" y="120" text-anchor="middle">bestellt</text>
+  <line class="sv-ln" x1="180" y1="115" x2="310" y2="115"/>
+  <line class="sv-ln" x1="450" y1="115" x2="580" y2="115"/>
+  <text class="sv-xb" x="200" y="108" text-anchor="middle">n</text>
+  <text class="sv-xb" x="560" y="108" text-anchor="middle">m</text>
+  <line class="sv-ln-d" x1="70" y1="190" x2="90" y2="140"/>
+  <ellipse class="sv-box" cx="70" cy="190" rx="52" ry="17"/>
+  <text class="sv-t" x="70" y="195" text-anchor="middle" text-decoration="underline">kunde_id</text>
+  <line class="sv-ln-d" x1="180" y1="190" x2="150" y2="140"/>
+  <ellipse class="sv-box" cx="180" cy="190" rx="52" ry="17"/>
+  <text class="sv-t" x="180" y="195" text-anchor="middle">name</text>
+  <line class="sv-ln-d" x1="590" y1="190" x2="615" y2="140"/>
+  <ellipse class="sv-box" cx="590" cy="190" rx="52" ry="17"/>
+  <text class="sv-t" x="590" y="195" text-anchor="middle" text-decoration="underline">artikel_id</text>
+  <line class="sv-ln-d" x1="700" y1="190" x2="685" y2="140"/>
+  <ellipse class="sv-box" cx="700" cy="190" rx="52" ry="17"/>
+  <text class="sv-t" x="700" y="195" text-anchor="middle">preis</text>
+  <line class="sv-ln-d" x1="320" y1="190" x2="360" y2="150"/>
+  <ellipse class="sv-box" cx="320" cy="190" rx="52" ry="17"/>
+  <text class="sv-t" x="320" y="195" text-anchor="middle">menge</text>
+  <line class="sv-ln-d" x1="440" y1="190" x2="400" y2="150"/>
+  <ellipse class="sv-box" cx="440" cy="190" rx="52" ry="17"/>
+  <text class="sv-t" x="440" y="195" text-anchor="middle">datum</text>
+  <text class="sv-tk" x="250" y="52">Ein Kunde bestellt viele Artikel, ein Artikel wird von vielen Kunden bestellt.</text>
+  <line class="sv-ln" x1="380" y1="222" x2="380" y2="250" marker-end="url(#er-beispiel-pf)"/>
+  <text class="sv-tk" x="392" y="242">n:m wird zur Zwischentabelle</text>
+  <rect class="sv-box" x="40" y="262" width="180" height="78" rx="6"/>
+  <rect class="sv-a" x="40" y="262" width="180" height="30" rx="6"/>
+  <text class="sv-tb" x="130.0" y="282" text-anchor="middle">kunde</text>
+  <text class="sv-tc" x="52" y="309">kunde_id</text>
+  <text class="sv-xb" x="210" y="309" text-anchor="end">PK</text>
+  <text class="sv-tc" x="52" y="333">name</text>
+  <rect class="sv-box" x="290" y="262" width="180" height="126" rx="6"/>
+  <rect class="sv-c" x="290" y="262" width="180" height="30" rx="6"/>
+  <text class="sv-tb" x="380.0" y="282" text-anchor="middle">bestellung</text>
+  <text class="sv-tc" x="302" y="309">kunde_id</text>
+  <text class="sv-xe" x="460" y="309" text-anchor="end">FK</text>
+  <text class="sv-tc" x="302" y="333">artikel_id</text>
+  <text class="sv-xe" x="460" y="333" text-anchor="end">FK</text>
+  <text class="sv-tc" x="302" y="357">menge</text>
+  <text class="sv-tc" x="302" y="381">datum</text>
+  <rect class="sv-box" x="540" y="262" width="180" height="78" rx="6"/>
+  <rect class="sv-a" x="540" y="262" width="180" height="30" rx="6"/>
+  <text class="sv-tb" x="630.0" y="282" text-anchor="middle">artikel</text>
+  <text class="sv-tc" x="552" y="309">artikel_id</text>
+  <text class="sv-xb" x="710" y="309" text-anchor="end">PK</text>
+  <text class="sv-tc" x="552" y="333">preis</text>
+  <line class="sv-ln" x1="290" y1="309" x2="222" y2="309" marker-end="url(#er-beispiel-pf)"/>
+  <line class="sv-ln" x1="470" y1="333" x2="538" y2="309" marker-end="url(#er-beispiel-pf)"/>
+  <text class="sv-tk" x="40" y="410">PK = Primärschlüssel, FK = Fremdschlüssel. Der Primärschlüssel von bestellung ist z. B. eine eigene</text>
+  <text class="sv-tk" x="40" y="426">bestell_nr oder die Kombination aus kunde_id, artikel_id und datum.</text>
+  <text class="sv-t" x="40" y="452">1:n → Fremdschlüssel auf der n-Seite · n:m → Zwischentabelle mit zwei Fremdschlüsseln</text>
+</svg>

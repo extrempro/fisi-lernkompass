@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280">
+  <defs><marker id="oop-klasse-objekt-pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="sv-pf" d="M0 0L10 5L0 10z"/></marker></defs>
+  <text class="sv-tb" x="110" y="22" text-anchor="middle">Klasse (Bauplan)</text>
+  <rect class="sv-a" x="20" y="34" width="180" height="190" rx="6"/>
+  <text class="sv-tb" x="110" y="56" text-anchor="middle">Drucker</text>
+  <line class="sv-ln" x1="20" y1="66" x2="200" y2="66"/>
+  <text class="sv-tc" x="32" y="86" text-anchor="start">name: Text</text>
+  <text class="sv-tc" x="32" y="104" text-anchor="start">standort: Text</text>
+  <text class="sv-tc" x="32" y="122" text-anchor="start">tonerStand: Zahl</text>
+  <line class="sv-ln" x1="20" y1="144" x2="200" y2="144"/>
+  <text class="sv-tc" x="32" y="166" text-anchor="start">drucken(datei)</text>
+  <text class="sv-tc" x="32" y="184" text-anchor="start">tonerPruefen()</text>
+  <text class="sv-tk" x="110" y="244" text-anchor="middle">Attribute oben, Methoden unten</text>
+  <text class="sv-tk" x="110" y="260" text-anchor="middle">(UML-Klassendiagramm)</text>
+  <line class="sv-ln-d" x1="202" y1="120" x2="386" y2="86" marker-end="url(#oop-klasse-objekt-pf)"/>
+  <rect class="sv-b" x="390" y="40" width="270" height="96" rx="6"/>
+  <text class="sv-tb" x="525" y="62" text-anchor="middle">drucker1 : Drucker</text>
+  <text class="sv-tc" x="404" y="86" text-anchor="start">name = "drucker1"</text>
+  <text class="sv-tc" x="404" y="104" text-anchor="start">standort = "Empfang"</text>
+  <text class="sv-tc" x="404" y="122" text-anchor="start">tonerStand = 80 %</text>
+  <line class="sv-ln-d" x1="202" y1="120" x2="386" y2="206" marker-end="url(#oop-klasse-objekt-pf)"/>
+  <rect class="sv-b" x="390" y="160" width="270" height="96" rx="6"/>
+  <text class="sv-tb" x="525" y="182" text-anchor="middle">drucker2 : Drucker</text>
+  <text class="sv-tc" x="404" y="206" text-anchor="start">name = "drucker2"</text>
+  <text class="sv-tc" x="404" y="224" text-anchor="start">standort = "2. OG Raum 204"</text>
+  <text class="sv-tc" x="404" y="242" text-anchor="start">tonerStand = 15 %</text>
+  <text class="sv-tk" x="300" y="96" text-anchor="middle">erzeugt</text>
+  <text class="sv-tk" x="525" y="274" text-anchor="middle">Objekte (Instanzen) mit eigenen Werten</text>
+</svg>
