@@ -2,6 +2,9 @@
 
 Neueste Änderung oben. Überschrift = Inhaltsstand aus `meta.json`.
 
+## 2026-11-12
+- Neue Datei `planer.md`: Planer für das Abschlussprojekt im Format des Ausbildungsportals (Termine, Checklisten für Projektantrag und Dokumentation, Zeitplanung mit höchstens 40 Stunden, Fragen fürs Fachgespräch mit Uhr für die Präsentation, Links zum Merkblatt und zum Antragsportal). Inhaltlich wie der Projekt-Begleiter unter „Prüfungen“ im Lernkompass. Der Lernkompass selbst liest die Datei nicht; an den Cheatsheets ändert sich nichts.
+
 ## 2026-11-08
 - Inhaltsprüfung: Backup-Kernbegriffe „Inkrementell“ und „Differenziell“ an das Archivbit-Modell angepasst (eine differenzielle Sicherung setzt das Archivbit nicht zurück).
 - Ergonomie-Grafik: feste Tischhöhe 74 cm ± 2 cm (DGUV Information 215-410) statt 72 cm.
