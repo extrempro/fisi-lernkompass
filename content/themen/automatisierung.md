@@ -118,7 +118,7 @@ Erkläre den Unterschied zwischen Klasse und Objekt und nenne zwei Vorteile der 
 ### Kernbegriffe
 - **Pseudocode:** Programmablauf in strukturierter Umgangssprache, unabhängig von einer Programmiersprache.
 - **Struktogramm:** Grafische Darstellung nach Nassi-Shneiderman mit Blöcken für Sequenz, Verzweigung und Schleife.
-- **Programmablaufplan (PAP):** Flussdiagramm nach DIN 66001 mit Symbolen für Start, Aktion, Entscheidung.
+- **Programmablaufplan (PAP):** Flussdiagramm nach DIN 66001 (Norm des Deutschen Instituts für Normung) mit Symbolen für Start, Aktion, Entscheidung.
 - **Einrückung:** Zeigt, welche Anweisungen zu einer Verzweigung oder Schleife gehören.
 
 ### Abbildung: Struktogramm, PAP, Pseudocode und Code

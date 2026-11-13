@@ -201,7 +201,7 @@ Der Service Desk hat im letzten Monat 200 Tickets bearbeitet: 90 zu Druckern, 50
 - **Regressionstest:** Nach einer Änderung prüfen, ob bisher Funktionierendes noch funktioniert.
 - **Datenübernahme (Migration):** Daten aus dem alten System ins neue übertragen: planen, Daten bereinigen, Probemigration, eigentliche Übernahme, Vollständigkeit prüfen – mit Rückfallplan.
 - **Rollout-Strategien:** Big Bang (alles zum Stichtag), Pilot (eine Gruppe zuerst), stufenweise (Bereich für Bereich), Parallelbetrieb (alt und neu laufen eine Zeit lang gleichzeitig).
-- **Abnahme:** Der Kunde erklärt, dass die Leistung im Wesentlichen vertragsgemäß ist. Beim Werkvertrag (§ 640 BGB) wird damit die Vergütung fällig, die Gewährleistungsfrist beginnt, und die Beweislast für Mängel geht auf den Kunden über.
+- **Abnahme:** Der Kunde erklärt, dass die Leistung im Wesentlichen vertragsgemäß ist. Beim Werkvertrag (§ 640 BGB – Bürgerliches Gesetzbuch) wird damit die Vergütung fällig, die Gewährleistungsfrist beginnt, und die Beweislast für Mängel geht auf den Kunden über.
 - **Abnahmeprotokoll:** Hält fest, was übergeben wurde, wer abgenommen hat, wann, welche Tests liefen und welche Mängel offen sind – mit Frist zur Behebung und Unterschriften.
 - **Einweisung und Schulung:** Benutzer lernen das neue System kennen; dazu gehören Kurzanleitungen und ein Ansprechpartner für Fragen.
 - **Veränderungsprozess begleiten:** Betroffene früh informieren, Gründe erklären, Ängste ernst nehmen und Rückmeldungen einholen – Akzeptanz ist oft schwieriger als Technik.

@@ -14,7 +14,7 @@ Die Dienste, ohne die kein Netz läuft: Adressvergabe, Namensauflösung, Adressu
 - **Lease:** Zeitlich begrenzte Vergabe einer Adresse; Windows Server vergibt standardmäßig für 8 Tage, viele Heimrouter für 1 Tag.
 - **T1 und T2:** Zeitpunkte zur Verlängerung der Lease – bei 50 % fragt der Client seinen Server direkt (Renewing), bei 87,5 % jeden erreichbaren Server per Broadcast (Rebinding).
 - **Reservierung:** Feste Zuordnung einer IP-Adresse zu einer MAC-Adresse, z. B. für Drucker; das Gerät bleibt trotzdem auf DHCP eingestellt.
-- **DHCP-Optionen:** Zusätzliche Einstellungen, die der Server mitliefert, z. B. Option 3 Router (Gateway), 6 DNS-Server, 15 Domänenname, 42 NTP-Server, 66/67 TFTP-Server und Bootdatei für PXE.
+- **DHCP-Optionen:** Zusätzliche Einstellungen, die der Server mitliefert, z. B. Option 3 Router (Gateway), 6 DNS-Server, 15 Domänenname, 42 NTP-Server, 66/67 TFTP-Server und Bootdatei für PXE (Preboot Execution Environment – Start über das Netzwerk).
 - **DHCP-Relay:** Leitet DHCP-Broadcasts über einen Router per Unicast an einen DHCP-Server in einem anderen Subnetz weiter (bei Cisco ip helper-address); der Server erkennt am Feld giaddr, aus welchem Bereich er vergeben muss.
 - **DHCPNAK und DHCPDECLINE:** NAK – der Server lehnt eine angefragte Adresse ab, z. B. weil der Client in ein anderes Subnetz umgezogen ist; DECLINE – der Client meldet, dass die angebotene Adresse schon von einem anderen Gerät genutzt wird.
 - **SLAAC:** Stateless Address Autoconfiguration bei IPv6 – der Client bildet seine Adresse selbst aus dem Präfix im Router Advertisement und einer eigenen Interface-ID, ganz ohne DHCP-Server.
@@ -35,7 +35,7 @@ Die Dienste, ohne die kein Netz läuft: Adressvergabe, Namensauflösung, Adressu
 | 1 | Discover | Client 0.0.0.0:68 → Broadcast 255.255.255.255:67 | Der Client hat noch keine Adresse und ruft ins ganze Netz, ob es einen DHCP-Server gibt; er schickt seine MAC-Adresse mit. |
 | 2 | Offer | Server → Client | Jeder erreichbare Server bietet eine freie Adresse an, dazu Subnetzmaske, Gateway, DNS und Leasedauer. Die Adresse ist kurz für den Client vorgemerkt. |
 | 3 | Request | Client → Broadcast | Der Client nimmt das erste Angebot an. Er antwortet per Broadcast, damit auch die anderen Server sehen, dass ihr Angebot nicht genommen wurde. |
-| 4 | Acknowledge | Server → Client | Der Server bestätigt und trägt die Lease ein. Viele Clients prüfen noch per ARP, ob die Adresse wirklich frei ist, und melden sonst DECLINE. |
+| 4 | Acknowledge | Server → Client | Der Server bestätigt und trägt die Lease ein. Viele Clients prüfen noch per ARP (Address Resolution Protocol), ob die Adresse wirklich frei ist, und melden sonst DECLINE. |
 
 ### Tabelle: Lebenszyklus einer Lease
 | Zeitpunkt | Zustand | Was der Client tut |
@@ -52,7 +52,7 @@ Die Dienste, ohne die kein Netz läuft: Adressvergabe, Namensauflösung, Adressu
 ### Tabelle: IPv6 – welche Flags im Router Advertisement was bewirken
 | M-Flag | O-Flag | Verfahren | Adresse von | DNS-Server von |
 | --- | --- | --- | --- | --- |
-| 0 | 0 | nur SLAAC | Client selbst (Präfix + Interface-ID) | Router Advertisement (Option RDNSS) |
+| 0 | 0 | nur SLAAC | Client selbst (Präfix + Interface-ID) | Router Advertisement (Option RDNSS – Recursive DNS Server) |
 | 0 | 1 | SLAAC + stateless DHCPv6 | Client selbst | DHCPv6-Server |
 | 1 | – | stateful DHCPv6 | DHCPv6-Server (SARR) | DHCPv6-Server |
 
@@ -239,10 +239,10 @@ Ein VPN schützt den Transportweg – nicht ein unsicheres Endgerät.
 - **known_hosts:** Liste der Server, denen der Client schon einmal vertraut hat; ändert sich der Host-Key, warnt SSH deutlich vor einem möglichen Angriff.
 - **Public-Key-Authentifizierung:** Anmeldung mit Schlüsselpaar statt Passwort – der öffentliche Schlüssel liegt auf dem Server in authorized_keys, der private bleibt beim Benutzer.
 - **authorized_keys:** Datei ~/.ssh/authorized_keys auf dem Server mit den öffentlichen Schlüsseln, die sich als dieser Benutzer anmelden dürfen.
-- **Ed25519:** Heute empfohlener Schlüsseltyp für SSH: kurz, schnell und sicher; RSA nur noch mit mindestens 3072 Bit.
+- **Ed25519:** Heute empfohlener Schlüsseltyp für SSH: kurz, schnell und sicher; RSA (nach den Erfindern Rivest, Shamir und Adleman) nur noch mit mindestens 3072 Bit.
 - **Passphrase:** Passwort, das den privaten Schlüssel auf der Festplatte verschlüsselt; wird der Schlüssel gestohlen, ist er ohne Passphrase nutzlos.
 - **ssh-agent:** Hält entsperrte private Schlüssel im Arbeitsspeicher, damit man die Passphrase nicht bei jeder Verbindung eingeben muss.
-- **SFTP und SCP:** Dateiübertragung über eine SSH-Verbindung; SFTP ist das heute empfohlene Verfahren und nicht mit FTPS (FTP über TLS) zu verwechseln.
+- **SFTP und SCP:** SSH File Transfer Protocol und Secure Copy – Dateiübertragung über eine SSH-Verbindung; SFTP ist das heute empfohlene Verfahren und nicht mit FTPS (FTP über TLS) zu verwechseln.
 - **SSH-Tunnel (Port-Weiterleitung):** Leitet andere Verbindungen verschlüsselt durch SSH, z. B. mit -L einen entfernten Dienst auf einen lokalen Port.
 - **Jump Host (Bastion):** Zentraler, gut abgesicherter Server, über den Admins per SSH ins interne Netz gelangen, z. B. mit ssh -J.
 - **sshd_config:** Konfigurationsdatei des SSH-Servers unter /etc/ssh/; hier wird z. B. die Anmeldung als root oder mit Passwort abgeschaltet.
@@ -318,8 +318,8 @@ Forward schützt die Nutzer, Reverse schützt die Server.
 - **IEEE 802.1X:** Standard für portbasierte Zugangskontrolle im LAN und WLAN. Der Switchport bleibt gesperrt, bis sich das Gerät erfolgreich angemeldet hat.
 - **Supplicant:** Software auf dem Endgerät, die sich anmeldet (in Windows, macOS und Linux eingebaut).
 - **Authenticator:** Switch oder Access Point. Er reicht die Anmeldung weiter und gibt den Port frei oder nicht – er entscheidet nicht selbst.
-- **Authentication Server:** Meist ein RADIUS-Server, z. B. Windows NPS, FreeRADIUS oder eine NAC-Lösung. Prüft die Anmeldedaten, oft gegen Active Directory, und meldet das Ergebnis samt VLAN zurück.
-- **EAP:** Extensible Authentication Protocol – das Anmeldeverfahren innerhalb von 802.1X. Zwischen Gerät und Switch läuft es als EAPoL (EAP over LAN), zwischen Switch und Server in RADIUS verpackt.
+- **Authentication Server:** Meist ein RADIUS-Server, z. B. Windows NPS (Network Policy Server), FreeRADIUS oder eine NAC-Lösung. Prüft die Anmeldedaten, oft gegen Active Directory, und meldet das Ergebnis samt VLAN zurück.
+- **EAP:** Extensible Authentication Protocol – das Anmeldeverfahren innerhalb von 802.1X. Zwischen Gerät und Switch läuft es als EAPoL (EAP over LAN), zwischen Switch und Server in RADIUS (Remote Authentication Dial-In User Service – zentrale Prüfung von Anmeldungen) verpackt.
 - **Dynamische VLAN-Zuweisung:** Der RADIUS-Server sagt dem Switch, in welches VLAN der Port kommt – Mitarbeiter, Gäste oder Quarantäne – egal an welcher Dose das Gerät steckt.
 - **MAB (MAC Authentication Bypass):** Für Geräte ohne 802.1X wie Drucker oder Telefone: Die MAC-Adresse dient als Anmeldung. Leicht zu fälschen, daher solche Geräte in eigene, eingeschränkte VLANs.
 - **Posture-Prüfung:** Erweiterte NAC-Lösungen prüfen zusätzlich den Zustand des Geräts: Updates, Virenschutz, Verschlüsselung. Wer nicht passt, landet im Quarantäne-VLAN, bis er nachgebessert hat.
@@ -397,7 +397,7 @@ AGDLP: Benutzer in globale Gruppen, globale Gruppen in domänenlokale Gruppen, R
 - 802.1X einführen und Drucker, Telefone oder Kameras vergessen – sie brauchen MAB oder Zertifikate.
 - Bei SSH die Frage nach dem Fingerabdruck ungeprüft mit „yes“ beantworten – genau dort würde ein Angreifer in der Mitte auffallen.
 - Die Passwortanmeldung per SSH abschalten, bevor der Schlüssel-Login getestet ist, und sich damit selbst aussperren.
-- Bei Anmeldeproblemen im AD die Uhrzeit vergessen: mehr als 5 Minuten Abweichung und Kerberos scheitert.
+- Bei Anmeldeproblemen im AD (Active Directory) die Uhrzeit vergessen: mehr als 5 Minuten Abweichung und Kerberos scheitert.
 
 ## Links
 - [Microsoft Learn – Windows Server](https://learn.microsoft.com/de-de/windows-server/) – DHCP, DNS und Active Directory

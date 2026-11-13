@@ -5,6 +5,7 @@ Neueste Änderung oben. Überschrift = Inhaltsstand aus `meta.json`.
 ## 2026-11-13
 - Arbeitsspeicher: Speicherkanäle einfacher erklärt und für DDR4 und DDR5 richtiggestellt (DDR5 teilt jeden Riegel in zwei Kanäle mit je 32 Bit, zusammen weiter 64 Bit); ECC verständlicher, mit der Breite je Generation (72 Bit bzw. 2 × 40 Bit); DDR5 laut Standard 3200–8800 MT/s, zu kaufen ab 4800 MT/s.
 - Open Source und Closed Source: LGPL und MPL als Kernbegriffe erklärt, neue Tabelle „Wie viel muss offen bleiben?“ (GPL, AGPL, LGPL, MPL, freizügige Lizenzen); in der Tabelle „Open-Source-Lizenzen“ unter „Lizenzen“ LGPL und MPL 2.0 ergänzt.
+- Abkürzungen: rund 90 Fachabkürzungen, die nirgends erklärt waren, beim ersten Vorkommen im Abschnitt ausgeschrieben – z. B. ARP, ICMP, RADIUS, BIOS, SSL, JEDEC, NAS, PXE, LAPS, XSS, DSCP, die TCP-Flags, Normen (DIN, EN), Gesetze (BGB, HGB, AO, GG, BDSG) und Internet-Standards (RFC). Neuer Kernbegriff „OSI-Modell“. Alltägliche Abkürzungen (PC, WLAN, USB …), SQL-Befehle und Produktnamen bleiben, wie sie sind; in Bildbeschreibungen wurde nichts geändert.
 
 ## 2026-11-12
 - Neue Datei `planer.md`: Planer für das Abschlussprojekt im Format des Ausbildungsportals (Termine, Checklisten für Projektantrag und Dokumentation, Zeitplanung mit höchstens 40 Stunden, Fragen fürs Fachgespräch mit Uhr für die Präsentation, Links zum Merkblatt und zum Antragsportal). Inhaltlich wie der Projekt-Begleiter unter „Prüfungen“ im Lernkompass. Der Lernkompass selbst liest die Datei nicht; an den Cheatsheets ändert sich nichts.

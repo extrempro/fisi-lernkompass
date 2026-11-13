@@ -107,7 +107,7 @@ Der Mensch ist das häufigste Einfallstor – Schulung gehört genauso dazu wie 
 
 ### Kernbegriffe
 - **Symmetrisch:** Ein gemeinsamer Schlüssel zum Ver- und Entschlüsseln, z. B. AES. Schnell, aber der Schlüssel muss sicher ausgetauscht werden.
-- **Asymmetrisch:** Schlüsselpaar aus öffentlichem und privatem Schlüssel, z. B. RSA oder ECC. Löst den Schlüsselaustausch, ist aber langsam.
+- **Asymmetrisch:** Schlüsselpaar aus öffentlichem und privatem Schlüssel, z. B. RSA (nach den Erfindern Rivest, Shamir und Adleman) oder ECC. Löst den Schlüsselaustausch, ist aber langsam.
 - **Hybrid:** Asymmetrisch einen Sitzungsschlüssel austauschen, dann symmetrisch weiter – so arbeitet TLS.
 - **Hash:** Einweg-Prüfsumme, z. B. SHA-256. Keine Verschlüsselung.
 
@@ -151,13 +151,13 @@ Wie viele Schlüssel brauchen 10 Personen, die paarweise sicher kommunizieren wo
 | --- | --- | --- |
 | PEM | .pem, .crt, .cer, .key | Text (Base64) zwischen -----BEGIN …----- und -----END …-----; üblich unter Linux, Apache, nginx |
 | DER | .der, .cer | dasselbe binär; oft unter Windows |
-| PKCS#12 | .pfx, .p12 | Zertifikat **mit** privatem Schlüssel und Kette, mit Passwort geschützt – zum Importieren unter Windows und IIS |
+| PKCS#12 (Public Key Cryptography Standards) | .pfx, .p12 | Zertifikat **mit** privatem Schlüssel und Kette, mit Passwort geschützt – zum Importieren unter Windows und IIS |
 | CSR | .csr | Zertifikatsantrag an die CA |
 
 ### Tabelle: Typische Zertifikatswarnungen im Browser
 | Meldung (Chrome) | Ursache | Lösung |
 | --- | --- | --- |
-| NET::ERR_CERT_DATE_INVALID | Zertifikat abgelaufen – oder die Uhrzeit am Client ist falsch | erneuern bzw. Uhrzeit und NTP prüfen |
+| NET::ERR_CERT_DATE_INVALID | Zertifikat abgelaufen – oder die Uhrzeit am Client ist falsch | erneuern bzw. Uhrzeit und NTP (Network Time Protocol) prüfen |
 | NET::ERR_CERT_COMMON_NAME_INVALID | Der aufgerufene Name steht nicht im SAN, z. B. Aufruf per IP-Adresse | Zertifikat mit allen benötigten Namen ausstellen |
 | NET::ERR_CERT_AUTHORITY_INVALID | selbstsigniert, unbekannte Firmen-CA oder fehlendes Zwischenzertifikat | Kette vollständig ausliefern bzw. Root-CA per Gruppenrichtlinie verteilen |
 | NET::ERR_CERT_REVOKED | Zertifikat wurde gesperrt | neues Zertifikat mit neuem Schlüssel ausstellen |
@@ -183,10 +183,10 @@ Beim Aufruf des neuen Intranet-Servers meldet der Browser „NET::ERR_CERT_AUTHO
 ## TLS und HTTPS {#tls-https}
 
 ### Kernbegriffe
-- **TLS (Transport Layer Security):** Protokoll, das eine Verbindung verschlüsselt, vor Veränderung schützt und die Identität des Servers per Zertifikat nachweist; Nachfolger von SSL.
+- **TLS (Transport Layer Security):** Protokoll, das eine Verbindung verschlüsselt, vor Veränderung schützt und die Identität des Servers per Zertifikat nachweist; Nachfolger von SSL (Secure Sockets Layer).
 - **HTTPS:** HTTP über TLS, Standard-Port TCP 443; die Adresszeile zeigt ein Schloss.
 - **TLS-Handshake:** Aushandeln von Version und Verfahren, Prüfen des Zertifikats und Vereinbaren eines gemeinsamen Sitzungsschlüssels, bevor Nutzdaten fließen.
-- **Cipher Suite:** Kombination der Verfahren einer Verbindung, z. B. TLS_AES_128_GCM_SHA256 – symmetrische Verschlüsselung und Hash; der Schlüsselaustausch läuft bei TLS 1.3 immer per (EC)DHE.
+- **Cipher Suite:** Kombination der Verfahren einer Verbindung, z. B. TLS_AES_128_GCM_SHA256 – symmetrische Verschlüsselung und Hash; der Schlüsselaustausch läuft bei TLS 1.3 immer per (EC)DHE – Diffie-Hellman mit Einmalschlüsseln, die nach der Sitzung verworfen werden.
 - **Forward Secrecy:** Für jede Sitzung wird ein neuer Schlüssel per Diffie-Hellman vereinbart; wird der private Serverschlüssel später gestohlen, bleiben alte Mitschnitte trotzdem geheim.
 - **SNI (Server Name Indication):** Der Client nennt im ClientHello den gewünschten Hostnamen, damit ein Server mit einer IP-Adresse mehrere Webseiten mit eigenen Zertifikaten anbieten kann.
 - **HSTS:** HTTP-Header, mit dem eine Webseite dem Browser vorschreibt, sie für eine bestimmte Zeit nur noch per HTTPS aufzurufen – schützt vor dem Herabstufen auf HTTP.
@@ -208,7 +208,7 @@ Beim Aufruf des neuen Intranet-Servers meldet der Browser „NET::ERR_CERT_AUTHO
 | Version | Status |
 | --- | --- |
 | SSL 2.0 und 3.0 | unsicher, abschalten |
-| TLS 1.0 und 1.1 | veraltet, seit 2021 offiziell abgekündigt (RFC 8996) |
+| TLS 1.0 und 1.1 | veraltet, seit 2021 offiziell abgekündigt (Internet-Standard RFC 8996) |
 | TLS 1.2 | noch zulässig mit sicheren Cipher Suites (ECDHE, AES-GCM) |
 | TLS 1.3 | aktueller Standard (2018): schneller, nur noch sichere Verfahren, Forward Secrecy immer an |
 
@@ -260,7 +260,7 @@ Zwei Passwörter sind keine MFA – es braucht zwei verschiedene Arten von Fakto
 - **Need-to-know:** Zugriff auf Informationen nur, wenn man sie für die Arbeit tatsächlich benötigt – auch innerhalb derselben Abteilung.
 - **Funktionstrennung (Separation of Duties):** Kritische Vorgänge werden auf mehrere Personen verteilt, z. B. beantragt einer die Berechtigung, ein anderer genehmigt sie.
 - **Perimeter-Modell:** Klassischer Ansatz „Burg und Graben“: Eine Firewall schützt nach außen, wer im internen Netz ist, gilt als vertrauenswürdig. Ein Angreifer im Netz kann sich dann frei bewegen.
-- **Zero Trust:** „Never trust, always verify“: Kein Gerät und kein Benutzer gilt automatisch als vertrauenswürdig, auch nicht im eigenen Netz. Jeder Zugriff wird einzeln anhand von Identität, Gerätezustand und Kontext geprüft (Modell z. B. nach NIST SP 800-207).
+- **Zero Trust:** „Never trust, always verify“: Kein Gerät und kein Benutzer gilt automatisch als vertrauenswürdig, auch nicht im eigenen Netz. Jeder Zugriff wird einzeln anhand von Identität, Gerätezustand und Kontext geprüft (Modell z. B. nach NIST SP 800-207, einer Veröffentlichung der US-Normungsbehörde NIST).
 - **Assume Breach:** Grundhaltung von Zero Trust: Man geht davon aus, dass ein Angreifer bereits im Netz ist, und begrenzt den möglichen Schaden.
 - **Mikrosegmentierung:** Das Netz wird in sehr kleine Bereiche geteilt, oft bis auf einzelne Server oder Anwendungen. Ein befallener Rechner erreicht dann nur wenige andere Systeme.
 - **ZTNA (Zero Trust Network Access):** Ersatz für das klassische VPN: Statt Zugang zum ganzen Netz gibt es nur Zugang zu einzelnen freigegebenen Anwendungen, nach Prüfung von Nutzer und Gerät.
@@ -490,7 +490,7 @@ Daten dürfen nur so lange gespeichert werden, wie es für den Zweck nötig ist 
 - Löschkonzept mit Fristen je Datenart umsetzen.
 - Gesetzliche Aufbewahrungspflichten, z. B. aus Handels- und Steuerrecht, gehen der Löschung vor – dann Zugriff sperren statt löschen.
 - In Backups verschwinden gelöschte Daten erst mit Ablauf der Aufbewahrungszeit; bei einer Wiederherstellung die Löschungen erneut anwenden.
-- Datenträger vor Entsorgung oder Weitergabe sicher löschen oder zerstören (DIN 66399), mit Nachweis.
+- Datenträger vor Entsorgung oder Weitergabe sicher löschen oder zerstören (DIN 66399 – Norm des Deutschen Instituts für Normung), mit Nachweis.
 
 ### Checkliste: Technische Maßnahmen (TOM)
 Art. 32 verlangt ein Schutzniveau, das zum Risiko passt – und eine regelmäßige Überprüfung.
@@ -529,7 +529,7 @@ Die IT liefert die technischen Angaben für die Pflichtdokumentation.
 - Bei Verarbeitungen mit hohem Risiko ist eine Datenschutz-Folgenabschätzung nötig (Art. 35), z. B. bei Videoüberwachung.
 - Auskunftsanfragen (Art. 15) müssen innerhalb eines Monats beantwortet werden – die IT muss Daten einer Person aus allen Systemen zusammenstellen können.
 - Vor einer Auskunft die Identität der anfragenden Person prüfen.
-- Einen Datenschutzbeauftragten braucht ein Unternehmen in der Regel, sobald mindestens 20 Personen ständig mit automatisierter Verarbeitung personenbezogener Daten beschäftigt sind (§ 38 BDSG).
+- Einen Datenschutzbeauftragten braucht ein Unternehmen in der Regel, sobald mindestens 20 Personen ständig mit automatisierter Verarbeitung personenbezogener Daten beschäftigt sind (§ 38 BDSG – Bundesdatenschutzgesetz).
 
 ## Zusatz: BSI IT-Grundschutz in der Praxis {#grundschutz-praxis}
 typ: text
@@ -588,12 +588,12 @@ Auch ohne Zertifikat sind die Bausteine eine hervorragende Checkliste für die e
 ### Zertifizierung und Einstieg
 - **ISO 27001-Zertifikat auf Basis von IT-Grundschutz:** Vergibt das BSI nach einem Audit durch zertifizierte Auditoren. Es weist ein funktionierendes ISMS und die Umsetzung der Standard-Absicherung nach und ist international anerkannt.
 - **WiBA (Weg in die Basis-Absicherung):** Checklisten mit Prüffragen für einen schnellen Einstieg, vor allem für Kommunen und kleinere Organisationen. Das BSI führt sie auch künftig fort.
-- **Bezug zu NIS2:** Für viele Unternehmen gelten durch die NIS2-Umsetzung Pflichten zum Risikomanagement. Der IT-Grundschutz ist ein anerkannter Weg, diese strukturiert umzusetzen.
+- **Bezug zu NIS2:** Für viele Unternehmen gelten durch die Umsetzung von NIS2 (EU-Richtlinie für Netz- und Informationssicherheit) Pflichten zum Risikomanagement. Der IT-Grundschutz ist ein anerkannter Weg, diese strukturiert umzusetzen.
 
 ### Ausblick: Grundschutz++
 Das BSI baut den IT-Grundschutz grundlegend um. Den Leitfaden zur neuen Methodik Grundschutz++ hat es im April 2026 veröffentlicht; er befindet sich in der Einführungs- und Pilotphase.
 - **Statt Bausteinen:** Grundschutz++ geht von Geschäftsprozessen und Werten (Assets) aus. Anforderungen gelten dort, wo sie für den Geschäftsbetrieb wichtig sind.
-- **Maschinenlesbar:** Die Anforderungen liegen im Format OSCAL (JSON) vor statt als Word- oder PDF-Dokument – Werkzeuge können sie direkt verarbeiten.
+- **Maschinenlesbar:** Die Anforderungen liegen im Format OSCAL (Open Security Controls Assessment Language, auf Basis von JSON) vor statt als Word- oder PDF-Dokument – Werkzeuge können sie direkt verarbeiten.
 - **Zertifizierung:** Nach Grundschutz++ ab dem 1. Januar 2027 möglich. Der bisherige IT-Grundschutz bleibt laut aktuellen Angaben bis Ende 2028 gültig; bestehende Zertifikate müssen nicht sofort umgestellt werden.
 - **Für die Prüfung:** Die Begriffe des klassischen IT-Grundschutzes (Standards 200-1 bis 200-4, Absicherungsarten, Schutzbedarf, Bausteine) bleiben die Grundlage. Grundschutz++ ist Hintergrundwissen.
 
@@ -633,7 +633,7 @@ Bei Passkeys und Windows Hello entsperrt der Fingerabdruck oder die PIN nur den 
 
 ### Einmalcodes (TOTP) verstehen
 1. Beim Einrichten zeigt der Dienst einen QR-Code. Darin steckt ein geheimer Schlüssel, den Dienst und App ab jetzt beide kennen.
-2. Die App berechnet aus diesem Schlüssel und der aktuellen Uhrzeit (in 30-Sekunden-Schritten) per HMAC einen 6-stelligen Code – nach RFC 6238.
+2. Die App berechnet aus diesem Schlüssel und der aktuellen Uhrzeit (in 30-Sekunden-Schritten) per HMAC (Hash-based Message Authentication Code) einen 6-stelligen Code – nach dem Internet-Standard RFC 6238 (RFC = Request for Comments).
 3. Der Server rechnet dasselbe und vergleicht. Stimmt der Code, ist bewiesen, dass der Nutzer das Gerät mit dem Schlüssel besitzt.
 4. Weil die Uhrzeit eingeht, müssen die Uhren von Server und Smartphone ungefähr stimmen – falsche Uhrzeit ist eine typische Fehlerquelle im Support.
 

@@ -8,16 +8,16 @@ Wie Server Dienste bereitstellen, wie Virtualisierung und Container Hardware bes
 
 ### Kernbegriffe
 - **Serverrolle:** Aufgabe, die ein Server im Netz übernimmt, z. B. Dateiablage oder Anmeldung.
-- **Bauformen:** Tower (Einzelplatz, kleines Büro), Rack-Server (in 19-Zoll-Schränken, 1 HE = 44,45 mm), Blade (viele Server in einem Gehäuse).
+- **Bauformen:** Tower (Einzelplatz, kleines Büro), Rack-Server (in 19-Zoll-Schränken, 1 HE = 1 Höheneinheit = 44,45 mm), Blade (viele Server in einem Gehäuse).
 - **Redundanz:** Doppelte Komponenten wie Netzteile oder Lüfter, oft im laufenden Betrieb tauschbar (Hot-Swap).
-- **Fernwartung:** Eigener Verwaltungschip mit Netzwerkzugang (z. B. iDRAC, iLO, IPMI) – auch wenn das Betriebssystem hängt.
+- **Fernwartung:** Eigener Verwaltungschip mit Netzwerkzugang (z. B. iDRAC, iLO, IPMI – Intelligent Platform Management Interface) – auch wenn das Betriebssystem hängt.
 
 ### Tabelle: Typische Rollen
 | Rolle | Aufgabe | Beispiele |
 | --- | --- | --- |
 | Domänencontroller | Anmeldung, Benutzer, Richtlinien | Active Directory |
 | Fileserver | Freigaben, Rechte | Windows-Freigaben, Samba |
-| Printserver | Drucker zentral verwalten | Windows-Druckdienste, CUPS |
+| Printserver | Drucker zentral verwalten | Windows-Druckdienste, CUPS (Common Unix Printing System) |
 | Webserver | Webseiten und Anwendungen | IIS, Apache, nginx |
 | Datenbankserver | Daten speichern und abfragen | SQL Server, MariaDB, PostgreSQL |
 | Mailserver | E-Mails senden und empfangen | Exchange, Postfix |
@@ -167,7 +167,7 @@ Sonntag Vollsicherung, Montag bis Freitag abends Sicherungen. Donnerstag früh f
 
 ### Kernbegriffe
 - **Backup und Archiv:** Ein Backup ist eine Kopie aktueller Daten für den Notfall und wird regelmäßig überschrieben. Ein Archiv bewahrt abgeschlossene Daten langfristig, unveränderbar und auffindbar auf, oft wegen gesetzlicher Pflichten. Ein Backup ersetzt kein Archiv – und umgekehrt.
-- **Aufbewahrungsfristen:** Handels- und Steuerrecht (§ 257 HGB, § 147 AO) schreiben vor, wie lange Unterlagen aufzubewahren sind. Die Frist beginnt am Ende des Kalenderjahres, in dem die Unterlage entstanden ist.
+- **Aufbewahrungsfristen:** Handels- und Steuerrecht (§ 257 HGB – Handelsgesetzbuch, § 147 AO – Abgabenordnung) schreiben vor, wie lange Unterlagen aufzubewahren sind. Die Frist beginnt am Ende des Kalenderjahres, in dem die Unterlage entstanden ist.
 - **GoBD:** Grundsätze zur ordnungsmäßigen Führung und Aufbewahrung von Büchern in elektronischer Form. Archivierte Daten müssen vollständig, richtig, unveränderbar, nachvollziehbar und jederzeit lesbar sein.
 - **Revisionssicher:** Archivierte Daten lassen sich nicht unbemerkt ändern oder löschen; jeder Zugriff ist protokolliert.
 - **WORM:** Write Once, Read Many – Speicher, auf den nur einmal geschrieben werden kann, z. B. als Objektsperre (Object Lock) in Cloud- oder Backup-Speichern.
@@ -334,14 +334,14 @@ Wie Anwendungen und Dienste aufgebaut sein können – von zentral bis verteilt.
 ### Kernbegriffe
 - **Monitoring:** Laufende, automatische Überwachung von Servern, Netzwerk, Diensten und Anwendungen. Ziel: Störungen erkennen, bevor Benutzer anrufen, und Engpässe rechtzeitig sehen.
 - **Aktive und passive Überwachung:** Aktiv fragt der Monitoring-Server regelmäßig nach (Polling, z. B. alle 60 Sekunden). Passiv meldet sich das Gerät selbst, wenn etwas passiert (Push, z. B. SNMP-Trap oder Syslog).
-- **Agent oder agentenlos:** Ein Agent ist eine kleine Software auf dem Server, die viele Details liefert (Dienste, Logs, Prozesse). Agentenlos wird über Standardprotokolle abgefragt – SNMP, WMI/WinRM, SSH, Ping.
-- **SNMP:** Simple Network Management Protocol für Switches, Router, Drucker, USVs und Server. Abfragen über UDP-Port 161, Traps (Meldungen) an Port 162. Werte stehen in der MIB und werden über OIDs angesprochen.
+- **Agent oder agentenlos:** Ein Agent ist eine kleine Software auf dem Server, die viele Details liefert (Dienste, Logs, Prozesse). Agentenlos wird über Standardprotokolle abgefragt – SNMP, WMI (Windows Management Instrumentation)/WinRM, SSH, Ping.
+- **SNMP:** Simple Network Management Protocol für Switches, Router, Drucker, USVs und Server. Abfragen über UDP-Port 161, Traps (Meldungen) an Port 162. Werte stehen in der MIB (Management Information Base) und werden über OIDs (Object Identifier) angesprochen.
 - **SNMP-Versionen:** v1 und v2c schicken den „Community String“ als Passwort im Klartext; v3 bietet Benutzeranmeldung und Verschlüsselung und ist heute Standard.
 - **Syslog:** Standard, mit dem Netzwerkgeräte, Linux-Server und Firewalls Logmeldungen an einen zentralen Server schicken – klassisch UDP-Port 514, sicherer per TLS (TCP 6514). Schweregrade von 0 (Emergency) bis 7 (Debug).
 - **Schwellwerte:** Grenzen, ab denen ein Zustand gemeldet wird, z. B. Warnung bei 80 % belegtem Speicher, kritisch bei 95 %. Gute Schwellwerte melden früh genug, aber nicht ständig.
 - **Metriken, Logs, Traces:** Metriken sind Messwerte im Zeitverlauf (CPU, Speicher, Antwortzeit); Logs sind Ereignismeldungen; Traces verfolgen eine Anfrage durch mehrere Dienste. Zusammen spricht man von Observability.
 - **Dienstprüfung (Service Check):** Nicht nur „Server pingt“, sondern „Dienst funktioniert“: Webseite liefert Status 200, Mailserver nimmt an, Datenbank antwortet, Zertifikat noch gültig.
-- **NetFlow / IPFIX:** Router und Firewalls melden, wer mit wem wie viel Datenverkehr hat – zeigt Bandbreitenfresser und auffällige Verbindungen.
+- **NetFlow / IPFIX:** NetFlow (von Cisco) bzw. der offene Standard IPFIX (IP Flow Information Export): Router und Firewalls melden, wer mit wem wie viel Datenverkehr hat – zeigt Bandbreitenfresser und auffällige Verbindungen.
 - **SIEM:** Security Information and Event Management – sammelt Sicherheitsereignisse aus vielen Quellen und erkennt Angriffsmuster. Ergänzt das Betriebs-Monitoring.
 
 ### Abbildung: Aufbau eines Monitoring-Systems

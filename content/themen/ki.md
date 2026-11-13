@@ -180,18 +180,18 @@ Eine Mitarbeiterin kopiert eine Excel-Liste mit Kundennamen und Umsätzen in ein
 - **Datenabfluss:** Vertrauliche Daten gelangen über Eingaben in fremde KI-Dienste oder über Antworten an Unbefugte, z. B. wenn ein Assistent zu weit freigegebene Dateien findet.
 - **System Prompt Leakage:** Angreifer bringen eine KI dazu, ihre internen Anweisungen preiszugeben; stehen dort Zugangsdaten oder Regeln, sind sie öffentlich. Geheimnisse gehören nie in einen Prompt.
 - **Data und Model Poisoning:** Angreifer manipulieren Trainingsdaten, Feinabstimmung oder die Dokumente einer RAG-Wissensbasis, damit das Modell falsche oder schädliche Antworten gibt.
-- **Unsichere Ausgabeverarbeitung:** KI-Ausgaben werden ungeprüft weiterverwendet, z. B. als SQL-Befehl, Shell-Kommando oder HTML; dann wird aus einer Prompt Injection schnell eine klassische Schwachstelle wie SQL-Injection oder XSS.
+- **Unsichere Ausgabeverarbeitung:** KI-Ausgaben werden ungeprüft weiterverwendet, z. B. als SQL-Befehl, Shell-Kommando oder HTML; dann wird aus einer Prompt Injection schnell eine klassische Schwachstelle wie SQL-Injection oder XSS (Cross-Site-Scripting).
 - **Übermäßige Handlungsfreiheit (Excessive Agency):** Ein Agent hat mehr Werkzeuge, Rechte oder Selbstständigkeit als nötig – jeder Fehler und jede Manipulation wirkt sich dann voll aus.
 - **Slopsquatting:** KI-Assistenten erfinden beim Programmieren Paketnamen, die es nicht gibt; Angreifer registrieren genau diese Namen mit Schadcode in npm oder PyPI.
 - **Deepfake:** Mit KI gefälschtes Video, Bild oder gefälschte Stimme; wenige Sekunden Tonaufnahme reichen heute für eine überzeugende Stimmkopie.
 - **CEO-Fraud mit Deepfake:** Betrüger geben sich per Anruf oder Videokonferenz als Geschäftsführung aus und veranlassen eilige Überweisungen; 2024 verlor der Ingenieurkonzern Arup so rund 25 Millionen US-Dollar nach einer Videokonferenz mit gefälschten Kollegen.
 - **KI-gestütztes Phishing:** Fehlerfreie, persönlich zugeschnittene Phishing-Mails in jeder Sprache und in großer Zahl; klassische Erkennungsmerkmale wie Rechtschreibfehler fallen weg.
-- **KI in der Abwehr:** Erkennung ungewöhnlichen Verhaltens (Anomalien), Zusammenfassen von Warnmeldungen im SOC, Auswerten von Logs und Schadcode, Vorschläge für Gegenmaßnahmen – die Entscheidung bleibt beim Menschen.
+- **KI in der Abwehr:** Erkennung ungewöhnlichen Verhaltens (Anomalien), Zusammenfassen von Warnmeldungen im SOC (Security Operations Center – Leitstelle für IT-Sicherheit), Auswerten von Logs und Schadcode, Vorschläge für Gegenmaßnahmen – die Entscheidung bleibt beim Menschen.
 
 ### Abbildung: Indirekte Prompt Injection
 ![Indirekte Prompt Injection: 1 Ein Angreifer ohne Zugang zum Firmennetz versteckt eine Anweisung in einer E-Mail, Webseite oder PDF-Datei, z. B. in weißer Schrift. 2 Ein Benutzer bittet den KI-Assistenten, seine E-Mails zusammenzufassen. 3 Die KI liest den Inhalt und hält die versteckte Anweisung für einen Auftrag. 4 Sie greift mit den Rechten des Benutzers auf Firmendaten zu 5 und schickt sie nach draußen. Gefährlich ist die Kombination aus Zugriff auf private Daten, fremden Inhalten und einem Weg nach draußen.](prompt-injection.svg)
 
-### Tabelle: Die größten Risiken von KI-Anwendungen (OWASP Top 10 für LLM, 2025)
+### Tabelle: Die größten Risiken von KI-Anwendungen (OWASP Top 10 für LLM, 2025; OWASP = Open Worldwide Application Security Project)
 | Nr. | Risiko | Was passiert | Gegenmaßnahme |
 | --- | --- | --- | --- |
 | LLM01 | Prompt Injection | Eingaben oder fremde Inhalte überschreiben die Regeln | fremde Inhalte als Daten behandeln, Rechte begrenzen, Freigabe für kritische Aktionen |
@@ -211,7 +211,7 @@ Eine Mitarbeiterin kopiert eine Excel-Liste mit Kundennamen und Umsätzen in ein
 | Phishing | fehlerfreie, persönliche Mail mit Bezug auf echte Projekte | MFA (phishingresistent), Meldeknopf für Verdachtsmails, Schulung auf Inhalt statt auf Rechtschreibfehler |
 | Stimm- und Video-Deepfake | „Chef“ ruft an und verlangt eine dringende Überweisung | Rückruf über bekannte Nummer, Vier-Augen-Prinzip bei Zahlungen, vereinbartes Codewort |
 | Helpdesk-Betrug | Anrufer mit geklonter Stimme will MFA oder Passwort zurücksetzen lassen | feste Identitätsprüfung, nie allein aufgrund der Stimme handeln |
-| Schadcode und Schwachstellen | schnelleres Finden und Ausnutzen bekannter Lücken | Patches zügig einspielen, Angriffsfläche verkleinern, EDR |
+| Schadcode und Schwachstellen | schnelleres Finden und Ausnutzen bekannter Lücken | Patches zügig einspielen, Angriffsfläche verkleinern, EDR (Endpoint Detection and Response) |
 | Aufklärung (OSINT) | KI wertet Webseite, LinkedIn und Presse aus, um Angriffe zuzuschneiden | wenig interne Details veröffentlichen, Mitarbeitende sensibilisieren |
 
 ### Merksatz
@@ -284,7 +284,7 @@ Ein Agent ist wie ein neuer Mitarbeiter mit Schlüsselbund – er bekommt nur di
 
 ### Checkliste: Netzwerk und Endgeräte
 - Webfilter bzw. Proxy: Kategorie „Generative KI“ sichtbar machen, nicht freigegebene Dienste sperren oder auf den Firmendienst umleiten.
-- Cloud-Zugriffe mit CASB überwachen, um Schatten-KI zu erkennen.
+- Cloud-Zugriffe mit CASB (Cloud Access Security Broker – überwacht die Nutzung von Cloud-Diensten) überwachen, um Schatten-KI zu erkennen.
 - Browser-Erweiterungen mit KI-Funktionen zentral steuern – sie lesen oft alle besuchten Seiten.
 - KI-Funktionen in Betriebssystem und Office über Gruppenrichtlinien bzw. Intune nach Richtlinie ein- oder ausschalten.
 - Desktop-Apps nur über die Softwareverteilung ausrollen.

@@ -75,7 +75,7 @@ Eine Warenwirtschaft im Firmennetz soll auf eine Datenbank in der Public Cloud z
 
 ### Kernbegriffe
 - **Microsoft 365:** Abo-Paket aus Office-Apps und Clouddiensten wie Exchange Online, SharePoint, OneDrive und Teams.
-- **Microsoft Entra ID:** Cloud-Verzeichnisdienst (früher Azure AD) für Benutzer, Anmeldung und MFA.
+- **Microsoft Entra ID:** Cloud-Verzeichnisdienst (früher Azure AD – Active Directory) für Benutzer, Anmeldung und MFA.
 - **Intune:** Verwaltung von Geräten und Apps aus der Cloud (Mobile Device Management).
 - **Azure:** Microsofts Cloud-Plattform für IaaS und PaaS.
 - **Ressourcengruppe:** Container in Azure, der zusammengehörige Ressourcen bündelt, z. B. für ein Projekt.

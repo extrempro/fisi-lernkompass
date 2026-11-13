@@ -167,7 +167,7 @@ Prüfe die Abrechnung aus der Tabelle: Wie hoch sind die Gesamtkosten des Arbeit
 ## Tarif {#tarif}
 
 ### Kernbegriffe
-- **Tarifautonomie:** Gewerkschaften und Arbeitgeber(verbände) verhandeln Arbeitsbedingungen ohne staatliche Einmischung (Art. 9 Abs. 3 GG).
+- **Tarifautonomie:** Gewerkschaften und Arbeitgeber(verbände) verhandeln Arbeitsbedingungen ohne staatliche Einmischung (Art. 9 Abs. 3 GG – Grundgesetz).
 - **Tarifparteien:** Gewerkschaften (z. B. ver.di, IG Metall) und Arbeitgeberverbände oder einzelne Arbeitgeber (Haustarif).
 - **Manteltarifvertrag:** Regelt Rahmenbedingungen wie Arbeitszeit, Urlaub, Kündigungsfristen – läuft meist mehrere Jahre.
 - **Entgelttarifvertrag:** Regelt Löhne, Gehälter und Ausbildungsvergütungen.
@@ -262,14 +262,14 @@ Zwei Freunde gründen ein IT-Dienstleistungsunternehmen. Einer will mitarbeiten 
 - **Arbeitsschutzgesetz (ArbSchG):** Der Arbeitgeber muss Gefährdungen beurteilen (Gefährdungsbeurteilung), Schutzmaßnahmen treffen und die Beschäftigten unterweisen.
 - **Unterweisung:** Vor Arbeitsbeginn und mindestens einmal jährlich, für Jugendliche halbjährlich (§ 29 JArbSchG). Inhalt: Gefahren am Arbeitsplatz, Verhalten im Notfall, Fluchtwege.
 - **Fachkraft für Arbeitssicherheit und Betriebsarzt:** Beraten den Arbeitgeber (Arbeitssicherheitsgesetz).
-- **Prüfung elektrischer Geräte (DGUV Vorschrift 3):** Ortsveränderliche Geräte wie PCs, Monitore und Verlängerungen werden regelmäßig durch eine Elektrofachkraft geprüft – im Büro meist alle 24 Monate.
+- **Prüfung elektrischer Geräte (DGUV Vorschrift 3):** Vorschrift der Deutschen Gesetzlichen Unfallversicherung (DGUV). Ortsveränderliche Geräte wie PCs, Monitore und Verlängerungen werden regelmäßig durch eine Elektrofachkraft geprüft – im Büro meist alle 24 Monate.
 - **Erste Hilfe:** In Büros muss es bei mehr als 20 Beschäftigten mindestens 5 % Ersthelfer geben (in anderen Betrieben 10 %). Jede Hilfeleistung kommt ins Verbandbuch.
 - **Notruf 112:** Wo ist es passiert? Was ist passiert? Wie viele Verletzte? Welche Verletzungen? Warten auf Rückfragen.
 - **Brandklassen:** A feste Stoffe (Papier, Holz), B Flüssigkeiten, C Gase, D Metalle, F Speiseöle und -fette. Für Elektrik und Serverräume eignen sich CO₂-Löscher, weil sie keine Rückstände hinterlassen.
 - **Verhalten im Brandfall:** Ruhe bewahren – Brand melden – Menschen in Sicherheit bringen – Löschversuch nur ohne Eigengefährdung. Aufzüge nicht benutzen.
 - **Brandschutzhelfer:** In der Regel mindestens 5 % der Beschäftigten (ASR A2.2).
 - **Elektroaltgeräte (ElektroG):** Gehören nicht in den Hausmüll, sondern zum Wertstoffhof oder zur Rücknahme beim Händler. Batterien und Akkus getrennt zurückgeben.
-- **Datenträger vernichten:** Vor der Entsorgung Daten sicher löschen oder Datenträger physisch vernichten, z. B. nach DIN 66399 (Sicherheitsstufen 1–7) – und die Vernichtung dokumentieren.
+- **Datenträger vernichten:** Vor der Entsorgung Daten sicher löschen oder Datenträger physisch vernichten, z. B. nach DIN 66399 (Norm des Deutschen Instituts für Normung; Sicherheitsstufen 1–7) – und die Vernichtung dokumentieren.
 - **Green IT:** Energie sparen durch Energiesparmodus, Abschalten nachts, effiziente Netzteile und Server-Virtualisierung; Geräte länger nutzen und reparieren; Papier und Toner sparen.
 
 ### Tabelle: Brandklassen und Löschmittel

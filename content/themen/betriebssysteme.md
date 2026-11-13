@@ -9,7 +9,7 @@ Wie du Windows- und Linux-Clients installierst, Benutzer und Rechte verwaltest u
 ### Kernbegriffe
 - **Clean Install:** Neuinstallation auf leerem Datenträger, alte Daten gehen verloren.
 - **In-Place-Upgrade:** Neue Version über die alte, Programme und Daten bleiben.
-- **Image-Verteilung:** Ein vorbereitetes Abbild wird auf viele PCs ausgerollt, z. B. mit WDS/MDT oder Windows Autopilot.
+- **Image-Verteilung:** Ein vorbereitetes Abbild wird auf viele PCs ausgerollt, z. B. mit WDS (Windows Deployment Services) und MDT (Microsoft Deployment Toolkit) oder Windows Autopilot.
 - **unattend.xml:** Antwortdatei für eine unbeaufsichtigte Installation.
 
 ### Tabelle: Mindestanforderungen Windows 11
@@ -33,7 +33,7 @@ Ohne TPM 2.0 und Secure Boot keine reguläre Windows-11-Installation.
 ## Linux-Grundlagen {#linux-grundlagen}
 
 ### Kernbegriffe
-- **Distribution:** Linux-Kernel plus Software-Paket, z. B. Debian/Ubuntu (apt) oder RHEL/Fedora (dnf).
+- **Distribution:** Linux-Kernel plus Software-Paket, z. B. Debian/Ubuntu (apt) oder RHEL (Red Hat Enterprise Linux)/Fedora (dnf).
 - **Root:** Administrator-Konto unter Linux; Rechte holst du dir besser mit sudo.
 - **Paketmanager:** Installiert und aktualisiert Software aus Repositories.
 
@@ -99,7 +99,7 @@ Welche Rechte setzt chmod 754?
 | --- | --- | --- | --- | --- |
 | FAT32 | USB-Sticks, alte Geräte | nein | nein | 4 GB |
 | exFAT | USB-Sticks, SD-Karten | nein | nein | praktisch unbegrenzt |
-| NTFS | Windows | ja (ACL) | ja | praktisch unbegrenzt |
+| NTFS | Windows | ja (ACL – Access Control List) | ja | praktisch unbegrenzt |
 | ext4 | Linux | ja (rwx) | ja | 16 TB |
 
 ### Befehle
@@ -180,7 +180,7 @@ Freeware ist kostenlos, Open Source ist offen – das ist nicht dasselbe.
 - **Copyleft:** Lizenzbedingung, nach der veränderte Versionen bei der Weitergabe wieder unter derselben Lizenz stehen müssen (stark bei der GPL, abgeschwächt bei LGPL und MPL).
 - **LGPL (Lesser GPL):** Abgeschwächtes Copyleft, gedacht für Programmbibliotheken – also Bausteine, die andere Programme mitbenutzen. Ein Programm darf eine LGPL-Bibliothek einbinden und trotzdem Closed Source bleiben. Wer die Bibliothek selbst verändert und weitergibt, muss genau diese Änderungen offenlegen. Außerdem müssen die Nutzer die Bibliothek gegen eine eigene Fassung austauschen können. Beispiele: glibc (die C-Standardbibliothek unter Linux), Qt.
 - **MPL (Mozilla Public License):** Copyleft für einzelne Dateien. Wer eine Datei unter MPL verändert und weitergibt, muss diese Datei offenlegen. Eigene, neue Dateien im selben Programm dürfen unter einer anderen Lizenz stehen – auch Closed Source. Beispiele: Firefox, Thunderbird, LibreOffice.
-- **Freizügige Lizenzen (permissive):** Erlauben fast alles, auch die Verwendung in Closed-Source-Produkten; nur der Lizenzhinweis muss bleiben (MIT, BSD, Apache 2.0).
+- **Freizügige Lizenzen (permissive):** Erlauben fast alles, auch die Verwendung in Closed-Source-Produkten; nur der Lizenzhinweis muss bleiben (MIT, BSD – Berkeley Software Distribution, Apache 2.0).
 - **Open Core und Subscription:** Geschäftsmodelle mit Open Source: kostenlose Grundversion, kostenpflichtige Zusatzfunktionen (Open Core) oder bezahlter Support und Updates (z. B. Red Hat Enterprise Linux, SUSE).
 - **Vendor Lock-in:** Abhängigkeit von einem Hersteller, weil Daten, Formate oder Schnittstellen sich nur schwer auf ein anderes Produkt übertragen lassen.
 - **Digitale Souveränität:** Fähigkeit, selbst über die eigene IT zu entscheiden. Öffentliche Verwaltungen setzen deshalb zunehmend auf Open Source.

@@ -249,7 +249,7 @@ Ein festes Vorgehen spart Zeit und verhindert, dass man auf Verdacht drei Dinge 
 ### Linux startet nicht
 1. Im GRUB-Menü unter „Erweiterte Optionen“ einen älteren Kernel wählen – hilft nach fehlerhaften Kernel-Updates.
 2. Recovery-Modus oder `systemd.unit=rescue.target` als Startoption: minimales System mit Root-Shell.
-3. Häufige Ursache prüfen: Fehler in `/etc/fstab` (Laufwerk fehlt oder falsche UUID).
+3. Häufige Ursache prüfen: Fehler in `/etc/fstab` (Laufwerk fehlt oder falsche UUID – Universally Unique Identifier).
 4. Dateisystem im nicht eingehängten Zustand mit `fsck` prüfen.
 5. Notfalls von einem Live-USB-Stick starten, Daten sichern und das System per `chroot` reparieren.
 

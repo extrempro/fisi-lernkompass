@@ -8,11 +8,11 @@ Aus welchen Komponenten ein Arbeitsplatz-PC besteht, wie sie zusammenspielen und
 
 ### Kernbegriffe
 - **CPU:** Prozessor; wichtige Kennwerte sind Kerne, Threads, Takt (GHz), Cache und Leistungsaufnahme (TDP).
-- **Mainboard:** Verbindet alle Komponenten; Sockel und Chipsatz müssen zur CPU passen, Formfaktor zum Gehäuse (ATX, Micro-ATX, Mini-ITX).
+- **Mainboard:** Verbindet alle Komponenten; Sockel und Chipsatz müssen zur CPU passen, Formfaktor zum Gehäuse (ATX – Advanced Technology Extended, Micro-ATX, Mini-ITX).
 - **Arbeitsspeicher (RAM):** Flüchtiger Speicher für laufende Programme; DDR4 und DDR5 sind nicht kompatibel. Dual Channel nutzt zwei Module parallel.
 - **ECC-RAM:** Arbeitsspeicher mit Fehlerkorrektur – Standard in Servern.
 - **Netzteil:** Wandelt Netzspannung in Gleichspannung; das 80-PLUS-Siegel steht für den Wirkungsgrad.
-- **UEFI:** Moderne Firmware (Nachfolger des BIOS) mit Secure Boot und GPT-Unterstützung.
+- **UEFI:** Moderne Firmware (Nachfolger des BIOS – Basic Input/Output System) mit Secure Boot und GPT-Unterstützung.
 
 ### Tabelle: Auswahl nach Einsatzzweck
 | Einsatz | CPU | RAM | Speicher | Grafik |
@@ -62,16 +62,16 @@ Wie lange dauert die Übertragung von 30 GB über USB 3.2 Gen 1 (5 Gbit/s) theor
 ## Arbeitsspeicher (RAM) {#arbeitsspeicher}
 
 ### Kernbegriffe
-- **SRAM und DRAM:** SRAM speichert jedes Bit in mehreren Transistoren – sehr schnell, aber teuer und groß; er steckt als Cache in der CPU. DRAM speichert jedes Bit in einem winzigen Kondensator, der ständig aufgefrischt werden muss (Refresh) – günstig und dicht, daher der eigentliche Arbeitsspeicher.
+- **SRAM und DRAM:** SRAM (statisches RAM) speichert jedes Bit in mehreren Transistoren – sehr schnell, aber teuer und groß; er steckt als Cache in der CPU. DRAM (dynamisches RAM) speichert jedes Bit in einem winzigen Kondensator, der ständig aufgefrischt werden muss (Refresh) – günstig und dicht, daher der eigentliche Arbeitsspeicher.
 - **DDR (Double Data Rate):** Überträgt Daten zweimal pro Takt. Die Angabe DDR5-6000 meint 6000 Millionen Übertragungen pro Sekunde (MT/s) bei 3000 MHz Takt.
 - **DDR4 und DDR5:** DDR5 ist schneller (zu kaufen ab 4800 MT/s), braucht weniger Spannung (1,1 V statt 1,2 V), teilt jeden Riegel in zwei Kanäle mit je 32 Bit und hat einen eigenen Spannungsregler (PMIC) auf dem Riegel. Kerbe und Kontakte sind anders – die Generationen passen nicht in denselben Steckplatz.
 - **DIMM und SO-DIMM:** DIMM ist der lange Riegel für Desktop-PCs und Server, SO-DIMM der kurze für Notebooks und Mini-PCs. Beide gibt es als DDR4 und DDR5.
-- **Aufgelöteter Speicher und LPCAMM2:** In flachen Notebooks ist LPDDR-Speicher oft fest aufgelötet und nicht aufrüstbar. LPCAMM2 ist ein neues, flaches Modul, mit dem sich auch LPDDR wieder tauschen lässt.
-- **UDIMM, RDIMM, LRDIMM:** Unbuffered DIMMs stecken in normalen PCs. Registered DIMMs puffern die Steuersignale über ein Register und erlauben mehr und größere Module pro Kanal – Standard in Servern. LRDIMMs puffern zusätzlich die Daten für noch mehr Kapazität. Die Typen lassen sich nicht mischen.
+- **Aufgelöteter Speicher und LPCAMM2:** In flachen Notebooks ist LPDDR-Speicher oft fest aufgelötet und nicht aufrüstbar. LPCAMM2 ist ein neues, flaches Modul, mit dem sich auch LPDDR (Low Power DDR – stromsparender Arbeitsspeicher) wieder tauschen lässt.
+- **UDIMM, RDIMM, LRDIMM:** Unbuffered DIMMs stecken in normalen PCs. Registered DIMMs puffern die Steuersignale über ein Register und erlauben mehr und größere Module pro Kanal – Standard in Servern. LRDIMMs (Load-Reduced DIMM) puffern zusätzlich die Daten für noch mehr Kapazität. Die Typen lassen sich nicht mischen.
 - **ECC:** ECC-Riegel speichern zu den Daten ein paar Prüfbits. Damit merkt der Rechner, wenn ein Bit falsch ist, und kann einzelne Fehler selbst berichtigen. Deshalb ist ein ECC-Riegel etwas breiter: bei DDR4 72 statt 64 Bit, bei DDR5 2 × 40 statt 2 × 32 Bit. CPU und Mainboard müssen ECC unterstützen. Das „On-Die-ECC“ in jedem DDR5-Chip schützt nur innerhalb des Chips und ersetzt echte ECC-Riegel nicht.
 - **Modulbezeichnung (PC4-25600):** Auf dem Riegel steht oft zweierlei: DDR4-3200 nennt die effektive Übertragungsrate (3200 MT/s, umgangssprachlich „3200 MHz effektiv“, echter Takt 1600 MHz), PC4-25600 die Datenrate in MB/s: 3200 × 8 Byte (64-Bit-Bus) = 25.600 MB/s = 25,6 GB/s.
 - **Latenz (CL):** CAS-Latenz = Anzahl Takte, bis angeforderte Daten kommen. Wirklich vergleichbar ist nur die Zeit: Latenz in ns = CL × 2000 / MT/s. DDR4-3200 CL16 und DDR5-6000 CL30 liegen beide bei 10 ns.
-- **XMP und EXPO:** Profile im Riegel für höhere Geschwindigkeiten (Intel: XMP, AMD: EXPO). Ohne Aktivierung im UEFI läuft der Speicher nur mit dem langsameren Standardtakt nach JEDEC.
+- **XMP und EXPO:** Profile im Riegel für höhere Geschwindigkeiten (Intel: XMP – Extreme Memory Profile, AMD: EXPO – Extended Profiles for Overclocking). Ohne Aktivierung im UEFI läuft der Speicher nur mit dem langsameren Standardtakt nach JEDEC (Normungsgremium der Halbleiterindustrie).
 - **Speicherkanäle:** Ein Kanal ist die Verbindung zwischen CPU und Riegel. Bei DDR4 hat jeder Riegel einen Kanal mit 64 Bit. Bei DDR5 ist er in zwei kleinere Kanäle mit je 32 Bit geteilt – zusammen bleiben es 64 Bit pro Riegel. „Dual Channel“ heißt bei beiden: Zwei Riegel arbeiten gleichzeitig und liefern doppelt so viele Daten auf einmal. Desktop-CPUs sind meist für zwei Riegel gleichzeitig gebaut, Server-CPUs für 8 bis 12. Die volle Geschwindigkeit gibt es nur, wenn alle diese Plätze bestückt sind.
 
 ### Abbildung: RAM-Arten im Überblick
@@ -94,8 +94,8 @@ Wie lange dauert die Übertragung von 30 GB über USB 3.2 Gen 1 (5 Gbit/s) theor
 | DDR5 SO-DIMM | SO-DIMM | Notebook, Mini-PC | kurz, steckbar |
 | DDR5 RDIMM (ECC) | DIMM mit Register | Server | sehr große Module, Fehlerkorrektur |
 | LPDDR5X | aufgelötet oder LPCAMM2 | Notebook, Smartphone | sehr sparsam, meist nicht aufrüstbar |
-| GDDR6/GDDR7 | auf der Grafikkarte | Grafik, Spiele, CAD | hohe Bandbreite |
-| HBM3e | gestapelt neben dem Chip | KI-Beschleuniger | extrem hohe Bandbreite, sehr teuer |
+| GDDR6/GDDR7 (Graphics DDR) | auf der Grafikkarte | Grafik, Spiele, CAD | hohe Bandbreite |
+| HBM3e (High Bandwidth Memory) | gestapelt neben dem Chip | KI-Beschleuniger | extrem hohe Bandbreite, sehr teuer |
 
 ### Befehle
 - `Get-CimInstance Win32_PhysicalMemory | Select-Object Capacity, Speed, PartNumber` – eingebaute Module mit Größe und Takt (PowerShell)
@@ -128,7 +128,7 @@ Ein PC hat zwei Module DDR5-5600 im Dual Channel. Wie hoch ist die theoretische 
 ### Tabelle: Speicher im Vergleich
 | Typ | Lesen (ca.) | Zugriffszeit | Einsatz |
 | --- | --- | --- | --- |
-| HDD 7200 U/min | 200 MB/s | ca. 8 ms | Archiv, NAS, Backup |
+| HDD 7200 U/min | 200 MB/s | ca. 8 ms | Archiv, NAS (Network Attached Storage), Backup |
 | SATA-SSD | 550 MB/s | unter 0,1 ms | Aufrüstung älterer PCs |
 | NVMe-SSD PCIe 4.0 | 7000 MB/s | unter 0,1 ms | System- und Arbeitslaufwerk |
 
@@ -150,7 +150,7 @@ Warum zeigt Windows bei einer neuen 1-TB-SSD nur etwa 931 GB an?
 ## Peripherie {#peripherie}
 
 ### Kernbegriffe
-- **Auflösung:** Anzahl der Bildpunkte, z. B. Full HD 1920 × 1080, WQHD 2560 × 1440, 4K/UHD 3840 × 2160.
+- **Auflösung:** Anzahl der Bildpunkte, z. B. Full HD 1920 × 1080, WQHD (Wide Quad HD) 2560 × 1440, 4K/UHD 3840 × 2160.
 - **Panel-Typen:** IPS (farbtreu, blickwinkelstabil), VA (hoher Kontrast), TN (schnell, schwächere Farben).
 - **Bildwiederholrate:** Bilder pro Sekunde in Hz; fürs Büro reichen 60–75 Hz.
 - **Dockingstation:** Verbindet Notebook über ein Kabel (USB-C/Thunderbolt) mit Monitoren, Netzwerk, Strom und Peripherie.
@@ -321,7 +321,7 @@ Das Mainboard ist die Verkehrsplanung des Rechners: Es versorgt alle Bauteile mi
 | RAM | CPU (Speichercontroller) | Speicherbus, 1–2 Kanäle |
 | Grafikkarte | CPU | PCIe x16 |
 | NVMe-SSD (erster M.2-Platz) | CPU | PCIe x4 |
-| Chipsatz | CPU | DMI bzw. PCIe-Link |
+| Chipsatz | CPU | DMI (Direct Media Interface) bzw. PCIe-Link |
 | SATA, USB, LAN, Audio, weitere M.2 | Chipsatz | über den Chipsatz gebündelt |
 | UEFI-Firmware | Chipsatz | SPI-Flash-Chip |
 
@@ -363,9 +363,9 @@ PCIe arbeitet mit Lanes: Jede Lane ist eine eigene Sende- und Empfangsleitung. D
 - Vor dem Einbau also immer die Lane-Aufteilung im Mainboard-Handbuch prüfen.
 
 ### Firmware und weitere Bausteine
-- **UEFI (früher BIOS):** Firmware in einem Flash-Chip auf dem Mainboard. Sie testet und initialisiert die Hardware und startet den Bootloader. Einstellungen liegen in einem nichtflüchtigen Speicher (NVRAM).
+- **UEFI (früher BIOS):** Unified Extensible Firmware Interface, Nachfolger des BIOS (Basic Input/Output System). Firmware in einem Flash-Chip auf dem Mainboard. Sie testet und initialisiert die Hardware und startet den Bootloader. Einstellungen liegen in einem nichtflüchtigen Speicher (NVRAM).
 - **CMOS-Batterie (CR2032):** Hält die Echtzeituhr (RTC) am Laufen. Ist sie leer, stimmt nach dem Ausschalten die Uhrzeit nicht mehr.
-- **TPM 2.0:** Sicherheitschip für Schlüssel, z. B. für BitLocker und Secure Boot; Voraussetzung für Windows 11. Oft als Firmware-TPM in der CPU umgesetzt (Intel PTT, AMD fTPM).
+- **TPM 2.0:** Sicherheitschip für Schlüssel, z. B. für BitLocker und Secure Boot; Voraussetzung für Windows 11. Oft als Firmware-TPM in der CPU umgesetzt (Intel PTT – Platform Trust Technology, AMD fTPM).
 - **VRM (Spannungswandler):** Wandeln die 12 V vom Netzteil in die niedrige, sehr genaue Spannung für CPU und RAM (unter 1,5 V). Schwache VRMs werden heiß und drosseln starke CPUs.
 - **Debug-LEDs und Signaltöne:** Viele Mainboards zeigen beim Start mit LEDs (CPU, DRAM, VGA, BOOT) oder Pieptönen, wo ein Fehler liegt.
 
@@ -478,7 +478,7 @@ Eine CPU hat wenige, sehr flexible Kerne für komplizierte Abläufe. Eine GPU ha
 - **Beispiel:** NVIDIA RTX PRO (z. B. RTX PRO 6000 Blackwell mit 96 GB GDDR7 und ECC), AMD Radeon PRO
 
 #### KI-Beschleuniger (Rechenzentrum)
-- **Kurz:** Für das Training und den Betrieb großer KI-Modelle in Servern. Riesiger, gestapelter HBM-Speicher, spezielle Rechenwerke für niedrige Genauigkeit (FP8, FP4), schnelle Verbindung zwischen vielen GPUs.
+- **Kurz:** Für das Training und den Betrieb großer KI-Modelle in Servern. Riesiger, gestapelter HBM-Speicher, spezielle Rechenwerke für niedrige Genauigkeit (FP8, FP4 – Gleitkommazahlen mit 8 bzw. 4 Bit), schnelle Verbindung zwischen vielen GPUs.
 - **Plus:** extreme Rechenleistung und Speicherbandbreite, skaliert über viele Karten
 - **Minus:** sehr teuer, über 1 kW pro GPU, braucht Rechenzentrums-Kühlung; keine Monitoranschlüsse
 - **Beispiel:** NVIDIA B200/B300 (bis 288 GB HBM3e), AMD Instinct
@@ -502,8 +502,8 @@ Eine CPU hat wenige, sehr flexible Kerne für komplizierte Abläufe. Eine GPU ha
 
 ### Was KI-Karten auszeichnet
 - **Speicher entscheidet:** Ein KI-Modell muss in den Grafikspeicher passen. Faustregel bei 16-Bit-Genauigkeit: 2 Byte pro Parameter – ein Modell mit 7 Milliarden Parametern braucht rund 14 GB plus Reserve.
-- **Tensor-Kerne:** Spezielle Rechenwerke für Matrizen-Multiplikation, die Grundoperation neuronaler Netze. Sie rechnen mit niedriger Genauigkeit (FP16, FP8, FP4) sehr viel schneller.
-- **Bandbreite:** HBM-Speicher liefert mehrere Terabyte pro Sekunde – ein Vielfaches von GDDR.
+- **Tensor-Kerne:** Spezielle Rechenwerke für Matrizen-Multiplikation, die Grundoperation neuronaler Netze. Sie rechnen mit niedriger Genauigkeit (FP16, FP8, FP4 – Gleitkommazahlen mit 16, 8 bzw. 4 Bit) sehr viel schneller.
+- **Bandbreite:** HBM-Speicher liefert mehrere Terabyte pro Sekunde – ein Vielfaches von GDDR (Graphics DDR – Grafikspeicher).
 - **Software:** NVIDIA setzt auf CUDA, AMD auf ROCm. Viele KI-Werkzeuge laufen zuerst oder am besten mit CUDA.
 - **Lokal statt Rechenzentrum:** Kleinere Modelle laufen auch auf Gaming- oder Workstation-Karten mit viel Speicher – oder sparsam auf der NPU eines Notebooks.
 
