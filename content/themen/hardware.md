@@ -64,15 +64,15 @@ Wie lange dauert die Übertragung von 30 GB über USB 3.2 Gen 1 (5 Gbit/s) theor
 ### Kernbegriffe
 - **SRAM und DRAM:** SRAM speichert jedes Bit in mehreren Transistoren – sehr schnell, aber teuer und groß; er steckt als Cache in der CPU. DRAM speichert jedes Bit in einem winzigen Kondensator, der ständig aufgefrischt werden muss (Refresh) – günstig und dicht, daher der eigentliche Arbeitsspeicher.
 - **DDR (Double Data Rate):** Überträgt Daten zweimal pro Takt. Die Angabe DDR5-6000 meint 6000 Millionen Übertragungen pro Sekunde (MT/s) bei 3000 MHz Takt.
-- **DDR4 und DDR5:** DDR5 ist schneller (ab 4800 MT/s), braucht weniger Spannung (1,1 V statt 1,2 V), teilt jedes Modul in zwei Unterkanäle und hat einen eigenen Spannungsregler (PMIC) auf dem Riegel. Kerbe und Kontakte sind anders – die Generationen passen nicht in denselben Steckplatz.
+- **DDR4 und DDR5:** DDR5 ist schneller (zu kaufen ab 4800 MT/s), braucht weniger Spannung (1,1 V statt 1,2 V), teilt jeden Riegel in zwei Kanäle mit je 32 Bit und hat einen eigenen Spannungsregler (PMIC) auf dem Riegel. Kerbe und Kontakte sind anders – die Generationen passen nicht in denselben Steckplatz.
 - **DIMM und SO-DIMM:** DIMM ist der lange Riegel für Desktop-PCs und Server, SO-DIMM der kurze für Notebooks und Mini-PCs. Beide gibt es als DDR4 und DDR5.
 - **Aufgelöteter Speicher und LPCAMM2:** In flachen Notebooks ist LPDDR-Speicher oft fest aufgelötet und nicht aufrüstbar. LPCAMM2 ist ein neues, flaches Modul, mit dem sich auch LPDDR wieder tauschen lässt.
 - **UDIMM, RDIMM, LRDIMM:** Unbuffered DIMMs stecken in normalen PCs. Registered DIMMs puffern die Steuersignale über ein Register und erlauben mehr und größere Module pro Kanal – Standard in Servern. LRDIMMs puffern zusätzlich die Daten für noch mehr Kapazität. Die Typen lassen sich nicht mischen.
-- **ECC:** Echte ECC-Module speichern pro 64 Bit zusätzliche Prüfbits, erkennen Bitfehler und korrigieren einzelne Fehler. CPU und Mainboard müssen ECC unterstützen. Das „On-Die-ECC“ jedes DDR5-Chips schützt nur intern und ersetzt echtes ECC nicht.
+- **ECC:** ECC-Riegel speichern zu den Daten ein paar Prüfbits. Damit merkt der Rechner, wenn ein Bit falsch ist, und kann einzelne Fehler selbst berichtigen. Deshalb ist ein ECC-Riegel etwas breiter: bei DDR4 72 statt 64 Bit, bei DDR5 2 × 40 statt 2 × 32 Bit. CPU und Mainboard müssen ECC unterstützen. Das „On-Die-ECC“ in jedem DDR5-Chip schützt nur innerhalb des Chips und ersetzt echte ECC-Riegel nicht.
 - **Modulbezeichnung (PC4-25600):** Auf dem Riegel steht oft zweierlei: DDR4-3200 nennt die effektive Übertragungsrate (3200 MT/s, umgangssprachlich „3200 MHz effektiv“, echter Takt 1600 MHz), PC4-25600 die Datenrate in MB/s: 3200 × 8 Byte (64-Bit-Bus) = 25.600 MB/s = 25,6 GB/s.
 - **Latenz (CL):** CAS-Latenz = Anzahl Takte, bis angeforderte Daten kommen. Wirklich vergleichbar ist nur die Zeit: Latenz in ns = CL × 2000 / MT/s. DDR4-3200 CL16 und DDR5-6000 CL30 liegen beide bei 10 ns.
 - **XMP und EXPO:** Profile im Riegel für höhere Geschwindigkeiten (Intel: XMP, AMD: EXPO). Ohne Aktivierung im UEFI läuft der Speicher nur mit dem langsameren Standardtakt nach JEDEC.
-- **Speicherkanäle:** Jeder Kanal hat 64 Bit Breite. Desktop-CPUs haben meist zwei Kanäle (Dual Channel), Server-CPUs 8 bis 12. Volle Bandbreite gibt es nur, wenn alle Kanäle bestückt sind.
+- **Speicherkanäle:** Ein Kanal ist die Verbindung zwischen CPU und Riegel. Bei DDR4 hat jeder Riegel einen Kanal mit 64 Bit. Bei DDR5 ist er in zwei kleinere Kanäle mit je 32 Bit geteilt – zusammen bleiben es 64 Bit pro Riegel. „Dual Channel“ heißt bei beiden: Zwei Riegel arbeiten gleichzeitig und liefern doppelt so viele Daten auf einmal. Desktop-CPUs sind meist für zwei Riegel gleichzeitig gebaut, Server-CPUs für 8 bis 12. Die volle Geschwindigkeit gibt es nur, wenn alle diese Plätze bestückt sind.
 
 ### Abbildung: RAM-Arten im Überblick
 ![SRAM als Cache in der CPU, DRAM als DDR4/DDR5-Riegel, LPDDR in Notebooks, GDDR auf Grafikkarten und HBM in KI-Beschleunigern](ram-arten.svg)
@@ -80,9 +80,9 @@ Wie lange dauert die Übertragung von 30 GB über USB 3.2 Gen 1 (5 Gbit/s) theor
 ### Tabelle: DDR4 und DDR5 im Vergleich
 | Merkmal | DDR4 | DDR5 |
 | --- | --- | --- |
-| Geschwindigkeit (JEDEC) | 1600–3200 MT/s | ab 4800 MT/s, aktuell bis über 8000 MT/s |
+| Geschwindigkeit (Standard) | 1600–3200 MT/s | 3200–8800 MT/s, zu kaufen ab 4800 MT/s |
 | Spannung | 1,2 V | 1,1 V |
-| Kanäle pro Modul | einer mit 64 Bit | zwei mit je 32 Bit |
+| Kanäle pro Riegel | einer mit 64 Bit | zwei mit je 32 Bit (zusammen 64 Bit) |
 | Spannungsregelung | auf dem Mainboard | auf dem Modul (PMIC) |
 | Fehlerkorrektur | nur bei ECC-Modulen | On-Die-ECC intern; echtes ECC nur bei ECC-Modulen |
 | Pins (DIMM / SO-DIMM) | 288 / 260 | 288 / 262 |
@@ -108,9 +108,9 @@ Bauform passend zum Gerät (DIMM oder SO-DIMM), Generation passend zum Board (DD
 ### Prüfungsfrage
 Ein PC hat zwei Module DDR5-5600 im Dual Channel. Wie hoch ist die theoretische Speicherbandbreite?
 
-1. Jeder Kanal überträgt 64 Bit = 8 Byte pro Übertragung.
-2. Pro Kanal: 5600 Mio. Übertragungen/s × 8 Byte = 44.800 MB/s = 44,8 GB/s.
-3. Zwei Kanäle: 2 × 44,8 GB/s = 89,6 GB/s.
+1. Jeder Riegel liefert 64 Bit = 8 Byte auf einmal (bei DDR5 aufgeteilt auf zwei Kanäle mit je 32 Bit).
+2. Pro Riegel: 5600 Mio. Übertragungen/s × 8 Byte = 44.800 MB/s = 44,8 GB/s.
+3. Zwei Riegel im Dual Channel: 2 × 44,8 GB/s = 89,6 GB/s.
 4. Mit nur einem Riegel wäre es die Hälfte – deshalb immer zwei Module in die laut Handbuch richtigen Steckplätze.
 
 ## Speicher (HDD/SSD/NVMe) {#speicher}

@@ -2,6 +2,9 @@
 
 Neueste Änderung oben. Überschrift = Inhaltsstand aus `meta.json`.
 
+## 2026-11-13
+- Arbeitsspeicher: Speicherkanäle einfacher erklärt und für DDR4 und DDR5 richtiggestellt (DDR5 teilt jeden Riegel in zwei Kanäle mit je 32 Bit, zusammen weiter 64 Bit); ECC verständlicher, mit der Breite je Generation (72 Bit bzw. 2 × 40 Bit); DDR5 laut Standard 3200–8800 MT/s, zu kaufen ab 4800 MT/s.
+
 ## 2026-11-12
 - Neue Datei `planer.md`: Planer für das Abschlussprojekt im Format des Ausbildungsportals (Termine, Checklisten für Projektantrag und Dokumentation, Zeitplanung mit höchstens 40 Stunden, Fragen fürs Fachgespräch mit Uhr für die Präsentation, Links zum Merkblatt und zum Antragsportal). Inhaltlich wie der Projekt-Begleiter unter „Prüfungen“ im Lernkompass. Der Lernkompass selbst liest die Datei nicht; an den Cheatsheets ändert sich nichts.
 
