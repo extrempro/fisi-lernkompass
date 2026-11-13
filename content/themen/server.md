@@ -2,26 +2,26 @@
 titel: Server & Virtualisierung
 ---
 
-Wie Server Dienste bereitstellen, wie Virtualisierung und Container Hardware besser ausnutzen und wie du Daten mit RAID, Backup und USV absicherst.
+Wie Server Dienste bereitstellen, wie Virtualisierung und Container Hardware besser ausnutzen und wie du Daten mit RAID (Redundant Array of Independent Disks), Backup und USV (unterbrechungsfreie Stromversorgung) absicherst.
 
 ## Serverrollen {#serverrollen}
 
 ### Kernbegriffe
 - **Serverrolle:** Aufgabe, die ein Server im Netz übernimmt, z. B. Dateiablage oder Anmeldung.
-- **Bauformen:** Tower (Einzelplatz, kleines Büro), Rack-Server (in 19-Zoll-Schränken, 1 HE = 44,45 mm), Blade (viele Server in einem Gehäuse).
+- **Bauformen:** Tower (Einzelplatz, kleines Büro), Rack-Server (in 19-Zoll-Schränken, 1 HE = 1 Höheneinheit = 44,45 mm), Blade (viele Server in einem Gehäuse).
 - **Redundanz:** Doppelte Komponenten wie Netzteile oder Lüfter, oft im laufenden Betrieb tauschbar (Hot-Swap).
-- **Fernwartung:** Eigener Verwaltungschip mit Netzwerkzugang (z. B. iDRAC, iLO, IPMI) – auch wenn das Betriebssystem hängt.
+- **Fernwartung:** Eigener Verwaltungschip mit Netzwerkzugang (z. B. iDRAC, iLO, IPMI – Intelligent Platform Management Interface) – auch wenn das Betriebssystem hängt.
 
 ### Tabelle: Typische Rollen
 | Rolle | Aufgabe | Beispiele |
 | --- | --- | --- |
 | Domänencontroller | Anmeldung, Benutzer, Richtlinien | Active Directory |
 | Fileserver | Freigaben, Rechte | Windows-Freigaben, Samba |
-| Printserver | Drucker zentral verwalten | Windows-Druckdienste, CUPS |
+| Printserver | Drucker zentral verwalten | Windows-Druckdienste, CUPS (Common Unix Printing System) |
 | Webserver | Webseiten und Anwendungen | IIS, Apache, nginx |
-| Datenbankserver | Daten speichern und abfragen | SQL Server, MariaDB, PostgreSQL |
+| Datenbankserver | Daten speichern und abfragen | SQL (Structured Query Language) Server, MariaDB, PostgreSQL |
 | Mailserver | E-Mails senden und empfangen | Exchange, Postfix |
-| DHCP/DNS | Adressen und Namensauflösung | Windows Server, dnsmasq |
+| DHCP (Dynamic Host Configuration Protocol)/DNS | Adressen und Namensauflösung | Windows Server, dnsmasq |
 
 ### Merksatz
 Wichtige Rollen nie nur auf einem Server: Ausfall eines Geräts darf den Betrieb nicht stoppen.
@@ -81,7 +81,7 @@ Container sind wegwerfbar – alles Wichtige gehört in ein Volume.
 
 ### Kernbegriffe
 - **RAID:** Zusammenschluss mehrerer Festplatten für mehr Leistung und/oder Ausfallsicherheit.
-- **Spiegelung:** Daten liegen identisch auf zwei Platten (RAID 1).
+- **Spiegelung:** Daten liegen identisch auf zwei Platten (RAID 1 – Redundant Array of Independent Disks).
 - **Parität:** Prüfinformation, aus der fehlende Daten berechnet werden (RAID 5 und 6).
 - **Rebuild:** Wiederherstellung nach Plattentausch – in dieser Zeit ist das RAID besonders gefährdet.
 - **Hot Spare:** Zusätzliche, eingebaute Ersatzplatte, die bei einem Ausfall automatisch einspringt und den Rebuild sofort startet; sie zählt nicht zur Nutzkapazität.
@@ -167,14 +167,14 @@ Sonntag Vollsicherung, Montag bis Freitag abends Sicherungen. Donnerstag früh f
 
 ### Kernbegriffe
 - **Backup und Archiv:** Ein Backup ist eine Kopie aktueller Daten für den Notfall und wird regelmäßig überschrieben. Ein Archiv bewahrt abgeschlossene Daten langfristig, unveränderbar und auffindbar auf, oft wegen gesetzlicher Pflichten. Ein Backup ersetzt kein Archiv – und umgekehrt.
-- **Aufbewahrungsfristen:** Handels- und Steuerrecht (§ 257 HGB, § 147 AO) schreiben vor, wie lange Unterlagen aufzubewahren sind. Die Frist beginnt am Ende des Kalenderjahres, in dem die Unterlage entstanden ist.
+- **Aufbewahrungsfristen:** Handels- und Steuerrecht (§ 257 HGB – Handelsgesetzbuch, § 147 AO – Abgabenordnung) schreiben vor, wie lange Unterlagen aufzubewahren sind. Die Frist beginnt am Ende des Kalenderjahres, in dem die Unterlage entstanden ist.
 - **GoBD:** Grundsätze zur ordnungsmäßigen Führung und Aufbewahrung von Büchern in elektronischer Form. Archivierte Daten müssen vollständig, richtig, unveränderbar, nachvollziehbar und jederzeit lesbar sein.
 - **Revisionssicher:** Archivierte Daten lassen sich nicht unbemerkt ändern oder löschen; jeder Zugriff ist protokolliert.
 - **WORM:** Write Once, Read Many – Speicher, auf den nur einmal geschrieben werden kann, z. B. als Objektsperre (Object Lock) in Cloud- oder Backup-Speichern.
 - **Langzeitformate:** Dokumente in Formaten ablegen, die auch in vielen Jahren lesbar sind, z. B. PDF/A. E-Rechnungen (XRechnung, ZUGFeRD) im Originalformat aufbewahren.
-- **Löschen und Aufbewahren:** Die DSGVO verlangt Löschung, sobald der Zweck entfällt – gesetzliche Aufbewahrungspflichten gehen aber vor. Dann werden die Daten gesperrt (nur noch für die Aufbewahrung nutzbar) und nach Fristende gelöscht.
+- **Löschen und Aufbewahren:** Die DSGVO (Datenschutz-Grundverordnung) verlangt Löschung, sobald der Zweck entfällt – gesetzliche Aufbewahrungspflichten gehen aber vor. Dann werden die Daten gesperrt (nur noch für die Aufbewahrung nutzbar) und nach Fristende gelöscht.
 - **Wiederherstellungskonzept:** Legt fest, wie Daten und Systeme nach einem Ausfall wiederhergestellt werden: Reihenfolge, Verantwortliche, Zielzeiten (RTO, RPO), benötigte Zugangsdaten und Medien.
-- **Notfallhandbuch und Wiederanlaufplan:** Schritt-für-Schritt-Anleitungen für den Ernstfall, auch auf Papier und außerhalb der IT erreichbar. Grundlage im BSI-Standard 200-4 (Business Continuity Management).
+- **Notfallhandbuch und Wiederanlaufplan:** Schritt-für-Schritt-Anleitungen für den Ernstfall, auch auf Papier und außerhalb der IT erreichbar. Grundlage im BSI-Standard (BSI = Bundesamt für Sicherheit in der Informationstechnik) 200-4 (Business Continuity Management).
 - **Wiederherstellungstest:** Nur ein getesteter Restore ist ein sicherer Restore – regelmäßig einzelne Dateien und ganze Systeme probeweise zurückspielen.
 - **Bare-Metal-Recovery:** Ein komplettes System samt Betriebssystem auf neuer, leerer Hardware wiederherstellen.
 - **Komprimierungsrate:** Gibt an, um wie viel die Datenmenge kleiner wird. Bei 60 % Komprimierung bleiben 40 % übrig: 30 GiB × 0,4 = 12 GiB. Aus der Aufgabe muss klar werden, ob die Rate die Ersparnis oder den Rest meint.
@@ -241,7 +241,7 @@ Server und Switch ziehen zusammen 900 W. Reicht eine USV mit 1500 VA und Leistun
 - **Verfügbarkeit:** Anteil der Zeit, in der ein System nutzbar ist, in Prozent: (Gesamtzeit − Ausfallzeit) ÷ Gesamtzeit × 100.
 - **Hochverfügbarkeit (HA):** Ein System bleibt auch beim Ausfall einzelner Komponenten nutzbar; meist ab 99,99 % Verfügbarkeit.
 - **Single Point of Failure (SPOF):** Eine Komponente, deren Ausfall das ganze System lahmlegt – z. B. ein einzelner Switch, ein Netzteil oder eine Internetleitung.
-- **Redundanz:** Komponenten sind mehrfach vorhanden: zwei Netzteile an zwei Stromkreisen, mehrere Netzwerkkarten (Teaming/Bonding), RAID, zwei Switches, zwei Internetanschlüsse.
+- **Redundanz:** Komponenten sind mehrfach vorhanden: zwei Netzteile an zwei Stromkreisen, mehrere Netzwerkkarten (Teaming/Bonding), RAID (Redundant Array of Independent Disks), zwei Switches, zwei Internetanschlüsse.
 - **Cluster:** Mehrere Server bilden einen Verbund; fällt einer aus, übernimmt ein anderer seine Dienste.
 - **Aktiv/Passiv:** Ein Knoten arbeitet, der andere wartet und übernimmt nur im Fehlerfall (Failover).
 - **Aktiv/Aktiv:** Alle Knoten arbeiten gleichzeitig und teilen sich die Last; fällt einer aus, tragen die anderen mehr.
@@ -269,7 +269,7 @@ Server und Switch ziehen zusammen 900 W. Reicht eine USV mit 1500 VA und Leistun
 | redundante Netzteile an getrennten Stromkreisen | einem Netzteil oder Stromkreis |
 | Netzwerkkarten-Teaming an zwei Switches | einer Netzwerkkarte, eines Kabels oder Switches |
 | Server-Cluster | eines ganzen Servers |
-| USV und Netzersatzanlage (Generator) | der Stromversorgung |
+| USV (unterbrechungsfreie Stromversorgung) und Netzersatzanlage (Generator) | der Stromversorgung |
 | zweiter Internetanschluss eines anderen Providers | der Internetleitung |
 | zweites Rechenzentrum | des gesamten Standorts |
 | Wartungsvertrag mit kurzer Reaktionszeit | – verkürzt die Ausfallzeit |
@@ -324,7 +324,7 @@ Wie Anwendungen und Dienste aufgebaut sein können – von zentral bis verteilt.
 
 #### Microservices
 ![Client über API-Gateway an einzelne Dienste mit je eigener Datenbank](arch-microservices.svg)
-- **Kurz:** Viele kleine, unabhängige Dienste sprechen über APIs miteinander, meist in Containern.
+- **Kurz:** Viele kleine, unabhängige Dienste sprechen über APIs (Application Programming Interfaces – Programmierschnittstellen) miteinander, meist in Containern.
 - **Plus:** Dienste einzeln aktualisier- und skalierbar
 - **Minus:** komplexer Betrieb: Orchestrierung (z. B. Kubernetes), Monitoring, Netzwerk
 - **Beispiel:** große Web- und Streamingplattformen
@@ -334,14 +334,14 @@ Wie Anwendungen und Dienste aufgebaut sein können – von zentral bis verteilt.
 ### Kernbegriffe
 - **Monitoring:** Laufende, automatische Überwachung von Servern, Netzwerk, Diensten und Anwendungen. Ziel: Störungen erkennen, bevor Benutzer anrufen, und Engpässe rechtzeitig sehen.
 - **Aktive und passive Überwachung:** Aktiv fragt der Monitoring-Server regelmäßig nach (Polling, z. B. alle 60 Sekunden). Passiv meldet sich das Gerät selbst, wenn etwas passiert (Push, z. B. SNMP-Trap oder Syslog).
-- **Agent oder agentenlos:** Ein Agent ist eine kleine Software auf dem Server, die viele Details liefert (Dienste, Logs, Prozesse). Agentenlos wird über Standardprotokolle abgefragt – SNMP, WMI/WinRM, SSH, Ping.
-- **SNMP:** Simple Network Management Protocol für Switches, Router, Drucker, USVs und Server. Abfragen über UDP-Port 161, Traps (Meldungen) an Port 162. Werte stehen in der MIB und werden über OIDs angesprochen.
+- **Agent oder agentenlos:** Ein Agent ist eine kleine Software auf dem Server, die viele Details liefert (Dienste, Logs, Prozesse). Agentenlos wird über Standardprotokolle abgefragt – SNMP, WMI (Windows Management Instrumentation)/WinRM, SSH (Secure Shell), Ping.
+- **SNMP:** Simple Network Management Protocol für Switches, Router, Drucker, USVs (unterbrechungsfreie Stromversorgungen) und Server. Abfragen über UDP-Port (UDP = User Datagram Protocol) 161, Traps (Meldungen) an Port 162. Werte stehen in der MIB (Management Information Base) und werden über OIDs (Object Identifiers) angesprochen.
 - **SNMP-Versionen:** v1 und v2c schicken den „Community String“ als Passwort im Klartext; v3 bietet Benutzeranmeldung und Verschlüsselung und ist heute Standard.
-- **Syslog:** Standard, mit dem Netzwerkgeräte, Linux-Server und Firewalls Logmeldungen an einen zentralen Server schicken – klassisch UDP-Port 514, sicherer per TLS (TCP 6514). Schweregrade von 0 (Emergency) bis 7 (Debug).
+- **Syslog:** Standard, mit dem Netzwerkgeräte, Linux-Server und Firewalls Logmeldungen an einen zentralen Server schicken – klassisch UDP-Port 514, sicherer per TLS (Transport Layer Security) über TCP (Transmission Control Protocol) Port 6514. Schweregrade von 0 (Emergency) bis 7 (Debug).
 - **Schwellwerte:** Grenzen, ab denen ein Zustand gemeldet wird, z. B. Warnung bei 80 % belegtem Speicher, kritisch bei 95 %. Gute Schwellwerte melden früh genug, aber nicht ständig.
 - **Metriken, Logs, Traces:** Metriken sind Messwerte im Zeitverlauf (CPU, Speicher, Antwortzeit); Logs sind Ereignismeldungen; Traces verfolgen eine Anfrage durch mehrere Dienste. Zusammen spricht man von Observability.
 - **Dienstprüfung (Service Check):** Nicht nur „Server pingt“, sondern „Dienst funktioniert“: Webseite liefert Status 200, Mailserver nimmt an, Datenbank antwortet, Zertifikat noch gültig.
-- **NetFlow / IPFIX:** Router und Firewalls melden, wer mit wem wie viel Datenverkehr hat – zeigt Bandbreitenfresser und auffällige Verbindungen.
+- **NetFlow / IPFIX:** NetFlow (von Cisco) bzw. der offene Standard IPFIX (IP Flow Information Export; IP = Internet Protocol): Router und Firewalls melden, wer mit wem wie viel Datenverkehr hat – zeigt Bandbreitenfresser und auffällige Verbindungen.
 - **SIEM:** Security Information and Event Management – sammelt Sicherheitsereignisse aus vielen Quellen und erkennt Angriffsmuster. Ergänzt das Betriebs-Monitoring.
 
 ### Abbildung: Aufbau eines Monitoring-Systems
@@ -352,8 +352,8 @@ Wie Anwendungen und Dienste aufgebaut sein können – von zentral bis verteilt.
 | --- | --- |
 | Server | CPU, Arbeitsspeicher, freier Speicherplatz, Dienste, Ereignisprotokoll, Updates |
 | Netzwerk | Erreichbarkeit, Auslastung der Ports, Fehler auf Schnittstellen, Latenz, Paketverlust |
-| Dienste | Antwortzeit und Funktion von Web, Mail, DNS, DHCP, Datenbank; Ablauf von Zertifikaten |
-| Hardware | Temperatur, Lüfter, Netzteile, RAID-Zustand, SMART-Werte der Datenträger |
+| Dienste | Antwortzeit und Funktion von Web, Mail, DNS (Domain Name System), DHCP, Datenbank; Ablauf von Zertifikaten |
+| Hardware | Temperatur, Lüfter, Netzteile, RAID-Zustand (RAID = Redundant Array of Independent Disks), SMART-Werte (SMART = Self-Monitoring, Analysis and Reporting Technology) der Datenträger |
 | USV und Strom | Netzbetrieb oder Akku, Restlaufzeit, Akkuzustand |
 | Datensicherung | Backup gelaufen, erfolgreich, Größe plausibel |
 | Sicherheit | fehlgeschlagene Anmeldungen, Virenschutz aktuell, Firewall-Meldungen |
@@ -387,12 +387,12 @@ Ein mittelständisches Unternehmen hat bisher kein Monitoring; Störungen fallen
 5. Dashboard für den Überblick einrichten, Meldungen regelmäßig auswerten und Schwellwerte nachschärfen.
 
 ## Häufige Fehler
-- Snapshots oder RAID für ein Backup halten.
+- Snapshots oder RAID (Redundant Array of Independent Disks) für ein Backup halten.
 - Inkrementelle und differenzielle Sicherung vertauschen.
 - Vergessen, dass eine inkrementelle Sicherung das Archivbit zurücksetzt – die folgende differenzielle enthält dann nur noch die Änderungen seitdem.
 - Hot-Spare-Platten zur Nutzkapazität zählen.
 - RAID-5-Kapazität mit allen Platten rechnen statt mit n − 1.
-- USV nur nach VA dimensionieren und die Wattzahl vergessen.
+- USV (unterbrechungsfreie Stromversorgung) nur nach VA dimensionieren und die Wattzahl vergessen.
 - Daten im Container statt in einem Volume speichern.
 - Monitoring nur auf „Gerät antwortet auf Ping“ beschränken – der Dienst darauf kann trotzdem ausgefallen sein.
 - SNMP v1/v2c mit dem Standard-Community-String „public“ betreiben.
@@ -421,15 +421,15 @@ Zu viele Meldungen sind fast so schlimm wie keine: Wer täglich hundert Mails be
 ### Checkliste: Was oft vergessen wird
 - Ablaufdatum von Zertifikaten und Domains
 - Erfolg der Datensicherung – nicht nur, ob der Job gestartet ist
-- Zustand von RAID-Verbünden und SMART-Werte der Datenträger
-- Akkuzustand der USV und Selbsttest
+- Zustand von RAID-Verbünden (RAID = Redundant Array of Independent Disks) und SMART-Werte (SMART = Self-Monitoring, Analysis and Reporting Technology) der Datenträger
+- Akkuzustand der USV (unterbrechungsfreie Stromversorgung) und Selbsttest
 - Lizenzlaufzeiten und Speicherkontingente in der Cloud
 - Das Monitoring selbst: Wer merkt, wenn der Monitoring-Server ausfällt?
 
 ### Kennzahlen und Trends
 Monitoring liefert nicht nur Alarme, sondern Zahlen über Wochen und Monate.
 - **Kapazitätsplanung:** Wächst der Speicherplatz um 50 GB pro Monat, ist absehbar, wann die Platte voll ist.
-- **SLA-Nachweis:** Die gemessene Verfügbarkeit zeigt, ob vereinbarte Werte eingehalten wurden.
+- **SLA-Nachweis:** SLA = Service Level Agreement. Die gemessene Verfügbarkeit zeigt, ob vereinbarte Werte eingehalten wurden.
 - **Fehlersuche:** Der Verlauf zeigt, seit wann ein Wert auffällig ist – oft passend zu einem Update oder einer Änderung.
 
 ### Monitoring und Datenschutz

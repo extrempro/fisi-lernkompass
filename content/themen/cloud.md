@@ -28,7 +28,7 @@ Welche Cloud-Modelle es gibt, wer wofür verantwortlich ist und wie Unternehmen 
 | Modell | Beispiele |
 | --- | --- |
 | IaaS | Azure Virtual Machines, AWS EC2, Hetzner Cloud |
-| PaaS | Azure App Service, Azure SQL Database, Google App Engine |
+| PaaS | Azure App Service, Azure SQL (Structured Query Language) Database, Google App Engine |
 | SaaS | Microsoft 365, Google Workspace, Salesforce |
 
 ### Merksatz
@@ -47,8 +47,8 @@ Je weiter Richtung SaaS, desto weniger betreibst du selbst – und desto weniger
 | Punkt | Worauf achten |
 | --- | --- |
 | Serverstandort | möglichst EU, im Vertrag festgelegt |
-| Auftragsverarbeitung | Vertrag nach Art. 28 DSGVO (AVV) mit dem Anbieter |
-| Zertifikate | z. B. ISO 27001, BSI C5 |
+| Auftragsverarbeitung | Auftragsverarbeitungsvertrag (AVV) nach Art. 28 Datenschutz-Grundverordnung (DSGVO) mit dem Anbieter |
+| Zertifikate | z. B. ISO (International Organization for Standardization) 27001, BSI C5 (Kriterienkatalog des Bundesamts für Sicherheit in der Informationstechnik) |
 | Verschlüsselung | Daten bei Übertragung und Speicherung verschlüsselt |
 | Ausstieg | Daten exportierbar, Kündigung geregelt |
 
@@ -67,7 +67,7 @@ Public für Flexibilität, Private für Kontrolle, Hybrid für das Beste aus bei
 Eine Warenwirtschaft im Firmennetz soll auf eine Datenbank in der Public Cloud zugreifen; Tests zeigen eine hohe Latenz. Erkläre den Begriff, nenne Ursachen und einen Fall, in dem sie besonders stört.
 
 1. Latenz ist die Verzögerung zwischen dem Senden einer Anfrage und dem Eintreffen der Antwort, gemessen in Millisekunden – nicht die Bandbreite.
-2. Ursachen: große Entfernung zum Rechenzentrum, viele Router auf dem Weg, ausgelastete Leitungen und Warteschlangen, VPN und Verschlüsselung.
+2. Ursachen: große Entfernung zum Rechenzentrum, viele Router auf dem Weg, ausgelastete Leitungen und Warteschlangen, VPN (Virtual Private Network) und Verschlüsselung.
 3. Besonders schlimm bei vielen kleinen, nacheinander ausgeführten Abfragen: Jede wartet auf die Antwort der vorherigen, sodass sich die Verzögerung aufsummiert, obwohl kaum Daten fließen.
 4. Abhilfe: Anwendung und Datenbank in dieselbe Umgebung legen, Abfragen bündeln oder eine Region in der Nähe wählen.
 
@@ -75,7 +75,7 @@ Eine Warenwirtschaft im Firmennetz soll auf eine Datenbank in der Public Cloud z
 
 ### Kernbegriffe
 - **Microsoft 365:** Abo-Paket aus Office-Apps und Clouddiensten wie Exchange Online, SharePoint, OneDrive und Teams.
-- **Microsoft Entra ID:** Cloud-Verzeichnisdienst (früher Azure AD) für Benutzer, Anmeldung und MFA.
+- **Microsoft Entra ID:** Cloud-Verzeichnisdienst (früher Azure AD – Active Directory) für Benutzer, Anmeldung und MFA (Multi-Faktor-Authentifizierung).
 - **Intune:** Verwaltung von Geräten und Apps aus der Cloud (Mobile Device Management).
 - **Azure:** Microsofts Cloud-Plattform für IaaS und PaaS.
 - **Ressourcengruppe:** Container in Azure, der zusammengehörige Ressourcen bündelt, z. B. für ein Projekt.
@@ -143,7 +143,7 @@ Daten und Benutzerkonten bleiben immer deine Verantwortung – auch in der Cloud
 - IaaS und PaaS verwechseln: Bei IaaS patchst du das Betriebssystem selbst.
 - Kosten ohne gleiche Laufzeit vergleichen.
 - Keinen Auftragsverarbeitungsvertrag abschließen.
-- Microsoft-Konten ohne MFA betreiben.
+- Microsoft-Konten ohne MFA (Multi-Faktor-Authentifizierung) betreiben.
 
 ## Links
 - [Microsoft Learn – Azure](https://learn.microsoft.com/de-de/azure/) – Grundlagen und Lernpfade

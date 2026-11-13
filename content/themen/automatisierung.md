@@ -18,7 +18,7 @@ Wiederkehrende Admin-Aufgaben mit PowerShell und Bash automatisieren, Abläufe a
 - `Get-Command -Noun *User*` – passende Befehle finden
 - `Get-Service | Where-Object Status -eq 'Running'` – laufende Dienste filtern
 - `Get-ChildItem C:\Logs -Filter *.log | Remove-Item` – alle Logdateien im Ordner löschen
-- `Import-Csv .\neu.csv | ForEach-Object { New-ADUser -Name $_.Name -SamAccountName $_.Login }` – Benutzer aus CSV anlegen
+- `Import-Csv .\neu.csv | ForEach-Object { New-ADUser -Name $_.Name -SamAccountName $_.Login }` – Benutzer aus CSV (Comma-Separated Values) anlegen
 - `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` – lokale Skripte erlauben
 
 ### Tabelle: Vergleichsoperatoren
@@ -100,7 +100,7 @@ Was macht diese Zeile: [ -f /etc/passwd ] && echo "vorhanden" || echo "fehlt"?
 | Java | Bytecode (JVM) | objektorientiert | Unternehmensanwendungen, Android |
 | JavaScript | interpretiert (im Browser) | mehrere | Webseiten, Webanwendungen |
 | C / C++ | kompiliert | prozedural / objektorientiert | Treiber, Betriebssysteme, Spiele |
-| SQL | deklarativ | deklarativ | Datenbankabfragen |
+| SQL (Structured Query Language) | deklarativ | deklarativ | Datenbankabfragen |
 
 ### Merksatz
 Compiler übersetzt vorher, Interpreter während der Ausführung. Die Klasse ist der Bauplan, das Objekt das gebaute Haus.
@@ -118,7 +118,7 @@ Erkläre den Unterschied zwischen Klasse und Objekt und nenne zwei Vorteile der 
 ### Kernbegriffe
 - **Pseudocode:** Programmablauf in strukturierter Umgangssprache, unabhängig von einer Programmiersprache.
 - **Struktogramm:** Grafische Darstellung nach Nassi-Shneiderman mit Blöcken für Sequenz, Verzweigung und Schleife.
-- **Programmablaufplan (PAP):** Flussdiagramm nach DIN 66001 mit Symbolen für Start, Aktion, Entscheidung.
+- **Programmablaufplan (PAP):** Flussdiagramm nach DIN 66001 (Norm des Deutschen Instituts für Normung) mit Symbolen für Start, Aktion, Entscheidung.
 - **Einrückung:** Zeigt, welche Anweisungen zu einer Verzweigung oder Schleife gehören.
 
 ### Abbildung: Struktogramm, PAP, Pseudocode und Code
@@ -226,7 +226,7 @@ Ein Array freiGB enthält für 24 Stunden die freie Festplattenkapazität eines 
 - **Planen:** Den Ablauf als Pseudocode oder Programmablaufplan skizzieren. Fehler im Plan kosten Minuten, Fehler im laufenden Skript Stunden.
 - **Probelauf (Dry Run):** Das Skript zeigt nur an, was es tun würde, ohne etwas zu verändern. In PowerShell mit `-WhatIf`, bei robocopy mit `/L`, bei rsync mit `--dry-run`.
 - **-WhatIf und -Confirm:** Fast alle verändernden Cmdlets (Remove-, Set-, Disable-, Stop-) kennen beide Schalter: -WhatIf zeigt nur an, -Confirm fragt vor jeder Aktion nach. Eigene Skripte bekommen das mit `[CmdletBinding(SupportsShouldProcess)]`.
-- **Testumgebung:** Erst auf einem Testsystem oder mit einer kleinen Testgruppe ausprobieren (z. B. eine Test-OU im Active Directory), dann auf alle anwenden.
+- **Testumgebung:** Erst auf einem Testsystem oder mit einer kleinen Testgruppe ausprobieren (z. B. eine Test-OU im Active Directory; OU = Organizational Unit, Organisationseinheit), dann auf alle anwenden.
 - **Parameter statt fester Werte:** Pfade, Namen und Grenzwerte als Parameter übergeben, nicht im Code verstecken. So lässt sich dasselbe Skript für Test und Echtbetrieb nutzen.
 - **Fehlerbehandlung:** Fehler bewusst abfangen statt ignorieren. PowerShell: `try/catch` mit `-ErrorAction Stop`. Bash: `set -euo pipefail` bricht beim ersten Fehler ab.
 - **Protokollierung:** Jede Änderung mit Zeitstempel festhalten, z. B. mit `Start-Transcript` oder in eine eigene Logdatei. Wer später fragt „Was hat das Skript gemacht?“, braucht eine Antwort.
@@ -245,7 +245,7 @@ Ein Array freiGB enthält für 24 Stunden die freie Festplattenkapazität eines 
 | robocopy | `/L` | nur auflisten – wichtig vor `/MIR`, das im Ziel löscht |
 | rsync | `--dry-run` bzw. `-n` | besonders vor `--delete` |
 | Bash allgemein | gefährlichen Befehl erst mit `echo` davor ausgeben | `bash -n skript.sh` prüft nur die Syntax |
-| Active Directory | erst mit `Get-ADUser` ausgeben und zählen, dann ändern | Ergebnis vorher als CSV sichern |
+| Active Directory | erst mit `Get-ADUser` ausgeben und zählen, dann ändern | Ergebnis vorher als CSV (Comma-Separated Values) sichern |
 
 ### Tabelle: Das solltest du vermeiden
 | Vermeiden | Besser |
@@ -341,7 +341,7 @@ Die meisten Fehler in Skripten sind Tippfehler, falsche Parameternamen oder verg
 | Visual Studio Code | kostenlos, für Windows, Linux und macOS; Erweiterungen für PowerShell, Python und Bash; IntelliSense, Debugger, Git eingebaut | Standard für Skripte aller Art |
 | PowerShell ISE | auf älteren Windows-Systemen vorhanden | nur noch für Windows PowerShell 5.1; wird nicht weiterentwickelt |
 | Notepad++ | schnell, Syntaxhervorhebung | kleine Änderungen, Logdateien ansehen |
-| nano / vim | direkt auf jedem Linux-Server | Änderungen per SSH; vim lohnt sich für Vielnutzer |
+| nano / vim | direkt auf jedem Linux-Server | Änderungen per SSH (Secure Shell); vim lohnt sich für Vielnutzer |
 
 - In VS Code die Erweiterungen „PowerShell“ (Microsoft), „Python“ und „ShellCheck“ installieren – sie markieren Fehler schon beim Tippen.
 - Mit F8 führt VS Code nur die markierten Zeilen aus: ideal, um ein Skript Stück für Stück zu testen.
