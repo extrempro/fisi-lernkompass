@@ -155,6 +155,8 @@ Strom – POST – Loader – Kernel – Dienste – Login.
 | GPL | Copyleft | veränderte Software muss wieder unter GPL weitergegeben werden |
 | MIT | freizügig | Lizenzhinweis beibehalten, sonst fast alles erlaubt |
 | Apache 2.0 | freizügig | Lizenzhinweis, Änderungen kennzeichnen, Patentregelung |
+| LGPL | schwaches Copyleft | Bibliothek darf in Closed-Source-Programmen stecken; Änderungen an der Bibliothek selbst offenlegen |
+| MPL 2.0 | Copyleft je Datei | geänderte MPL-Dateien offenlegen; eigene neue Dateien dürfen geschlossen bleiben |
 
 ### Merksatz
 Freeware ist kostenlos, Open Source ist offen – das ist nicht dasselbe.
@@ -176,6 +178,8 @@ Freeware ist kostenlos, Open Source ist offen – das ist nicht dasselbe.
 - **Freeware:** Kostenlos nutzbar, aber meist Closed Source – der Quellcode bleibt geheim, Änderungen sind nicht erlaubt.
 - **Shareware:** Zum Ausprobieren kostenlos, danach kostenpflichtig oder eingeschränkt.
 - **Copyleft:** Lizenzbedingung, nach der veränderte Versionen bei der Weitergabe wieder unter derselben Lizenz stehen müssen (stark bei der GPL, abgeschwächt bei LGPL und MPL).
+- **LGPL (Lesser GPL):** Abgeschwächtes Copyleft, gedacht für Programmbibliotheken – also Bausteine, die andere Programme mitbenutzen. Ein Programm darf eine LGPL-Bibliothek einbinden und trotzdem Closed Source bleiben. Wer die Bibliothek selbst verändert und weitergibt, muss genau diese Änderungen offenlegen. Außerdem müssen die Nutzer die Bibliothek gegen eine eigene Fassung austauschen können. Beispiele: glibc (die C-Standardbibliothek unter Linux), Qt.
+- **MPL (Mozilla Public License):** Copyleft für einzelne Dateien. Wer eine Datei unter MPL verändert und weitergibt, muss diese Datei offenlegen. Eigene, neue Dateien im selben Programm dürfen unter einer anderen Lizenz stehen – auch Closed Source. Beispiele: Firefox, Thunderbird, LibreOffice.
 - **Freizügige Lizenzen (permissive):** Erlauben fast alles, auch die Verwendung in Closed-Source-Produkten; nur der Lizenzhinweis muss bleiben (MIT, BSD, Apache 2.0).
 - **Open Core und Subscription:** Geschäftsmodelle mit Open Source: kostenlose Grundversion, kostenpflichtige Zusatzfunktionen (Open Core) oder bezahlter Support und Updates (z. B. Red Hat Enterprise Linux, SUSE).
 - **Vendor Lock-in:** Abhängigkeit von einem Hersteller, weil Daten, Formate oder Schnittstellen sich nur schwer auf ein anderes Produkt übertragen lassen.
@@ -192,6 +196,15 @@ Freeware ist kostenlos, Open Source ist offen – das ist nicht dasselbe.
 | Abhängigkeit | gering, offene Formate | Vendor Lock-in möglich |
 | Kompatibilität | teils Probleme mit verbreiteten Formaten | oft Industriestandard |
 | Beispiele | Linux, LibreOffice, Nextcloud, PostgreSQL | Windows, Microsoft 365, SAP, Photoshop |
+
+### Tabelle: Wie viel muss offen bleiben?
+| Lizenz | Was muss bei der Weitergabe offen sein? | Darf eigener Code geschlossen bleiben? |
+| --- | --- | --- |
+| GPL | das ganze veränderte Programm | nein |
+| AGPL | wie GPL – schon, wenn andere es nur über das Netz nutzen | nein |
+| LGPL | nur die Bibliothek mit deinen Änderungen daran | ja, wenn du die Bibliothek nur einbindest |
+| MPL 2.0 | nur die veränderten MPL-Dateien | ja, in deinen eigenen Dateien |
+| MIT, BSD, Apache 2.0 | nichts – nur der Lizenzhinweis muss bleiben | ja |
 
 ### Tabelle: Kostenlos ist nicht gleich offen
 | Begriff | Kostenlos? | Quellcode offen? | Ändern und weitergeben? |
