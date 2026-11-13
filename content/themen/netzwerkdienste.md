@@ -13,13 +13,13 @@ Die Dienste, ohne die kein Netz läuft: Adressvergabe, Namensauflösung, Adressu
 - **Ausschluss:** Adressen innerhalb des Bereichs, die der Server nicht vergibt, z. B. für fest eingestellte Server oder Drucker.
 - **Lease:** Zeitlich begrenzte Vergabe einer Adresse; Windows Server vergibt standardmäßig für 8 Tage, viele Heimrouter für 1 Tag.
 - **T1 und T2:** Zeitpunkte zur Verlängerung der Lease – bei 50 % fragt der Client seinen Server direkt (Renewing), bei 87,5 % jeden erreichbaren Server per Broadcast (Rebinding).
-- **Reservierung:** Feste Zuordnung einer IP-Adresse zu einer MAC-Adresse, z. B. für Drucker; das Gerät bleibt trotzdem auf DHCP eingestellt.
-- **DHCP-Optionen:** Zusätzliche Einstellungen, die der Server mitliefert, z. B. Option 3 Router (Gateway), 6 DNS-Server, 15 Domänenname, 42 NTP-Server, 66/67 TFTP-Server und Bootdatei für PXE (Preboot Execution Environment – Start über das Netzwerk).
+- **Reservierung:** Feste Zuordnung einer IP-Adresse zu einer MAC-Adresse (MAC = Media Access Control), z. B. für Drucker; das Gerät bleibt trotzdem auf DHCP eingestellt.
+- **DHCP-Optionen:** Zusätzliche Einstellungen, die der Server mitliefert, z. B. Option 3 Router (Gateway), 6 DNS-Server, 15 Domänenname, 42 NTP-Server (NTP = Network Time Protocol), 66/67 TFTP-Server (TFTP = Trivial File Transfer Protocol) und Bootdatei für PXE (Preboot Execution Environment – Start über das Netzwerk).
 - **DHCP-Relay:** Leitet DHCP-Broadcasts über einen Router per Unicast an einen DHCP-Server in einem anderen Subnetz weiter (bei Cisco ip helper-address); der Server erkennt am Feld giaddr, aus welchem Bereich er vergeben muss.
 - **DHCPNAK und DHCPDECLINE:** NAK – der Server lehnt eine angefragte Adresse ab, z. B. weil der Client in ein anderes Subnetz umgezogen ist; DECLINE – der Client meldet, dass die angebotene Adresse schon von einem anderen Gerät genutzt wird.
 - **SLAAC:** Stateless Address Autoconfiguration bei IPv6 – der Client bildet seine Adresse selbst aus dem Präfix im Router Advertisement und einer eigenen Interface-ID, ganz ohne DHCP-Server.
 - **Router Advertisement (RA):** IPv6-Nachricht des Routers mit Präfix, Standard-Gateway und den Flags M und O, die festlegen, ob und wofür DHCPv6 genutzt wird.
-- **DHCPv6:** DHCP für IPv6 über UDP 546 (Client) und 547 (Server); Anfragen gehen an die Multicast-Adresse ff02::1:2, weil es bei IPv6 keinen Broadcast gibt.
+- **DHCPv6:** DHCP für IPv6 über UDP (User Datagram Protocol) 546 (Client) und 547 (Server); Anfragen gehen an die Multicast-Adresse ff02::1:2, weil es bei IPv6 keinen Broadcast gibt.
 - **SARR:** Ablauf bei stateful DHCPv6: Solicit, Advertise, Request, Reply – das Gegenstück zu DORA.
 - **Stateless DHCPv6:** Adresse per SLAAC, nur zusätzliche Angaben wie DNS-Server und Domäne kommen vom DHCPv6-Server (Information-Request und Reply).
 - **DUID:** DHCP Unique Identifier – kennzeichnet bei DHCPv6 den Client statt der MAC-Adresse; Reservierungen hängen deshalb an der DUID.
@@ -64,7 +64,7 @@ Die Dienste, ohne die kein Netz läuft: Adressvergabe, Namensauflösung, Adressu
 | Ablauf | DORA | RS/RA, danach SLAAC oder SARR |
 | Standard-Gateway | per DHCP (Option 3) | immer per Router Advertisement, nie per DHCPv6 |
 | Client erkannt an | MAC-Adresse | DUID |
-| Adresse ohne Server möglich | nein (nur APIPA, nicht routbar) | ja, mit SLAAC; Link-Local fe80:: hat jedes Interface sowieso |
+| Adresse ohne Server möglich | nein (nur APIPA – Automatic Private IP Addressing, nicht routbar) | ja, mit SLAAC; Link-Local fe80:: hat jedes Interface sowieso |
 | Prüfung auf doppelte Adressen | ARP-Probe (optional) | Duplicate Address Detection (Pflicht) |
 | Über Router hinweg | DHCP-Relay | DHCPv6-Relay |
 
@@ -85,19 +85,19 @@ IPv4: DORA über UDP 67/68. IPv6: erst das Router Advertisement fragen – das G
 Ein PC hat die Adresse 169.254.12.7. Woran liegt das, und was prüfst du?
 
 1. 169.254.x.x ist eine APIPA-Adresse: Der Client hat keinen DHCP-Server erreicht.
-2. Prüfen: Kabel bzw. WLAN, richtiges VLAN, läuft der DHCP-Dienst, ist der Bereich voll?
+2. Prüfen: Kabel bzw. WLAN, richtiges VLAN (Virtual LAN), läuft der DHCP-Dienst, ist der Bereich voll?
 3. Danach mit ipconfig /renew eine neue Adresse anfordern.
 
 ## DNS {#dns}
 
 ### Kernbegriffe
-- **DNS:** Domain Name System – übersetzt Namen in IP-Adressen und umgekehrt; Port 53, meist UDP, TCP für Zonentransfers und große Antworten.
+- **DNS:** Domain Name System – übersetzt Namen in IP-Adressen und umgekehrt; Port 53, meist UDP, TCP (Transmission Control Protocol) für Zonentransfers und große Antworten.
 - **Namensraum:** Hierarchisch wie ein umgedrehter Baum: Root „.“ → Top-Level-Domain (de, com) → Second-Level-Domain (firma) → Subdomain (www, intranet).
 - **FQDN:** Fully Qualified Domain Name – vollständiger Name bis zur Root, z. B. www.firma.de. (der Punkt am Ende steht für die Root und wird meist weggelassen).
 - **Rekursive Anfrage:** Der Client fragt seinen DNS-Server und erwartet eine fertige Antwort; der Server erledigt die ganze Suche für ihn.
 - **Iterative Anfrage:** Der DNS-Server fragt sich selbst durch Root-, TLD- und zuständige Server; jeder antwortet nur mit dem nächsten Hinweis („frag dort“).
 - **Autoritativer Nameserver:** Server, der die Zone selbst verwaltet und verbindliche Antworten gibt; im Gegensatz zu einer Antwort aus dem Cache.
-- **Zone:** Verwalteter Bereich des Namensraums, z. B. firma.de, mit allen Einträgen in einer Zonendatei oder im Active Directory; Forward-Zone (Name → IP) und Reverse-Zone (IP → Name).
+- **Zone:** Verwalteter Bereich des Namensraums, z. B. firma.de, mit allen Einträgen in einer Zonendatei oder im Active Directory; Forward-Zone (Name → IP – Internet Protocol) und Reverse-Zone (IP → Name).
 - **Reverse-Zone:** Zone für die Rückwärtsauflösung mit PTR-Einträgen; das Netz wird rückwärts geschrieben, z. B. 1.168.192.in-addr.arpa für 192.168.1.0/24, bei IPv6 unter ip6.arpa.
 - **Primäre und sekundäre Zone:** Auf dem primären Server wird die Zone bearbeitet; sekundäre Server halten eine schreibgeschützte Kopie für Ausfallsicherheit und Lastverteilung.
 - **Zonentransfer:** Kopieren einer Zone vom primären auf den sekundären Server, komplett (AXFR) oder nur die Änderungen (IXFR), über TCP 53; nur an bekannte sekundäre Server erlauben.
@@ -117,15 +117,15 @@ Ein PC hat die Adresse 169.254.12.7. Woran liegt das, und was prüfst du?
 | Typ | Zweck | Beispiel |
 | --- | --- | --- |
 | SOA | Start der Zone: primärer Server, Verantwortlicher, Seriennummer, Zeiten | firma.de → ns1.firma.de hostmaster.firma.de 2026110501 … |
-| NS | zuständige Nameserver der Zone | firma.de → ns1.firma.de, ns2.firma.de |
+| NS (Name Server) | zuständige Nameserver der Zone | firma.de → ns1.firma.de, ns2.firma.de |
 | A | Name → IPv4 | www → 203.0.113.10 |
 | AAAA | Name → IPv6 | www → 2001:db8::10 |
 | CNAME | Alias auf einen anderen Namen; daneben darf es für diesen Namen keinen weiteren Eintrag geben | intranet → server01.firma.de |
-| MX | Mailserver der Domain mit Priorität – kleinere Zahl wird zuerst genommen | firma.de → 10 mail1.firma.de, 20 mail2.firma.de |
+| MX (Mail Exchanger) | Mailserver der Domain mit Priorität – kleinere Zahl wird zuerst genommen | firma.de → 10 mail1.firma.de, 20 mail2.firma.de |
 | PTR | IP → Name (Reverse) | 10.113.0.203.in-addr.arpa → www.firma.de |
-| TXT | freier Text, z. B. SPF, DKIM, DMARC oder Nachweis der Domain für Cloud-Dienste | v=spf1 mx include:spf.provider.de -all |
-| SRV | Dienst mit Port und Server; das Active Directory findet so seine Domänencontroller | _ldap._tcp.ad.firma.de → 0 100 389 dc01.ad.firma.de |
-| CAA | welche CAs Zertifikate für die Domain ausstellen dürfen | firma.de → 0 issue "letsencrypt.org" |
+| TXT (Text-Eintrag) | freier Text, z. B. SPF (Sender Policy Framework), DKIM (DomainKeys Identified Mail), DMARC (Domain-based Message Authentication, Reporting and Conformance) oder Nachweis der Domain für Cloud-Dienste | v=spf1 mx include:spf.provider.de -all |
+| SRV (Service-Eintrag) | Dienst mit Port und Server; das Active Directory findet so seine Domänencontroller | _ldap._tcp.ad.firma.de → 0 100 389 dc01.ad.firma.de |
+| CAA (Certification Authority Authorization) | welche CAs (Certificate Authorities) Zertifikate für die Domain ausstellen dürfen | firma.de → 0 issue "letsencrypt.org" |
 
 ### Tabelle: Der SOA-Eintrag Feld für Feld
 | Feld | Bedeutung | Beispielwert |
@@ -203,11 +203,11 @@ Ein Benutzer erreicht intranet.firma.de nicht, ein ping auf die IP-Adresse 192.1
 Raus geht's automatisch (PAT), rein nur mit Portweiterleitung.
 
 ### Prüfungsfrage
-Ein Webserver im LAN (192.168.1.50) soll aus dem Internet per HTTPS erreichbar sein. Was richtest du am Router ein?
+Ein Webserver im LAN (192.168.1.50) soll aus dem Internet per HTTPS (HTTP Secure) erreichbar sein. Was richtest du am Router ein?
 
 1. Portweiterleitung: eingehend TCP 443 auf 192.168.1.50:443.
 2. Firewall-Regel, die genau diesen Verkehr erlaubt.
-3. Besser: Server in eine DMZ stellen, damit ein kompromittierter Server nicht direkt im LAN steht.
+3. Besser: Server in eine DMZ (Demilitarisierte Zone) stellen, damit ein kompromittierter Server nicht direkt im LAN (Local Area Network – lokales Netz) steht.
 
 ## VPN {#vpn}
 
@@ -224,9 +224,9 @@ Ein Webserver im LAN (192.168.1.50) soll aus dem Internet per HTTPS erreichbar s
 | Protokoll | Ports | Eigenschaften |
 | --- | --- | --- |
 | IPsec (IKEv2) | UDP 500, 4500 | Standard für Site-to-Site, in vielen Geräten eingebaut |
-| OpenVPN | UDP/TCP 1194 | flexibel, nutzt TLS |
+| OpenVPN | UDP/TCP 1194 | flexibel, nutzt TLS (Transport Layer Security) |
 | WireGuard | UDP 51820 | schlank, schnell, moderne Kryptografie |
-| SSL-VPN | TCP 443 | läuft über HTTPS, gut durch Firewalls |
+| SSL-VPN (SSL = Secure Sockets Layer, heute TLS) | TCP 443 | läuft über HTTPS, gut durch Firewalls |
 
 ### Merksatz
 Ein VPN schützt den Transportweg – nicht ein unsicheres Endgerät.
@@ -265,8 +265,8 @@ Ein VPN schützt den Transportweg – nicht ein unsicheres Endgerät.
 | --- | --- | --- | --- |
 | Telnet | TCP 23 | nein – Passwort im Klartext | nur noch alte Geräte, möglichst abschalten |
 | SSH | TCP 22 | ja | Linux-Server, Switches, Router, Firewalls; auch Windows hat einen eingebauten OpenSSH-Client und -Server |
-| RDP | TCP 3389 | ja (TLS) | grafischer Fernzugriff auf Windows; nie direkt ins Internet, nur per VPN oder Gateway |
-| WinRM / PowerShell Remoting | TCP 5985 (HTTP), 5986 (HTTPS) | ja | Windows-Server per PowerShell verwalten |
+| RDP (Remote Desktop Protocol) | TCP 3389 | ja (TLS) | grafischer Fernzugriff auf Windows; nie direkt ins Internet, nur per VPN oder Gateway |
+| WinRM / PowerShell Remoting | TCP 5985 (HTTP – Hypertext Transfer Protocol), 5986 (HTTPS) | ja | Windows-Server per PowerShell verwalten |
 
 ### Befehle
 - `ssh-keygen -t ed25519 -C "max@notebook"` – Schlüsselpaar erzeugen (mit Passphrase)
@@ -315,15 +315,15 @@ Forward schützt die Nutzer, Reverse schützt die Server.
 
 ### Kernbegriffe
 - **NAC:** Regelt, welches Gerät überhaupt ins Netz darf und in welches Netz es kommt. Ohne NAC reicht es, ein Kabel in eine freie Netzwerkdose zu stecken.
-- **IEEE 802.1X:** Standard für portbasierte Zugangskontrolle im LAN und WLAN. Der Switchport bleibt gesperrt, bis sich das Gerät erfolgreich angemeldet hat.
+- **IEEE 802.1X:** IEEE = Institute of Electrical and Electronics Engineers. Standard für portbasierte Zugangskontrolle im LAN und WLAN. Der Switchport bleibt gesperrt, bis sich das Gerät erfolgreich angemeldet hat.
 - **Supplicant:** Software auf dem Endgerät, die sich anmeldet (in Windows, macOS und Linux eingebaut).
 - **Authenticator:** Switch oder Access Point. Er reicht die Anmeldung weiter und gibt den Port frei oder nicht – er entscheidet nicht selbst.
-- **Authentication Server:** Meist ein RADIUS-Server, z. B. Windows NPS (Network Policy Server), FreeRADIUS oder eine NAC-Lösung. Prüft die Anmeldedaten, oft gegen Active Directory, und meldet das Ergebnis samt VLAN zurück.
+- **Authentication Server:** Meist ein RADIUS-Server, z. B. Windows NPS (Network Policy Server), FreeRADIUS oder eine NAC-Lösung. Prüft die Anmeldedaten, oft gegen Active Directory, und meldet das Ergebnis samt VLAN (Virtual LAN) zurück.
 - **EAP:** Extensible Authentication Protocol – das Anmeldeverfahren innerhalb von 802.1X. Zwischen Gerät und Switch läuft es als EAPoL (EAP over LAN), zwischen Switch und Server in RADIUS (Remote Authentication Dial-In User Service – zentrale Prüfung von Anmeldungen) verpackt.
 - **Dynamische VLAN-Zuweisung:** Der RADIUS-Server sagt dem Switch, in welches VLAN der Port kommt – Mitarbeiter, Gäste oder Quarantäne – egal an welcher Dose das Gerät steckt.
 - **MAB (MAC Authentication Bypass):** Für Geräte ohne 802.1X wie Drucker oder Telefone: Die MAC-Adresse dient als Anmeldung. Leicht zu fälschen, daher solche Geräte in eigene, eingeschränkte VLANs.
 - **Posture-Prüfung:** Erweiterte NAC-Lösungen prüfen zusätzlich den Zustand des Geräts: Updates, Virenschutz, Verschlüsselung. Wer nicht passt, landet im Quarantäne-VLAN, bis er nachgebessert hat.
-- **WPA2/WPA3-Enterprise:** WLAN mit 802.1X – jeder meldet sich mit eigenem Konto oder Zertifikat an statt mit einem gemeinsamen WLAN-Passwort.
+- **WPA2/WPA3-Enterprise:** WPA2 = Wi-Fi Protected Access 2. WLAN mit 802.1X – jeder meldet sich mit eigenem Konto oder Zertifikat an statt mit einem gemeinsamen WLAN-Passwort.
 
 ### Abbildung: Anmeldung mit 802.1X
 ![Endgerät meldet sich über Switch oder Access Point beim RADIUS-Server an; danach Freigabe ins Mitarbeiter-, Quarantäne- oder Gäste-VLAN oder Port bleibt gesperrt](nac-8021x.svg)
@@ -331,8 +331,8 @@ Forward schützt die Nutzer, Reverse schützt die Server.
 ### Tabelle: Häufige EAP-Verfahren
 | Verfahren | Anmeldung mit | Sicherheit | Hinweis |
 | --- | --- | --- | --- |
-| EAP-TLS | Zertifikat auf Gerät und Server | sehr hoch | braucht eine PKI, z. B. Active Directory Certificate Services |
-| PEAP (MSCHAPv2) | Benutzername und Passwort im TLS-Tunnel | mittel | einfach einzuführen; Server-Zertifikat auf den Clients prüfen lassen |
+| EAP-TLS | Zertifikat auf Gerät und Server | sehr hoch | braucht eine PKI (Public Key Infrastructure), z. B. Active Directory Certificate Services |
+| PEAP (Protected EAP, mit MSCHAPv2 – Microsoft Challenge Handshake Authentication Protocol) | Benutzername und Passwort im TLS-Tunnel | mittel | einfach einzuführen; Server-Zertifikat auf den Clients prüfen lassen |
 | EAP-TTLS | verschiedene Verfahren im TLS-Tunnel | mittel bis hoch | verbreitet bei Nicht-Windows-Geräten |
 | MAB | MAC-Adresse | niedrig | nur als Notlösung für Geräte ohne 802.1X |
 
@@ -360,7 +360,7 @@ Ein Besucher steckt seinen Laptop in eine Netzwerkdose im Besprechungsraum und i
 - **Domänencontroller:** Server, der AD bereitstellt und Anmeldungen prüft; für Ausfallsicherheit mindestens zwei.
 - **OU:** Organisationseinheit – Ordner im AD, um Objekte zu strukturieren und Richtlinien zuzuweisen.
 - **Gruppenrichtlinie (GPO):** Zentrale Einstellungen für Benutzer und Computer, z. B. Laufwerkszuordnungen.
-- **LDAP:** Protokoll für Abfragen an Verzeichnisdienste (Port 389, verschlüsselt LDAPS 636).
+- **LDAP:** Lightweight Directory Access Protocol – Protokoll für Abfragen an Verzeichnisdienste (Port 389, verschlüsselt LDAPS 636).
 - **Kerberos:** Anmeldeprotokoll in AD-Domänen (Port 88), arbeitet mit Tickets.
 
 ### Abbildung: Active Directory und AGDLP
@@ -387,11 +387,11 @@ AGDLP: Benutzer in globale Gruppen, globale Gruppen in domänenlokale Gruppen, R
 - Bei IPv6 das Standard-Gateway im DHCPv6-Server eintragen wollen – das kommt immer aus dem Router Advertisement.
 - Einen zweiten DHCP-Server (z. B. einen mitgebrachten Router) im Netz übersehen; DHCP Snooping auf den Switches verhindert solche fremden Server.
 - PTR- und A-Eintrag verwechseln.
-- Die Seriennummer im SOA nach einer Änderung nicht erhöhen – die sekundären Server behalten dann die alte Zone.
+- Die Seriennummer im SOA (Start of Authority) nach einer Änderung nicht erhöhen – die sekundären Server behalten dann die alte Zone.
 - Clients in einer AD-Domäne einen öffentlichen DNS-Server wie 8.8.8.8 eintragen – dann finden sie die Domänencontroller nicht mehr.
-- Vor einem Serverumzug die TTL nicht senken und sich wundern, dass Clients noch stundenlang die alte IP nutzen.
-- Einen CNAME auf die Domain selbst (firma.de) setzen – dort stehen schon SOA und NS, ein CNAME darf nicht neben anderen Einträgen stehen.
-- Annehmen, NAT sei eine Firewall – es versteckt Adressen, prüft aber keine Inhalte.
+- Vor einem Serverumzug die TTL (Time to Live) nicht senken und sich wundern, dass Clients noch stundenlang die alte IP nutzen.
+- Einen CNAME (Canonical Name – Alias) auf die Domain selbst (firma.de) setzen – dort stehen schon SOA und NS (Name Server), ein CNAME darf nicht neben anderen Einträgen stehen.
+- Annehmen, NAT (Network Address Translation) sei eine Firewall – es versteckt Adressen, prüft aber keine Inhalte.
 - Rechte direkt an Benutzer statt an Gruppen vergeben.
 - Nur einen Domänencontroller betreiben.
 - 802.1X einführen und Drucker, Telefone oder Kameras vergessen – sie brauchen MAB oder Zertifikate.
@@ -418,7 +418,7 @@ Kerberos ist das Standard-Anmeldeverfahren im Active Directory. Es arbeitet mit 
 3. **Service-Ticket anfordern (TGS-REQ):** Öffnet der Benutzer `\\fileserver\daten`, schickt der Client das TGT und den Namen des gewünschten Dienstes (SPN, z. B. cifs/fileserver) an den Ticket Granting Service.
 4. **Service-Ticket (TGS-REP):** Der DC stellt ein Ticket für genau diesen Dienst aus, verschlüsselt mit dem Schlüssel des Dienst- bzw. Computerkontos. Darin stehen Benutzer und Gruppenmitgliedschaften (PAC).
 5. **Ticket vorzeigen (AP-REQ):** Der Client gibt das Service-Ticket an den Fileserver weiter.
-6. **Zugriff:** Der Fileserver entschlüsselt das Ticket mit seinem eigenen Schlüssel – ohne den DC zu fragen – und prüft anhand der Gruppen die Freigabe- und NTFS-Rechte.
+6. **Zugriff:** Der Fileserver entschlüsselt das Ticket mit seinem eigenen Schlüssel – ohne den DC zu fragen – und prüft anhand der Gruppen die Freigabe- und NTFS-Rechte (NTFS = New Technology File System).
 
 ### Die Bausteine
 | Begriff | Bedeutung |
@@ -432,7 +432,7 @@ Kerberos ist das Standard-Anmeldeverfahren im Active Directory. Es arbeitet mit 
 | Realm | Kerberos-Bereich – im AD der Domänenname in Großbuchstaben, z. B. AD.FIRMA.DE |
 
 ### Kerberos und NTLM
-| Merkmal | Kerberos | NTLM |
+| Merkmal | Kerberos | NTLM (NT LAN Manager) |
 | --- | --- | --- |
 | Verfahren | Tickets vom DC | Challenge-Response direkt mit dem Server |
 | Gegenseitige Prüfung | ja – auch der Server weist sich aus | nein |
@@ -444,15 +444,15 @@ Microsoft baut NTLM schrittweise ab. Wo es noch auftaucht, lohnt sich die Suche 
 
 ### Checkliste: Häufige Fehlerquellen
 - **Uhrzeit:** Weicht die Uhr eines Geräts mehr als 5 Minuten vom DC ab, scheitert die Anmeldung. Zeitquelle prüfen mit `w32tm /query /status`.
-- **DNS:** Clients finden den DC über DNS-Einträge (SRV-Records). Falscher DNS-Server am Client = keine Anmeldung.
+- **DNS:** Clients finden den DC über DNS-Einträge (SRV-Records – SRV = Service-Eintrag). Falscher DNS-Server am Client = keine Anmeldung.
 - **Zugriff per IP statt Name:** Für eine IP-Adresse gibt es meist keinen SPN – Windows fällt auf NTLM zurück oder der Zugriff scheitert.
-- **SPN fehlt oder ist doppelt:** Dienste wie SQL Server oder Webanwendungen unter einem Dienstkonto brauchen einen passenden SPN; doppelte SPNs findet `setspn -X`.
+- **SPN fehlt oder ist doppelt:** Dienste wie SQL (Structured Query Language) Server oder Webanwendungen unter einem Dienstkonto brauchen einen passenden SPN; doppelte SPNs findet `setspn -X`.
 - **Alte Tickets:** Nach einer Änderung der Gruppenmitgliedschaft gilt sie erst mit neuem Ticket – abmelden und wieder anmelden oder `klist purge`.
 
 ### Angriffe und Schutz
 | Angriff | Was passiert | Schutz |
 | --- | --- | --- |
-| Kerberoasting | Angreifer fordert Service-Tickets an und knackt offline das Passwort des Dienstkontos | lange, zufällige Passwörter; gruppenverwaltete Dienstkonten (gMSA); AES statt RC4 |
+| Kerberoasting | Angreifer fordert Service-Tickets an und knackt offline das Passwort des Dienstkontos | lange, zufällige Passwörter; gruppenverwaltete Dienstkonten (gMSA); AES (Advanced Encryption Standard) statt RC4 (Rivest Cipher 4) |
 | AS-REP-Roasting | Konten ohne Vorab-Authentifizierung liefern knackbare Antworten | Option „Keine Kerberos-Vorauthentifizierung“ nie aktivieren |
 | Pass-the-Ticket | gestohlenes Ticket wird auf einem anderen Rechner verwendet | Admin-Konten nur auf gesicherten Admin-Rechnern nutzen, Gruppe „Protected Users“ |
 | Golden Ticket | mit dem krbtgt-Schlüssel stellt der Angreifer sich selbst beliebige TGTs aus | DCs besonders schützen; nach einem Vorfall das krbtgt-Passwort zweimal zurücksetzen |
@@ -473,7 +473,7 @@ Wie DNS mit dem Active Directory und der E-Mail zusammenhängt, welche Angriffe 
 „It's always DNS“ ist unter Admins ein geflügeltes Wort: Wenn Anmeldungen hängen, E-Mails abgelehnt werden oder eine Webseite nur bei manchen Nutzern nicht lädt, steckt erstaunlich oft ein falscher, fehlender oder noch zwischengespeicherter DNS-Eintrag dahinter.
 
 ### DNS und Active Directory
-Ohne funktionierendes DNS gibt es kein Active Directory. Clients finden ihren Domänencontroller nicht über einen festen Namen, sondern über SRV-Einträge in der Zone, z. B. _ldap._tcp.dc._msdcs.ad.firma.de. Die Domänencontroller registrieren diese Einträge selbst beim Start (Dienst Netlogon).
+Ohne funktionierendes DNS gibt es kein Active Directory. Clients finden ihren Domänencontroller nicht über einen festen Namen, sondern über SRV-Einträge (SRV = Service-Eintrag) in der Zone, z. B. _ldap._tcp.dc._msdcs.ad.firma.de. Die Domänencontroller registrieren diese Einträge selbst beim Start (Dienst Netlogon).
 - Alle Clients und Server der Domäne nutzen ausschließlich die internen DNS-Server (meist die Domänencontroller).
 - Anfragen für das Internet beantworten die DCs über Forwarder (z. B. zum Provider) oder über die Root-Hints selbst.
 - Jeder DC trägt als ersten DNS-Server einen anderen DC ein und sich selbst als zweiten – so startet er auch, wenn er allein nicht weiterkommt.
@@ -483,20 +483,20 @@ Ohne funktionierendes DNS gibt es kein Active Directory. Clients finden ihren Do
 ### Tabelle: DNS-Einträge für E-Mail
 | Eintrag | Typ | Wofür |
 | --- | --- | --- |
-| MX | MX | Welcher Server nimmt E-Mails für die Domain an? |
-| SPF | TXT an der Domain | Welche Server dürfen E-Mails im Namen der Domain versenden? z. B. v=spf1 mx include:spf.protection.outlook.com -all |
-| DKIM | TXT unter selector._domainkey | Öffentlicher Schlüssel, mit dem Empfänger die Signatur ausgehender E-Mails prüfen |
+| MX (Mail Exchanger) | MX | Welcher Server nimmt E-Mails für die Domain an? |
+| SPF (Sender Policy Framework) | TXT (Text-Eintrag) an der Domain | Welche Server dürfen E-Mails im Namen der Domain versenden? z. B. v=spf1 mx include:spf.protection.outlook.com -all |
+| DKIM (DomainKeys Identified Mail) | TXT unter selector._domainkey | Öffentlicher Schlüssel, mit dem Empfänger die Signatur ausgehender E-Mails prüfen |
 | DMARC | TXT unter _dmarc | Was soll der Empfänger tun, wenn SPF und DKIM nicht passen (none, quarantine, reject), und wohin gehen Berichte? |
-| PTR | PTR beim Provider | Rückwärtsauflösung der Mailserver-IP; ohne passenden PTR lehnen viele Empfänger E-Mails ab |
+| PTR (Pointer) | PTR beim Provider | Rückwärtsauflösung der Mailserver-IP; ohne passenden PTR lehnen viele Empfänger E-Mails ab |
 
 Große Anbieter wie Google und Yahoo verlangen seit 2024 von Massenversendern SPF, DKIM und DMARC – ohne diese Einträge landen E-Mails schnell im Spam.
 
 ### Angriffe auf DNS und Schutz
-- **Cache Poisoning (Spoofing):** Ein Angreifer schiebt einem DNS-Server gefälschte Antworten unter, die dann im Cache landen. Schutz: zufällige Quellports und Abfrage-IDs, DNSSEC.
+- **Cache Poisoning (Spoofing):** Ein Angreifer schiebt einem DNS-Server gefälschte Antworten unter, die dann im Cache landen. Schutz: zufällige Quellports und Abfrage-IDs, DNSSEC (DNS Security Extensions).
 - **DNS-Tunneling:** Daten werden in DNS-Anfragen versteckt, um Firewalls zu umgehen oder Daten abfließen zu lassen. Schutz: Clients nur interne DNS-Server erlauben, auffällig lange oder viele Anfragen überwachen.
 - **Amplification (DDoS):** Kleine Anfragen mit gefälschter Absender-IP an offene Resolver erzeugen große Antworten an das Opfer. Schutz: eigene rekursive Server nie offen ins Internet stellen.
-- **Verwaiste Einträge (Subdomain-Übernahme):** Ein CNAME zeigt noch auf einen gelöschten Cloud-Dienst; ein Angreifer legt dort einen Dienst mit demselben Namen an und kontrolliert die Subdomain. Schutz: Einträge beim Abbau von Diensten mit entfernen.
-- **Domain-Hijacking:** Jemand übernimmt das Konto beim Registrar und ändert die Nameserver. Schutz: MFA beim Registrar, Registrar-Lock.
+- **Verwaiste Einträge (Subdomain-Übernahme):** Ein CNAME (Canonical Name – Alias) zeigt noch auf einen gelöschten Cloud-Dienst; ein Angreifer legt dort einen Dienst mit demselben Namen an und kontrolliert die Subdomain. Schutz: Einträge beim Abbau von Diensten mit entfernen.
+- **Domain-Hijacking:** Jemand übernimmt das Konto beim Registrar und ändert die Nameserver. Schutz: MFA (Multi-Faktor-Authentifizierung) beim Registrar, Registrar-Lock.
 
 ### Sicherheitsfunktionen
 - **DNSSEC:** Signiert die Einträge einer Zone; ein validierender Resolver erkennt gefälschte Antworten. Verschlüsselt nichts – es geht nur um Echtheit.
@@ -504,7 +504,7 @@ Große Anbieter wie Google und Yahoo verlangen seit 2024 von Massenversendern SP
 - **DNS-Filter:** Bekannte Schadsoftware- und Phishing-Domains werden am DNS-Server blockiert, z. B. über Response Policy Zones oder Dienste wie Pi-hole im Kleinen.
 
 ### Checkliste: DNS-Umzug ohne Ausfall
-- Einige Tage vorher die TTL der betroffenen Einträge auf z. B. 300 Sekunden senken – mindestens so lange vorher, wie die alte TTL war.
+- Einige Tage vorher die TTL (Time to Live) der betroffenen Einträge auf z. B. 300 Sekunden senken – mindestens so lange vorher, wie die alte TTL war.
 - Neuen Server vorbereiten und gezielt testen, z. B. mit einem Eintrag in der hosts-Datei oder dig @neuer-server.
 - Eintrag ändern, Seriennummer erhöhen und prüfen, ob alle Nameserver die neue Antwort liefern.
 - Alten Server noch einige Zeit weiterlaufen lassen, bis sicher kein Client mehr die alte Adresse im Cache hat.
@@ -523,16 +523,16 @@ Große Anbieter wie Google und Yahoo verlangen seit 2024 von Massenversendern SP
 ablauf: dhcp.json
 zu: dhcp
 
-Der DORA-Ablauf im eigenen Netz mit der Lease-Tabelle des Servers – und wie ein DHCP-Relay Clients in anderen Subnetzen versorgt.
+Der DORA-Ablauf (DORA = Discover, Offer, Request, Acknowledge) im eigenen Netz mit der Lease-Tabelle des Servers – und wie ein DHCP-Relay Clients in anderen Subnetzen versorgt.
 
 ## Zusatz: DNS-Auflösung Schritt für Schritt {#ablauf-dns}
 ablauf: dns.json
 zu: dns
 
-Vom leeren Cache bis zur Antwort: rekursive und iterative Anfragen, Verweise über Root- und TLD-Server und was die TTL im Cache bewirkt.
+Vom leeren Cache bis zur Antwort: rekursive und iterative Anfragen, Verweise über Root- und TLD-Server (TLD = Top-Level-Domain) und was die TTL (Time to Live) im Cache bewirkt.
 
 ## Zusatz: NAT und PAT Schritt für Schritt {#ablauf-nat}
 ablauf: nat.json
 zu: nat, netzwerkgrundlagen.routing, sicherheit.firewall
 
-Wie der Router private Adressen nach außen übersetzt, Antworten über die NAT-Tabelle zurückfindet und eingehende Verbindungen per Portweiterleitung zustellt.
+Wie der Router private Adressen nach außen übersetzt, Antworten über die NAT-Tabelle (NAT = Network Address Translation) zurückfindet und eingehende Verbindungen per Portweiterleitung zustellt.

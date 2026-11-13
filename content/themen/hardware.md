@@ -10,16 +10,16 @@ Aus welchen Komponenten ein Arbeitsplatz-PC besteht, wie sie zusammenspielen und
 - **CPU:** Prozessor; wichtige Kennwerte sind Kerne, Threads, Takt (GHz), Cache und Leistungsaufnahme (TDP).
 - **Mainboard:** Verbindet alle Komponenten; Sockel und Chipsatz müssen zur CPU passen, Formfaktor zum Gehäuse (ATX – Advanced Technology Extended, Micro-ATX, Mini-ITX).
 - **Arbeitsspeicher (RAM):** Flüchtiger Speicher für laufende Programme; DDR4 und DDR5 sind nicht kompatibel. Dual Channel nutzt zwei Module parallel.
-- **ECC-RAM:** Arbeitsspeicher mit Fehlerkorrektur – Standard in Servern.
+- **ECC-RAM:** ECC = Error Correction Code. Arbeitsspeicher mit Fehlerkorrektur – Standard in Servern.
 - **Netzteil:** Wandelt Netzspannung in Gleichspannung; das 80-PLUS-Siegel steht für den Wirkungsgrad.
-- **UEFI:** Moderne Firmware (Nachfolger des BIOS – Basic Input/Output System) mit Secure Boot und GPT-Unterstützung.
+- **UEFI:** Unified Extensible Firmware Interface – Moderne Firmware (Nachfolger des BIOS – Basic Input/Output System) mit Secure Boot und GPT-Unterstützung (GPT = GUID Partition Table).
 
 ### Tabelle: Auswahl nach Einsatzzweck
 | Einsatz | CPU | RAM | Speicher | Grafik |
 | --- | --- | --- | --- | --- |
-| Büro | 4–6 Kerne | 16 GB | 512 GB NVMe-SSD | integriert |
+| Büro | 4–6 Kerne | 16 GB | 512 GB NVMe-SSD (NVMe = Non-Volatile Memory Express) | integriert |
 | Entwicklung | 8+ Kerne | 32 GB | 1 TB NVMe-SSD | integriert oder Einstieg |
-| CAD/Video | 8+ Kerne, hoher Takt | 32–64 GB | 1–2 TB NVMe-SSD | dedizierte GPU |
+| CAD (Computer-Aided Design)/Video | 8+ Kerne, hoher Takt | 32–64 GB | 1–2 TB NVMe-SSD | dedizierte GPU |
 
 ### Befehle
 - `msinfo32` – Systeminformationen mit allen Komponenten (Windows)
@@ -43,10 +43,10 @@ Erst den Einsatzzweck klären, dann Komponenten wählen – und auf Kompatibilit
 | --- | --- | --- |
 | USB 2.0 | 480 Mbit/s | Maus, Tastatur |
 | USB 3.2 Gen 1 | 5 Gbit/s | USB-Sticks, externe Festplatten |
-| USB 3.2 Gen 2 | 10 Gbit/s | externe SSDs |
+| USB 3.2 Gen 2 | 10 Gbit/s | externe SSDs (Solid State Drives) |
 | USB4 / Thunderbolt 4 | 40 Gbit/s | Dockingstationen, Monitore |
-| SATA III | 6 Gbit/s | SATA-SSDs, Festplatten |
-| PCIe 4.0 x4 | ca. 8 GByte/s | NVMe-SSDs |
+| SATA (Serial ATA) III | 6 Gbit/s | SATA-SSDs, Festplatten |
+| PCIe (Peripheral Component Interconnect Express) 4.0 x4 | ca. 8 GByte/s | NVMe-SSDs (NVMe = Non-Volatile Memory Express) |
 | PCIe 5.0 x16 | ca. 64 GByte/s | Grafikkarten |
 
 ### Merksatz
@@ -65,13 +65,13 @@ Wie lange dauert die Übertragung von 30 GB über USB 3.2 Gen 1 (5 Gbit/s) theor
 - **SRAM und DRAM:** SRAM (statisches RAM) speichert jedes Bit in mehreren Transistoren – sehr schnell, aber teuer und groß; er steckt als Cache in der CPU. DRAM (dynamisches RAM) speichert jedes Bit in einem winzigen Kondensator, der ständig aufgefrischt werden muss (Refresh) – günstig und dicht, daher der eigentliche Arbeitsspeicher.
 - **DDR (Double Data Rate):** Überträgt Daten zweimal pro Takt. Die Angabe DDR5-6000 meint 6000 Millionen Übertragungen pro Sekunde (MT/s) bei 3000 MHz Takt.
 - **DDR4 und DDR5:** DDR5 ist schneller (zu kaufen ab 4800 MT/s), braucht weniger Spannung (1,1 V statt 1,2 V), teilt jeden Riegel in zwei Kanäle mit je 32 Bit und hat einen eigenen Spannungsregler (PMIC) auf dem Riegel. Kerbe und Kontakte sind anders – die Generationen passen nicht in denselben Steckplatz.
-- **DIMM und SO-DIMM:** DIMM ist der lange Riegel für Desktop-PCs und Server, SO-DIMM der kurze für Notebooks und Mini-PCs. Beide gibt es als DDR4 und DDR5.
+- **DIMM und SO-DIMM:** DIMM (Dual Inline Memory Module) ist der lange Riegel für Desktop-PCs und Server, SO-DIMM der kurze für Notebooks und Mini-PCs. Beide gibt es als DDR4 und DDR5.
 - **Aufgelöteter Speicher und LPCAMM2:** In flachen Notebooks ist LPDDR-Speicher oft fest aufgelötet und nicht aufrüstbar. LPCAMM2 ist ein neues, flaches Modul, mit dem sich auch LPDDR (Low Power DDR – stromsparender Arbeitsspeicher) wieder tauschen lässt.
-- **UDIMM, RDIMM, LRDIMM:** Unbuffered DIMMs stecken in normalen PCs. Registered DIMMs puffern die Steuersignale über ein Register und erlauben mehr und größere Module pro Kanal – Standard in Servern. LRDIMMs (Load-Reduced DIMM) puffern zusätzlich die Daten für noch mehr Kapazität. Die Typen lassen sich nicht mischen.
+- **UDIMM, RDIMM, LRDIMM:** Unbuffered DIMMs stecken in normalen PCs. Registered DIMMs puffern die Steuersignale über ein Register und erlauben mehr und größere Module pro Kanal – Standard in Servern. LRDIMMs (Load-Reduced DIMMs) puffern zusätzlich die Daten für noch mehr Kapazität. Die Typen lassen sich nicht mischen.
 - **ECC:** ECC-Riegel speichern zu den Daten ein paar Prüfbits. Damit merkt der Rechner, wenn ein Bit falsch ist, und kann einzelne Fehler selbst berichtigen. Deshalb ist ein ECC-Riegel etwas breiter: bei DDR4 72 statt 64 Bit, bei DDR5 2 × 40 statt 2 × 32 Bit. CPU und Mainboard müssen ECC unterstützen. Das „On-Die-ECC“ in jedem DDR5-Chip schützt nur innerhalb des Chips und ersetzt echte ECC-Riegel nicht.
 - **Modulbezeichnung (PC4-25600):** Auf dem Riegel steht oft zweierlei: DDR4-3200 nennt die effektive Übertragungsrate (3200 MT/s, umgangssprachlich „3200 MHz effektiv“, echter Takt 1600 MHz), PC4-25600 die Datenrate in MB/s: 3200 × 8 Byte (64-Bit-Bus) = 25.600 MB/s = 25,6 GB/s.
 - **Latenz (CL):** CAS-Latenz = Anzahl Takte, bis angeforderte Daten kommen. Wirklich vergleichbar ist nur die Zeit: Latenz in ns = CL × 2000 / MT/s. DDR4-3200 CL16 und DDR5-6000 CL30 liegen beide bei 10 ns.
-- **XMP und EXPO:** Profile im Riegel für höhere Geschwindigkeiten (Intel: XMP – Extreme Memory Profile, AMD: EXPO – Extended Profiles for Overclocking). Ohne Aktivierung im UEFI läuft der Speicher nur mit dem langsameren Standardtakt nach JEDEC (Normungsgremium der Halbleiterindustrie).
+- **XMP und EXPO:** Profile im Riegel für höhere Geschwindigkeiten (Intel: XMP – Extreme Memory Profile, AMD: EXPO – Extended Profiles for Overclocking). Ohne Aktivierung im UEFI (Unified Extensible Firmware Interface) läuft der Speicher nur mit dem langsameren Standardtakt nach JEDEC (Normungsgremium der Halbleiterindustrie).
 - **Speicherkanäle:** Ein Kanal ist die Verbindung zwischen CPU und Riegel. Bei DDR4 hat jeder Riegel einen Kanal mit 64 Bit. Bei DDR5 ist er in zwei kleinere Kanäle mit je 32 Bit geteilt – zusammen bleiben es 64 Bit pro Riegel. „Dual Channel“ heißt bei beiden: Zwei Riegel arbeiten gleichzeitig und liefern doppelt so viele Daten auf einmal. Desktop-CPUs sind meist für zwei Riegel gleichzeitig gebaut, Server-CPUs für 8 bis 12. Die volle Geschwindigkeit gibt es nur, wenn alle diese Plätze bestückt sind.
 
 ### Abbildung: RAM-Arten im Überblick
@@ -94,7 +94,7 @@ Wie lange dauert die Übertragung von 30 GB über USB 3.2 Gen 1 (5 Gbit/s) theor
 | DDR5 SO-DIMM | SO-DIMM | Notebook, Mini-PC | kurz, steckbar |
 | DDR5 RDIMM (ECC) | DIMM mit Register | Server | sehr große Module, Fehlerkorrektur |
 | LPDDR5X | aufgelötet oder LPCAMM2 | Notebook, Smartphone | sehr sparsam, meist nicht aufrüstbar |
-| GDDR6/GDDR7 (Graphics DDR) | auf der Grafikkarte | Grafik, Spiele, CAD | hohe Bandbreite |
+| GDDR6/GDDR7 (Graphics DDR) | auf der Grafikkarte | Grafik, Spiele, CAD (Computer-Aided Design) | hohe Bandbreite |
 | HBM3e (High Bandwidth Memory) | gestapelt neben dem Chip | KI-Beschleuniger | extrem hohe Bandbreite, sehr teuer |
 
 ### Befehle
@@ -117,8 +117,8 @@ Ein PC hat zwei Module DDR5-5600 im Dual Channel. Wie hoch ist die theoretische 
 
 ### Kernbegriffe
 - **HDD:** Magnetische Festplatte mit drehenden Scheiben; günstig pro TB, aber langsam und stoßempfindlich.
-- **SATA-SSD:** Flash-Speicher am SATA-Anschluss, durch die Schnittstelle auf ca. 550 MB/s begrenzt.
-- **NVMe-SSD:** Flash-Speicher direkt an PCIe, meist im Formfaktor M.2 2280; mehrere GB/s.
+- **SATA-SSD:** Flash-Speicher am SATA-Anschluss (SATA = Serial ATA), durch die Schnittstelle auf ca. 550 MB/s begrenzt.
+- **NVMe-SSD:** Flash-Speicher direkt an PCIe (Peripheral Component Interconnect Express), meist im Formfaktor M.2 2280; mehrere GB/s.
 - **TBW:** Terabytes Written – wie viel insgesamt auf eine SSD geschrieben werden darf.
 - **GB und GiB:** Hersteller rechnen dezimal (1 GB = 10⁹ Byte), Betriebssysteme oft binär (1 GiB = 2³⁰ Byte).
 
@@ -130,12 +130,12 @@ Ein PC hat zwei Module DDR5-5600 im Dual Channel. Wie hoch ist die theoretische 
 | --- | --- | --- | --- |
 | HDD 7200 U/min | 200 MB/s | ca. 8 ms | Archiv, NAS (Network Attached Storage), Backup |
 | SATA-SSD | 550 MB/s | unter 0,1 ms | Aufrüstung älterer PCs |
-| NVMe-SSD PCIe 4.0 | 7000 MB/s | unter 0,1 ms | System- und Arbeitslaufwerk |
+| NVMe-SSD (NVMe = Non-Volatile Memory Express) PCIe 4.0 | 7000 MB/s | unter 0,1 ms | System- und Arbeitslaufwerk |
 
 ### Befehle
 - `Get-PhysicalDisk` – Datenträger mit Typ (HDD/SSD) und Zustand (PowerShell)
 - `lsblk -d -o name,rota,size` – rota=1 heißt drehende Festplatte (Linux)
-- `sudo smartctl -a /dev/sda` – SMART-Werte zur Gesundheit auslesen (Linux)
+- `sudo smartctl -a /dev/sda` – SMART-Werte (SMART = Self-Monitoring, Analysis and Reporting Technology) zur Gesundheit auslesen (Linux)
 
 ### Merksatz
 SSD fürs System, HDD fürs Archiv.
@@ -151,7 +151,7 @@ Warum zeigt Windows bei einer neuen 1-TB-SSD nur etwa 931 GB an?
 
 ### Kernbegriffe
 - **Auflösung:** Anzahl der Bildpunkte, z. B. Full HD 1920 × 1080, WQHD (Wide Quad HD) 2560 × 1440, 4K/UHD 3840 × 2160.
-- **Panel-Typen:** IPS (farbtreu, blickwinkelstabil), VA (hoher Kontrast), TN (schnell, schwächere Farben).
+- **Panel-Typen:** IPS (In-Plane Switching: farbtreu, blickwinkelstabil), VA (Vertical Alignment: hoher Kontrast), TN (Twisted Nematic: schnell, schwächere Farben).
 - **Bildwiederholrate:** Bilder pro Sekunde in Hz; fürs Büro reichen 60–75 Hz.
 - **Dockingstation:** Verbindet Notebook über ein Kabel (USB-C/Thunderbolt) mit Monitoren, Netzwerk, Strom und Peripherie.
 - **USB-C mit DisplayPort Alt Mode:** Überträgt Bildsignal über USB-C; mit Power Delivery auch Strom.
@@ -159,9 +159,9 @@ Warum zeigt Windows bei einer neuen 1-TB-SSD nur etwa 931 GB an?
 ### Tabelle: Bildschirm-Anschlüsse
 | Anschluss | Signal | Hinweis |
 | --- | --- | --- |
-| VGA | analog | veraltet, unscharf bei hoher Auflösung |
-| DVI | digital | veraltet, kein Ton |
-| HDMI | digital, mit Ton | Standard bei Monitoren und Beamern |
+| VGA (Video Graphics Array) | analog | veraltet, unscharf bei hoher Auflösung |
+| DVI (Digital Visual Interface) | digital | veraltet, kein Ton |
+| HDMI (High-Definition Multimedia Interface) | digital, mit Ton | Standard bei Monitoren und Beamern |
 | DisplayPort | digital, mit Ton | Daisy Chaining mehrerer Monitore möglich |
 | USB-C (DP Alt Mode) | digital, mit Ton | ein Kabel für Bild, Daten und Strom |
 
@@ -197,7 +197,7 @@ Augen eine Armlänge weg, Blick leicht nach unten, Licht von der Seite.
 ### Kernbegriffe
 - **Barrierefreiheit:** IT-Systeme, Software, Webseiten und Dokumente sind so gestaltet, dass Menschen mit Behinderungen sie ohne fremde Hilfe nutzen können – etwa bei Seh-, Hör- oder motorischen Einschränkungen. Davon profitieren auch alle anderen, z. B. bei Sonnenlicht auf dem Display oder mit Gipsarm.
 - **Barrierefreiheitsstärkungsgesetz (BFSG):** Seit dem 28. Juni 2025 müssen viele Produkte und Dienstleistungen barrierefrei sein, z. B. Computer, Smartphones, Selbstbedienungsterminals, Online-Shops, Banking und E-Books. Kleinstunternehmen mit weniger als 10 Beschäftigten und höchstens 2 Mio. € Umsatz sind bei Dienstleistungen ausgenommen.
-- **BITV 2.0:** Verordnung für öffentliche Stellen des Bundes: Webseiten, Apps und interne Software müssen barrierefrei sein.
+- **BITV 2.0:** BITV = Barrierefreie-Informationstechnik-Verordnung. Verordnung für öffentliche Stellen des Bundes: Webseiten, Apps und interne Software müssen barrierefrei sein.
 - **WCAG:** Web Content Accessibility Guidelines – internationaler Standard mit Prüfkriterien in den Stufen A, AA und AAA. Gefordert ist meist Stufe AA; die europäische Norm EN 301 549 baut darauf auf.
 - **Vier Prinzipien (POUR):** wahrnehmbar, bedienbar, verständlich, robust – z. B. Alternativtexte, Bedienung per Tastatur, einfache Sprache, saubere Technik für Hilfsprogramme.
 - **Kontrast:** Normaler Text braucht mindestens 4,5 : 1 gegenüber dem Hintergrund, großer Text 3 : 1. Informationen nie nur über Farbe vermitteln.
@@ -282,7 +282,7 @@ Ein PC braucht im Betrieb 120 W und läuft 8 Stunden an 220 Arbeitstagen. Was ko
 ### Tabelle: Siegel und Kennzeichen
 | Zeichen | Bedeutung | Pflicht? |
 | --- | --- | --- |
-| CE | Konformität mit EU-Recht (Herstellererklärung) | ja |
+| CE (Conformité Européenne) | Konformität mit EU-Recht (Herstellererklärung) | ja |
 | GS | geprüfte Sicherheit durch Prüfstelle | nein |
 | Energy Star | energieeffiziente Bürogeräte | nein |
 | TCO Certified | Ergonomie, Umwelt, soziale Kriterien | nein |
@@ -296,9 +296,9 @@ CE ist Pflicht und eine Selbsterklärung – Prüfsiegel wie GS oder TCO sind fr
 - Bit und Byte verwechseln: 1 Gbit/s sind nur 125 MB/s.
 - Bei Stromkosten Watt statt Kilowattstunden mit dem Preis multiplizieren.
 - DDR4- und DDR5-Module für austauschbar halten.
-- CE-Kennzeichnung mit einem unabhängigen Prüfsiegel verwechseln.
-- USV oder Netzteil nur nach VA statt nach Wirkleistung in Watt auswählen.
-- Bei DDR-Speicher MHz und MT/s verwechseln: DDR5-6000 läuft mit 3000 MHz.
+- CE-Kennzeichnung (CE = Conformité Européenne) mit einem unabhängigen Prüfsiegel verwechseln.
+- USV (unterbrechungsfreie Stromversorgung) oder Netzteil nur nach VA statt nach Wirkleistung in Watt auswählen.
+- Bei DDR-Speicher (DDR = Double Data Rate) MHz und MT/s verwechseln: DDR5-6000 läuft mit 3000 MHz.
 - Registered-Module (RDIMM) in einen normalen PC stecken – sie laufen dort nicht.
 
 ## Links
@@ -319,28 +319,28 @@ Das Mainboard ist die Verkehrsplanung des Rechners: Es versorgt alle Bauteile mi
 | Komponente | angebunden an | Verbindung |
 | --- | --- | --- |
 | RAM | CPU (Speichercontroller) | Speicherbus, 1–2 Kanäle |
-| Grafikkarte | CPU | PCIe x16 |
+| Grafikkarte | CPU | PCIe (Peripheral Component Interconnect Express) x16 |
 | NVMe-SSD (erster M.2-Platz) | CPU | PCIe x4 |
 | Chipsatz | CPU | DMI (Direct Media Interface) bzw. PCIe-Link |
-| SATA, USB, LAN, Audio, weitere M.2 | Chipsatz | über den Chipsatz gebündelt |
-| UEFI-Firmware | Chipsatz | SPI-Flash-Chip |
+| SATA (Serial ATA), USB, LAN (Local Area Network), Audio, weitere M.2 | Chipsatz | über den Chipsatz gebündelt |
+| UEFI-Firmware | Chipsatz | SPI-Flash-Chip (SPI = Serial Peripheral Interface) |
 
 ### CPU – der Prozessor
 Die CPU führt Befehle aus, und zwar immer im gleichen Zyklus: Befehl holen, dekodieren, ausführen, Ergebnis zurückschreiben. Das **Steuerwerk** liest und übersetzt die Befehle, das **Rechenwerk** (ALU) rechnet, die **Register** sind ihre kleinsten und schnellsten Speicher.
 ![Befehlszyklus: Holen, Dekodieren, Ausführen, Zurückschreiben – bei jedem Takt](cpu-befehlszyklus.svg)
 - **Takt:** Basistakt (meist 100 MHz) × Multiplikator = CPU-Takt, z. B. 100 MHz × 45 = 4,5 GHz. Im Turbo steigt der Takt kurzzeitig, solange Kühlung und Strom reichen.
-- **Kerne und Threads:** Jeder Kern arbeitet unabhängig. Mit SMT (Intel: Hyper-Threading) bearbeitet ein Kern zwei Threads abwechselnd und nutzt Wartezeiten aus. Intel kombiniert schnelle Performance-Kerne (P-Kerne) mit sparsamen Effizienz-Kernen (E-Kerne).
+- **Kerne und Threads:** Jeder Kern arbeitet unabhängig. Mit SMT (Simultaneous Multithreading, bei Intel: Hyper-Threading) bearbeitet ein Kern zwei Threads abwechselnd und nutzt Wartezeiten aus. Intel kombiniert schnelle Performance-Kerne (P-Kerne) mit sparsamen Effizienz-Kernen (E-Kerne).
 - **Cache:** Kleiner, sehr schneller Speicher in der CPU. L1 und L2 gehören je einem Kern, den L3 teilen sich alle Kerne.
 - **Integrierte Grafik (iGPU):** Viele CPUs haben eine Grafikeinheit eingebaut. Sie nutzt einen Teil des Arbeitsspeichers als Grafikspeicher.
-- **TDP:** Wärmeleistung in Watt, für die der Kühler ausgelegt sein muss.
+- **TDP:** Thermal Design Power – Wärmeleistung in Watt, für die der Kühler ausgelegt sein muss.
 - **Befehlssatz:** PCs und Server nutzen x86-64 (Intel, AMD), Smartphones, Apple-Rechner und viele Cloud-Server ARM. Programme müssen für den Befehlssatz übersetzt sein.
 
 ### RAM – der Arbeitsspeicher
 Im RAM liegen alle laufenden Programme und ihre Daten. Er ist flüchtig: Ohne Strom ist der Inhalt weg. Die CPU holt sich Daten aus dem RAM in ihre Caches, weil der RAM im Vergleich zur CPU langsam ist.
 ![Speicherhierarchie: von Registern und Cache über RAM bis SSD und Festplatte – je weiter unten, desto größer und langsamer](speicherhierarchie.svg)
 - **Dual Channel:** Zwei Riegel in den richtigen Steckplätzen (laut Handbuch meist A2 und B2) verdoppeln die Bandbreite. Ein einzelner Riegel bremst besonders die integrierte Grafik.
-- **DDR-Generationen:** DDR4 und DDR5 sind mechanisch und elektrisch nicht kompatibel – das Mainboard bestimmt, welche Generation passt.
-- **ECC:** Fehlerkorrigierender Speicher erkennt und behebt Bitfehler. Pflicht in Servern; braucht Unterstützung von CPU und Mainboard.
+- **DDR-Generationen:** DDR = Double Data Rate. DDR4 und DDR5 sind mechanisch und elektrisch nicht kompatibel – das Mainboard bestimmt, welche Generation passt.
+- **ECC:** Error Correction Code – Fehlerkorrigierender Speicher erkennt und behebt Bitfehler. Pflicht in Servern; braucht Unterstützung von CPU und Mainboard.
 - **Zu wenig RAM:** Das Betriebssystem lagert in die Auslagerungsdatei auf der SSD aus – der Rechner wird spürbar langsamer.
 
 ### Chipsatz – der Verteiler
@@ -351,23 +351,23 @@ Früher gab es zwei Chips: die **Northbridge** für RAM und Grafik und die **Sou
 - Er muss zur CPU-Generation passen – ein passender Sockel allein reicht nicht immer.
 
 ### GPU – die Grafikkarte
-Eine CPU hat wenige, sehr flexible Kerne. Eine GPU hat Tausende einfache Kerne, die dieselbe Rechnung gleichzeitig auf viele Daten anwenden – ideal für Bilder, Videos und KI-Berechnungen.
+Eine CPU hat wenige, sehr flexible Kerne. Eine GPU (Graphics Processing Unit) hat Tausende einfache Kerne, die dieselbe Rechnung gleichzeitig auf viele Daten anwenden – ideal für Bilder, Videos und KI-Berechnungen.
 - **Dedizierte Grafikkarte:** eigener, sehr schneller Grafikspeicher (VRAM, z. B. GDDR6/GDDR7), angebunden über PCIe x16 direkt an der CPU. Leistungsstarke Karten brauchen zusätzliche Stromstecker vom Netzteil.
 - **Integrierte Grafik:** sparsam und günstig, reicht für Büro, Videos und mehrere Monitore.
 - **Monitor anschließen:** Bei einer dedizierten Karte den Monitor an die Grafikkarte stecken, nicht an das Mainboard – sonst läuft das Bild über die iGPU oder bleibt schwarz.
 
 ### PCIe-Lanes – wer bekommt wie viel?
-PCIe arbeitet mit Lanes: Jede Lane ist eine eigene Sende- und Empfangsleitung. Desktop-CPUs haben je nach Modell nur etwa 20 bis 28 Lanes, meist 16 für die Grafikkarte und 4 für die erste NVMe-SSD. Alles Weitere hängt am Chipsatz.
+PCIe arbeitet mit Lanes: Jede Lane ist eine eigene Sende- und Empfangsleitung. Desktop-CPUs haben je nach Modell nur etwa 20 bis 28 Lanes, meist 16 für die Grafikkarte und 4 für die erste NVMe-SSD (NVMe = Non-Volatile Memory Express). Alles Weitere hängt am Chipsatz.
 - Ein x16-Steckplatz kann elektrisch nur mit x4 angebunden sein – das steht im Handbuch.
 - Steckplätze teilen sich oft Lanes: Ist ein bestimmter M.2-Platz belegt, fallen z. B. zwei SATA-Anschlüsse weg oder der zweite x16-Slot läuft nur mit x8.
 - Vor dem Einbau also immer die Lane-Aufteilung im Mainboard-Handbuch prüfen.
 
 ### Firmware und weitere Bausteine
 - **UEFI (früher BIOS):** Unified Extensible Firmware Interface, Nachfolger des BIOS (Basic Input/Output System). Firmware in einem Flash-Chip auf dem Mainboard. Sie testet und initialisiert die Hardware und startet den Bootloader. Einstellungen liegen in einem nichtflüchtigen Speicher (NVRAM).
-- **CMOS-Batterie (CR2032):** Hält die Echtzeituhr (RTC) am Laufen. Ist sie leer, stimmt nach dem Ausschalten die Uhrzeit nicht mehr.
-- **TPM 2.0:** Sicherheitschip für Schlüssel, z. B. für BitLocker und Secure Boot; Voraussetzung für Windows 11. Oft als Firmware-TPM in der CPU umgesetzt (Intel PTT – Platform Trust Technology, AMD fTPM).
+- **CMOS-Batterie (CR2032):** CMOS = Complementary Metal-Oxide-Semiconductor. Hält die Echtzeituhr (RTC) am Laufen. Ist sie leer, stimmt nach dem Ausschalten die Uhrzeit nicht mehr.
+- **TPM 2.0:** TPM = Trusted Platform Module. Sicherheitschip für Schlüssel, z. B. für BitLocker und Secure Boot; Voraussetzung für Windows 11. Oft als Firmware-TPM in der CPU umgesetzt (Intel PTT – Platform Trust Technology, AMD fTPM).
 - **VRM (Spannungswandler):** Wandeln die 12 V vom Netzteil in die niedrige, sehr genaue Spannung für CPU und RAM (unter 1,5 V). Schwache VRMs werden heiß und drosseln starke CPUs.
-- **Debug-LEDs und Signaltöne:** Viele Mainboards zeigen beim Start mit LEDs (CPU, DRAM, VGA, BOOT) oder Pieptönen, wo ein Fehler liegt.
+- **Debug-LEDs und Signaltöne:** Viele Mainboards zeigen beim Start mit LEDs (CPU, DRAM, VGA – Video Graphics Array, BOOT) oder Pieptönen, wo ein Fehler liegt.
 
 ### Was beim Einschalten passiert
 1. Der Einschalter weckt das Netzteil; es meldet stabile Spannungen mit dem Signal „Power Good“.
@@ -375,7 +375,7 @@ PCIe arbeitet mit Lanes: Jede Lane ist eine eigene Sende- und Empfangsleitung. D
 3. POST (Power-On Self-Test): Die Firmware prüft und initialisiert CPU, RAM (Memory Training), Grafik und Laufwerke.
 4. Die Firmware erkennt alle PCIe-Geräte und verteilt Ressourcen.
 5. Sie liest die Bootreihenfolge und sucht auf dem Startlaufwerk die EFI-Systempartition.
-6. Secure Boot prüft die Signatur des Bootloaders (z. B. Windows Boot Manager, GRUB).
+6. Secure Boot prüft die Signatur des Bootloaders (z. B. Windows Boot Manager, GRUB – GRand Unified Bootloader).
 7. Der Bootloader lädt den Betriebssystem-Kernel in den RAM, und der Kernel übernimmt die Kontrolle.
 
 ## Zusatz: Prozessoren – Typen und Einsatzbereiche {#cpu-typen}
@@ -391,7 +391,7 @@ Alle Prozessoren arbeiten nach demselben Prinzip (Befehle holen, dekodieren, aus
 #### Desktop
 - **Kurz:** Für PCs am Arbeitsplatz und zu Hause, gesteckt in einen Sockel. Wenige bis mittlere Kernzahl (6–24), hoher Takt, 2 Speicherkanäle.
 - **Plus:** hohe Leistung pro Kern, günstig, aufrüstbar
-- **Minus:** begrenzte Zahl an PCIe-Lanes und RAM-Kanälen; ECC meist nur eingeschränkt
+- **Minus:** begrenzte Zahl an PCIe-Lanes (PCIe = Peripheral Component Interconnect Express) und RAM-Kanälen; ECC (Error Correction Code) meist nur eingeschränkt
 - **Beispiel:** Intel Core Ultra (Desktop), AMD Ryzen
 
 #### Notebook und Mobil
@@ -401,14 +401,14 @@ Alle Prozessoren arbeiten nach demselben Prinzip (Befehle holen, dekodieren, aus
 - **Beispiel:** Intel Core Ultra (Mobil), AMD Ryzen AI, Qualcomm Snapdragon X, Apple M
 
 #### Workstation
-- **Kurz:** Für CAD, Simulation, Videoschnitt und Softwareentwicklung. Viele Kerne, viele Speicherkanäle und PCIe-Lanes für mehrere Grafikkarten.
+- **Kurz:** Für CAD (Computer-Aided Design – rechnergestütztes Konstruieren), Simulation, Videoschnitt und Softwareentwicklung. Viele Kerne, viele Speicherkanäle und PCIe-Lanes für mehrere Grafikkarten.
 - **Plus:** sehr viel Rechenleistung und RAM, ECC-Unterstützung
 - **Minus:** teuer, hoher Stromverbrauch, eigene Mainboards
 - **Beispiel:** AMD Ryzen Threadripper PRO, Intel Xeon W
 
 #### Server
 - **Kurz:** Für Rechenzentren und Virtualisierung. Sehr viele Kerne (bis über 100), 8–12 Speicherkanäle, viele PCIe-Lanes, oft zwei CPUs pro Server.
-- **Plus:** viele VMs und Container gleichzeitig, ECC und Fernwartung, für Dauerbetrieb ausgelegt
+- **Plus:** viele VMs (virtuelle Maschinen) und Container gleichzeitig, ECC und Fernwartung, für Dauerbetrieb ausgelegt
 - **Minus:** teuer, oft niedrigerer Takt pro Kern, Lizenzkosten mancher Software hängen an der Kernzahl
 - **Beispiel:** Intel Xeon 6, AMD EPYC, ARM-Server-CPUs bei Cloud-Anbietern
 
@@ -432,10 +432,10 @@ Der Befehlssatz legt fest, welche Maschinenbefehle ein Prozessor versteht. Progr
 ### Was die Kennzahlen bedeuten
 | Kennzahl | Bedeutung | Worauf achten |
 | --- | --- | --- |
-| Kerne / Threads | parallele Rechenwerke; SMT bearbeitet zwei Threads pro Kern | viele Kerne für Virtualisierung und Rendering, hoher Takt für Spiele und Office |
+| Kerne / Threads | parallele Rechenwerke; SMT (Simultaneous Multithreading) bearbeitet zwei Threads pro Kern | viele Kerne für Virtualisierung und Rendering, hoher Takt für Spiele und Office |
 | Basis- und Boost-Takt | Grundtakt und kurzzeitiger Höchsttakt | Boost nur bei guter Kühlung |
 | Cache (L2/L3) | schneller Zwischenspeicher | großer L3-Cache hilft Spielen und Datenbanken |
-| TDP / Leistungsaufnahme | Wärme, die der Kühler abführen muss | Kühler und Netzteil passend auslegen |
+| TDP (Thermal Design Power) / Leistungsaufnahme | Wärme, die der Kühler abführen muss | Kühler und Netzteil passend auslegen |
 | Sockel / Chipsatz | mechanische und elektrische Verbindung zum Board | muss zur CPU-Generation passen |
 | PCIe-Lanes / RAM-Kanäle | Anbindung von GPU, SSDs und Speicher | wichtig bei Workstations und Servern |
 | NPU (TOPS) | KI-Rechenleistung in Billionen Operationen pro Sekunde | Copilot+-PCs brauchen mindestens 40 TOPS |
@@ -472,7 +472,7 @@ Eine CPU hat wenige, sehr flexible Kerne für komplizierte Abläufe. Eine GPU ha
 - **Beispiel:** NVIDIA GeForce RTX 50, AMD Radeon RX, Intel Arc
 
 #### Workstation-Grafikkarte (CAD)
-- **Kurz:** Für CAD, Simulation, 3D-Visualisierung und Videoschnitt im Unternehmen. Treiber sind für Profi-Software zertifiziert, der Speicher ist größer und hat ECC.
+- **Kurz:** Für CAD, Simulation, 3D-Visualisierung und Videoschnitt im Unternehmen. Treiber sind für Profi-Software zertifiziert, der Speicher ist größer und hat ECC (Error Correction Code).
 - **Plus:** zertifizierte, stabile Treiber, viel Speicher mit Fehlerkorrektur, Support und lange Verfügbarkeit
 - **Minus:** deutlich teurer bei ähnlicher Rohleistung
 - **Beispiel:** NVIDIA RTX PRO (z. B. RTX PRO 6000 Blackwell mit 96 GB GDDR7 und ECC), AMD Radeon PRO
@@ -490,7 +490,7 @@ Eine CPU hat wenige, sehr flexible Kerne für komplizierte Abläufe. Eine GPU ha
 | Treiber | Game-Ready, häufige Updates | zertifiziert für CAD-Software (ISV) | Rechenzentrums-Treiber, KI-Frameworks |
 | Bildausgänge | ja | ja, oft mehrere DisplayPort, Sync für Videowände | keine |
 | Kühlung | große Lüfter | Lüfter oder Gebläse, passend für mehrere Karten | passiv, Luftstrom vom Server |
-| Mehrere Karten | unüblich | über PCIe | NVLink, Hunderte GPUs im Verbund |
+| Mehrere Karten | unüblich | über PCIe (Peripheral Component Interconnect Express) | NVLink, Hunderte GPUs im Verbund |
 | Leistungsaufnahme | 150–575 W | 300–600 W | über 1000 W |
 | Preis | Hunderte bis rund 2.500 € | einige Tausend bis über 10.000 € | Zehntausende Euro pro GPU |
 
@@ -505,7 +505,7 @@ Eine CPU hat wenige, sehr flexible Kerne für komplizierte Abläufe. Eine GPU ha
 - **Tensor-Kerne:** Spezielle Rechenwerke für Matrizen-Multiplikation, die Grundoperation neuronaler Netze. Sie rechnen mit niedriger Genauigkeit (FP16, FP8, FP4 – Gleitkommazahlen mit 16, 8 bzw. 4 Bit) sehr viel schneller.
 - **Bandbreite:** HBM-Speicher liefert mehrere Terabyte pro Sekunde – ein Vielfaches von GDDR (Graphics DDR – Grafikspeicher).
 - **Software:** NVIDIA setzt auf CUDA, AMD auf ROCm. Viele KI-Werkzeuge laufen zuerst oder am besten mit CUDA.
-- **Lokal statt Rechenzentrum:** Kleinere Modelle laufen auch auf Gaming- oder Workstation-Karten mit viel Speicher – oder sparsam auf der NPU eines Notebooks.
+- **Lokal statt Rechenzentrum:** Kleinere Modelle laufen auch auf Gaming- oder Workstation-Karten mit viel Speicher – oder sparsam auf der NPU (Neural Processing Unit) eines Notebooks.
 
 ### Checkliste: Grafikkarte einbauen
 - Netzteil: genug Leistung und die passenden Stromstecker (z. B. 12V-2x6 bei aktuellen NVIDIA-Karten); Stecker vollständig einstecken.

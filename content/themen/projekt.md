@@ -156,8 +156,8 @@ Bezugspreis 800 €, Handlungskosten 25 %, Gewinn 10 %, kein Skonto und Rabatt. 
 ### Kernbegriffe
 - **Qualität:** Wie gut ein Produkt oder eine Leistung die vereinbarten Anforderungen erfüllt – nicht „so gut wie möglich“, sondern „so wie vereinbart“.
 - **Qualitätsmanagement (QM):** Alle geplanten Maßnahmen, mit denen ein Unternehmen Qualität sichert und verbessert: Abläufe festlegen, prüfen, Fehler auswerten, verbessern.
-- **ISO 9001:** Internationale Norm für Qualitätsmanagementsysteme. Unternehmen können sich danach zertifizieren lassen; gefordert sind u. a. dokumentierte Prozesse, Kundenorientierung, Verantwortung der Leitung und laufende Verbesserung.
-- **PDCA-Zyklus:** Plan – Do – Check – Act. Grundlage jeder kontinuierlichen Verbesserung, auch im ISMS und bei ITIL.
+- **ISO 9001:** ISO = International Organization for Standardization. Internationale Norm für Qualitätsmanagementsysteme. Unternehmen können sich danach zertifizieren lassen; gefordert sind u. a. dokumentierte Prozesse, Kundenorientierung, Verantwortung der Leitung und laufende Verbesserung.
+- **PDCA-Zyklus:** Plan – Do – Check – Act. Grundlage jeder kontinuierlichen Verbesserung, auch im ISMS (Informationssicherheits-Managementsystem) und bei ITIL (IT Infrastructure Library).
 - **KVP / Kaizen:** Kontinuierlicher Verbesserungsprozess – viele kleine Verbesserungen statt seltener großer Umbrüche; Ideen kommen von den Mitarbeitenden.
 - **Qualitätssicherung (QS):** Prüfende Maßnahmen im Projekt: Checklisten, Tests, Vier-Augen-Prinzip, Reviews, Abnahme.
 - **Soll-Ist-Vergleich:** Geplante Werte (Termine, Kosten, Funktionen) werden mit den erreichten verglichen; Abweichungen werden begründet und führen zu Maßnahmen.
@@ -183,12 +183,12 @@ Bezugspreis 800 €, Handlungskosten 25 %, Gewinn 10 %, kein Skonto und Rabatt. 
 Qualität ist erfüllte Anforderung. Planen, umsetzen, prüfen, verbessern – und die häufigsten Fehler zuerst.
 
 ### Prüfungsfrage
-Der Service Desk hat im letzten Monat 200 Tickets bearbeitet: 90 zu Druckern, 50 zu Passwörtern, 30 zu VPN und 30 Sonstige. Wo setzt du zuerst an?
+Der Service Desk hat im letzten Monat 200 Tickets bearbeitet: 90 zu Druckern, 50 zu Passwörtern, 30 zu VPN (Virtual Private Network) und 30 Sonstige. Wo setzt du zuerst an?
 
 1. Pareto-Analyse: nach Häufigkeit sortieren und den Anteil berechnen.
 2. Drucker 45 %, Passwörter 25 % – zusammen 70 % aller Tickets.
 3. Maßnahmen dort zuerst: Ursachen der Druckerprobleme analysieren (z. B. Ishikawa), für Passwörter eine Self-Service-Rücksetzung einführen.
-4. Nach einem Monat Soll-Ist-Vergleich: Ist die Ticketzahl gesunken? (PDCA)
+4. Nach einem Monat Soll-Ist-Vergleich: Ist die Ticketzahl gesunken? (PDCA – Plan, Do, Check, Act)
 
 ## Einführung und Übergabe von IT-Systemen {#systemeinfuehrung}
 

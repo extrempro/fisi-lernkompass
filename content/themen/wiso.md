@@ -7,7 +7,7 @@ Deine Rechte und Pflichten in Ausbildung und Beruf: Ausbildungsvertrag, Berufsbi
 ## Ausbildungsvertrag {#ausbildungsvertrag}
 
 ### Kernbegriffe
-- **Form:** Der wesentliche Vertragsinhalt muss vor Beginn der Ausbildung festgehalten werden (§ 11 BBiG); der Azubi erhält eine Ausfertigung.
+- **Form:** Der wesentliche Vertragsinhalt muss vor Beginn der Ausbildung festgehalten werden (§ 11 BBiG – Berufsbildungsgesetz); der Azubi erhält eine Ausfertigung.
 - **Probezeit:** Mindestens 1, höchstens 4 Monate (§ 20 BBiG).
 - **Verzeichnis:** Der Betrieb meldet den Vertrag bei der Handelskammer zur Eintragung ins Verzeichnis der Ausbildungsverhältnisse.
 - **Ende:** Mit Ablauf der Ausbildungszeit oder schon mit Bekanntgabe des Ergebnisses der bestandenen Abschlussprüfung (§ 21 BBiG).
@@ -224,8 +224,8 @@ Die IT soll ein Ticketsystem einführen, das Bearbeitungszeiten pro Mitarbeiter 
 
 ### Kernbegriffe
 - **Rechtsform:** Rechtlicher Rahmen eines Unternehmens. Sie bestimmt Haftung, Mindestkapital, Geschäftsführung, Gewinnverteilung und Formalitäten.
-- **Personengesellschaften:** Einzelunternehmen, GbR, OHG und KG. Mindestens ein Inhaber haftet mit seinem Privatvermögen.
-- **Kapitalgesellschaften:** GmbH, UG (haftungsbeschränkt) und AG. Sie sind eigene juristische Personen und haften nur mit dem Gesellschaftsvermögen.
+- **Personengesellschaften:** Einzelunternehmen, GbR, OHG (Offene Handelsgesellschaft) und KG (Kommanditgesellschaft). Mindestens ein Inhaber haftet mit seinem Privatvermögen.
+- **Kapitalgesellschaften:** GmbH, UG (Unternehmergesellschaft, haftungsbeschränkt) und AG (Aktiengesellschaft). Sie sind eigene juristische Personen und haften nur mit dem Gesellschaftsvermögen.
 - **Handelsregister:** Öffentliches Verzeichnis der Kaufleute und Gesellschaften beim Amtsgericht; Kapitalgesellschaften, OHG und KG müssen eingetragen sein.
 - **Komplementär und Kommanditist:** In der KG haftet der Komplementär unbeschränkt und führt die Geschäfte, der Kommanditist haftet nur bis zu seiner Einlage.
 - **Organe der AG:** Vorstand (leitet), Aufsichtsrat (kontrolliert), Hauptversammlung (Aktionäre entscheiden z. B. über Gewinnverwendung).
@@ -299,7 +299,7 @@ Bei der Einrichtung eines Arbeitsplatzes bleiben ein alter PC mit Festplatte und
 - Die Unfallversicherung zu den hälftig bezahlten Zweigen zählen.
 - Manteltarif- und Entgelttarifvertrag vertauschen.
 - Betriebsrat und JAV gleichsetzen – die JAV handelt über den Betriebsrat.
-- Bei der KG die Haftung verwechseln: Der Komplementär haftet unbeschränkt, der Kommanditist nur bis zur Einlage.
+- Bei der KG (Kommanditgesellschaft) die Haftung verwechseln: Der Komplementär haftet unbeschränkt, der Kommanditist nur bis zur Einlage.
 - Wasser zum Löschen von Elektrogeräten oder Fettbränden verwenden.
 
 ## Links

@@ -9,8 +9,8 @@ Wie Daten durch ein Netzwerk kommen: Schichtenmodelle, IP-Adressen, Subnetze, Sw
 ### Kernbegriffe
 - **OSI-Modell:** Open Systems Interconnection – ein Modell, das die Netzwerkkommunikation in sieben Schichten aufteilt. Das TCP/IP-Modell fasst sie zu vier Schichten zusammen.
 - **Kapselung:** Beim Senden fügt jede Schicht einen eigenen Header hinzu, beim Empfangen wird er wieder entfernt.
-- **TCP:** Verbindungsorientiert und zuverlässig, Aufbau per 3-Way-Handshake: SYN (Synchronize – Verbindungswunsch), SYN-ACK (Zusage mit Bestätigung, Acknowledge), ACK (Bestätigung).
-- **UDP:** Verbindungslos und schnell, ohne Bestätigung – z. B. DNS, VoIP, Streaming.
+- **TCP:** Transmission Control Protocol – verbindungsorientiert und zuverlässig, Aufbau per 3-Way-Handshake: SYN (Synchronize – Verbindungswunsch), SYN-ACK (Zusage mit Bestätigung, Acknowledge), ACK (Bestätigung).
+- **UDP:** Verbindungslos und schnell, ohne Bestätigung – z. B. DNS (Domain Name System), VoIP, Streaming.
 - **Port:** Adressiert die Anwendung auf einem Host (0–65535).
 
 ### Abbildung: OSI- und TCP/IP-Modell
@@ -19,27 +19,27 @@ Wie Daten durch ein Netzwerk kommen: Schichtenmodelle, IP-Adressen, Subnetze, Sw
 ### Tabelle: Schichten
 | Nr. | OSI-Schicht | TCP/IP | Dateneinheit | Beispiele |
 | --- | --- | --- | --- | --- |
-| 7 | Anwendung | Anwendung | Daten | HTTP, DNS, SMTP |
-| 6 | Darstellung | Anwendung | Daten | TLS, JPEG |
+| 7 | Anwendung | Anwendung | Daten | HTTP (Hypertext Transfer Protocol), DNS, SMTP (Simple Mail Transfer Protocol) |
+| 6 | Darstellung | Anwendung | Daten | TLS (Transport Layer Security), JPEG |
 | 5 | Sitzung | Anwendung | Daten | RPC (Remote Procedure Call), NetBIOS |
 | 4 | Transport | Transport | Segment | TCP, UDP |
-| 3 | Vermittlung | Internet | Paket | IP, ICMP (Internet Control Message Protocol), Router |
-| 2 | Sicherung | Netzzugang | Frame | Ethernet, MAC, Switch |
+| 3 | Vermittlung | Internet | Paket | IP (Internet Protocol), ICMP (Internet Control Message Protocol), Router |
+| 2 | Sicherung | Netzzugang | Frame | Ethernet, MAC (Media Access Control), Switch |
 | 1 | Bitübertragung | Netzzugang | Bit | Kabel, Funk, Hub |
 
 ### Tabelle: Wichtige Ports
 | Port | Dienst | Protokoll |
 | --- | --- | --- |
-| 20/21 | FTP | TCP |
-| 22 | SSH | TCP |
+| 20/21 | FTP (File Transfer Protocol) | TCP |
+| 22 | SSH (Secure Shell) | TCP |
 | 25 | SMTP | TCP |
 | 53 | DNS | UDP/TCP |
-| 67/68 | DHCP | UDP |
+| 67/68 | DHCP (Dynamic Host Configuration Protocol) | UDP |
 | 80 | HTTP | TCP |
-| 110 | POP3 | TCP |
-| 143 | IMAP | TCP |
-| 443 | HTTPS | TCP |
-| 3389 | RDP | TCP |
+| 110 | POP3 (Post Office Protocol, Version 3) | TCP |
+| 143 | IMAP (Internet Message Access Protocol) | TCP |
+| 443 | HTTPS (HTTP Secure) | TCP |
+| 3389 | RDP (Remote Desktop Protocol) | TCP |
 
 ### Befehle
 - `netstat -an` – offene Verbindungen und lauschende Ports (Windows)
@@ -62,7 +62,7 @@ Auf welcher OSI-Schicht arbeitet ein klassischer Switch?
 - **Ethernet-Frame:** Transportiert ein IP-Paket von Gerät zu Gerät im selben Netz. Enthält Ziel- und Quell-MAC-Adresse, den EtherType (welches Protokoll steckt drin), die Nutzdaten und eine Prüfsumme (FCS).
 - **MAC-Adresse:** 48 Bit (6 Byte), z. B. 3C:52:82:1A:2B:4C. Die ersten 3 Byte kennzeichnen den Hersteller (OUI). Gilt nur bis zum nächsten Router – dort wird ein neuer Frame gebaut.
 - **MTU (Maximum Transmission Unit):** Größtes Paket, das in einen Frame passt – bei Ethernet 1500 Byte. Größere Pakete müssen zerlegt (fragmentiert) werden; Jumbo Frames im Rechenzentrum erlauben bis 9000 Byte.
-- **VLAN-Tag (802.1Q):** 4 Byte im Frame mit der VLAN-ID (12 Bit, also 1–4094). Wird zwischen Switches auf Trunk-Ports eingefügt.
+- **VLAN-Tag (802.1Q):** VLAN = Virtual LAN, also ein virtuelles LAN (Local Area Network – lokales Netz). 4 Byte im Frame mit der VLAN-ID (12 Bit, also 1–4094). Wird zwischen Switches auf Trunk-Ports eingefügt.
 - **IPv4-Header:** Mindestens 20 Byte. Wichtig: Quell- und Ziel-IP, TTL, Protokoll-Nummer, Header-Prüfsumme.
 - **TTL (Time to Live):** Jeder Router zieht 1 ab; bei 0 wird das Paket verworfen und der Absender per ICMP (Internet Control Message Protocol – Steuer- und Fehlermeldungen, z. B. für ping) informiert. So kreisen Pakete nicht endlos. `tracert` nutzt genau das.
 - **IPv6-Header:** Fester Header mit 40 Byte, ohne Prüfsumme. Hop Limit statt TTL, Next Header statt Protokoll; Erweiterungen hängen als eigene Header dahinter.
@@ -83,7 +83,7 @@ Auf welcher OSI-Schicht arbeitet ein klassischer Switch?
 | Schicht | Adresse | Gilt für | Ändert sich unterwegs? |
 | --- | --- | --- | --- |
 | 2 – Ethernet | MAC-Adresse | den nächsten Abschnitt (bis zum Router) | ja, an jedem Router |
-| 3 – IP | IP-Adresse | den ganzen Weg vom Absender zum Ziel | nein (außer bei NAT) |
+| 3 – IP | IP-Adresse | den ganzen Weg vom Absender zum Ziel | nein (außer bei NAT – Network Address Translation) |
 | 4 – TCP/UDP | Port | die Anwendung auf dem Zielrechner | nein (außer bei NAT/PAT) |
 
 ### Befehle
@@ -129,7 +129,7 @@ Wie viele Byte Nutzdaten passen bei einer TCP-Verbindung über Ethernet in einen
 | 4 | Transaction ID 0x3f2a | dieselbe ID wie in der Anfrage – Frame 2 ist die Antwort auf Frame 1 |
 | 5 | Answers: … A 203.0.113.80 | der Name shop.example.com gehört zu 203.0.113.80; genau dorthin baut der Client in Frame 3 bis 5 die TCP-Verbindung auf |
 | 6 | Hex: 45 bei Offset 0x0E, 40, 3f 2a, cb 00 71 50 | dieselben Werte in den Rohdaten: IPv4-Header beginnt nach 14 Byte Ethernet, 0x40 = 64, 0xcb 0x00 0x71 0x50 = 203.0.113.80 |
-| – | Frame 6: Client Hello (SNI=shop.example.com) | der TLS-Handshake beginnt; ab hier ist der Inhalt verschlüsselt, nur der Servername im SNI ist noch lesbar |
+| – | Frame 6: Client Hello (SNI=shop.example.com) | der TLS-Handshake beginnt; ab hier ist der Inhalt verschlüsselt, nur der Servername im SNI (Server Name Indication) ist noch lesbar |
 
 ### Tabelle: IPv4-Header im Hex-Dump lesen
 | Byte (ab Beginn des IP-Pakets) | Feld | Beispiel | Bedeutung |
@@ -176,7 +176,7 @@ Ein mitgeschnittenes IP-Paket beginnt mit: 45 00 00 3c 1c 46 40 00 7e 06 b1 e6 0
 ### Kernbegriffe
 - **IPv4:** 32 Bit, 4 Oktette in Dezimalschreibweise, z. B. 192.168.1.10.
 - **IPv6:** 128 Bit, 8 Blöcke à 16 Bit in Hexadezimal, z. B. 2001:db8::1.
-- **CIDR:** Präfixlänge hinter dem Schrägstrich, z. B. /24 = 24 Bit Netzanteil.
+- **CIDR:** Classless Inter-Domain Routing – Präfixlänge hinter dem Schrägstrich, z. B. /24 = 24 Bit Netzanteil.
 - **APIPA:** 169.254.x.x – der Client hat keinen DHCP-Server erreicht.
 
 ### Abbildung: Aufbau einer IPv6-Adresse
@@ -189,7 +189,7 @@ Ein mitgeschnittenes IP-Paket beginnt mit: 45 00 00 3c 1c 46 40 00 7e 06 b1 e6 0
 | 172.16.0.0/12 | privat |
 | 192.168.0.0/16 | privat |
 | 127.0.0.0/8 | Loopback (IPv4) |
-| 169.254.0.0/16 | APIPA / Link-Local (IPv4) |
+| 169.254.0.0/16 | APIPA (Automatic Private IP Addressing) / Link-Local (IPv4) |
 | ::1 | Loopback (IPv6) |
 | fe80::/10 | Link-Local (IPv6) |
 | fc00::/7 | Unique Local, privat (IPv6) |
@@ -245,8 +245,8 @@ Teile 192.168.10.0/24 in 4 gleich große Subnetze. Wie lauten Maske, Netze und H
 
 ### Kernbegriffe
 - **VLAN:** Teilt einen physischen Switch logisch in mehrere getrennte Broadcast-Domänen.
-- **IEEE 802.1Q:** Standard für VLAN-Tagging: 4-Byte-Tag im Ethernet-Frame, 12 Bit VLAN-ID (1–4094 nutzbar).
-- **Inter-VLAN-Routing:** Verkehr zwischen VLANs läuft über einen Router oder Layer-3-Switch.
+- **IEEE 802.1Q:** IEEE = Institute of Electrical and Electronics Engineers. Standard für VLAN-Tagging: 4-Byte-Tag im Ethernet-Frame, 12 Bit VLAN-ID (1–4094 nutzbar).
+- **Inter-VLAN-Routing:** Verkehr zwischen VLANs (Virtual LANs) läuft über einen Router oder Layer-3-Switch.
 
 ### Tabelle: Port-Typen
 | Typ | Tagging | Einsatz |
@@ -268,8 +268,8 @@ VLANs trennen auf Layer 2 – miteinander reden sie nur über Layer 3.
 ### Kernbegriffe
 - **MAC-Adresse:** 48 Bit, als 12 Hex-Zeichen geschrieben, z. B. 00:1A:2B:3C:4D:5E.
 - **MAC-Tabelle:** Ordnet MAC-Adressen den Switch-Ports zu.
-- **Flooding:** Unbekannte Ziele und Broadcasts gehen an alle Ports im VLAN außer dem Eingangsport.
-- **STP:** Spanning Tree verhindert Schleifen bei redundanten Verbindungen.
+- **Flooding:** Unbekannte Ziele und Broadcasts gehen an alle Ports im VLAN (Virtual LAN) außer dem Eingangsport.
+- **STP:** Spanning Tree Protocol – Spanning Tree verhindert Schleifen bei redundanten Verbindungen.
 
 ### Tabelle: Koppelelemente
 | Gerät | Schicht | Arbeitet mit | Trennt |
@@ -306,9 +306,9 @@ Ein Switch empfängt einen Frame an eine Ziel-MAC, die nicht in seiner Tabelle s
 ### Tabelle: Routingprotokolle
 | Protokoll | Typ | Einsatz |
 | --- | --- | --- |
-| RIP | Distanzvektor (Hops, max. 15) | kleine Netze |
-| OSPF | Link-State | Unternehmensnetze |
-| BGP | Pfadvektor | zwischen Providern im Internet |
+| RIP (Routing Information Protocol) | Distanzvektor (Hops, max. 15) | kleine Netze |
+| OSPF (Open Shortest Path First) | Link-State | Unternehmensnetze |
+| BGP (Border Gateway Protocol) | Pfadvektor | zwischen Providern im Internet |
 
 ### Befehle
 - `route print` – Routingtabelle (Windows)
@@ -331,12 +331,12 @@ Routingtabelle: 10.0.0.0/8 → R1, 10.1.0.0/16 → R2, 0.0.0.0/0 → R3. Wohin g
 - **SDN:** Die Steuerung des Netzes wird von der Hardware getrennt und zentral in Software zusammengefasst. Switches und Router leiten nur noch weiter; welche Wege und Regeln gelten, legt ein Controller fest.
 - **Datenebene (Data Plane):** Leitet Pakete anhand von Tabellen weiter – schnell, in Hardware. Bleibt in den Switches.
 - **Steuerungsebene (Control Plane):** Entscheidet, wie weitergeleitet wird: Routing, Spanning Tree, Zugriffsregeln. Bei SDN zentral im Controller.
-- **Managementebene (Management Plane):** Konfiguration, Überwachung, Auswertung – bei SDN meist über die Oberfläche oder API des Controllers.
+- **Managementebene (Management Plane):** Konfiguration, Überwachung, Auswertung – bei SDN meist über die Oberfläche oder API (Application Programming Interface – Programmierschnittstelle) des Controllers.
 - **SDN-Controller:** Zentrale Software, die das ganze Netz kennt und allen Geräten ihre Regeln gibt. Fällt er aus, leiten die Geräte mit den letzten Regeln weiter, ändern lässt sich aber nichts mehr – daher redundant betreiben.
-- **Northbound-API:** Schnittstelle vom Controller nach oben zu Anwendungen und Automatisierung, meist REST (Representational State Transfer – Schnittstelle über HTTP) mit JSON.
+- **Northbound-API:** Schnittstelle vom Controller nach oben zu Anwendungen und Automatisierung, meist REST (Representational State Transfer – Schnittstelle über HTTP) mit JSON (JavaScript Object Notation).
 - **Southbound-API:** Schnittstelle vom Controller zu den Netzgeräten, z. B. OpenFlow oder NETCONF (Network Configuration Protocol).
-- **Overlay-Netz:** Logische Netze, die über das physische Netz gelegt werden, z. B. mit VXLAN (Virtual Extensible LAN). So lassen sich Netze für VMs per Software anlegen, ohne Kabel zu ändern.
-- **SD-WAN:** SDN für die Verbindung von Standorten. Nutzt mehrere Leitungen (Glasfaser, DSL, 5G) gleichzeitig, wählt pro Anwendung den besten Weg, verschlüsselt und wird zentral verwaltet.
+- **Overlay-Netz:** Logische Netze, die über das physische Netz gelegt werden, z. B. mit VXLAN (Virtual Extensible LAN). So lassen sich Netze für VMs (virtuelle Maschinen) per Software anlegen, ohne Kabel zu ändern.
+- **SD-WAN:** SDN für die Verbindung von Standorten. Nutzt mehrere Leitungen (Glasfaser, DSL – Digital Subscriber Line, 5G) gleichzeitig, wählt pro Anwendung den besten Weg, verschlüsselt und wird zentral verwaltet.
 - **NFV (Network Functions Virtualization):** Netzfunktionen wie Firewall, Router oder Load Balancer laufen als Software auf Standard-Servern statt als eigene Hardware.
 
 ### Abbildung: Klassisches Netz und SDN
@@ -365,7 +365,7 @@ Ein Unternehmen mit 20 Filialen verbindet alle Standorte bisher über teure MPLS
 ## WLAN {#wlan}
 
 ### Kernbegriffe
-- **SSID:** Name des Funknetzes.
+- **SSID:** Service Set Identifier – Name des Funknetzes.
 - **Access Point:** Verbindet WLAN-Clients mit dem kabelgebundenen Netz.
 - **Infrastruktur-Modus:** Alle Clients verbinden sich mit einem Access Point und kommunizieren über ihn – auch untereinander; der AP verbindet das WLAN mit dem LAN. Standard in Unternehmen.
 - **Ad-hoc-Modus (IBSS):** Geräte funken direkt miteinander, ohne Access Point; nur für kurze Verbindungen zwischen wenigen Geräten.
@@ -375,9 +375,9 @@ Ein Unternehmen mit 20 Filialen verbindet alle Standorte bisher über teure MPLS
 - **Spatial Streams (MIMO):** Mehrere Antennen senden parallel; 867 Mbit/s bei 802.11ac gelten nur für 2 Streams und 80 MHz Kanalbreite – ein Client mit einer Antenne schafft höchstens die Hälfte.
 - **Kanäle:** Bei 2,4 GHz überlappen sich die Kanäle; nur 1, 6 und 11 stören sich nicht. 5 und 6 GHz bieten deutlich mehr freie Kanäle.
 - **WPA2-Personal (PSK):** Alle Geräte melden sich mit demselben vorinstallierten Schlüssel an; wer ihn kennt, kommt ins Netz, und einzelne Geräte lassen sich nicht gezielt aussperren.
-- **WPA3:** Aktueller Sicherheitsstandard, nutzt SAE (Simultaneous Authentication of Equals) statt des älteren PSK-Handshakes; schützt besser gegen das Erraten des Schlüssels.
-- **WPA2/3-Enterprise:** Anmeldung pro Benutzer über 802.1X und einen RADIUS-Server.
-- **Vorteil von Enterprise:** Jeder Benutzer oder jedes Gerät hat eigene Zugangsdaten oder ein Zertifikat; Konten lassen sich einzeln sperren, Anmeldungen sind protokolliert, und der RADIUS-Server kann Benutzer automatisch dem passenden VLAN zuweisen.
+- **WPA3:** Wi-Fi Protected Access 3 – Aktueller Sicherheitsstandard, nutzt SAE (Simultaneous Authentication of Equals) statt des älteren PSK-Handshakes; schützt besser gegen das Erraten des Schlüssels.
+- **WPA2/3-Enterprise:** WPA2 = Wi-Fi Protected Access 2. Anmeldung pro Benutzer über 802.1X und einen RADIUS-Server.
+- **Vorteil von Enterprise:** Jeder Benutzer oder jedes Gerät hat eigene Zugangsdaten oder ein Zertifikat; Konten lassen sich einzeln sperren, Anmeldungen sind protokolliert, und der RADIUS-Server kann Benutzer automatisch dem passenden VLAN (Virtual LAN) zuweisen.
 
 ### Tabelle: Aktuelle Standards im Überblick
 | Standard | Name | Frequenz | max. brutto |
@@ -419,23 +419,23 @@ Ein Access Point nach 802.11ac wirbt mit 867 Mbit/s, ein Notebook im Besprechung
 ## WLAN-Standards und Protokolle {#wlan-standards}
 
 ### Kernbegriffe
-- **IEEE 802.11:** Normenfamilie für WLAN; die Buchstaben hinter 802.11 bezeichnen Erweiterungen – für Datenraten (a, b, g, n, ac, ax, be) und für Zusatzfunktionen (e, i, k, r, v, w …).
+- **IEEE 802.11:** IEEE = Institute of Electrical and Electronics Engineers. Normenfamilie für WLAN; die Buchstaben hinter 802.11 bezeichnen Erweiterungen – für Datenraten (a, b, g, n, ac, ax, be) und für Zusatzfunktionen (e, i, k, r, v, w …).
 - **Wi-Fi Alliance:** Herstellerverband, der Geräte auf Kompatibilität prüft und die einfachen Namen vergibt: Wi-Fi 4 (n), Wi-Fi 5 (ac), Wi-Fi 6 (ax), Wi-Fi 6E (ax im 6-GHz-Band), Wi-Fi 7 (be).
 - **OFDM:** Verfahren, das einen Kanal in viele schmale Unterträger aufteilt; seit 802.11a/g die Grundlage aller schnellen WLAN-Standards.
 - **OFDMA:** Ab Wi-Fi 6 kann der Access Point die Unterträger eines Kanals gleichzeitig auf mehrere Clients aufteilen – weniger Wartezeit bei vielen Geräten mit kleinen Datenmengen.
 - **MIMO und MU-MIMO:** Mehrere Antennen senden parallel Datenströme (Spatial Streams); bei Multi-User-MIMO bedient der Access Point mehrere Clients gleichzeitig.
-- **QAM (Modulation):** Wie viele Bits ein Funksymbol trägt: 64-QAM (Wi-Fi 4), 256-QAM (Wi-Fi 5), 1024-QAM (Wi-Fi 6), 4096-QAM (Wi-Fi 7). Hohe Stufen funktionieren nur bei sehr gutem Signal, also nahe am Access Point.
+- **QAM (Modulation):** QAM = Quadraturamplitudenmodulation. Wie viele Bits ein Funksymbol trägt: 64-QAM (Wi-Fi 4), 256-QAM (Wi-Fi 5), 1024-QAM (Wi-Fi 6), 4096-QAM (Wi-Fi 7). Hohe Stufen funktionieren nur bei sehr gutem Signal, also nahe am Access Point.
 - **Kanalbreite:** 20, 40, 80, 160 und bei Wi-Fi 7 bis 320 MHz; breiter heißt schneller, aber es gibt weniger überlappungsfreie Kanäle und mehr Störungen.
 - **DFS und TPC (802.11h):** Im 5-GHz-Band müssen Access Points Radar (Wetter-, Militär-, Flugradar) erkennen und den Kanal räumen (Dynamic Frequency Selection) sowie die Sendeleistung anpassen (Transmit Power Control).
 - **Target Wake Time (TWT):** Ab Wi-Fi 6 vereinbaren Clients feste Sendezeiten und schlafen dazwischen – spart Akku bei IoT-Geräten.
 - **Multi-Link Operation (MLO):** Ab Wi-Fi 7 nutzt ein Gerät mehrere Bänder gleichzeitig (z. B. 5 und 6 GHz) – höhere Datenrate und weniger Aussetzer.
-- **Beacon:** Kurze Rundsendung des Access Points, etwa zehnmal pro Sekunde je SSID und Funkmodul, mit Netzname, Fähigkeiten und Sicherheitsverfahren.
-- **WEP:** Erstes Verschlüsselungsverfahren (1999) mit RC4; in Minuten zu knacken und nicht mehr zulässig.
+- **Beacon:** Kurze Rundsendung des Access Points, etwa zehnmal pro Sekunde je SSID (Service Set Identifier) und Funkmodul, mit Netzname, Fähigkeiten und Sicherheitsverfahren.
+- **WEP:** Erstes Verschlüsselungsverfahren (1999) mit RC4 (Rivest Cipher 4); in Minuten zu knacken und nicht mehr zulässig.
 - **WPA und WPA2:** WPA (2003, TKIP – Temporal Key Integrity Protocol) war eine Übergangslösung; WPA2 (2004, 802.11i) nutzt AES-CCMP und war lange Standard. Die Lücke KRACK (Key Reinstallation Attack, 2017) betraf den Handshake und wurde per Update geschlossen.
 - **WPA3:** Seit 2018; Personal nutzt SAE (Simultaneous Authentication of Equals) statt PSK-Handshake (schützt vor Offline-Raten des Schlüssels und sorgt für Forward Secrecy), Enterprise bietet optional einen 192-Bit-Modus; geschützte Management-Frames (PMF, 802.11w) sind Pflicht.
-- **OWE (Wi-Fi Enhanced Open):** Verschlüsselt auch offene Netze ohne Passwort, z. B. Gäste-WLANs – jeder Client bekommt einen eigenen Schlüssel.
-- **WPS:** Verbinden per Knopfdruck oder PIN; das PIN-Verfahren ist leicht zu knacken, im Unternehmen abschalten.
-- **802.1X und EAP:** Rahmen für die Anmeldung über einen RADIUS-Server; EAP-TLS nutzt Zertifikate auf beiden Seiten (sicherste Variante), PEAP und EAP-TTLS nutzen Benutzername und Passwort in einem TLS-Tunnel.
+- **OWE (Opportunistic Wireless Encryption, vermarktet als Wi-Fi Enhanced Open):** Verschlüsselt auch offene Netze ohne Passwort, z. B. Gäste-WLANs – jeder Client bekommt einen eigenen Schlüssel.
+- **WPS:** Wi-Fi Protected Setup – Verbinden per Knopfdruck oder PIN; das PIN-Verfahren ist leicht zu knacken, im Unternehmen abschalten.
+- **802.1X und EAP:** Rahmen für die Anmeldung über einen RADIUS-Server; EAP-TLS (EAP = Extensible Authentication Protocol) nutzt Zertifikate auf beiden Seiten (sicherste Variante), PEAP (Protected EAP) und EAP-TTLS nutzen Benutzername und Passwort in einem TLS-Tunnel.
 
 ### Abbildung: Kanäle in den drei Frequenzbändern
 ![Oben das 2,4-GHz-Band mit 13 Kanälen im Abstand von 5 MHz, die sich überlappen; nur die Kanäle 1, 6 und 11 sind überlappungsfrei hervorgehoben. Darunter das 5-GHz-Band in der EU: Kanäle 36 bis 48 nur in Gebäuden, 52 bis 64 mit DFS nur in Gebäuden, 5350 bis 5470 MHz gesperrt, 100 bis 140 mit DFS innen und außen. Unten das 6-GHz-Band von 5945 bis 6425 MHz mit 24 Kanälen zu 20 MHz, mit voller Leistung nur in Gebäuden, ohne Radar-DFS.](wlan-kanaele.svg)
@@ -445,11 +445,11 @@ Ein Access Point nach 802.11ac wirbt mit 867 Mbit/s, ein Notebook im Besprechung
 | --- | --- | --- | --- | --- | --- |
 | 802.11 | – | 1997 | 2,4 GHz | 2 Mbit/s | erster Standard |
 | 802.11b | – | 1999 | 2,4 GHz | 11 Mbit/s | DSSS (Direct Sequence Spread Spectrum); bremst gemischte Netze bis heute aus |
-| 802.11a | – | 1999 | 5 GHz | 54 Mbit/s | OFDM |
+| 802.11a | – | 1999 | 5 GHz | 54 Mbit/s | OFDM (Orthogonal Frequency-Division Multiplexing) |
 | 802.11g | – | 2003 | 2,4 GHz | 54 Mbit/s | OFDM, abwärtskompatibel zu b |
-| 802.11n | Wi-Fi 4 | 2009 | 2,4 / 5 GHz | 600 Mbit/s | MIMO bis 4 Streams, 40 MHz, 64-QAM |
+| 802.11n | Wi-Fi 4 | 2009 | 2,4 / 5 GHz | 600 Mbit/s | MIMO (Multiple Input, Multiple Output) bis 4 Streams, 40 MHz, 64-QAM |
 | 802.11ac | Wi-Fi 5 | 2013 | 5 GHz | ca. 6,9 Gbit/s | bis 8 Streams, 160 MHz, 256-QAM, MU-MIMO im Download |
-| 802.11ax | Wi-Fi 6 | 2019 | 2,4 / 5 GHz | ca. 9,6 Gbit/s | OFDMA, 1024-QAM, MU-MIMO in beide Richtungen, TWT |
+| 802.11ax | Wi-Fi 6 | 2019 | 2,4 / 5 GHz | ca. 9,6 Gbit/s | OFDMA (Orthogonal Frequency-Division Multiple Access), 1024-QAM, MU-MIMO in beide Richtungen, TWT |
 | 802.11ax | Wi-Fi 6E | 2021 | zusätzlich 6 GHz | ca. 9,6 Gbit/s | wie Wi-Fi 6, aber im freien 6-GHz-Band |
 | 802.11be | Wi-Fi 7 | 2024 | 2,4 / 5 / 6 GHz | ca. 46 Gbit/s | 320 MHz, 4096-QAM, Multi-Link Operation |
 | 802.11bn | Wi-Fi 8 | in Entwicklung | 2,4 / 5 / 6 GHz | – | Ziel: Zuverlässigkeit und geringe Latenz statt höherer Spitzenrate |
@@ -463,7 +463,7 @@ Ein Access Point nach 802.11ac wirbt mit 867 Mbit/s, ein Notebook im Besprechung
 | 802.11k | Access Point nennt dem Client benachbarte APs – schnelleres Finden beim Roaming |
 | 802.11r | Fast Roaming: Schlüssel werden vorab ausgehandelt, Wechsel in Millisekunden (wichtig für WLAN-Telefonie) |
 | 802.11v | Access Point kann Clients zum Wechsel auf einen besseren AP auffordern |
-| 802.11w | geschützte Management-Frames (PMF) gegen gefälschte Abmeldungen; Pflicht bei WPA3 |
+| 802.11w | geschützte Management-Frames (PMF) gegen gefälschte Abmeldungen; Pflicht bei WPA3 (Wi-Fi Protected Access 3) |
 | 802.11s | Mesh-Netze zwischen Access Points |
 | 802.11u | Hotspot 2.0 / Passpoint: automatische, sichere Anmeldung an öffentlichen Hotspots |
 | 802.11ad / ay | WiGig im 60-GHz-Band: sehr schnell, aber nur im selben Raum |
@@ -472,22 +472,22 @@ Ein Access Point nach 802.11ac wirbt mit 867 Mbit/s, ein Notebook im Besprechung
 ### Tabelle: Sicherheitsverfahren im Vergleich
 | Verfahren | Verschlüsselung | Anmeldung | Bewertung |
 | --- | --- | --- | --- |
-| offen | keine | keine | nur mit Gastportal und VPN; besser OWE |
-| WEP | RC4 | gemeinsamer Schlüssel | gebrochen – nicht verwenden |
+| offen | keine | keine | nur mit Gastportal und VPN (Virtual Private Network); besser OWE |
+| WEP (Wired Equivalent Privacy) | RC4 | gemeinsamer Schlüssel | gebrochen – nicht verwenden |
 | WPA (TKIP) | RC4 mit TKIP | PSK oder 802.1X | veraltet – nicht verwenden |
 | WPA2-Personal | AES-CCMP | gemeinsamer Schlüssel (PSK) | noch üblich, Schlüssel lang wählen |
 | WPA2-Enterprise | AES-CCMP | 802.1X mit RADIUS (Remote Authentication Dial-In User Service) | gut, Standard in Unternehmen |
-| WPA3-Personal | AES, SAE-Handshake | gemeinsames Passwort | empfohlen für kleine Netze |
+| WPA3-Personal | AES (Advanced Encryption Standard), SAE-Handshake | gemeinsames Passwort | empfohlen für kleine Netze |
 | WPA3-Enterprise | AES (optional 192 Bit) | 802.1X, PMF Pflicht | empfohlen für Unternehmen |
 | OWE (Enhanced Open) | AES, eigener Schlüssel je Client | keine | für Gäste-WLANs ohne Passwort |
 
-### Tabelle: Erlaubte Sendeleistung in der EU (EIRP)
+### Tabelle: Erlaubte Sendeleistung in der EU (EIRP – Equivalent Isotropically Radiated Power)
 | Band | Bereich | max. Leistung | Besonderheit |
 | --- | --- | --- | --- |
 | 2,4 GHz | 2400–2483,5 MHz, Kanäle 1–13 | 100 mW | innen und außen |
 | 5 GHz | 5150–5350 MHz, Kanäle 36–64 | 200 mW | nur in Gebäuden; ab Kanal 52 DFS |
 | 5 GHz | 5470–5725 MHz, Kanäle 100–140 | 1 W | innen und außen, DFS; Kanäle 120–128 mit 10 Minuten Radarprüfung (Wetterradar) |
-| 6 GHz | 5945–6425 MHz | 200 mW / 25 mW | 200 mW nur in Gebäuden (LPI); mit 25 mW (VLP) auch im Freien |
+| 6 GHz | 5945–6425 MHz | 200 mW / 25 mW | 200 mW nur in Gebäuden (LPI – Low Power Indoor); mit 25 mW (VLP – Very Low Power) auch im Freien |
 
 ### Merksatz
 Wi-Fi 4 n, Wi-Fi 5 ac, Wi-Fi 6 ax, Wi-Fi 7 be. WEP und WPA sind tot, WPA2 lebt noch, WPA3 ist das Ziel. Im 2,4-GHz-Band gibt es nur drei überlappungsfreie Kanäle: 1, 6, 11.
@@ -511,12 +511,12 @@ Ein Unternehmen tauscht seine Access Points nach 802.11n gegen Wi-Fi-6E-Geräte.
 - **Gleichkanalstörung (Co-Channel Interference):** Hören sich zwei Access Points auf demselben Kanal, teilen sie sich die Sendezeit wie eine einzige Zelle – deshalb Kanäle so verteilen, dass Nachbarn verschiedene nutzen.
 - **Nachbarkanalstörung:** Überlappende, aber verschiedene Kanäle (z. B. 1 und 3) stören sich als Rauschen, ohne sich abzustimmen – noch schlechter als derselbe Kanal.
 - **Sendeleistung anpassen:** Volle Leistung am Access Point vergrößert die Zelle, aber Clients mit schwachem Sender kommen nicht zurück (asymmetrische Verbindung) und klammern sich an weit entfernte APs („Sticky Clients“).
-- **SSID-Overhead:** Jede SSID sendet pro Funkmodul etwa zehn Beacons pro Sekunde, und zwar mit der niedrigsten erlaubten Datenrate. Viele SSIDs verbrauchen so einen spürbaren Teil der Sendezeit, bevor ein einziges Nutzdatenpaket fließt – Richtwert: höchstens drei bis vier SSIDs pro Access Point.
+- **SSID-Overhead:** Jede SSID (Service Set Identifier) sendet pro Funkmodul etwa zehn Beacons pro Sekunde, und zwar mit der niedrigsten erlaubten Datenrate. Viele SSIDs verbrauchen so einen spürbaren Teil der Sendezeit, bevor ein einziges Nutzdatenpaket fließt – Richtwert: höchstens drei bis vier SSIDs pro Access Point.
 - **Niedrige Datenraten abschalten:** Die alten 802.11b-Raten (1, 2, 5,5 und 11 Mbit/s) deaktivieren und als Mindestrate z. B. 12 oder 24 Mbit/s setzen – Beacons werden kürzer, und weit entfernte Clients wechseln früher zum besseren Access Point.
 - **Band Steering:** Der Access Point schiebt Clients, die 5 oder 6 GHz können, aus dem vollen 2,4-GHz-Band.
 - **Airtime Fairness:** Langsame Clients bekommen nicht mehr Sendezeit als schnelle; sonst bremst ein altes Gerät die ganze Zelle.
 - **Controller oder Cloud-Management:** Zentrale Verwaltung aller Access Points mit automatischer Kanal- und Leistungsplanung (RRM), Roaming und Überwachung.
-- **Gastnetz:** Eigene SSID in einem eigenen VLAN, nur Zugang zum Internet, Client-Isolation (Gäste sehen sich nicht gegenseitig), Bandbreitenbegrenzung und ggf. Gastportal mit Nutzungsbedingungen.
+- **Gastnetz:** Eigene SSID in einem eigenen VLAN (Virtual LAN), nur Zugang zum Internet, Client-Isolation (Gäste sehen sich nicht gegenseitig), Bandbreitenbegrenzung und ggf. Gastportal mit Nutzungsbedingungen.
 - **Rogue Access Point:** Nicht genehmigter Access Point im Firmennetz, etwa ein mitgebrachter Router; ein WIPS (Wireless Intrusion Prevention System) erkennt ihn und meldet ihn.
 - **Stromversorgung und Uplink:** Moderne Access Points brauchen PoE+ (802.3at) oder PoE++ (802.3bt) und ab Wi-Fi 6 oft einen 2,5-GbE-Uplink (Multi-Gigabit); PoE-Budget des Switches einplanen.
 
@@ -559,9 +559,9 @@ Merke: 3 dB weniger heißt halbe Leistung, 10 dB weniger nur noch ein Zehntel.
 | Bereich | Worauf achten |
 | --- | --- |
 | Planung | Anforderungen klären (Geräte pro Raum, Telefonie, Lager mit Regalen), Ausleuchtung messen oder simulieren, Montageorte an der Decke, nicht hinter Metall |
-| Funk | Kanalplan, 20/40 MHz statt maximaler Breite in dichter Umgebung, Sendeleistung angepasst, DFS-Kanäle bei Radarstörungen beobachten |
+| Funk | Kanalplan, 20/40 MHz statt maximaler Breite in dichter Umgebung, Sendeleistung angepasst, DFS-Kanäle (DFS = Dynamic Frequency Selection) bei Radarstörungen beobachten |
 | SSIDs | höchstens drei bis vier, z. B. Firma (802.1X), Gäste, IoT; niedrige Datenraten abschalten |
-| Sicherheit | WPA3- oder WPA2-Enterprise mit 802.1X, PMF, WPS aus, Gäste und IoT in eigene VLANs, Management-Zugang nur aus dem Admin-Netz |
+| Sicherheit | WPA3- oder WPA2-Enterprise (WPA2 = Wi-Fi Protected Access 2) mit 802.1X, PMF, WPS (Wi-Fi Protected Setup) aus, Gäste und IoT in eigene VLANs, Management-Zugang nur aus dem Admin-Netz |
 | Roaming | 802.11k/v/r aktivieren, wenn alle Clients es unterstützen; Überlappung der Zellen prüfen |
 | Infrastruktur | PoE-Budget, Multi-Gigabit-Uplinks, Access Points zentral verwalten, Firmware aktuell |
 | Betrieb | Kanalauslastung, Wiederholungen und Fehlanmeldungen überwachen; Rogue APs erkennen; nach Umbauten neu messen |
@@ -600,7 +600,7 @@ In einem Bürogebäude bricht das WLAN in Besprechungsräumen ein, obwohl die Si
 - **Klassifizierung und Markierung:** Pakete werden einer Klasse zugeordnet und markiert – auf Schicht 3 per DSCP (Differentiated Services Code Point – Feld für die Priorität) im IP-Header (Sprache: EF = 46, Expedited Forwarding), auf Schicht 2 per Priorität im VLAN-Tag (802.1p, Sprache: 5).
 - **Priorisierung (Queuing):** Jede Klasse hat eine eigene Warteschlange; die Sprach-Warteschlange wird zuerst abgearbeitet (Priority Queuing).
 - **Traffic Shaping:** Begrenzt die Senderate einer Verbindung, z. B. auf etwas unter die Upload-Bandbreite, damit sich die Warteschlange im eigenen Router bildet, wo QoS greift – nicht beim Provider.
-- **Voice-VLAN:** Eigenes VLAN für Telefone; trennt Sprache vom übrigen Verkehr und erleichtert QoS und Sicherheit.
+- **Voice-VLAN:** Eigenes VLAN (Virtual LAN) für Telefone; trennt Sprache vom übrigen Verkehr und erleichtert QoS und Sicherheit.
 - **Cloud-Telefonanlage:** Die Telefonanlage läuft beim Anbieter; auch interne Gespräche laufen über den Internetanschluss – jedes Telefon hat dann eine eigene Verbindung zur Cloud, ein internes Gespräch belegt also zwei.
 
 ### Abbildung: QoS mit Warteschlangen
@@ -659,7 +659,7 @@ Ein Unternehmen nutzt eine Cloud-Telefonanlage mit G.722 (64 kbit/s) und 15 % Pr
 - **Permanent Link und Channel:** Permanent Link ist die fest verlegte Strecke vom Patchfeld bis zur Dose (höchstens 90 m). Channel ist die ganze Übertragungsstrecke einschließlich Patchkabeln (höchstens 100 m).
 - **Abnahmemessung:** Jede neue Strecke wird mit einem Messgerät zertifiziert (Verdrahtung, Länge, Dämpfung, Übersprechen) und im Messprotokoll dokumentiert.
 - **Beschriftung:** Dose, Patchfeld-Port und Kabel tragen dieselbe eindeutige Bezeichnung, z. B. „2.OG-R204-03“. Ohne Beschriftung wird jede Fehlersuche zur Suche nach dem richtigen Kabel.
-- **Physischer und logischer Netzwerkplan:** Physisch zeigt Räume, Schränke, Dosen und Kabelwege; logisch zeigt Subnetze, VLANs, IP-Bereiche und Geräte.
+- **Physischer und logischer Netzwerkplan:** Physisch zeigt Räume, Schränke, Dosen und Kabelwege; logisch zeigt Subnetze, VLANs (Virtual LANs), IP-Bereiche und Geräte.
 
 ### Abbildung: Primär-, Sekundär- und Tertiärbereich
 ![Gebäude A mit dem Standortverteiler ist über den Primärbereich (Glasfaser Singlemode) mit dem Gebäudeverteiler im Keller von Gebäude B verbunden. Von dort führt der Sekundärbereich als Steigleitung zu den Etagenverteilern in EG, 1. und 2. OG. Von jedem Etagenverteiler geht im Tertiärbereich je ein Kupferkabel zu jeder Netzwerkdose, höchstens 90 Meter; der Channel mit Patchkabeln höchstens 100 Meter.](verkabelung-struktur.svg)
@@ -742,7 +742,7 @@ Sechs Standorte sollen vollvermascht verbunden werden. Wie viele Leitungen sind 
 
 ### Kernbegriffe
 - **Twisted Pair:** Kupferkabel mit vier verdrillten Adernpaaren und RJ45-Anschluss. Die Kategorie (Cat) bestimmt die mögliche Datenrate; neu verlegt wird mindestens Cat 6A, dann sind 10 Gbit/s auf voller Länge möglich.
-- **Schirmung (X/YTP):** Bezeichnung nach ISO/IEC 11801. Vor dem Schrägstrich steht der Gesamtschirm um alle Paare, dahinter der Schirm um jedes einzelne Paar. U = ungeschirmt, F = Folie, S = Geflecht, SF = Geflecht und Folie. TP = Twisted Pair.
+- **Schirmung (X/YTP):** Bezeichnung nach ISO (International Organization for Standardization)/IEC 11801. Vor dem Schrägstrich steht der Gesamtschirm um alle Paare, dahinter der Schirm um jedes einzelne Paar. U = ungeschirmt, F = Folie, S = Geflecht, SF = Geflecht und Folie. TP = Twisted Pair.
 - **Verdrillung:** Die Adern eines Paares sind miteinander verdrillt. Störungen wirken auf beide Adern gleich und heben sich auf; zusätzlich sinkt das Übersprechen zwischen den Paaren (NEXT).
 - **Patchkabel:** Flexible Litzenadern, mit fertigen RJ45-Steckern. Verbindet Patchfeld und Switch oder Dose und PC. Höchstens 10 m pro Strecke.
 - **Installationskabel (Verlegekabel):** Starre Volldrahtadern, fest in Wand oder Kabelkanal verlegt und auf LSA-Leisten in Patchfeld und Netzwerkdose aufgelegt – nicht gecrimpt. Höchstens 90 m.
@@ -804,6 +804,7 @@ Zwei Gebäude auf einem Firmengelände sind 350 m voneinander entfernt und solle
 ## LWL-Steckertypen {#lwl-stecker}
 
 ### Kernbegriffe
+- **LWL:** Lichtwellenleiter – Glasfaserkabel, das Daten als Licht überträgt.
 - **Ferrule:** Präzisionshülse (meist Keramik) im Stecker, in der die Faser mittig sitzt. Zwei Ferrulen werden in einer Kupplung genau gegeneinander gedrückt.
 - **LC (Lucent Connector):** Kleiner Stecker mit 1,25-mm-Ferrule und Rasthebel, meist als Duplex (Senden und Empfangen). Standard an SFP-Modulen in Switches und Servern.
 - **SC (Subscriber Connector):** Quadratischer Stecker mit 2,5-mm-Ferrule und Push-Pull-Mechanik. Verbreitet in Patchfeldern; beim Glasfaser-Hausanschluss (FTTH) oft als SC/APC – neuere Anschlüsse nutzen auch LC/APC.
@@ -887,12 +888,12 @@ Beschreibe die Arbeitsschritte, um ein Patchkabel nach T568B zu crimpen.
 7. Mit dem Kabeltester alle acht Adern prüfen (Durchgang, keine Vertauschung, kein Kurzschluss).
 
 ## Häufige Fehler
-- Für jede Abteilung eine eigene SSID anlegen – jede SSID kostet Sendezeit für Beacons.
+- Für jede Abteilung eine eigene SSID (Service Set Identifier) anlegen – jede SSID kostet Sendezeit für Beacons.
 - Access Points mit voller Sendeleistung betreiben, damit „die Reichweite gut ist“.
 - Im 2,4-GHz-Band Kanäle wie 1, 3, 5 vergeben statt 1, 6, 11.
 - Bei einer Cloud-Telefonanlage interne Gespräche nur einfach zählen – jedes Telefon hat seine eigene Verbindung zur Cloud.
 - QoS für ein Allheilmittel halten – es verteilt die vorhandene Bandbreite nur anders.
-- Im Mitschnitt die TTL direkt als Zahl der Router lesen, statt sie vom Startwert (64, 128 oder 255) abzuziehen.
+- Im Mitschnitt die TTL (Time to Live) direkt als Zahl der Router lesen, statt sie vom Startwert (64, 128 oder 255) abzuziehen.
 - Netz- oder Broadcastadresse als Host-IP vergeben.
 - Bei /26 mit 64 statt 62 nutzbaren Hosts rechnen.
 - :: in einer IPv6-Adresse mehr als einmal verwenden.
@@ -902,7 +903,7 @@ Beschreibe die Arbeitsschritte, um ein Patchkabel nach T568B zu crimpen.
 - APC- (grün) und UPC-Stecker (blau) zusammenstecken.
 - Installationskabel (Draht) mit Steckern für Litze crimpen – dafür gibt es LSA-Leisten oder passende Feldstecker.
 - Glauben, die MAC-Adresse bleibe bis zum Ziel gleich – sie wird an jedem Router neu gesetzt.
-- Bei SDN vergessen, den Controller redundant und besonders geschützt zu betreiben.
+- Bei SDN (Software-Defined Networking) vergessen, den Controller redundant und besonders geschützt zu betreiben.
 
 ## Links
 - [Elektronik-Kompendium](https://www.elektronik-kompendium.de/) – verständliche Erklärungen zu Netzwerktechnik
@@ -924,7 +925,7 @@ Wie ein Switch seine MAC-Adresstabelle füllt und wie ein PC per ARP (Address Re
 ablauf: vlan.json
 zu: vlan, switching
 
-Ein Broadcast wandert von einem Access-Port über einen Trunk zum zweiten Switch – und bleibt dabei in seinem VLAN.
+Ein Broadcast wandert von einem Access-Port über einen Trunk zum zweiten Switch – und bleibt dabei in seinem VLAN (Virtual LAN).
 
 ## Zusatz: TCP-Verbindung Schritt für Schritt {#ablauf-tcp}
 ablauf: tcp.json

@@ -49,14 +49,14 @@ Ein Kollege lässt sich von einem KI-Chat einen PowerShell-Befehl erzeugen, der 
 ## Sprachmodelle im Vergleich {#llm-vergleich}
 
 ### Kernbegriffe
-- **Proprietäre Modelle:** Nur über Anbieter-Dienste oder deren Schnittstelle (API) nutzbar, die Gewichte bleiben geheim. Beispiele: GPT (OpenAI), Claude (Anthropic), Gemini (Google).
+- **Proprietäre Modelle:** Nur über Anbieter-Dienste oder deren Schnittstelle (API) nutzbar, die Gewichte bleiben geheim. Beispiele: GPT (Generative Pre-trained Transformer, von OpenAI), Claude (Anthropic), Gemini (Google).
 - **Offene Modelle (Open Weight):** Die trainierten Gewichte sind herunterladbar; das Modell läuft auf eigener Hardware. Beispiele: Llama (Meta), Mistral, Qwen, Gemma, DeepSeek, gpt-oss. Die Lizenzen unterscheiden sich – nicht jedes „offene“ Modell ist frei für jede Nutzung.
 - **Modellgröße:** Kleine Modelle (wenige Milliarden Parameter) laufen auf Notebook oder Workstation, große Modelle brauchen Rechenzentrums-GPUs. Größer heißt meist besser, aber langsamer und teurer.
 - **Reasoning-Modelle:** „Denken“ vor der Antwort in Zwischenschritten nach – besser bei Logik, Mathematik und Code, dafür langsamer und teurer pro Anfrage.
 - **Multimodal:** Verarbeiten neben Text auch Bilder, PDFs, Audio oder Video, z. B. einen Screenshot einer Fehlermeldung.
 - **Werkzeugnutzung (Tool Use):** Das Modell kann Funktionen aufrufen, etwa eine Websuche, eine Datenbankabfrage oder ein Skript – Grundlage für Agenten.
 - **Kosten:** Bei API-Nutzung pro Token, getrennt nach Eingabe und Ausgabe; bei Arbeitsplatz-Lizenzen pro Benutzer und Monat; lokal: Hardware und Strom.
-- **Datenstandort und Anbieter:** Wo werden Eingaben verarbeitet und gespeichert, wie lange, und werden sie für das Training genutzt? Bei US-Anbietern sind EU-Rechenzentren und Verträge nach DSGVO zu prüfen.
+- **Datenstandort und Anbieter:** Wo werden Eingaben verarbeitet und gespeichert, wie lange, und werden sie für das Training genutzt? Bei US-Anbietern sind EU-Rechenzentren und Verträge nach DSGVO (Datenschutz-Grundverordnung) zu prüfen.
 
 ### Tabelle: Worin sich Modelle unterscheiden
 | Kriterium | Frage dahinter |
@@ -73,7 +73,7 @@ Ein Kollege lässt sich von einem KI-Chat einen PowerShell-Befehl erzeugen, der 
 ### Tabelle: Cloud-Dienst oder lokal betreiben?
 | Merkmal | Cloud-Dienst (API oder Abo) | Lokal / eigener Server |
 | --- | --- | --- |
-| Leistung | stärkste Modelle verfügbar | begrenzt durch eigene GPUs und Grafikspeicher |
+| Leistung | stärkste Modelle verfügbar | begrenzt durch eigene GPUs (Graphics Processing Units) und Grafikspeicher |
 | Start | sofort, keine Hardware | Hardware beschaffen, einrichten, warten |
 | Kosten | laufend pro Nutzer oder Token | hohe Anschaffung, dann vor allem Strom |
 | Daten | verlassen das Haus – Verträge und Standort prüfen | bleiben im eigenen Netz |
@@ -134,7 +134,7 @@ Ein KI-Agent soll eingehende Support-Tickets lesen und einfache Fälle wie Passw
 - **KI-Verordnung (EU AI Act):** EU-Gesetz, das KI nach Risiko einstuft: verbotene Praktiken (z. B. Social Scoring), Hochrisiko-KI (z. B. bei Personalauswahl oder Kreditvergabe) mit strengen Pflichten, Transparenzpflichten für Chatbots und KI-Inhalte, geringe Pflichten für den Rest.
 - **KI-Kompetenz (Art. 4 KI-VO):** Unternehmen, die KI einsetzen, müssen Maßnahmen ergreifen, um die KI-Kompetenz ihrer Beschäftigten zu fördern – etwa Schulungen und klare Regeln. Ein Zertifikat ist nicht vorgeschrieben.
 - **Transparenz:** Menschen müssen erkennen können, dass sie mit einer KI sprechen; künstlich erzeugte oder veränderte Bilder, Videos und Stimmen (Deepfakes) sind zu kennzeichnen.
-- **DSGVO:** Werden personenbezogene Daten verarbeitet, braucht es eine Rechtsgrundlage, einen Vertrag zur Auftragsverarbeitung (AVV) mit dem Anbieter und bei Übermittlung außerhalb der EU eine Grundlage für den Drittlandtransfer. Entscheidungen mit rechtlicher Wirkung dürfen nicht allein automatisiert fallen (Art. 22).
+- **DSGVO:** Datenschutz-Grundverordnung – Werden personenbezogene Daten verarbeitet, braucht es eine Rechtsgrundlage, einen Vertrag zur Auftragsverarbeitung (AVV) mit dem Anbieter und bei Übermittlung außerhalb der EU eine Grundlage für den Drittlandtransfer. Entscheidungen mit rechtlicher Wirkung dürfen nicht allein automatisiert fallen (Art. 22).
 - **Urheberrecht:** Rein KI-erzeugte Inhalte sind in der Regel nicht urheberrechtlich geschützt. Umgekehrt können Ergebnisse geschützte Werke nachbilden – bei Veröffentlichung Vorsicht.
 - **Betriebsrat:** Kann eine KI Leistung oder Verhalten von Beschäftigten auswerten, hat der Betriebsrat ein Mitbestimmungsrecht (§ 87 Abs. 1 Nr. 6 BetrVG); bei der Planung von KI ist er zu unterrichten (§ 90 BetrVG).
 - **Bias (Verzerrung):** Modelle übernehmen Vorurteile aus ihren Trainingsdaten. Bei Texten über Menschen und bei Bewertungen besonders kritisch prüfen.
@@ -195,10 +195,10 @@ Eine Mitarbeiterin kopiert eine Excel-Liste mit Kundennamen und Umsätzen in ein
 | Nr. | Risiko | Was passiert | Gegenmaßnahme |
 | --- | --- | --- | --- |
 | LLM01 | Prompt Injection | Eingaben oder fremde Inhalte überschreiben die Regeln | fremde Inhalte als Daten behandeln, Rechte begrenzen, Freigabe für kritische Aktionen |
-| LLM02 | Preisgabe sensibler Informationen | Antworten enthalten vertrauliche Daten | Berechtigungen der Quellen beachten, DLP, sensible Daten gar nicht erst anbinden |
+| LLM02 | Preisgabe sensibler Informationen | Antworten enthalten vertrauliche Daten | Berechtigungen der Quellen beachten, DLP (Data Loss Prevention), sensible Daten gar nicht erst anbinden |
 | LLM03 | Lieferkette | manipulierte Modelle, Erweiterungen oder Pakete | nur geprüfte Quellen, Signaturen und Hashwerte prüfen |
 | LLM04 | Daten- und Modellvergiftung | manipulierte Trainings- oder Wissensdaten | Herkunft der Daten kontrollieren, Schreibrechte auf die Wissensbasis begrenzen |
-| LLM05 | Unsichere Ausgabeverarbeitung | KI-Ausgabe wird ungeprüft als Code, SQL oder HTML ausgeführt | Ausgaben wie Benutzereingaben behandeln: prüfen, maskieren, parametrisieren |
+| LLM05 | Unsichere Ausgabeverarbeitung | KI-Ausgabe wird ungeprüft als Code, SQL (Structured Query Language) oder HTML ausgeführt | Ausgaben wie Benutzereingaben behandeln: prüfen, maskieren, parametrisieren |
 | LLM06 | Übermäßige Handlungsfreiheit | Agent hat zu viele Werkzeuge und Rechte | Least Privilege, eigenes Dienstkonto, Mensch bestätigt kritische Schritte |
 | LLM07 | Preisgabe des System-Prompts | interne Anweisungen werden ausgelesen | keine Geheimnisse in Prompts, Rechte außerhalb des Modells durchsetzen |
 | LLM08 | Schwächen in Vektordatenbanken | RAG liefert Dokumente an Unbefugte oder lässt sich manipulieren | Zugriffsrechte pro Dokument, Mandanten trennen |
@@ -210,7 +210,7 @@ Eine Mitarbeiterin kopiert eine Excel-Liste mit Kundennamen und Umsätzen in ein
 | --- | --- | --- |
 | Phishing | fehlerfreie, persönliche Mail mit Bezug auf echte Projekte | MFA (phishingresistent), Meldeknopf für Verdachtsmails, Schulung auf Inhalt statt auf Rechtschreibfehler |
 | Stimm- und Video-Deepfake | „Chef“ ruft an und verlangt eine dringende Überweisung | Rückruf über bekannte Nummer, Vier-Augen-Prinzip bei Zahlungen, vereinbartes Codewort |
-| Helpdesk-Betrug | Anrufer mit geklonter Stimme will MFA oder Passwort zurücksetzen lassen | feste Identitätsprüfung, nie allein aufgrund der Stimme handeln |
+| Helpdesk-Betrug | Anrufer mit geklonter Stimme will MFA (Multi-Faktor-Authentifizierung) oder Passwort zurücksetzen lassen | feste Identitätsprüfung, nie allein aufgrund der Stimme handeln |
 | Schadcode und Schwachstellen | schnelleres Finden und Ausnutzen bekannter Lücken | Patches zügig einspielen, Angriffsfläche verkleinern, EDR (Endpoint Detection and Response) |
 | Aufklärung (OSINT) | KI wertet Webseite, LinkedIn und Presse aus, um Angriffe zuzuschneiden | wenig interne Details veröffentlichen, Mitarbeitende sensibilisieren |
 
@@ -240,7 +240,7 @@ Die Buchhaltung erhält einen Videoanruf vom Geschäftsführer, der eine soforti
 ## Links
 - [KI-Verordnung – Service Desk der EU-Kommission](https://ai-act-service-desk.ec.europa.eu/de) – Text, Fristen und Erläuterungen zum AI Act
 - [BSI](https://www.bsi.bund.de) – Veröffentlichungen zu Chancen und Risiken generativer KI und zu KI-gestützten Angriffen
-- [OWASP GenAI Security Project](https://genai.owasp.org) – Top 10 Risiken für LLM-Anwendungen, u. a. Prompt Injection
+- [OWASP GenAI Security Project](https://genai.owasp.org) – Top 10 Risiken für LLM-Anwendungen (LLM = Large Language Model), u. a. Prompt Injection
 
 ## Zusatz: KI aus Sicht eines IT-Admins {#ki-admin}
 typ: text
@@ -262,7 +262,7 @@ Kostenlose Varianten und Business-Varianten unterscheiden sich oft genau bei den
 - Business- oder Enterprise-Version mit Vertrag statt privater Konten.
 - Zusicherung prüfen, dass Eingaben nicht zum Training genutzt werden; Aufbewahrungs- und Löschfristen klären.
 - Vertrag zur Auftragsverarbeitung (AVV) abschließen, Verarbeitungsort (EU) und Unterauftragnehmer prüfen.
-- Anmeldung über die Firmen-Identität (Single Sign-on) mit MFA statt eigener Passwörter.
+- Anmeldung über die Firmen-Identität (Single Sign-on) mit MFA (Multi-Faktor-Authentifizierung) statt eigener Passwörter.
 - Eintrag ins Verzeichnis von Verarbeitungstätigkeiten, bei hohem Risiko Datenschutz-Folgenabschätzung.
 
 ### Checkliste: Berechtigungen und Datenzugriff
@@ -305,5 +305,5 @@ Ein Agent ist wie ein neuer Mitarbeiter mit Schlüsselbund – er bekommt nur di
 ### Checkliste: Schulung und Vorfälle
 - Regelmäßige Schulung zu Chancen, Grenzen und Regeln (KI-Kompetenz nach Art. 4 KI-VO) und dokumentieren, wer geschult wurde.
 - Konkrete Beispiele zeigen: Halluzinationen, Prompt Injection, Datenabfluss.
-- Meldeweg für Fehler und Vorfälle festlegen; bei Datenschutzverletzungen gilt die 72-Stunden-Frist der DSGVO.
+- Meldeweg für Fehler und Vorfälle festlegen; bei Datenschutzverletzungen gilt die 72-Stunden-Frist der DSGVO (Datenschutz-Grundverordnung).
 - Erfahrungen sammeln und die Richtlinie regelmäßig anpassen.

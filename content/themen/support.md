@@ -2,7 +2,7 @@
 titel: Support & IT-Service
 ---
 
-Wie Serviceanfragen strukturiert bearbeitet werden: vom Ticket über die Fehleranalyse bis zur Kommunikation mit dem Kunden – nach ITIL und vereinbarten SLAs.
+Wie Serviceanfragen strukturiert bearbeitet werden: vom Ticket über die Fehleranalyse bis zur Kommunikation mit dem Kunden – nach ITIL (IT Infrastructure Library) und vereinbarten SLAs (Service Level Agreements).
 
 ## Ticketsysteme {#ticketsysteme}
 
@@ -11,7 +11,7 @@ Wie Serviceanfragen strukturiert bearbeitet werden: vom Ticket über die Fehlera
 - **Single Point of Contact (SPOC):** Eine zentrale Anlaufstelle für alle Anfragen, meist der Service Desk.
 - **Priorität:** Ergibt sich aus Auswirkung (wie viele betroffen?) und Dringlichkeit (wie schnell nötig?).
 - **Funktionale Eskalation:** Weitergabe an eine Stelle mit mehr Fachwissen (1st → 2nd → 3rd Level).
-- **Hierarchische Eskalation:** Einbeziehen der Führungsebene, z. B. wenn ein SLA zu reißen droht.
+- **Hierarchische Eskalation:** Einbeziehen der Führungsebene, z. B. wenn ein SLA (Service Level Agreement) zu reißen droht.
 
 ### Tabelle: Prioritätsmatrix
 | Auswirkung ↓ / Dringlichkeit → | hoch | mittel | niedrig |
@@ -33,7 +33,7 @@ Priorität = Auswirkung × Dringlichkeit – nicht wer am lautesten ruft.
 ## ITIL-Grundlagen {#itil}
 
 ### Kernbegriffe
-- **ITIL:** Sammlung bewährter Verfahren (Best Practices) für IT-Service-Management; verbreitet ist ITIL 4, seit 2026 erscheint schrittweise ITIL (Version 5).
+- **ITIL:** Sammlung bewährter Verfahren (Best Practices) für IT-Service-Management; verbreitet ist ITIL (IT Infrastructure Library) 4, seit 2026 erscheint schrittweise ITIL (Version 5).
 - **Service:** Leistung, die dem Kunden einen Nutzen bringt, z. B. „E-Mail funktioniert“.
 - **Workaround:** Vorübergehende Umgehungslösung, bis die Ursache behoben ist.
 - **Known Error:** Problem mit bekannter Ursache und dokumentiertem Workaround.
@@ -82,7 +82,7 @@ Ein SLA garantiert 99,5 % Verfügbarkeit bei Betrieb rund um die Uhr. Wie viele 
 
 ### Kernbegriffe
 - **Systematisches Vorgehen:** Problem beschreiben, Informationen sammeln, eingrenzen, Hypothese aufstellen, testen, lösen, dokumentieren.
-- **Bottom-up:** Fehlersuche entlang des OSI-Modells von Schicht 1 (Kabel) nach oben.
+- **Bottom-up:** Fehlersuche entlang des OSI-Modells (Open Systems Interconnection) von Schicht 1 (Kabel) nach oben.
 - **Divide and Conquer:** Mitten im Ablauf testen und so die Fehlerstelle halbieren.
 - **Reproduzierbarkeit:** Lässt sich der Fehler gezielt auslösen? Das erleichtert Ursache und Test.
 - **Ereignisanzeige / Logs:** Systemprotokolle mit Fehlern und Warnungen.
@@ -93,8 +93,8 @@ Ein SLA garantiert 99,5 % Verfügbarkeit bei Betrieb rund um die Uhr. Wie viele 
 ### Tabelle: Netzwerkfehler eingrenzen
 | Test | Ergebnis bei Erfolg |
 | --- | --- |
-| `ping 127.0.0.1` | TCP/IP-Stack funktioniert |
-| `ping` eigene IP | Netzwerkkarte arbeitet |
+| `ping 127.0.0.1` | TCP (Transmission Control Protocol)/IP-Stack funktioniert |
+| `ping` eigene IP (Internet Protocol) | Netzwerkkarte arbeitet |
 | `ping` Gateway | lokales Netz in Ordnung |
 | `ping 8.8.8.8` | Internet erreichbar |
 | `nslookup beispiel.de` | Namensauflösung funktioniert |
@@ -113,8 +113,8 @@ Erst fragen „Was hat sich geändert?“ – die meisten Fehler entstehen durch
 ### Kernbegriffe
 - **Ereignisanzeige (Windows):** Zentrale Protokolle für System, Anwendungen und Sicherheit. Bei Abstürzen zuerst unter „Windows-Protokolle → System“ nach Fehlern und kritischen Ereignissen filtern.
 - **Zuverlässigkeitsverlauf (Windows):** Zeitleiste mit Abstürzen, fehlgeschlagenen Updates und Installationen – zeigt schnell, was sich um den Zeitpunkt des Problems geändert hat (`perfmon /rel`).
-- **Task-Manager und Ressourcenmonitor (Windows):** Welche Prozesse belasten CPU, RAM, Datenträger und Netzwerk? Der Ressourcenmonitor zeigt zusätzlich, welcher Prozess welche Datei oder Verbindung nutzt.
-- **SFC und DISM (Windows):** `sfc /scannow` repariert beschädigte Systemdateien aus einem lokalen Speicher; ist dieser selbst beschädigt, repariert ihn vorher `DISM /Online /Cleanup-Image /RestoreHealth`.
+- **Task-Manager und Ressourcenmonitor (Windows):** Welche Prozesse belasten CPU (Central Processing Unit – Prozessor), RAM, Datenträger und Netzwerk? Der Ressourcenmonitor zeigt zusätzlich, welcher Prozess welche Datei oder Verbindung nutzt.
+- **SFC und DISM (Windows):** SFC = System File Checker. `sfc /scannow` repariert beschädigte Systemdateien aus einem lokalen Speicher; ist dieser selbst beschädigt, repariert ihn vorher `DISM /Online /Cleanup-Image /RestoreHealth`.
 - **Windows-Wiederherstellungsumgebung (WinRE):** Starthilfe, Systemwiederherstellung, Updates deinstallieren, abgesicherter Modus und Eingabeaufforderung – erreichbar mit Umschalt + Neu starten oder nach zwei fehlgeschlagenen Starts automatisch.
 - **journalctl und systemctl (Linux):** systemd sammelt alle Protokolle im Journal. `systemctl status dienst` zeigt Zustand und letzte Logzeilen eines Dienstes, `systemctl --failed` alle fehlgeschlagenen Dienste.
 - **dmesg (Linux):** Meldungen des Kernels: Hardware, Treiber, Datenträgerfehler, USB-Geräte.
@@ -133,12 +133,12 @@ Erst fragen „Was hat sich geändert?“ – die meisten Fehler entstehen durch
 | Dienste | `services.msc`, `Get-Service` | `systemctl status`, `systemctl --failed` | `launchctl list` |
 | Speicherplatz | Explorer, `Get-Volume` | `df -h`, `du -sh` | Über diesen Mac → Speicher, `df -h` |
 | Datenträger prüfen | `chkdsk C: /f` | `fsck` (nicht eingehängt), `smartctl -a` | Festplattendienstprogramm → Erste Hilfe |
-| Systemdateien reparieren | `sfc /scannow`, DISM | Paket neu installieren (`apt reinstall`) | macOS über Wiederherstellung neu installieren |
+| Systemdateien reparieren | `sfc /scannow`, DISM (Deployment Image Servicing and Management) | Paket neu installieren (`apt reinstall`) | macOS über Wiederherstellung neu installieren |
 | Geräte und Treiber | Geräte-Manager (`devmgmt.msc`) | `lsusb`, `lspci`, `dmesg` | Systeminformationen |
 | Hardware-Infos | `msinfo32` | `lshw`, `inxi`, `dmidecode` | Systeminformationen (Wahltaste + Apple-Menü) |
 | Arbeitsspeicher testen | `mdsched` | memtest86+ (Boot-Menü, falls installiert) | Apple Diagnose |
-| Startprobleme | WinRE, abgesicherter Modus | GRUB: älterer Kernel, Recovery-Modus | sicherer Modus, macOS-Wiederherstellung |
-| Fernhilfe | Schnellhilfe (`quickassist`), RDP | SSH | Bildschirmfreigabe, SSH |
+| Startprobleme | WinRE, abgesicherter Modus | GRUB (GRand Unified Bootloader): älterer Kernel, Recovery-Modus | sicherer Modus, macOS-Wiederherstellung |
+| Fernhilfe | Schnellhilfe (`quickassist`), RDP (Remote Desktop Protocol) | SSH (Secure Shell) | Bildschirmfreigabe, SSH |
 
 ### Befehle
 - `perfmon /rel` – Zuverlässigkeitsverlauf: Abstürze und Änderungen auf einer Zeitleiste (Windows)
@@ -213,7 +213,7 @@ Ein festes Vorgehen spart Zeit und verhindert, dass man auf Verdacht drei Dinge 
 ![Sechs Schritte im Kreis: Problem erfassen, Ursache vermuten, Vermutung testen, Lösung umsetzen, Ergebnis prüfen, dokumentieren](troubleshooting-ablauf.svg)
 1. Problem genau erfassen: Was passiert, welche Fehlermeldung (Screenshot), seit wann, wer und wie viele sind betroffen?
 2. Fragen, was sich geändert hat: Updates, neue Software, neue Hardware, Umzug, neues Passwort.
-3. Eingrenzen: Nur ein Benutzer oder alle? Nur ein Gerät? Nur eine Anwendung? Im Netz von unten nach oben (Kabel, IP, DNS, Dienst).
+3. Eingrenzen: Nur ein Benutzer oder alle? Nur ein Gerät? Nur eine Anwendung? Im Netz von unten nach oben (Kabel, IP, DNS – Domain Name System, Dienst).
 4. Eine Vermutung nach der anderen testen und dabei immer nur eine Sache ändern.
 5. Lösung umsetzen – bei Eingriffen in den Betrieb als geplanter Change.
 6. Mit dem Benutzer prüfen, ob alles funktioniert, und alles im Ticket dokumentieren.
@@ -247,7 +247,7 @@ Ein festes Vorgehen spart Zeit und verhindert, dass man auf Verdacht drei Dinge 
 - Logdateien unter `/var/log`, z. B. `auth.log` bei Anmeldeproblemen
 
 ### Linux startet nicht
-1. Im GRUB-Menü unter „Erweiterte Optionen“ einen älteren Kernel wählen – hilft nach fehlerhaften Kernel-Updates.
+1. Im GRUB-Menü (GRUB = GRand Unified Bootloader) unter „Erweiterte Optionen“ einen älteren Kernel wählen – hilft nach fehlerhaften Kernel-Updates.
 2. Recovery-Modus oder `systemd.unit=rescue.target` als Startoption: minimales System mit Root-Shell.
 3. Häufige Ursache prüfen: Fehler in `/etc/fstab` (Laufwerk fehlt oder falsche UUID – Universally Unique Identifier).
 4. Dateisystem im nicht eingehängten Zustand mit `fsck` prüfen.
@@ -274,7 +274,7 @@ Ein festes Vorgehen spart Zeit und verhindert, dass man auf Verdacht drei Dinge 
 typ: text
 zu: itil, ticketsysteme, sla
 
-ITIL ist das bekannteste Rahmenwerk für IT-Service-Management. Hier die Bausteine von ITIL 4 im Zusammenhang – und wie sie im Alltag eines Service Desks aussehen.
+ITIL (IT Infrastructure Library) ist das bekannteste Rahmenwerk für IT-Service-Management. Hier die Bausteine von ITIL 4 im Zusammenhang – und wie sie im Alltag eines Service Desks aussehen.
 
 ITIL schreibt keine Werkzeuge vor, sondern beschreibt bewährte Vorgehensweisen. Unternehmen übernehmen davon, was zu ihnen passt. Die Begriffe sind aber überall gleich – daher tauchen sie in Ticketsystemen, Verträgen und Prüfungen immer wieder auf.
 
@@ -322,7 +322,7 @@ Im Zentrum von ITIL 4 steht der Wert, den ein Service für Kunden erzeugt. Das S
 | SLA (Service Level Agreement) | IT-Dienstleister und Kunde | Servicezeiten, Verfügbarkeit, Reaktions- und Lösungszeiten |
 | OLA (Operational Level Agreement) | interne Teams des Dienstleisters | z. B. Netzwerkteam reagiert in 30 Minuten |
 | UC (Underpinning Contract) | Dienstleister und externer Lieferant | z. B. Hardware-Austausch durch den Hersteller am nächsten Arbeitstag |
-| CMDB | – | Datenbank aller Configuration Items (CIs) wie Server, Software, Verträge und ihrer Beziehungen |
+| CMDB (Configuration Management Database) | – | Datenbank aller Configuration Items (CIs) wie Server, Software, Verträge und ihrer Beziehungen |
 
 ### Kennzahlen im Service Desk
 | Kennzahl | Bedeutung |
@@ -412,9 +412,9 @@ Als Admin hast du mehr Rechte als fast alle anderen im Unternehmen. Das ist Vert
 - **Don't:** Sammelkonten wie „azubi“ oder „lager“ mit gemeinsamem Passwort einrichten; dann weiß niemand, wer was getan hat.
 
 ### Passwörter und Geheimnisse
-- **Do:** Passwörter, API-Schlüssel und Zertifikate in einem Passwort-Tresor ablegen; Notfallzugänge versiegelt und dokumentiert.
+- **Do:** Passwörter, API-Schlüssel (API = Application Programming Interface) und Zertifikate in einem Passwort-Tresor ablegen; Notfallzugänge versiegelt und dokumentiert.
 - **Do:** Standardpasswörter von Geräten, Druckern und Anwendungen sofort ändern.
-- **Do:** Überall, wo es geht, MFA einschalten – zuerst für Admin- und Fernzugänge.
+- **Do:** Überall, wo es geht, MFA (Multi-Faktor-Authentifizierung) einschalten – zuerst für Admin- und Fernzugänge.
 - **Don't:** Passwörter per E-Mail, Chat oder Post-it weitergeben, auch nicht „nur kurz“.
 - **Don't:** Zugangsdaten in Skripte, Konfigurationsdateien oder ein Git-Repository schreiben.
 - **Don't:** Nutzer nach ihrem Passwort fragen – ein seriöser Support braucht es nie.
