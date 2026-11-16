@@ -2,7 +2,7 @@
 titel: Datenbanken & Daten
 ---
 
-Wie Daten in Tabellen modelliert, mit SQL abgefragt und zwischen Systemen in Formaten wie JSON, XML oder CSV ausgetauscht werden.
+Wie Daten in Tabellen modelliert, mit SQL (Structured Query Language) abgefragt und zwischen Systemen in Formaten wie JSON (JavaScript Object Notation), XML (Extensible Markup Language) oder CSV (Comma-Separated Values) ausgetauscht werden.
 
 ## Relationales Modell {#relationales-modell}
 
@@ -26,6 +26,7 @@ n:m geht nie direkt – immer über eine Zwischentabelle.
 ## ER-Diagramm {#er-diagramm}
 
 ### Kernbegriffe
+- **ER-Modell:** Entity-Relationship-Modell – beschreibt Entitäten und ihre Beziehungen, bevor Tabellen entstehen.
 - **Entität:** Objekt der realen Welt, über das Daten gespeichert werden, z. B. Kunde (Rechteck).
 - **Attribut:** Eigenschaft einer Entität, z. B. Name (Ellipse in der Chen-Notation).
 - **Beziehung:** Verbindung zwischen Entitäten, z. B. „bestellt“ (Raute).
@@ -48,9 +49,9 @@ Ein Kunde kann mehrere Artikel bestellen, ein Artikel kann von vielen Kunden bes
 ## SQL (SELECT, JOIN) {#sql}
 
 ### Kernbegriffe
-- **DQL/DML:** SELECT liest, INSERT fügt ein, UPDATE ändert, DELETE löscht Daten.
-- **DDL:** CREATE, ALTER, DROP ändern die Struktur von Tabellen.
-- **DCL:** GRANT und REVOKE vergeben und entziehen Rechte.
+- **DQL/DML:** DQL = Data Query Language. SELECT liest, INSERT fügt ein, UPDATE ändert, DELETE löscht Daten.
+- **DDL:** Data Definition Language – CREATE, ALTER, DROP ändern die Struktur von Tabellen.
+- **DCL:** Data Control Language – GRANT und REVOKE vergeben und entziehen Rechte.
 - **INNER JOIN:** Nur Datensätze, die in beiden Tabellen einen Partner haben.
 - **LEFT JOIN:** Alle Datensätze der linken Tabelle, auch ohne Partner (fehlende Werte sind NULL).
 - **Aggregatfunktionen:** COUNT, SUM, AVG, MIN, MAX – meist zusammen mit GROUP BY.
@@ -96,7 +97,7 @@ Gib für jede Abteilung die Anzahl der Geräte aus – auch Abteilungen ohne Ger
 - **INTEGER:** Ganze Zahlen, z. B. Mengen oder Schlüssel.
 - **DECIMAL(p,s):** Festkommazahl mit p Stellen insgesamt, davon s nach dem Komma – für Geldbeträge, weil FLOAT und DOUBLE Rundungsfehler haben.
 - **CHAR(n) und VARCHAR(n):** Text mit fester bzw. variabler Länge; CHAR für immer gleich lange Werte wie IBAN oder Länderkürzel, VARCHAR für Namen und Straßen.
-- **DATE, TIME, DATETIME:** Datum, Uhrzeit oder beides; im SQL-Befehl als '2026-11-06' (ISO-Format) schreiben.
+- **DATE, TIME, DATETIME:** Datum, Uhrzeit oder beides; im SQL-Befehl als '2026-11-06' (ISO-Format – ISO = International Organization for Standardization) schreiben.
 - **BOOLEAN:** Wahrheitswert wahr/falsch, z. B. aktiv; in manchen Systemen als BIT oder TINYINT(1) umgesetzt.
 - **Zahl oder Text:** Werte, mit denen nicht gerechnet wird und die führende Nullen oder Sonderzeichen enthalten können, gehören in ein Textfeld – Postleitzahl, Telefonnummer, IBAN, Artikelnummer.
 - **LIKE:** Mustervergleich in WHERE; % steht für beliebig viele Zeichen, _ für genau eines – z. B. plz LIKE '2%' für alle Postleitzahlen, die mit 2 beginnen.
@@ -175,10 +176,10 @@ Jedes Attribut hängt vom Schlüssel ab, vom ganzen Schlüssel und von nichts al
 ### Tabelle: Formate im Vergleich
 | Format | Struktur | Datentypen | Typischer Einsatz |
 | --- | --- | --- | --- |
-| CSV | flache Tabelle | nein (alles Text) | Export aus Excel, Massenimport |
-| JSON | verschachtelt | Zahl, Text, true/false, null | REST-APIs, Konfiguration |
-| XML | verschachtelt | über Schema | ältere Schnittstellen, Behörden |
-| YAML | verschachtelt | Zahl, Text, Boolean | Konfigurationsdateien |
+| CSV (Comma-Separated Values) | flache Tabelle | nein (alles Text) | Export aus Excel, Massenimport |
+| JSON | verschachtelt | Zahl, Text, true/false, null | REST-APIs (REST = Representational State Transfer), Konfiguration |
+| XML (Extensible Markup Language) | verschachtelt | über Schema | ältere Schnittstellen, Behörden |
+| YAML (YAML Ain’t Markup Language) | verschachtelt | Zahl, Text, Boolean | Konfigurationsdateien |
 
 ### Befehle
 - `Import-Csv .\geraete.csv -Delimiter ';'` – CSV mit Semikolon einlesen (PowerShell)
@@ -192,7 +193,7 @@ CSV für Tabellen, JSON für APIs, XML wenn ein Schema gefordert ist.
 
 ### Kernbegriffe
 - **NoSQL:** „Not only SQL“ – Datenbanken, die Daten nicht in festen Tabellen mit Beziehungen speichern; flexibler und leichter auf viele Server verteilbar, dafür meist ohne JOINs und mit weniger strengen Regeln.
-- **Dokumentenorientierte Datenbank:** Speichert Datensätze als Dokumente, meist JSON; jedes Dokument kann andere Felder haben – z. B. MongoDB, CouchDB.
+- **Dokumentenorientierte Datenbank:** Speichert Datensätze als Dokumente, meist JSON (JavaScript Object Notation); jedes Dokument kann andere Felder haben – z. B. MongoDB, CouchDB.
 - **Key-Value-Store:** Speichert nur Schlüssel und Wert, extrem schnell – z. B. Redis als Cache oder Sitzungsspeicher.
 - **Spaltenorientierte Datenbank (Wide Column):** Speichert Daten spaltenweise in Spaltenfamilien; für sehr große, verteilte Datenmengen – z. B. Apache Cassandra.
 - **Graphdatenbank:** Speichert Knoten und Kanten mit Eigenschaften; ideal für Beziehungen wie Netzwerktopologien, soziale Netze oder Berechtigungen – z. B. Neo4j.
@@ -216,7 +217,7 @@ CSV für Tabellen, JSON für APIs, XML wenn ein Schema gefordert ist.
 | --- | --- | --- |
 | Struktur | festes Schema, Tabellen mit Beziehungen | flexibel, je nach Typ |
 | Abfragen | SQL mit JOINs | eigene Abfragesprachen oder APIs, meist ohne JOIN |
-| Konsistenz | streng (ACID) | oft „irgendwann konsistent“ (BASE) |
+| Konsistenz | streng (ACID) | oft „irgendwann konsistent“ (BASE – Basically Available, Soft State, Eventually Consistent) |
 | Skalierung | vor allem vertikal | vor allem horizontal |
 | Gut für | Buchhaltung, Warenwirtschaft, Kundendaten | große, schnell wachsende oder unstrukturierte Daten |
 
@@ -224,7 +225,7 @@ CSV für Tabellen, JSON für APIs, XML wenn ein Schema gefordert ist.
 Relationale Datenbanken für feste Strukturen und Geld, NoSQL für Masse, Tempo und wechselnde Strukturen. NoSQL-Typen: Dokument, Key-Value, Spalte, Graph – dazu Zeitreihen.
 
 ### Prüfungsfrage
-Ein Onlineshop will Produktdaten speichern; jede Produktgruppe hat andere Eigenschaften (Schuhe: Größe, Material; Notebooks: CPU, RAM). Begründe, warum eine dokumentenorientierte Datenbank passen kann, und nenne einen Nachteil.
+Ein Onlineshop will Produktdaten speichern; jede Produktgruppe hat andere Eigenschaften (Schuhe: Größe, Material; Notebooks: CPU – Central Processing Unit, RAM – Random Access Memory). Begründe, warum eine dokumentenorientierte Datenbank passen kann, und nenne einen Nachteil.
 
 1. Jedes Produkt wird als JSON-Dokument mit genau seinen Eigenschaften gespeichert – keine leeren Spalten und keine Schemaänderung für neue Produktgruppen.
 2. Ein Produkt wird mit einem Zugriff vollständig gelesen, ohne JOINs über viele Tabellen.
@@ -239,7 +240,7 @@ Ein Onlineshop will Produktdaten speichern; jede Produktgruppe hat andere Eigens
 - WHERE und HAVING verwechseln.
 - UPDATE oder DELETE ohne WHERE ausführen – trifft alle Datensätze.
 - INNER JOIN verwenden, obwohl auch Datensätze ohne Partner erscheinen sollen.
-- CSV mit Komma öffnen, obwohl die Datei mit Semikolon getrennt ist.
+- CSV (Comma-Separated Values) mit Komma öffnen, obwohl die Datei mit Semikolon getrennt ist.
 
 ## Links
 - [W3Schools SQL](https://www.w3schools.com/sql/) – SQL-Befehle mit Übungen (englisch)

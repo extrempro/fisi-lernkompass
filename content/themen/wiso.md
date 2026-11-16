@@ -7,7 +7,7 @@ Deine Rechte und Pflichten in Ausbildung und Beruf: Ausbildungsvertrag, Berufsbi
 ## Ausbildungsvertrag {#ausbildungsvertrag}
 
 ### Kernbegriffe
-- **Form:** Der wesentliche Vertragsinhalt muss vor Beginn der Ausbildung festgehalten werden (§ 11 BBiG); der Azubi erhält eine Ausfertigung.
+- **Form:** Der wesentliche Vertragsinhalt muss vor Beginn der Ausbildung festgehalten werden (§ 11 BBiG – Berufsbildungsgesetz); der Azubi erhält eine Ausfertigung.
 - **Probezeit:** Mindestens 1, höchstens 4 Monate (§ 20 BBiG).
 - **Verzeichnis:** Der Betrieb meldet den Vertrag bei der Handelskammer zur Eintragung ins Verzeichnis der Ausbildungsverhältnisse.
 - **Ende:** Mit Ablauf der Ausbildungszeit oder schon mit Bekanntgabe des Ergebnisses der bestandenen Abschlussprüfung (§ 21 BBiG).
@@ -167,7 +167,7 @@ Prüfe die Abrechnung aus der Tabelle: Wie hoch sind die Gesamtkosten des Arbeit
 ## Tarif {#tarif}
 
 ### Kernbegriffe
-- **Tarifautonomie:** Gewerkschaften und Arbeitgeber(verbände) verhandeln Arbeitsbedingungen ohne staatliche Einmischung (Art. 9 Abs. 3 GG).
+- **Tarifautonomie:** Gewerkschaften und Arbeitgeber(verbände) verhandeln Arbeitsbedingungen ohne staatliche Einmischung (Art. 9 Abs. 3 GG – Grundgesetz).
 - **Tarifparteien:** Gewerkschaften (z. B. ver.di, IG Metall) und Arbeitgeberverbände oder einzelne Arbeitgeber (Haustarif).
 - **Manteltarifvertrag:** Regelt Rahmenbedingungen wie Arbeitszeit, Urlaub, Kündigungsfristen – läuft meist mehrere Jahre.
 - **Entgelttarifvertrag:** Regelt Löhne, Gehälter und Ausbildungsvergütungen.
@@ -224,8 +224,8 @@ Die IT soll ein Ticketsystem einführen, das Bearbeitungszeiten pro Mitarbeiter 
 
 ### Kernbegriffe
 - **Rechtsform:** Rechtlicher Rahmen eines Unternehmens. Sie bestimmt Haftung, Mindestkapital, Geschäftsführung, Gewinnverteilung und Formalitäten.
-- **Personengesellschaften:** Einzelunternehmen, GbR, OHG und KG. Mindestens ein Inhaber haftet mit seinem Privatvermögen.
-- **Kapitalgesellschaften:** GmbH, UG (haftungsbeschränkt) und AG. Sie sind eigene juristische Personen und haften nur mit dem Gesellschaftsvermögen.
+- **Personengesellschaften:** Einzelunternehmen, GbR, OHG (Offene Handelsgesellschaft) und KG (Kommanditgesellschaft). Mindestens ein Inhaber haftet mit seinem Privatvermögen.
+- **Kapitalgesellschaften:** GmbH, UG (Unternehmergesellschaft, haftungsbeschränkt) und AG (Aktiengesellschaft). Sie sind eigene juristische Personen und haften nur mit dem Gesellschaftsvermögen.
 - **Handelsregister:** Öffentliches Verzeichnis der Kaufleute und Gesellschaften beim Amtsgericht; Kapitalgesellschaften, OHG und KG müssen eingetragen sein.
 - **Komplementär und Kommanditist:** In der KG haftet der Komplementär unbeschränkt und führt die Geschäfte, der Kommanditist haftet nur bis zu seiner Einlage.
 - **Organe der AG:** Vorstand (leitet), Aufsichtsrat (kontrolliert), Hauptversammlung (Aktionäre entscheiden z. B. über Gewinnverwendung).
@@ -262,14 +262,14 @@ Zwei Freunde gründen ein IT-Dienstleistungsunternehmen. Einer will mitarbeiten 
 - **Arbeitsschutzgesetz (ArbSchG):** Der Arbeitgeber muss Gefährdungen beurteilen (Gefährdungsbeurteilung), Schutzmaßnahmen treffen und die Beschäftigten unterweisen.
 - **Unterweisung:** Vor Arbeitsbeginn und mindestens einmal jährlich, für Jugendliche halbjährlich (§ 29 JArbSchG). Inhalt: Gefahren am Arbeitsplatz, Verhalten im Notfall, Fluchtwege.
 - **Fachkraft für Arbeitssicherheit und Betriebsarzt:** Beraten den Arbeitgeber (Arbeitssicherheitsgesetz).
-- **Prüfung elektrischer Geräte (DGUV Vorschrift 3):** Ortsveränderliche Geräte wie PCs, Monitore und Verlängerungen werden regelmäßig durch eine Elektrofachkraft geprüft – im Büro meist alle 24 Monate.
+- **Prüfung elektrischer Geräte (DGUV Vorschrift 3):** Vorschrift der Deutschen Gesetzlichen Unfallversicherung (DGUV). Ortsveränderliche Geräte wie PCs, Monitore und Verlängerungen werden regelmäßig durch eine Elektrofachkraft geprüft – im Büro meist alle 24 Monate.
 - **Erste Hilfe:** In Büros muss es bei mehr als 20 Beschäftigten mindestens 5 % Ersthelfer geben (in anderen Betrieben 10 %). Jede Hilfeleistung kommt ins Verbandbuch.
 - **Notruf 112:** Wo ist es passiert? Was ist passiert? Wie viele Verletzte? Welche Verletzungen? Warten auf Rückfragen.
 - **Brandklassen:** A feste Stoffe (Papier, Holz), B Flüssigkeiten, C Gase, D Metalle, F Speiseöle und -fette. Für Elektrik und Serverräume eignen sich CO₂-Löscher, weil sie keine Rückstände hinterlassen.
 - **Verhalten im Brandfall:** Ruhe bewahren – Brand melden – Menschen in Sicherheit bringen – Löschversuch nur ohne Eigengefährdung. Aufzüge nicht benutzen.
 - **Brandschutzhelfer:** In der Regel mindestens 5 % der Beschäftigten (ASR A2.2).
 - **Elektroaltgeräte (ElektroG):** Gehören nicht in den Hausmüll, sondern zum Wertstoffhof oder zur Rücknahme beim Händler. Batterien und Akkus getrennt zurückgeben.
-- **Datenträger vernichten:** Vor der Entsorgung Daten sicher löschen oder Datenträger physisch vernichten, z. B. nach DIN 66399 (Sicherheitsstufen 1–7) – und die Vernichtung dokumentieren.
+- **Datenträger vernichten:** Vor der Entsorgung Daten sicher löschen oder Datenträger physisch vernichten, z. B. nach DIN 66399 (Norm des Deutschen Instituts für Normung; Sicherheitsstufen 1–7) – und die Vernichtung dokumentieren.
 - **Green IT:** Energie sparen durch Energiesparmodus, Abschalten nachts, effiziente Netzteile und Server-Virtualisierung; Geräte länger nutzen und reparieren; Papier und Toner sparen.
 
 ### Tabelle: Brandklassen und Löschmittel
@@ -299,7 +299,7 @@ Bei der Einrichtung eines Arbeitsplatzes bleiben ein alter PC mit Festplatte und
 - Die Unfallversicherung zu den hälftig bezahlten Zweigen zählen.
 - Manteltarif- und Entgelttarifvertrag vertauschen.
 - Betriebsrat und JAV gleichsetzen – die JAV handelt über den Betriebsrat.
-- Bei der KG die Haftung verwechseln: Der Komplementär haftet unbeschränkt, der Kommanditist nur bis zur Einlage.
+- Bei der KG (Kommanditgesellschaft) die Haftung verwechseln: Der Komplementär haftet unbeschränkt, der Kommanditist nur bis zur Einlage.
 - Wasser zum Löschen von Elektrogeräten oder Fettbränden verwenden.
 
 ## Links

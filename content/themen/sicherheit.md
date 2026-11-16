@@ -2,7 +2,7 @@
 titel: IT-Sicherheit & Datenschutz
 ---
 
-Wie du Informationen schützt: Schutzziele, Vorgehen nach BSI, Schutzbedarf bestimmen, Verschlüsselung, Firewalls – und was die DSGVO von dir verlangt.
+Wie du Informationen schützt: Schutzziele, Vorgehen nach BSI, Schutzbedarf bestimmen, Verschlüsselung, Firewalls – und was die DSGVO (Datenschutz-Grundverordnung) von dir verlangt.
 
 ## Schutzziele (CIA) {#schutzziele}
 
@@ -20,7 +20,7 @@ Wie du Informationen schützt: Schutzziele, Vorgehen nach BSI, Schutzbedarf best
 | --- | --- | --- |
 | Vertraulichkeit | Abhören, Datendiebstahl | Verschlüsselung, Zugriffsrechte |
 | Integrität | Manipulation | Hashwerte, digitale Signatur |
-| Verfügbarkeit | Hardwareausfall, DDoS | Redundanz, Backup, USV |
+| Verfügbarkeit | Hardwareausfall, DDoS (Distributed Denial of Service) | Redundanz, Backup, USV (unterbrechungsfreie Stromversorgung) |
 
 ### Merksatz
 CIA – Confidentiality, Integrity, Availability. Nicht der Geheimdienst.
@@ -93,12 +93,12 @@ Auf einem Server laufen die Lohnbuchhaltung (Vertraulichkeit: hoch) und das Intr
 ### Tabelle: Angriffe und Gegenmaßnahmen
 | Angriff | Funktionsweise | Gegenmaßnahme |
 | --- | --- | --- |
-| Phishing | gefälschte Mail oder Webseite | Schulung, MFA, Mailfilter |
+| Phishing | gefälschte Mail oder Webseite | Schulung, MFA (Multi-Faktor-Authentifizierung), Mailfilter |
 | Ransomware | Verschlüsselung von Daten | Offline-Backups, Patches, Rechte beschränken |
 | Brute Force | massenhaftes Ausprobieren von Passwörtern | lange Passwörter, Kontosperre, MFA |
-| DDoS | Überlastung durch viele Anfragen | Provider-Schutz, Lastverteilung |
-| Man-in-the-Middle | Mitlesen zwischen zwei Parteien | Verschlüsselung (TLS, VPN), Zertifikate prüfen |
-| SQL-Injection | eingeschleuster SQL-Code über Eingabefelder | vorbereitete Abfragen, Eingaben prüfen |
+| DDoS (Distributed Denial of Service) | Überlastung durch viele Anfragen | Provider-Schutz, Lastverteilung |
+| Man-in-the-Middle | Mitlesen zwischen zwei Parteien | Verschlüsselung (TLS, VPN – Virtual Private Network), Zertifikate prüfen |
+| SQL-Injection (SQL = Structured Query Language) | eingeschleuster SQL-Code über Eingabefelder | vorbereitete Abfragen, Eingaben prüfen |
 
 ### Merksatz
 Der Mensch ist das häufigste Einfallstor – Schulung gehört genauso dazu wie Technik.
@@ -106,13 +106,13 @@ Der Mensch ist das häufigste Einfallstor – Schulung gehört genauso dazu wie 
 ## Verschlüsselung {#verschluesselung}
 
 ### Kernbegriffe
-- **Symmetrisch:** Ein gemeinsamer Schlüssel zum Ver- und Entschlüsseln, z. B. AES. Schnell, aber der Schlüssel muss sicher ausgetauscht werden.
-- **Asymmetrisch:** Schlüsselpaar aus öffentlichem und privatem Schlüssel, z. B. RSA oder ECC. Löst den Schlüsselaustausch, ist aber langsam.
+- **Symmetrisch:** Ein gemeinsamer Schlüssel zum Ver- und Entschlüsseln, z. B. AES (Advanced Encryption Standard). Schnell, aber der Schlüssel muss sicher ausgetauscht werden.
+- **Asymmetrisch:** Schlüsselpaar aus öffentlichem und privatem Schlüssel, z. B. RSA (nach den Erfindern Rivest, Shamir und Adleman) oder ECC (Elliptic Curve Cryptography). Löst den Schlüsselaustausch, ist aber langsam.
 - **Hybrid:** Asymmetrisch einen Sitzungsschlüssel austauschen, dann symmetrisch weiter – so arbeitet TLS.
-- **Hash:** Einweg-Prüfsumme, z. B. SHA-256. Keine Verschlüsselung.
+- **Hash:** Einweg-Prüfsumme, z. B. SHA-256 (SHA = Secure Hash Algorithm). Keine Verschlüsselung.
 
 ### Befehle
-- `ssh-keygen -t ed25519` – SSH-Schlüsselpaar erzeugen
+- `ssh-keygen -t ed25519` – SSH-Schlüsselpaar (SSH = Secure Shell) erzeugen
 - `Get-FileHash setup.iso -Algorithm SHA256` – Prüfsumme einer Datei (PowerShell)
 - `sha256sum setup.iso` – Prüfsumme einer Datei (Linux)
 
@@ -141,7 +141,7 @@ Wie viele Schlüssel brauchen 10 Personen, die paarweise sicher kommunizieren wo
 - **Selbstsigniertes Zertifikat:** Vom Besitzer selbst unterschrieben, ohne CA; verschlüsselt zwar, aber niemand bestätigt die Identität – der Browser warnt.
 - **Sperrung (CRL und OCSP):** Ein kompromittiertes Zertifikat wird vor Ablauf gesperrt; Clients prüfen das über eine Sperrliste (CRL) oder eine Online-Abfrage (OCSP).
 - **DV, OV, EV:** Prüfstufen beim Ausstellen – Domain Validation prüft nur die Kontrolle über die Domain, Organization und Extended Validation zusätzlich das Unternehmen.
-- **ACME:** Protokoll zum automatischen Ausstellen und Erneuern von Zertifikaten, bekannt durch Let's Encrypt und den Client certbot.
+- **ACME:** Automatic Certificate Management Environment – Protokoll zum automatischen Ausstellen und Erneuern von Zertifikaten, bekannt durch Let's Encrypt und den Client certbot.
 
 ### Abbildung: Zertifikatskette und Inhalt eines Zertifikats
 ![Zertifikatskette: Die Root-CA im Vertrauensspeicher signiert das Zwischenzertifikat, das Zwischenzertifikat signiert das Serverzertifikat für www.example.de. Der Browser prüft von unten nach oben. Daneben die Felder eines X.509-Zertifikats: Subject, SAN, Issuer, Gültigkeit, öffentlicher Schlüssel, Verwendungszweck, Seriennummer, Sperrinformationen und die Signatur der CA. Der private Schlüssel steht nicht im Zertifikat.](pki-kette.svg)
@@ -149,16 +149,16 @@ Wie viele Schlüssel brauchen 10 Personen, die paarweise sicher kommunizieren wo
 ### Tabelle: Dateiformate für Zertifikate
 | Format | Endung | Inhalt |
 | --- | --- | --- |
-| PEM | .pem, .crt, .cer, .key | Text (Base64) zwischen -----BEGIN …----- und -----END …-----; üblich unter Linux, Apache, nginx |
+| PEM (Privacy-Enhanced Mail) | .pem, .crt, .cer, .key | Text (Base64) zwischen -----BEGIN …----- und -----END …-----; üblich unter Linux, Apache, nginx |
 | DER | .der, .cer | dasselbe binär; oft unter Windows |
-| PKCS#12 | .pfx, .p12 | Zertifikat **mit** privatem Schlüssel und Kette, mit Passwort geschützt – zum Importieren unter Windows und IIS |
+| PKCS#12 (Public Key Cryptography Standards) | .pfx, .p12 | Zertifikat **mit** privatem Schlüssel und Kette, mit Passwort geschützt – zum Importieren unter Windows und IIS |
 | CSR | .csr | Zertifikatsantrag an die CA |
 
 ### Tabelle: Typische Zertifikatswarnungen im Browser
 | Meldung (Chrome) | Ursache | Lösung |
 | --- | --- | --- |
-| NET::ERR_CERT_DATE_INVALID | Zertifikat abgelaufen – oder die Uhrzeit am Client ist falsch | erneuern bzw. Uhrzeit und NTP prüfen |
-| NET::ERR_CERT_COMMON_NAME_INVALID | Der aufgerufene Name steht nicht im SAN, z. B. Aufruf per IP-Adresse | Zertifikat mit allen benötigten Namen ausstellen |
+| NET::ERR_CERT_DATE_INVALID | Zertifikat abgelaufen – oder die Uhrzeit am Client ist falsch | erneuern bzw. Uhrzeit und NTP (Network Time Protocol) prüfen |
+| NET::ERR_CERT_COMMON_NAME_INVALID | Der aufgerufene Name steht nicht im SAN, z. B. Aufruf per IP-Adresse (IP = Internet Protocol) | Zertifikat mit allen benötigten Namen ausstellen |
 | NET::ERR_CERT_AUTHORITY_INVALID | selbstsigniert, unbekannte Firmen-CA oder fehlendes Zwischenzertifikat | Kette vollständig ausliefern bzw. Root-CA per Gruppenrichtlinie verteilen |
 | NET::ERR_CERT_REVOKED | Zertifikat wurde gesperrt | neues Zertifikat mit neuem Schlüssel ausstellen |
 
@@ -183,16 +183,16 @@ Beim Aufruf des neuen Intranet-Servers meldet der Browser „NET::ERR_CERT_AUTHO
 ## TLS und HTTPS {#tls-https}
 
 ### Kernbegriffe
-- **TLS (Transport Layer Security):** Protokoll, das eine Verbindung verschlüsselt, vor Veränderung schützt und die Identität des Servers per Zertifikat nachweist; Nachfolger von SSL.
-- **HTTPS:** HTTP über TLS, Standard-Port TCP 443; die Adresszeile zeigt ein Schloss.
+- **TLS (Transport Layer Security):** Protokoll, das eine Verbindung verschlüsselt, vor Veränderung schützt und die Identität des Servers per Zertifikat nachweist; Nachfolger von SSL (Secure Sockets Layer).
+- **HTTPS:** HTTP (Hypertext Transfer Protocol) über TLS, Standard-Port TCP (Transmission Control Protocol) 443; die Adresszeile zeigt ein Schloss.
 - **TLS-Handshake:** Aushandeln von Version und Verfahren, Prüfen des Zertifikats und Vereinbaren eines gemeinsamen Sitzungsschlüssels, bevor Nutzdaten fließen.
-- **Cipher Suite:** Kombination der Verfahren einer Verbindung, z. B. TLS_AES_128_GCM_SHA256 – symmetrische Verschlüsselung und Hash; der Schlüsselaustausch läuft bei TLS 1.3 immer per (EC)DHE.
+- **Cipher Suite:** Kombination der Verfahren einer Verbindung, z. B. TLS_AES_128_GCM_SHA256 – symmetrische Verschlüsselung und Hash; der Schlüsselaustausch läuft bei TLS 1.3 immer per (EC)DHE – Diffie-Hellman mit Einmalschlüsseln, die nach der Sitzung verworfen werden.
 - **Forward Secrecy:** Für jede Sitzung wird ein neuer Schlüssel per Diffie-Hellman vereinbart; wird der private Serverschlüssel später gestohlen, bleiben alte Mitschnitte trotzdem geheim.
 - **SNI (Server Name Indication):** Der Client nennt im ClientHello den gewünschten Hostnamen, damit ein Server mit einer IP-Adresse mehrere Webseiten mit eigenen Zertifikaten anbieten kann.
-- **HSTS:** HTTP-Header, mit dem eine Webseite dem Browser vorschreibt, sie für eine bestimmte Zeit nur noch per HTTPS aufzurufen – schützt vor dem Herabstufen auf HTTP.
+- **HSTS:** HTTP Strict Transport Security – HTTP-Header, mit dem eine Webseite dem Browser vorschreibt, sie für eine bestimmte Zeit nur noch per HTTPS (HTTP Secure) aufzurufen – schützt vor dem Herabstufen auf HTTP.
 - **TLS-Terminierung:** Ein Reverse Proxy oder Load Balancer entschlüsselt TLS und leitet die Anfrage an die Server dahinter weiter; das Zertifikat liegt dann auf dem Proxy.
-- **mTLS (gegenseitiges TLS):** Auch der Client weist sich mit einem Zertifikat aus, z. B. bei Schnittstellen zwischen Servern oder bei EAP-TLS im WLAN.
-- **HTTP/3 und QUIC:** Neueste HTTP-Version; läuft über UDP 443 mit fest eingebautem TLS 1.3 statt über TCP.
+- **mTLS (gegenseitiges TLS):** Auch der Client weist sich mit einem Zertifikat aus, z. B. bei Schnittstellen zwischen Servern oder bei EAP-TLS (EAP = Extensible Authentication Protocol) im WLAN.
+- **HTTP/3 und QUIC:** Neueste HTTP-Version; läuft über UDP (User Datagram Protocol) 443 mit fest eingebautem TLS 1.3 statt über TCP.
 
 ### Abbildung: TLS-1.3-Handshake bei HTTPS
 ![TLS-1.3-Handshake: 1 ClientHello mit TLS-Versionen, Cipher Suites, Key Share und Servername; 2 ServerHello mit Key Share, danach verschlüsselt Zertifikat, CertificateVerify und Finished; 3 Finished vom Client nach Prüfung der Zertifikatskette; 4 symmetrisch verschlüsselte HTTP-Daten. Asymmetrische Verfahren dienen dem Schlüsselaustausch und der Identität, symmetrische den Daten – hybride Verschlüsselung. TLS 1.3 braucht nur einen Hin- und Rückweg und bietet immer Forward Secrecy.](tls13-handshake.svg)
@@ -208,7 +208,7 @@ Beim Aufruf des neuen Intranet-Servers meldet der Browser „NET::ERR_CERT_AUTHO
 | Version | Status |
 | --- | --- |
 | SSL 2.0 und 3.0 | unsicher, abschalten |
-| TLS 1.0 und 1.1 | veraltet, seit 2021 offiziell abgekündigt (RFC 8996) |
+| TLS 1.0 und 1.1 | veraltet, seit 2021 offiziell abgekündigt (Internet-Standard RFC 8996) |
 | TLS 1.2 | noch zulässig mit sicheren Cipher Suites (ECDHE, AES-GCM) |
 | TLS 1.3 | aktueller Standard (2018): schneller, nur noch sichere Verfahren, Forward Secrecy immer an |
 
@@ -225,7 +225,7 @@ Erkläre, warum bei HTTPS sowohl asymmetrische als auch symmetrische Verschlüss
 
 1. Asymmetrische Verfahren lösen das Problem des Schlüsselaustauschs und erlauben dem Server, sich per Zertifikat auszuweisen – sie sind aber rechenaufwendig.
 2. Im Handshake vereinbaren Client und Server deshalb per Diffie-Hellman einen gemeinsamen Sitzungsschlüssel; der Server beweist mit seinem privaten Schlüssel, dass ihm das Zertifikat gehört.
-3. Die eigentlichen Daten werden mit diesem Sitzungsschlüssel symmetrisch (z. B. AES) verschlüsselt, weil das sehr schnell ist.
+3. Die eigentlichen Daten werden mit diesem Sitzungsschlüssel symmetrisch (z. B. AES – Advanced Encryption Standard) verschlüsselt, weil das sehr schnell ist.
 4. Die Kombination heißt hybride Verschlüsselung und vereint die Vorteile beider Verfahren.
 
 ## Authentifizierung {#authentifizierung}
@@ -248,7 +248,7 @@ Erkläre, warum bei HTTPS sowohl asymmetrische als auch symmetrische Verschlüss
 | kein Zwangswechsel ohne Anlass | führt zu schwachen, vorhersehbaren Mustern |
 | sofort wechseln bei Verdacht auf Kompromittierung | gestohlene Passwörter werden schnell genutzt |
 | für jeden Dienst ein eigenes Passwort, Passwortmanager nutzen | ein Datenleck öffnet sonst alle Konten |
-| MFA für alle wichtigen Konten | ein gestohlenes Passwort reicht dann nicht |
+| MFA (Multi-Faktor-Authentifizierung) für alle wichtigen Konten | ein gestohlenes Passwort reicht dann nicht |
 
 ### Merksatz
 Zwei Passwörter sind keine MFA – es braucht zwei verschiedene Arten von Faktoren.
@@ -260,7 +260,7 @@ Zwei Passwörter sind keine MFA – es braucht zwei verschiedene Arten von Fakto
 - **Need-to-know:** Zugriff auf Informationen nur, wenn man sie für die Arbeit tatsächlich benötigt – auch innerhalb derselben Abteilung.
 - **Funktionstrennung (Separation of Duties):** Kritische Vorgänge werden auf mehrere Personen verteilt, z. B. beantragt einer die Berechtigung, ein anderer genehmigt sie.
 - **Perimeter-Modell:** Klassischer Ansatz „Burg und Graben“: Eine Firewall schützt nach außen, wer im internen Netz ist, gilt als vertrauenswürdig. Ein Angreifer im Netz kann sich dann frei bewegen.
-- **Zero Trust:** „Never trust, always verify“: Kein Gerät und kein Benutzer gilt automatisch als vertrauenswürdig, auch nicht im eigenen Netz. Jeder Zugriff wird einzeln anhand von Identität, Gerätezustand und Kontext geprüft (Modell z. B. nach NIST SP 800-207).
+- **Zero Trust:** „Never trust, always verify“: Kein Gerät und kein Benutzer gilt automatisch als vertrauenswürdig, auch nicht im eigenen Netz. Jeder Zugriff wird einzeln anhand von Identität, Gerätezustand und Kontext geprüft (Modell z. B. nach NIST SP 800-207, einer Veröffentlichung der US-Normungsbehörde NIST).
 - **Assume Breach:** Grundhaltung von Zero Trust: Man geht davon aus, dass ein Angreifer bereits im Netz ist, und begrenzt den möglichen Schaden.
 - **Mikrosegmentierung:** Das Netz wird in sehr kleine Bereiche geteilt, oft bis auf einzelne Server oder Anwendungen. Ein befallener Rechner erreicht dann nur wenige andere Systeme.
 - **ZTNA (Zero Trust Network Access):** Ersatz für das klassische VPN: Statt Zugang zum ganzen Netz gibt es nur Zugang zu einzelnen freigegebenen Anwendungen, nach Prüfung von Nutzer und Gerät.
@@ -276,7 +276,7 @@ Zwei Passwörter sind keine MFA – es braucht zwei verschiedene Arten von Fakto
 | Vertrauen | wer im Netz ist, ist vertrauenswürdig | niemand ohne Prüfung |
 | Prüfung | einmal am Eingang (Firewall, VPN) | bei jedem Zugriff, laufend |
 | Zugriff | aufs ganze Netz | nur auf die einzelne Anwendung |
-| Kriterien | meist nur Benutzer und Passwort | Identität mit MFA, Gerätezustand, Ort, Uhrzeit, Verhalten |
+| Kriterien | meist nur Benutzer und Passwort | Identität mit MFA (Multi-Faktor-Authentifizierung), Gerätezustand, Ort, Uhrzeit, Verhalten |
 | Angreifer im Netz | kann sich frei bewegen | erreicht nur wenig, wird schneller bemerkt |
 | Passt zu | Büro mit festen Arbeitsplätzen | Cloud, Homeoffice, mobile Geräte |
 
@@ -343,7 +343,7 @@ Ein Unternehmen vergibt Rechte auf Zuruf direkt an einzelne Benutzer. Ein Mitarb
 - **Paketfilter:** Prüft IP-Adressen und Ports (Schicht 3/4), jedes Paket einzeln.
 - **Stateful Inspection:** Merkt sich Verbindungen und lässt Antworten automatisch zu.
 - **Application-Level-Gateway:** Prüft Inhalte auf Anwendungsebene (Schicht 7), z. B. als Proxy.
-- **DMZ:** Eigenes Netz für öffentlich erreichbare Server zwischen Internet und LAN.
+- **DMZ:** Eigenes Netz für öffentlich erreichbare Server zwischen Internet und LAN (Local Area Network – lokales Netz).
 
 ### Tabelle: Beispiel-Regelwerk
 | Nr. | Quelle | Ziel | Port | Aktion |
@@ -390,19 +390,19 @@ Risiko A: Ausfall des Fileservers (Wahrscheinlichkeit 2, Schaden 5). Risiko B: P
 
 1. Risiko A: 2 · 5 = 10
 2. Risiko B: 4 · 3 = 12
-3. Risiko B ist höher und wird zuerst behandelt, z. B. mit Schulung und MFA.
+3. Risiko B ist höher und wird zuerst behandelt, z. B. mit Schulung und MFA (Multi-Faktor-Authentifizierung).
 
 ## DSGVO {#dsgvo}
 
 ### Kernbegriffe
 - **Personenbezogene Daten:** Alle Informationen, die sich einer Person zuordnen lassen – auch IP-Adressen.
 - **TOM:** Technische und organisatorische Maßnahmen zum Schutz der Daten (Art. 32).
-- **Ziele nach Art. 32 DSGVO:** Pseudonymisierung und Verschlüsselung, dauerhafte Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit der Systeme, rasche Wiederherstellung nach einem Zwischenfall sowie regelmäßige Überprüfung der Maßnahmen.
+- **Ziele nach Art. 32 DSGVO:** DSGVO = Datenschutz-Grundverordnung. Pseudonymisierung und Verschlüsselung, dauerhafte Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit der Systeme, rasche Wiederherstellung nach einem Zwischenfall sowie regelmäßige Überprüfung der Maßnahmen.
 - **Technische und organisatorische Maßnahme:** Technisch ist alles, was Hard- oder Software erledigt (Verschlüsselung, Firewall, Protokollierung); organisatorisch sind Regeln und Abläufe (Richtlinien, Schulungen, Besucherregelung, Vier-Augen-Prinzip).
 - **Zutrittskontrolle:** Unbefugte kommen nicht in die Räume, in denen Daten verarbeitet werden – z. B. Schließsystem, Chipkarten, Alarmanlage, Besucheranmeldung.
-- **Zugangskontrolle:** Unbefugte können die Systeme nicht benutzen – z. B. Anmeldung mit Passwort und MFA, Passwortregeln, automatische Bildschirmsperre.
+- **Zugangskontrolle:** Unbefugte können die Systeme nicht benutzen – z. B. Anmeldung mit Passwort und MFA (Multi-Faktor-Authentifizierung), Passwortregeln, automatische Bildschirmsperre.
 - **Zugriffskontrolle:** Angemeldete Benutzer sehen und ändern nur die Daten, für die sie berechtigt sind – z. B. Berechtigungskonzept, Benutzerprofile und Rollen, Verschlüsselung von Datenträgern, sichere Vernichtung.
-- **Weitere Kontrollen:** Weitergabekontrolle (Daten sicher übertragen und transportieren), Eingabekontrolle (nachvollziehen, wer was geändert hat), Auftragskontrolle (Dienstleister arbeiten nur nach Weisung), Verfügbarkeitskontrolle (Schutz vor Verlust, z. B. Backup, USV) und Trennungsgebot (Daten verschiedener Zwecke getrennt verarbeiten).
+- **Weitere Kontrollen:** Weitergabekontrolle (Daten sicher übertragen und transportieren), Eingabekontrolle (nachvollziehen, wer was geändert hat), Auftragskontrolle (Dienstleister arbeiten nur nach Weisung), Verfügbarkeitskontrolle (Schutz vor Verlust, z. B. Backup, USV – unterbrechungsfreie Stromversorgung) und Trennungsgebot (Daten verschiedener Zwecke getrennt verarbeiten).
 - **Datenschutz vs. Datensicherheit:** Datenschutz schützt Personen, Datensicherheit schützt Daten allgemein.
 - **Aufsicht in Hamburg:** Hamburgische Beauftragte für Datenschutz und Informationsfreiheit (HmbBfDI).
 
@@ -424,7 +424,7 @@ Risiko A: Ausfall des Fileservers (Wahrscheinlichkeit 2, Schaden 5). Risiko B: P
 | Weitergabekontrolle | Sind Daten unterwegs geschützt? | VPN, TLS, verschlüsselte E-Mail, verschlossener Transport von Datenträgern |
 | Eingabekontrolle | Wer hat was wann geändert? | Protokollierung, Versionierung, persönliche Konten statt Sammelkonten |
 | Auftragskontrolle | Hält sich der Dienstleister an die Weisungen? | Vertrag zur Auftragsverarbeitung (AVV), Kontrollen beim Dienstleister |
-| Verfügbarkeitskontrolle | Sind die Daten vor Verlust geschützt? | Backup, USV, RAID, Brandschutz, Notfallplan |
+| Verfügbarkeitskontrolle | Sind die Daten vor Verlust geschützt? | Backup, USV, RAID (Redundant Array of Independent Disks), Brandschutz, Notfallplan |
 | Trennungsgebot | Werden Daten verschiedener Zwecke getrennt? | getrennte Datenbanken oder Mandanten, Test- und Produktivsystem trennen |
 
 Achtung bei der Wortwahl: Diese acht Kontrollen stammen aus dem alten Bundesdatenschutzgesetz und sind in der Praxis weiter üblich. Das neue BDSG (§ 64) nennt den Schutz der Räume und Anlagen „Zugangskontrolle“ und die Benutzung der Systeme „Benutzerkontrolle“. In einer Aufgabe zählt deshalb, wie die Kontrollen dort beschrieben sind.
@@ -465,7 +465,7 @@ Ordne die Maßnahmen Schlüsselkarte für den Serverraum, Passwortrichtlinie, Ro
 typ: text
 zu: dsgvo
 
-Was die DSGVO im IT-Alltag konkret bedeutet – vom Benutzerkonto über Logdateien bis zur Datenpanne. Verantwortlich im Sinne der DSGVO ist das Unternehmen; die IT setzt einen großen Teil der technischen Maßnahmen um und liefert die Informationen für die Dokumentation.
+Was die DSGVO (Datenschutz-Grundverordnung) im IT-Alltag konkret bedeutet – vom Benutzerkonto über Logdateien bis zur Datenpanne. Verantwortlich im Sinne der DSGVO ist das Unternehmen; die IT setzt einen großen Teil der technischen Maßnahmen um und liefert die Informationen für die Dokumentation.
 
 Im Zweifel gilt: Datenschutzbeauftragten früh einbeziehen – lieber eine Frage zu viel als eine Meldung zu spät.
 
@@ -490,13 +490,13 @@ Daten dürfen nur so lange gespeichert werden, wie es für den Zweck nötig ist 
 - Löschkonzept mit Fristen je Datenart umsetzen.
 - Gesetzliche Aufbewahrungspflichten, z. B. aus Handels- und Steuerrecht, gehen der Löschung vor – dann Zugriff sperren statt löschen.
 - In Backups verschwinden gelöschte Daten erst mit Ablauf der Aufbewahrungszeit; bei einer Wiederherstellung die Löschungen erneut anwenden.
-- Datenträger vor Entsorgung oder Weitergabe sicher löschen oder zerstören (DIN 66399), mit Nachweis.
+- Datenträger vor Entsorgung oder Weitergabe sicher löschen oder zerstören (DIN 66399 – Norm des Deutschen Instituts für Normung), mit Nachweis.
 
 ### Checkliste: Technische Maßnahmen (TOM)
 Art. 32 verlangt ein Schutzniveau, das zum Risiko passt – und eine regelmäßige Überprüfung.
 - Datenträger von Notebooks und Smartphones verschlüsseln, z. B. mit BitLocker.
-- Übertragungen verschlüsseln: TLS, VPN, keine unverschlüsselten Protokolle wie FTP oder Telnet.
-- MFA für Fernzugriff, Cloud-Dienste und Admin-Konten.
+- Übertragungen verschlüsseln: TLS, VPN, keine unverschlüsselten Protokolle wie FTP (File Transfer Protocol) oder Telnet.
+- MFA (Multi-Faktor-Authentifizierung) für Fernzugriff, Cloud-Dienste und Admin-Konten.
 - Updates zeitnah einspielen (Patchmanagement).
 - Backups regelmäßig erstellen und die Wiederherstellung testen.
 - Pseudonymisieren, wo personenbezogene Daten nicht im Klartext nötig sind, z. B. in Testsystemen.
@@ -529,7 +529,7 @@ Die IT liefert die technischen Angaben für die Pflichtdokumentation.
 - Bei Verarbeitungen mit hohem Risiko ist eine Datenschutz-Folgenabschätzung nötig (Art. 35), z. B. bei Videoüberwachung.
 - Auskunftsanfragen (Art. 15) müssen innerhalb eines Monats beantwortet werden – die IT muss Daten einer Person aus allen Systemen zusammenstellen können.
 - Vor einer Auskunft die Identität der anfragenden Person prüfen.
-- Einen Datenschutzbeauftragten braucht ein Unternehmen in der Regel, sobald mindestens 20 Personen ständig mit automatisierter Verarbeitung personenbezogener Daten beschäftigt sind (§ 38 BDSG).
+- Einen Datenschutzbeauftragten braucht ein Unternehmen in der Regel, sobald mindestens 20 Personen ständig mit automatisierter Verarbeitung personenbezogener Daten beschäftigt sind (§ 38 BDSG – Bundesdatenschutzgesetz).
 
 ## Zusatz: BSI IT-Grundschutz in der Praxis {#grundschutz-praxis}
 typ: text
@@ -565,7 +565,7 @@ Der BSI-Standard 200-2 bietet drei Vorgehensweisen an. Sie unterscheiden sich da
 - **Modellierung:** Jedem Zielobjekt werden die passenden Bausteine zugeordnet, z. B. dem Dateiserver SYS.1.1 Allgemeiner Server und SYS.1.2.3 Windows Server.
 - **IT-Grundschutz-Check:** Soll-Ist-Vergleich. Jede Anforderung wird bewertet: ja, teilweise, nein oder entbehrlich (mit Begründung).
 - **Risikoanalyse:** Nur nötig bei hohem oder sehr hohem Schutzbedarf, bei Einsatzszenarien außerhalb der Bausteine oder wenn es für ein Objekt keinen Baustein gibt.
-- **Umsetzung und Aufrechterhaltung:** Fehlende Maßnahmen werden priorisiert, mit Verantwortlichen und Terminen geplant und umgesetzt. Danach wird regelmäßig geprüft und verbessert (PDCA-Zyklus).
+- **Umsetzung und Aufrechterhaltung:** Fehlende Maßnahmen werden priorisiert, mit Verantwortlichen und Terminen geplant und umgesetzt. Danach wird regelmäßig geprüft und verbessert (PDCA-Zyklus – PDCA = Plan, Do, Check, Act).
 
 ### Das IT-Grundschutz-Kompendium
 Das Kompendium ordnet seine Bausteine in zwei Gruppen: Prozess-Bausteine gelten für die ganze Organisation, System-Bausteine für einzelne Zielobjekte. Die Edition 2023 enthält 111 Bausteine.
@@ -586,14 +586,14 @@ Auch ohne Zertifikat sind die Bausteine eine hervorragende Checkliste für die e
 - Werkzeuge wie verinice helfen bei Modellierung, Grundschutz-Check und Dokumentation.
 
 ### Zertifizierung und Einstieg
-- **ISO 27001-Zertifikat auf Basis von IT-Grundschutz:** Vergibt das BSI nach einem Audit durch zertifizierte Auditoren. Es weist ein funktionierendes ISMS und die Umsetzung der Standard-Absicherung nach und ist international anerkannt.
+- **ISO 27001-Zertifikat auf Basis von IT-Grundschutz:** ISO = International Organization for Standardization. Vergibt das BSI nach einem Audit durch zertifizierte Auditoren. Es weist ein funktionierendes ISMS und die Umsetzung der Standard-Absicherung nach und ist international anerkannt.
 - **WiBA (Weg in die Basis-Absicherung):** Checklisten mit Prüffragen für einen schnellen Einstieg, vor allem für Kommunen und kleinere Organisationen. Das BSI führt sie auch künftig fort.
-- **Bezug zu NIS2:** Für viele Unternehmen gelten durch die NIS2-Umsetzung Pflichten zum Risikomanagement. Der IT-Grundschutz ist ein anerkannter Weg, diese strukturiert umzusetzen.
+- **Bezug zu NIS2:** Für viele Unternehmen gelten durch die Umsetzung von NIS2 (EU-Richtlinie für Netz- und Informationssicherheit) Pflichten zum Risikomanagement. Der IT-Grundschutz ist ein anerkannter Weg, diese strukturiert umzusetzen.
 
 ### Ausblick: Grundschutz++
 Das BSI baut den IT-Grundschutz grundlegend um. Den Leitfaden zur neuen Methodik Grundschutz++ hat es im April 2026 veröffentlicht; er befindet sich in der Einführungs- und Pilotphase.
 - **Statt Bausteinen:** Grundschutz++ geht von Geschäftsprozessen und Werten (Assets) aus. Anforderungen gelten dort, wo sie für den Geschäftsbetrieb wichtig sind.
-- **Maschinenlesbar:** Die Anforderungen liegen im Format OSCAL (JSON) vor statt als Word- oder PDF-Dokument – Werkzeuge können sie direkt verarbeiten.
+- **Maschinenlesbar:** Die Anforderungen liegen im Format OSCAL (Open Security Controls Assessment Language, auf Basis von JSON – JavaScript Object Notation) vor statt als Word- oder PDF-Dokument – Werkzeuge können sie direkt verarbeiten.
 - **Zertifizierung:** Nach Grundschutz++ ab dem 1. Januar 2027 möglich. Der bisherige IT-Grundschutz bleibt laut aktuellen Angaben bis Ende 2028 gültig; bestehende Zertifikate müssen nicht sofort umgestellt werden.
 - **Für die Prüfung:** Die Begriffe des klassischen IT-Grundschutzes (Standards 200-1 bis 200-4, Absicherungsarten, Schutzbedarf, Bausteine) bleiben die Grundlage. Grundschutz++ ist Hintergrundwissen.
 
@@ -627,13 +627,13 @@ Bei Passkeys und Windows Hello entsperrt der Fingerabdruck oder die PIN nur den 
 | Authenticator-App (TOTP) | App erzeugt alle 30 Sekunden einen 6-stelligen Code | nein | solide Grundlage, funktioniert offline; Code kann auf einer Phishing-Seite eingegeben werden |
 | Push-Bestätigung | App fragt „Anmeldung bestätigen?“ | nein | bequem, aber anfällig für MFA-Fatigue |
 | Push mit Nummernabgleich | Nutzer tippt die auf dem Bildschirm angezeigte Zahl in der App ein | teilweise | deutlich besser als einfacher Push; Standard in Microsoft Authenticator |
-| FIDO2-Sicherheitsschlüssel | USB- oder NFC-Schlüssel (z. B. YubiKey) mit Schlüsselpaar | ja | sehr sicher; ideal für Admins und besonders gefährdete Konten |
+| FIDO2-Sicherheitsschlüssel (FIDO = Fast Identity Online) | USB- oder NFC-Schlüssel (NFC = Near Field Communication, kontaktlos) (z. B. YubiKey) mit Schlüsselpaar | ja | sehr sicher; ideal für Admins und besonders gefährdete Konten |
 | Passkey | FIDO2-Schlüssel im Smartphone, Laptop oder Passwort-Manager | ja | sehr sicher und bequem; ersetzt das Passwort ganz |
-| Smartcard / Zertifikat | Chipkarte mit Zertifikat und PIN | ja | klassisch in Behörden und großen Unternehmen; braucht eine PKI |
+| Smartcard / Zertifikat | Chipkarte mit Zertifikat und PIN | ja | klassisch in Behörden und großen Unternehmen; braucht eine PKI (Public Key Infrastructure) |
 
 ### Einmalcodes (TOTP) verstehen
 1. Beim Einrichten zeigt der Dienst einen QR-Code. Darin steckt ein geheimer Schlüssel, den Dienst und App ab jetzt beide kennen.
-2. Die App berechnet aus diesem Schlüssel und der aktuellen Uhrzeit (in 30-Sekunden-Schritten) per HMAC einen 6-stelligen Code – nach RFC 6238.
+2. Die App berechnet aus diesem Schlüssel und der aktuellen Uhrzeit (in 30-Sekunden-Schritten) per HMAC (Hash-based Message Authentication Code) einen 6-stelligen Code – nach dem Internet-Standard RFC 6238 (RFC = Request for Comments).
 3. Der Server rechnet dasselbe und vergleicht. Stimmt der Code, ist bewiesen, dass der Nutzer das Gerät mit dem Schlüssel besitzt.
 4. Weil die Uhrzeit eingeht, müssen die Uhren von Server und Smartphone ungefähr stimmen – falsche Uhrzeit ist eine typische Fehlerquelle im Support.
 
@@ -654,7 +654,7 @@ Passkeys sind FIDO2-Schlüssel, die zwischen Geräten synchronisiert werden kön
 - **Alte Protokolle:** Dienste mit einfacher Anmeldung ohne MFA (z. B. alte E-Mail-Protokolle mit Basic Auth) umgehen den zweiten Faktor komplett. Gegenmittel: abschalten.
 
 ### Checkliste: MFA im Unternehmen einführen
-- Mit den Konten anfangen, die den größten Schaden anrichten können: Admins, Fernzugänge (VPN, RDP-Gateway), E-Mail und Cloud-Verwaltung.
+- Mit den Konten anfangen, die den größten Schaden anrichten können: Admins, Fernzugänge (VPN, RDP-Gateway – RDP = Remote Desktop Protocol), E-Mail und Cloud-Verwaltung.
 - Für Admins phishingresistente Verfahren vorschreiben: FIDO2-Sicherheitsschlüssel oder Passkeys.
 - Push nur mit Nummernabgleich, SMS nur als Ausnahme mit Begründung.
 - Bedingten Zugriff nutzen (z. B. Conditional Access in Entra ID): MFA abhängig von Gerät, Ort und Risiko verlangen.
@@ -713,7 +713,7 @@ Warum abgelaufene Zertifikate zu den häufigsten Ausfallursachen gehören, was s
 Ein abgelaufenes Zertifikat ist kein Sicherheitsproblem, sondern ein Betriebsproblem: Webseite, VPN, WLAN-Anmeldung oder eine Schnittstelle zwischen zwei Systemen hören von einer Minute auf die andere auf zu funktionieren. Oft weiß niemand, wo das Zertifikat überhaupt eingerichtet war – der Kollege, der es vor einem Jahr installiert hat, ist vielleicht nicht mehr da.
 
 ### Laufzeiten werden immer kürzer
-Öffentliche Zertifikate (für Webseiten im Internet) dürfen nach einem Beschluss des CA/Browser Forums nur noch immer kürzer gelten:
+Öffentliche Zertifikate (für Webseiten im Internet) dürfen nach einem Beschluss des CA/Browser Forums (Gremium der Zertifizierungsstellen, englisch Certificate Authorities, und der Browser-Hersteller) nur noch immer kürzer gelten:
 
 | Ausgestellt ab | Höchstens gültig |
 | --- | --- |
@@ -730,24 +730,24 @@ Let's Encrypt stellt bisher 90 Tage aus, ab dem 10. Februar 2027 standardmäßig
 - Ablauf überwachen: Das Monitoring warnt z. B. 30 und 14 Tage vorher, auch wenn die Automatisierung eigentlich läuft.
 - Nach dem Erneuern prüfen, ob der Dienst das neue Zertifikat wirklich ausliefert – manche Dienste müssen neu geladen werden.
 - Immer die vollständige Kette einrichten (Serverzertifikat plus Zwischenzertifikat).
-- Für Wildcard-Zertifikate per ACME die DNS-Prüfung (DNS-01) nutzen; die HTTP-Prüfung (HTTP-01) funktioniert dafür nicht.
+- Für Wildcard-Zertifikate per ACME die DNS-Prüfung (DNS-01 – DNS = Domain Name System) nutzen; die HTTP-Prüfung (HTTP-01) funktioniert dafür nicht.
 
 ### Checkliste: Private Schlüssel schützen
 - Private Schlüssel nie per E-Mail oder Chat verschicken und nie in ein Git-Repository legen.
 - Dateirechte eng setzen, unter Linux z. B. chmod 600 und nur für den Dienst lesbar.
-- PFX-Dateien immer mit starkem Passwort exportieren und das Passwort getrennt aufbewahren.
+- PFX-Dateien (PFX = Personal Information Exchange) immer mit starkem Passwort exportieren und das Passwort getrennt aufbewahren.
 - Bei Verdacht auf Diebstahl: Zertifikat sperren, neuen Schlüssel erzeugen, neues Zertifikat ausstellen – nicht nur das alte erneut einspielen.
 - Für besonders wichtige Schlüssel (Root-CA, Code-Signatur) ein Hardware-Sicherheitsmodul (HSM) nutzen; die Root-CA einer Firmen-PKI bleibt ausgeschaltet und offline.
 
 ### Interne PKI mit Active Directory
-Für interne Dienste (Intranet, WLAN mit EAP-TLS, VPN, Domänencontroller) betreiben viele Unternehmen eine eigene PKI mit Active Directory Certificate Services (AD CS). Typisch ist eine zweistufige Struktur: eine Offline-Root-CA und eine Ausstellungs-CA in der Domäne. Die Root-CA wird per Gruppenrichtlinie an alle Clients verteilt, Computer und Benutzer bekommen ihre Zertifikate per Autoenrollment automatisch. Zertifikatsvorlagen legen fest, wer welche Art von Zertifikat beantragen darf – zu großzügige Vorlagen sind ein bekannter Angriffsweg zum Domänen-Admin.
+Für interne Dienste (Intranet, WLAN mit EAP-TLS – EAP = Extensible Authentication Protocol, VPN, Domänencontroller) betreiben viele Unternehmen eine eigene PKI (Public Key Infrastructure) mit Active Directory Certificate Services (AD CS). Typisch ist eine zweistufige Struktur: eine Offline-Root-CA und eine Ausstellungs-CA in der Domäne. Die Root-CA wird per Gruppenrichtlinie an alle Clients verteilt, Computer und Benutzer bekommen ihre Zertifikate per Autoenrollment automatisch. Zertifikatsvorlagen legen fest, wer welche Art von Zertifikat beantragen darf – zu großzügige Vorlagen sind ein bekannter Angriffsweg zum Domänen-Admin.
 
 ### Checkliste: SSH-Schlüssel im Unternehmen
 - Persönliche Schlüssel pro Admin statt eines gemeinsamen Schlüssels für alle.
 - Private Schlüssel immer mit Passphrase, besser noch auf einem FIDO2-Sicherheitsschlüssel (Schlüsseltyp ed25519-sk).
 - Beim Austritt eines Mitarbeiters seine öffentlichen Schlüssel aus allen authorized_keys entfernen – das geht nur, wenn man weiß, wo sie liegen.
 - Bei vielen Servern Schlüssel zentral verteilen (z. B. per Ansible) oder SSH-Zertifikate einer internen SSH-CA nutzen, die nach kurzer Zeit ablaufen.
-- Host-Keys neuer Server dokumentieren oder per DNS (SSHFP-Einträge) veröffentlichen, damit Fingerabdrücke wirklich geprüft werden können.
+- Host-Keys neuer Server dokumentieren oder per DNS (SSHFP-Einträge – SSHFP = SSH Fingerprint) veröffentlichen, damit Fingerabdrücke wirklich geprüft werden können.
 
 ## Zusatz: Verschlüsselung Schritt für Schritt {#ablauf-verschluesselung}
 ablauf: verschluesselung.json

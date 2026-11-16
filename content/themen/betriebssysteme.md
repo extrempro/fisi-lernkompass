@@ -9,7 +9,7 @@ Wie du Windows- und Linux-Clients installierst, Benutzer und Rechte verwaltest u
 ### Kernbegriffe
 - **Clean Install:** Neuinstallation auf leerem Datenträger, alte Daten gehen verloren.
 - **In-Place-Upgrade:** Neue Version über die alte, Programme und Daten bleiben.
-- **Image-Verteilung:** Ein vorbereitetes Abbild wird auf viele PCs ausgerollt, z. B. mit WDS/MDT oder Windows Autopilot.
+- **Image-Verteilung:** Ein vorbereitetes Abbild wird auf viele PCs ausgerollt, z. B. mit WDS (Windows Deployment Services) und MDT (Microsoft Deployment Toolkit) oder Windows Autopilot.
 - **unattend.xml:** Antwortdatei für eine unbeaufsichtigte Installation.
 
 ### Tabelle: Mindestanforderungen Windows 11
@@ -18,14 +18,14 @@ Wie du Windows- und Linux-Clients installierst, Benutzer und Rechte verwaltest u
 | Prozessor | 64 Bit, 1 GHz, mind. 2 Kerne, kompatible CPU |
 | Arbeitsspeicher | 4 GB |
 | Speicher | 64 GB |
-| Firmware | UEFI mit Secure Boot |
-| Sicherheitschip | TPM 2.0 |
+| Firmware | UEFI (Unified Extensible Firmware Interface) mit Secure Boot |
+| Sicherheitschip | TPM (Trusted Platform Module) 2.0 |
 
 ### Befehle
 - `winver` – zeigt Windows-Version und Build
 - `systeminfo` – Hardware- und Systemdaten auf einen Blick
 - `sfc /scannow` – prüft und repariert Systemdateien
-- `DISM /Online /Cleanup-Image /RestoreHealth` – repariert das Systemabbild
+- `DISM /Online /Cleanup-Image /RestoreHealth` – repariert das Systemabbild (DISM = Deployment Image Servicing and Management)
 
 ### Merksatz
 Ohne TPM 2.0 und Secure Boot keine reguläre Windows-11-Installation.
@@ -33,7 +33,7 @@ Ohne TPM 2.0 und Secure Boot keine reguläre Windows-11-Installation.
 ## Linux-Grundlagen {#linux-grundlagen}
 
 ### Kernbegriffe
-- **Distribution:** Linux-Kernel plus Software-Paket, z. B. Debian/Ubuntu (apt) oder RHEL/Fedora (dnf).
+- **Distribution:** Linux-Kernel plus Software-Paket, z. B. Debian/Ubuntu (apt) oder RHEL (Red Hat Enterprise Linux)/Fedora (dnf).
 - **Root:** Administrator-Konto unter Linux; Rechte holst du dir besser mit sudo.
 - **Paketmanager:** Installiert und aktualisiert Software aus Repositories.
 
@@ -71,7 +71,7 @@ Unter Linux ist alles eine Datei – auch Geräte (/dev) und Prozessinfos (/proc
 - `chown max:it bericht.txt` – Besitzer und Gruppe ändern
 - `sudo useradd -m max` – Benutzer mit Home-Verzeichnis anlegen
 - `whoami /groups` – eigene Gruppen unter Windows
-- `icacls C:\Daten` – NTFS-Rechte eines Ordners anzeigen
+- `icacls C:\Daten` – NTFS-Rechte (NTFS = New Technology File System) eines Ordners anzeigen
 
 ### Merksatz
 4 – 2 – 1: Lesen, Schreiben, Ausführen. Pro Gruppe zusammenzählen.
@@ -89,7 +89,7 @@ Welche Rechte setzt chmod 754?
 ### Kernbegriffe
 - **Journaling:** Änderungen werden erst protokolliert, damit das Dateisystem nach einem Absturz konsistent bleibt.
 - **MBR:** Alte Partitionstabelle: max. 4 primäre Partitionen, Datenträger bis 2 TB.
-- **GPT:** Moderne Partitionstabelle für UEFI: große Datenträger, unter Windows bis 128 Partitionen.
+- **GPT:** GUID Partition Table – Moderne Partitionstabelle für UEFI (Unified Extensible Firmware Interface): große Datenträger, unter Windows bis 128 Partitionen.
 
 ### Abbildung: MBR und GPT
 ![MBR: Am Anfang des Datenträgers steht der Master Boot Record, danach höchstens vier primäre Partitionen oder drei primäre und eine erweiterte mit logischen Laufwerken; Datenträger bis 2 TiB, die Partitionstabelle gibt es nur einmal. GPT: Schutz-MBR, GPT-Kopf, EFI-Systempartition, MSR, Windows-Partition, Recovery-Partition und am Ende eine Kopie der Partitionstabelle; bis 128 Partitionen unter Windows, sehr große Datenträger, Prüfsummen.](mbr-gpt.svg)
@@ -97,9 +97,9 @@ Welche Rechte setzt chmod 754?
 ### Tabelle: Dateisysteme im Vergleich
 | Dateisystem | Einsatz | Rechte | Journaling | Max. Dateigröße |
 | --- | --- | --- | --- | --- |
-| FAT32 | USB-Sticks, alte Geräte | nein | nein | 4 GB |
+| FAT32 (File Allocation Table) | USB-Sticks, alte Geräte | nein | nein | 4 GB |
 | exFAT | USB-Sticks, SD-Karten | nein | nein | praktisch unbegrenzt |
-| NTFS | Windows | ja (ACL) | ja | praktisch unbegrenzt |
+| NTFS | Windows | ja (ACL – Access Control List) | ja | praktisch unbegrenzt |
 | ext4 | Linux | ja (rwx) | ja | 16 TB |
 
 ### Befehle
@@ -115,8 +115,8 @@ FAT32 scheitert an Dateien über 4 GB – dann exFAT oder NTFS nehmen.
 
 ### Kernbegriffe
 - **POST:** Power-On Self-Test: Firmware prüft die Hardware.
-- **Bootloader:** Lädt den Kernel – Windows Boot Manager oder GRUB.
-- **Secure Boot:** UEFI startet nur signierte Bootloader.
+- **Bootloader:** Lädt den Kernel – Windows Boot Manager oder GRUB (GRand Unified Bootloader).
+- **Secure Boot:** UEFI (Unified Extensible Firmware Interface) startet nur signierte Bootloader.
 - **systemd:** Init-System unter Linux, startet Dienste.
 
 ### Abbildung: Vom Einschalten bis zur Anmeldung
@@ -143,7 +143,7 @@ Strom – POST – Loader – Kernel – Dienste – Login.
 
 ### Kernbegriffe
 - **EULA:** Endbenutzer-Lizenzvertrag – regelt, wie Software genutzt werden darf.
-- **OEM-Lizenz:** An ein Gerät gebunden, wird mit neuer Hardware verkauft.
+- **OEM-Lizenz:** OEM = Original Equipment Manufacturer. An ein Gerät gebunden, wird mit neuer Hardware verkauft.
 - **Retail-Lizenz:** Einzeln gekauft, kann auf ein anderes Gerät übertragen werden.
 - **Volumenlizenz:** Viele Lizenzen über einen Rahmenvertrag, zentral verwaltet.
 - **Abonnement:** Monatliche oder jährliche Gebühr pro Nutzer, z. B. Microsoft 365.
@@ -152,9 +152,11 @@ Strom – POST – Loader – Kernel – Dienste – Login.
 ### Tabelle: Open-Source-Lizenzen
 | Lizenz | Art | Bedingung |
 | --- | --- | --- |
-| GPL | Copyleft | veränderte Software muss wieder unter GPL weitergegeben werden |
-| MIT | freizügig | Lizenzhinweis beibehalten, sonst fast alles erlaubt |
+| GPL (GNU General Public License) | Copyleft | veränderte Software muss wieder unter GPL weitergegeben werden |
+| MIT (Massachusetts Institute of Technology) | freizügig | Lizenzhinweis beibehalten, sonst fast alles erlaubt |
 | Apache 2.0 | freizügig | Lizenzhinweis, Änderungen kennzeichnen, Patentregelung |
+| LGPL | schwaches Copyleft | Bibliothek darf in Closed-Source-Programmen stecken; Änderungen an der Bibliothek selbst offenlegen |
+| MPL 2.0 | Copyleft je Datei | geänderte MPL-Dateien offenlegen; eigene neue Dateien dürfen geschlossen bleiben |
 
 ### Merksatz
 Freeware ist kostenlos, Open Source ist offen – das ist nicht dasselbe.
@@ -175,8 +177,10 @@ Freeware ist kostenlos, Open Source ist offen – das ist nicht dasselbe.
 - **Freie Software:** Begriff der Free Software Foundation mit vier Freiheiten: das Programm ausführen, untersuchen, weitergeben und verbessert weitergeben. „Frei“ meint Freiheit, nicht kostenlos.
 - **Freeware:** Kostenlos nutzbar, aber meist Closed Source – der Quellcode bleibt geheim, Änderungen sind nicht erlaubt.
 - **Shareware:** Zum Ausprobieren kostenlos, danach kostenpflichtig oder eingeschränkt.
-- **Copyleft:** Lizenzbedingung, nach der veränderte Versionen bei der Weitergabe wieder unter derselben Lizenz stehen müssen (stark bei der GPL, abgeschwächt bei LGPL und MPL).
-- **Freizügige Lizenzen (permissive):** Erlauben fast alles, auch die Verwendung in Closed-Source-Produkten; nur der Lizenzhinweis muss bleiben (MIT, BSD, Apache 2.0).
+- **Copyleft:** Lizenzbedingung, nach der veränderte Versionen bei der Weitergabe wieder unter derselben Lizenz stehen müssen (stark bei der GPL – GNU General Public License, abgeschwächt bei LGPL und MPL).
+- **LGPL (Lesser GPL):** Abgeschwächtes Copyleft, gedacht für Programmbibliotheken – also Bausteine, die andere Programme mitbenutzen. Ein Programm darf eine LGPL-Bibliothek einbinden und trotzdem Closed Source bleiben. Wer die Bibliothek selbst verändert und weitergibt, muss genau diese Änderungen offenlegen. Außerdem müssen die Nutzer die Bibliothek gegen eine eigene Fassung austauschen können. Beispiele: glibc (die C-Standardbibliothek unter Linux), Qt.
+- **MPL (Mozilla Public License):** Copyleft für einzelne Dateien. Wer eine Datei unter MPL verändert und weitergibt, muss diese Datei offenlegen. Eigene, neue Dateien im selben Programm dürfen unter einer anderen Lizenz stehen – auch Closed Source. Beispiele: Firefox, Thunderbird, LibreOffice.
+- **Freizügige Lizenzen (permissive):** Erlauben fast alles, auch die Verwendung in Closed-Source-Produkten; nur der Lizenzhinweis muss bleiben (MIT, BSD – Berkeley Software Distribution, Apache 2.0).
 - **Open Core und Subscription:** Geschäftsmodelle mit Open Source: kostenlose Grundversion, kostenpflichtige Zusatzfunktionen (Open Core) oder bezahlter Support und Updates (z. B. Red Hat Enterprise Linux, SUSE).
 - **Vendor Lock-in:** Abhängigkeit von einem Hersteller, weil Daten, Formate oder Schnittstellen sich nur schwer auf ein anderes Produkt übertragen lassen.
 - **Digitale Souveränität:** Fähigkeit, selbst über die eigene IT zu entscheiden. Öffentliche Verwaltungen setzen deshalb zunehmend auf Open Source.
@@ -192,6 +196,15 @@ Freeware ist kostenlos, Open Source ist offen – das ist nicht dasselbe.
 | Abhängigkeit | gering, offene Formate | Vendor Lock-in möglich |
 | Kompatibilität | teils Probleme mit verbreiteten Formaten | oft Industriestandard |
 | Beispiele | Linux, LibreOffice, Nextcloud, PostgreSQL | Windows, Microsoft 365, SAP, Photoshop |
+
+### Tabelle: Wie viel muss offen bleiben?
+| Lizenz | Was muss bei der Weitergabe offen sein? | Darf eigener Code geschlossen bleiben? |
+| --- | --- | --- |
+| GPL | das ganze veränderte Programm | nein |
+| AGPL (GNU Affero General Public License) | wie GPL – schon, wenn andere es nur über das Netz nutzen | nein |
+| LGPL | nur die Bibliothek mit deinen Änderungen daran | ja, wenn du die Bibliothek nur einbindest |
+| MPL 2.0 | nur die veränderten MPL-Dateien | ja, in deinen eigenen Dateien |
+| MIT, BSD, Apache 2.0 | nichts – nur der Lizenzhinweis muss bleiben | ja |
 
 ### Tabelle: Kostenlos ist nicht gleich offen
 | Begriff | Kostenlos? | Quellcode offen? | Ändern und weitergeben? |
@@ -216,8 +229,8 @@ Ein Unternehmen verändert ein Programm, das unter der GPL steht, und nutzt es n
 ## Häufige Fehler
 - chmod-Werte falsch addiert: 6 ist rw-, nicht rwx.
 - NTFS- und Freigaberechte nicht kombiniert – über das Netz gilt die restriktivere.
-- Großes Image auf FAT32-Stick kopieren wollen – 4-GB-Grenze.
-- MBR auf Datenträgern über 2 TB verwenden.
+- Großes Image auf FAT32-Stick (FAT32 = File Allocation Table) kopieren wollen – 4-GB-Grenze.
+- MBR (Master Boot Record) auf Datenträgern über 2 TB verwenden.
 - Dauerhaft als root arbeiten statt sudo zu nutzen.
 - Open Source mit kostenlos gleichsetzen – und Freeware mit Open Source.
 
