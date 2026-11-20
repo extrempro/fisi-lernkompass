@@ -2,6 +2,9 @@
 
 Neueste Änderung oben. Überschrift = Inhaltsstand aus `meta.json`.
 
+## 2026-11-20
+- OSI-Modell (Netzwerkgrundlagen): Die Bildbeschreibung der Grafik ordnete die Beispiele falsch zu – HTTP und DNS standen bei Schicht 5. Jetzt wie in der Grafik: HTTP, DNS, SMTP, SSH in Schicht 7 (Anwendung), TLS, JPEG, UTF-8 in Schicht 6, RPC in Schicht 5. Die Grafik selbst war richtig.
+
 ## 2026-11-13
 - Arbeitsspeicher: Speicherkanäle einfacher erklärt und für DDR4 und DDR5 richtiggestellt (DDR5 teilt jeden Riegel in zwei Kanäle mit je 32 Bit, zusammen weiter 64 Bit); ECC verständlicher, mit der Breite je Generation (72 Bit bzw. 2 × 40 Bit); DDR5 laut Standard 3200–8800 MT/s, zu kaufen ab 4800 MT/s.
 - Open Source und Closed Source: LGPL und MPL als Kernbegriffe erklärt, neue Tabelle „Wie viel muss offen bleiben?“ (GPL, AGPL, LGPL, MPL, freizügige Lizenzen); in der Tabelle „Open-Source-Lizenzen“ unter „Lizenzen“ LGPL und MPL 2.0 ergänzt.

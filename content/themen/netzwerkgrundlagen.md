@@ -14,7 +14,7 @@ Wie Daten durch ein Netzwerk kommen: Schichtenmodelle, IP-Adressen, Subnetze, Sw
 - **Port:** Adressiert die Anwendung auf einem Host (0–65535).
 
 ### Abbildung: OSI- und TCP/IP-Modell
-![Die sieben OSI-Schichten mit Dateneinheit, Geräten und Beispielen: 7 Anwendung, 6 Darstellung, 5 Sitzung (Daten; HTTP, DNS, TLS), 4 Transport (Segment; TCP, UDP, Ports), 3 Vermittlung (Paket; Router; IP, ICMP), 2 Sicherung (Frame; Switch; Ethernet, MAC, VLAN), 1 Bitübertragung (Bit; Hub, Kabel). Rechts die Zuordnung zum TCP/IP-Modell: Anwendung (OSI 5 bis 7), Transport (4), Internet (3), Netzzugang (1 und 2). Beim Senden fügt jede Schicht ihren Header hinzu, beim Empfangen wird er entfernt.](osi-modell.svg)
+![Die sieben OSI-Schichten mit Dateneinheit, Geräten und Beispielen: 7 Anwendung (Daten; HTTP, DNS, SMTP, SSH), 6 Darstellung (Daten; TLS, JPEG, UTF-8), 5 Sitzung (Daten; RPC, Sitzungen), 4 Transport (Segment; Firewall auf Schicht 4; TCP, UDP, Ports), 3 Vermittlung (Paket; Router, L3-Switch; IP, ICMP, Routing), 2 Sicherung (Frame; Switch, Bridge; Ethernet, MAC, VLAN), 1 Bitübertragung (Bit; Hub, Kabel; Kupfer, LWL, Funk). Rechts die Zuordnung zum TCP/IP-Modell: Anwendung (OSI 5 bis 7), Transport (4), Internet (3), Netzzugang (1 und 2). Beim Senden fügt jede Schicht ihren Header hinzu, beim Empfangen wird er entfernt.](osi-modell.svg)
 
 ### Tabelle: Schichten
 | Nr. | OSI-Schicht | TCP/IP | Dateneinheit | Beispiele |
