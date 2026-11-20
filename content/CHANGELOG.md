@@ -3,6 +3,7 @@
 Neueste Änderung oben. Überschrift = Inhaltsstand aus `meta.json`.
 
 ## 2026-11-20
+- TTL (Netzwerkgrundlagen): verständlicher erklärt – zählt Router statt Zeit, Ablauf in drei Schritten mit Beispiel, Switch (Schicht 2) ändert die TTL nicht, L3-Switch schon; Hinweis, dass die TTL bei DNS etwas anderes ist. Start-TTL: erklärt, welche Pakete ein Router oder Switch selbst erzeugt (Antwort auf ping, „Time Exceeded“ bei tracert, Verwaltung per SSH) und dass viele Heimrouter mit 64 starten.
 - OSI-Modell (Netzwerkgrundlagen): Die Bildbeschreibung der Grafik ordnete die Beispiele falsch zu – HTTP und DNS standen bei Schicht 5. Jetzt wie in der Grafik: HTTP, DNS, SMTP, SSH in Schicht 7 (Anwendung), TLS, JPEG, UTF-8 in Schicht 6, RPC in Schicht 5. Die Grafik selbst war richtig.
 
 ## 2026-11-13
