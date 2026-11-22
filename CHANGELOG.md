@@ -3,6 +3,10 @@
 Alle Änderungen an der Anwendung (Code). Änderungen an den Inhalten stehen in `content/CHANGELOG.md`.
 Format: neueste Version oben; Gruppen „Neu“, „Geändert“, „Behoben“. Der erste Punkt unter „Neu“ erscheint im Update-Banner.
 
+## [1.28.2] – 2026-11-22
+### Geändert
+- Texte ohne Bezug auf einen Ort: Handbuch, Prüfungen, Abschlussprojekt, Berichtsheft und Einstellungen sprechen allgemein von „der Kammer“ und „der Berufsschule“. Feiertage, Schulferien und die verlinkten Merkblätter sind weiter für ein Bundesland eingestellt.
+
 ## [1.28.1] – 2026-11-09
 ### Geändert
 - Hoodie zeigt seine Stimmung jetzt über leuchtende Augen im Schatten der Kapuze statt über Arme: ruhig mit gelegentlichem Blinzeln, zwinkernd bei Begrüßung und Klick, ^ ^ bei richtig (mit kleinem Hüpfer), > < bei falsch (mit kurzem Wackeln), nachdenklich mit geneigtem Kopf, müde mit gesenktem Kopf.

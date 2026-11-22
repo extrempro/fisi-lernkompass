@@ -7,15 +7,15 @@ auftraggeber-feld: Auftraggeber
 auftraggeber-beispiel: z. B. IT-Leitung, Abteilung Vertrieb, externer Kunde
 ---
 
-Dein Abschlussprojekt Schritt für Schritt – nach dem Merkblatt der Handelskammer Hamburg.
+Dein Abschlussprojekt Schritt für Schritt – nach dem Merkblatt der Kammer.
 
 ## Termine
 
-Die Handelskammer gibt Antragsfrist und Durchführungszeitraum vor.
+Die Kammer gibt Antragsfrist und Durchführungszeitraum vor.
 
 - Projektantrag abgeben bis {#antrag} – Das Portal der Kammer schließt um 24 Uhr am Abgabetag. Lade lieber früher hoch.
 - Antrag genehmigt am {#genehmigung} – Vorher darfst du mit dem Projekt nicht beginnen.
-- Durchführungszeitraum ab {#start} – Gibt die Handelskammer vor.
+- Durchführungszeitraum ab {#start} – Gibt die Kammer vor.
 - Durchführungszeitraum bis {#ende} – Spätestens jetzt muss die Dokumentation hochgeladen sein.
 - Dokumentation hochladen bis {#doku} – Eine verspätete Abgabe kann mit 0 Punkten bewertet werden.
 - Präsentation und Fachgespräch am {#praesentation} – Präsentation höchstens 15 Minuten, zusammen höchstens 30 Minuten.
@@ -59,7 +59,7 @@ Die Vorbereitung von Präsentation und Fachgespräch zählt nicht zu den 40 Stun
 
 ## Checkliste: Projektdokumentation {#doku}
 
-### Aufbau (Empfehlung der Handelskammer)
+### Aufbau (Empfehlung der Kammer)
 - Deckblatt {#deckblatt} – Name, Thema, Ausbildungsberuf, Prüfungszeitraum.
 - Inhaltsverzeichnis mit Seitenzahlen {#inhalt}
 - Einleitung mit Zielsetzung {#einleitung}
@@ -103,5 +103,5 @@ Notier dir zu jeder Frage Stichworte für dein Projekt. Übe laut – die Prüfe
 
 ## Links
 
-- [Merkblatt Projektarbeit (Handelskammer Hamburg)](https://www.handelskammer-hamburg.de/blueprint/servlet/resource/blob/7140672/8fe3a3dd5f599945a10aa367fbcebdad/merkblatt-betriebliche-projektarbeit-it-berufe-2026-data.pdf)
+- [Merkblatt Projektarbeit (Beispiel einer Kammer)](https://www.handelskammer-hamburg.de/blueprint/servlet/resource/blob/7140672/8fe3a3dd5f599945a10aa367fbcebdad/merkblatt-betriebliche-projektarbeit-it-berufe-2026-data.pdf)
 - [Portal „Digitaler Projektantrag“](https://projektantraege.gfi.ihk.de)

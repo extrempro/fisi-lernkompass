@@ -9,7 +9,7 @@
   <rect class="sv-c" x="310" y="108" width="84" height="40" rx="6"/>
   <text class="sv-t" x="352.0" y="133.0" text-anchor="middle">DC 2</text>
   <rect class="sv-a" x="52" y="92" width="150" height="36" rx="6"/>
-  <text class="sv-t" x="127.0" y="115.0" text-anchor="middle">OU Hamburg</text>
+  <text class="sv-t" x="127.0" y="115.0" text-anchor="middle">OU Musterstadt</text>
   <path class="sv-ln" d="M70 128 L70 168 L90 168"/>
   <rect class="sv-b" x="90" y="150" width="150" height="36" rx="6"/>
   <text class="sv-t" x="165.0" y="173.0" text-anchor="middle">OU Benutzer</text>

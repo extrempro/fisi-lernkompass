@@ -25,7 +25,7 @@ export const HANDBUCH: Kapitel[] = [
     bloecke: [
       {
         typ: 'text',
-        text: 'Der FISI-Lernkompass ist dein persönlicher Begleiter für die Ausbildung zum Fachinformatiker Systemintegration in Hamburg: Er zeigt dir, welche Themen du sicher kannst, wo du noch Lücken hast, und hilft dir beim Üben, beim Berichtsheft und bei der Prüfungsvorbereitung.',
+        text: 'Der FISI-Lernkompass ist dein persönlicher Begleiter für die Ausbildung zum Fachinformatiker Systemintegration: Er zeigt dir, welche Themen du sicher kannst, wo du noch Lücken hast, und hilft dir beim Üben, beim Berichtsheft und bei der Prüfungsvorbereitung.',
       },
       {
         typ: 'text',
@@ -72,12 +72,12 @@ export const HANDBUCH: Kapitel[] = [
           },
           '**Berichtsheft-Angaben**: dein Name, Ausbildungsberuf, Ausbildungsbetrieb, Ausbilder/in und deine Wochenarbeitszeit. Sie stehen im Kopf jedes Nachweises.',
           '**Eigene Unterschrift** (optional): einmal mit Maus oder Finger unterschreiben und festlegen, ob sie auf jedem Nachweis mitgedruckt wird.',
-          '**Prüfungstermine** für Teil 1 und Teil 2 eintragen, sobald die Handelskammer sie bekannt gibt. Die Übersicht zählt dann die Tage herunter.',
+          '**Prüfungstermine** für Teil 1 und Teil 2 eintragen, sobald die Kammer sie bekannt gibt. Die Übersicht zählt dann die Tage herunter.',
           '**Bedienung**: Lass „Vor dem Umstellen einer Ampel nachfragen“ eingeschaltet, solange du dich an die App gewöhnst.',
           '**Hoodie**: Der Companion unten links kommentiert, was du übst. Unter **Hoodie** stellst du ein, wie oft er etwas sagt, oder schaltest ihn ganz aus.',
         ],
       },
-      { typ: 'text', text: 'Danach lohnt ein Blick in den **Ausbildungsplan**: Trag deine Schulblöcke der Berufsschule ITECH ein – Hamburger Ferien und Feiertage sind schon drin.' },
+      { typ: 'text', text: 'Danach lohnt ein Blick in den **Ausbildungsplan**: Trag deine Schulblöcke der Berufsschule ein – Schulferien und Feiertage sind schon drin.' },
     ],
   },
   {
@@ -188,7 +188,7 @@ export const HANDBUCH: Kapitel[] = [
       {
         typ: 'liste',
         punkte: [
-          '**Besondere Tage** erscheinen automatisch als kleine Chips: Hamburger Schulferien und Feiertage, deine Prüfungstermine, Termine des Abschlussprojekts, Ausbildungsbeginn und Vertragsende.',
+          '**Besondere Tage** erscheinen automatisch als kleine Chips: Schulferien und Feiertage, deine Prüfungstermine, Termine des Abschlussprojekts, Ausbildungsbeginn und Vertragsende.',
           '**Berichtsheft-Knopf** an jeder Woche: „Bericht schreiben“ öffnet direkt den Nachweis dieser Woche; fehlende Berichte vergangener Wochen werden markiert.',
           '**Ansicht**: Mit „Nur mit Einträgen“ blendest du leere Wochen aus, mit „Alle Wochen“ siehst du die komplette Ausbildung. Die Wochen sind nach Ausbildungsjahren gruppiert.',
           '**Verkürzung**: Hast du in den Einstellungen eine Verkürzung eingetragen, endet der Plan mit dem neuen Vertragsende.',
@@ -203,7 +203,7 @@ export const HANDBUCH: Kapitel[] = [
     bloecke: [
       {
         typ: 'text',
-        text: 'Im Berichtsheft schreibst du deine wöchentlichen Ausbildungsnachweise, lässt sie abzeichnen und druckst sie als PDF für die Handelskammer. Den Nachweis führst du auch in Schulwochen und bei Abwesenheit – er ist Voraussetzung für die Zulassung zur Prüfung.',
+        text: 'Im Berichtsheft schreibst du deine wöchentlichen Ausbildungsnachweise, lässt sie abzeichnen und druckst sie als PDF für die Kammer. Den Nachweis führst du auch in Schulwochen und bei Abwesenheit – er ist Voraussetzung für die Zulassung zur Prüfung.',
       },
       {
         typ: 'schritte',
@@ -232,7 +232,7 @@ export const HANDBUCH: Kapitel[] = [
       },
       {
         typ: 'hinweis',
-        text: 'Änderst du einen abgezeichneten Bericht, entfällt seine Unterschrift automatisch und er steht wieder auf „Fertig“. Bei der Anmeldung zu jedem Prüfungsteil lädst du alle bisherigen Nachweise im Azubi-Infocenter der Handelskammer hoch.',
+        text: 'Änderst du einen abgezeichneten Bericht, entfällt seine Unterschrift automatisch und er steht wieder auf „Fertig“. Bei der Anmeldung zu jedem Prüfungsteil lädst du alle bisherigen Nachweise im Azubi-Infocenter der Kammer hoch.',
       },
     ],
   },
@@ -247,7 +247,7 @@ export const HANDBUCH: Kapitel[] = [
         kopf: ['Reiter', 'Was du dort findest'],
         zeilen: [
           ['Überblick AP1 / AP2', 'Vorbereitungsstand aus den Themenfeldern, die für den gewählten Teil zählen (größte Lücken zuerst), Prüfungsteile mit Dauer und Gewichtung, Bestehensregeln und die Karte „Verkürzen oder vorzeitig zur Prüfung?“ mit deinem Vertragsende.'],
-          ['Abschlussprojekt', 'Termine der Handelskammer mit Countdown (auch im Ausbildungsplan), Checklisten für Antrag und Dokumentation, Zeitplanung mit Warnung über 40 Stunden, Präsentations-Timer (15 Minuten) und Fachgesprächsfragen mit eigenen Stichworten.'],
+          ['Abschlussprojekt', 'Termine der Kammer mit Countdown (auch im Ausbildungsplan), Checklisten für Antrag und Dokumentation, Zeitplanung mit Warnung über 40 Stunden, Präsentations-Timer (15 Minuten) und Fachgesprächsfragen mit eigenen Stichworten.'],
           ['Prüfungstechnik', 'Was Arbeitsaufträge wie „nennen“, „erläutern“ oder „begründen“ verlangen, die Übung „Welche Antwort bekommt volle Punkte?“, Spielregeln der schriftlichen Prüfung und Tipps für Zeit und Punkte.'],
         ],
       },

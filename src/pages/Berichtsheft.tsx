@@ -60,7 +60,7 @@ export function Berichtsheft() {
     <header className="flex flex-wrap items-end justify-between gap-4">
       <div>
         <h1 className="text-[32px] font-bold leading-tight">Berichtsheft</h1>
-        <p className="text-sm text-muted">Deine Ausbildungsnachweise Woche für Woche – zum Abzeichnen und Hochladen bei der Handelskammer.</p>
+        <p className="text-sm text-muted">Deine Ausbildungsnachweise Woche für Woche – zum Abzeichnen und Hochladen bei der Kammer.</p>
       </div>
     </header>
   );
@@ -228,7 +228,7 @@ export function Berichtsheft() {
             </button>
           </div>
         </div>
-        <p className="-mt-2 text-xs text-muted">Drucken öffnet den Druckdialog des Browsers – dort „Als PDF speichern“ wählen, um die Datei für die Handelskammer zu erhalten.</p>
+        <p className="-mt-2 text-xs text-muted">Drucken öffnet den Druckdialog des Browsers – dort „Als PDF speichern“ wählen, um die Datei für die Kammer zu erhalten.</p>
 
         <div className="flex flex-wrap items-center gap-3">
           <div role="group" aria-label="Nach Status filtern" className="flex flex-wrap gap-1 rounded-xl border border-line bg-bg p-1">

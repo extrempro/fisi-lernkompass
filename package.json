@@ -1,9 +1,9 @@
 {
   "name": "fisi-lernkompass",
-  "version": "1.28.1",
+  "version": "1.28.2",
   "private": true,
   "license": "MIT",
-  "description": "Persönlicher Lern-Kompass für Fachinformatiker Systemintegration (Hamburg)",
+  "description": "Persönlicher Lern-Kompass für Fachinformatiker Systemintegration",
   "type": "module",
   "engines": {
     "node": ">=22.16"

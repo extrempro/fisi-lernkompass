@@ -74,7 +74,7 @@ export function Uebersicht() {
         <h1 className="text-[32px] font-bold leading-tight">Übersicht</h1>
         <p className="text-sm text-muted">
           Fachinformatiker Systemintegration
-          {stand?.jahr ? ` · ${stand.titel}` : ''} · Berufsschule ITECH · Handelskammer Hamburg
+          {stand?.jahr ? ` · ${stand.titel}` : ''} · Berufsschule · Kammer
         </p>
       </header>
 

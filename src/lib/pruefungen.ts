@@ -45,7 +45,7 @@ export const PRUEFUNGEN: Record<PruefungKey, Pruefung> = {
   },
   AP2: {
     name: 'Abschlussprüfung Teil 2',
-    sub: 'Am Ende der Ausbildung · Fachrichtung Systemintegration · vor der Handelskammer Hamburg',
+    sub: 'Am Ende der Ausbildung · Fachrichtung Systemintegration · vor der Kammer',
     teile: [
       {
         titel: 'Planen und Umsetzen eines Projektes der Systemintegration',
@@ -108,12 +108,12 @@ export const KAMMER_LINKS = {
   verkuerzung: 'https://www.handelskammer-hamburg.de/aus-und-weiterbildung/kuerzungnachbeginn-6779606',
 };
 
-/** Verkürzen oder vorzeitig zur Prüfung? Grundlage: BBiG §§ 7, 8, 21, 45 und Hinweise der Handelskammer Hamburg. */
+/** Verkürzen oder vorzeitig zur Prüfung? Grundlage: BBiG §§ 7, 8, 21, 45 und Hinweise der Kammer. */
 export const VERKUERZUNG_INFO: { merkmal: string; verkuerzung: string; vorzeitig: string }[] = [
   { merkmal: 'Was passiert', verkuerzung: 'Die Vertragslaufzeit wird kürzer.', vorzeitig: 'Du gehst früher zur Prüfung, der Vertrag bleibt wie er ist.' },
   { merkmal: 'Wann', verkuerzung: 'Im Vertrag oder nachträglich – dann so, dass noch mindestens ein Jahr Ausbildung bleibt.', vorzeitig: 'Mit der Anmeldung zur Prüfung, in der Regel bis zu sechs Monate vor dem Vertragsende.' },
   { merkmal: 'Voraussetzung', verkuerzung: 'Schulabschluss (Mittlere Reife bis 6, Fachhochschulreife/Abitur bis 12 Monate), Vorausbildung, Alter über 21 – und das Ausbildungsziel wird in der kürzeren Zeit erreicht.', vorzeitig: 'Überdurchschnittliche Leistungen in Betrieb und Berufsschule, Zustimmung des Betriebs.' },
-  { merkmal: 'Antrag', verkuerzung: 'Gemeinsam von Betrieb und Azubi bei der Handelskammer.', vorzeitig: 'Bei der Prüfungsanmeldung, mit Stellungnahmen von Betrieb und Berufsschule.' },
+  { merkmal: 'Antrag', verkuerzung: 'Gemeinsam von Betrieb und Azubi bei der Kammer.', vorzeitig: 'Bei der Prüfungsanmeldung, mit Stellungnahmen von Betrieb und Berufsschule.' },
   { merkmal: 'Ende der Ausbildung', verkuerzung: 'Am neuen Vertragsende – oder früher mit bestandener Prüfung.', vorzeitig: 'Mit Bekanntgabe des Ergebnisses der bestandenen Prüfung.' },
   { merkmal: 'Grenze', verkuerzung: 'Mindestdauer bei drei Jahren Regelzeit: 18 Monate.', vorzeitig: 'Wer nicht besteht, bleibt bis zum regulären Vertragsende in der Ausbildung.' },
 ];

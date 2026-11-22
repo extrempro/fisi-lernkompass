@@ -404,7 +404,7 @@ Risiko A: Ausfall des Fileservers (Wahrscheinlichkeit 2, Schaden 5). Risiko B: P
 - **Zugriffskontrolle:** Angemeldete Benutzer sehen und ändern nur die Daten, für die sie berechtigt sind – z. B. Berechtigungskonzept, Benutzerprofile und Rollen, Verschlüsselung von Datenträgern, sichere Vernichtung.
 - **Weitere Kontrollen:** Weitergabekontrolle (Daten sicher übertragen und transportieren), Eingabekontrolle (nachvollziehen, wer was geändert hat), Auftragskontrolle (Dienstleister arbeiten nur nach Weisung), Verfügbarkeitskontrolle (Schutz vor Verlust, z. B. Backup, USV – unterbrechungsfreie Stromversorgung) und Trennungsgebot (Daten verschiedener Zwecke getrennt verarbeiten).
 - **Datenschutz vs. Datensicherheit:** Datenschutz schützt Personen, Datensicherheit schützt Daten allgemein.
-- **Aufsicht in Hamburg:** Hamburgische Beauftragte für Datenschutz und Informationsfreiheit (HmbBfDI).
+- **Aufsicht:** Für Unternehmen ist die Datenschutzbehörde des Bundeslands zuständig, in dem der Betrieb sitzt – nicht der Bundesbeauftragte.
 
 ### Tabelle: Wichtige Regeln
 | Thema | Artikel | Kurz |
@@ -459,7 +459,7 @@ Ordne die Maßnahmen Schlüsselkarte für den Serverraum, Passwortrichtlinie, Ro
 - [BSI TR-02102-2](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/TR-nach-Thema-sortiert/tr02102/tr02102_node.html) – Empfehlungen für TLS-Versionen und Verfahren
 - [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) – TLS-Konfiguration eines öffentlichen Servers testen
 - [DSGVO-Gesetzestext](https://dsgvo-gesetz.de) – alle Artikel übersichtlich
-- [Datenschutz Hamburg](https://datenschutz-hamburg.de) – zuständige Aufsichtsbehörde
+- [Aufsichtsbehörden der Länder (BfDI)](https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html) – welche Behörde für deinen Betrieb zuständig ist
 
 ## Zusatz: DSGVO aus Sicht eines IT-Admins {#dsgvo-admin}
 typ: text
@@ -559,7 +559,7 @@ Der BSI-Standard 200-2 bietet drei Vorgehensweisen an. Sie unterscheiden sich da
 ### Vorgehen bei der Standard-Absicherung
 ![Neun Schritte: Initiierung, Organisation, Strukturanalyse, Schutzbedarfsfeststellung, Modellierung, IT-Grundschutz-Check, Risikoanalyse, Umsetzung, Aufrechterhaltung](grundschutz-vorgehen.svg)
 - **Initiierung:** Die Leitung trägt die Verantwortung, beschließt eine Sicherheitsleitlinie und stellt Personal und Budget bereit.
-- **Organisation:** Ein Informationssicherheitsbeauftragter (ISB) wird benannt. Der Geltungsbereich (Informationsverbund) wird festgelegt, z. B. „Standort Hamburg mit allen Clients und Servern“.
+- **Organisation:** Ein Informationssicherheitsbeauftragter (ISB) wird benannt. Der Geltungsbereich (Informationsverbund) wird festgelegt, z. B. „Standort Musterstadt mit allen Clients und Servern“.
 - **Strukturanalyse:** Geschäftsprozesse, Anwendungen, IT-Systeme, Räume und Netzverbindungen werden erfasst. Gleichartige Objekte werden zu Gruppen zusammengefasst, z. B. „80 Büro-Clients mit Windows 11“.
 - **Schutzbedarfsfeststellung:** Für jedes Zielobjekt wird je Schutzziel normal, hoch oder sehr hoch festgelegt (Maximumprinzip, Kumulations- und Verteilungseffekt).
 - **Modellierung:** Jedem Zielobjekt werden die passenden Bausteine zugeordnet, z. B. dem Dateiserver SYS.1.1 Allgemeiner Server und SYS.1.2.3 Windows Server.

@@ -2,6 +2,9 @@
 
 Neueste Änderung oben. Überschrift = Inhaltsstand aus `meta.json`.
 
+## 2026-11-22
+- Ohne Bezug auf einen Ort: Beispiele in Datenbanken, Automatisierung, Netzwerkdiensten (auch die Grafik zur AD-Struktur) und Sicherheit nennen jetzt „Musterstadt“; „Handelskammer“ heißt allgemein „Kammer“ (IHK oder Handelskammer, je nach Ort); bei der Datenschutzaufsicht steht die Regel (Behörde des Bundeslands, in dem der Betrieb sitzt) mit Link auf die Liste aller Aufsichtsbehörden.
+
 ## 2026-11-20
 - OSI-Modell (Netzwerkgrundlagen): neuer Kernbegriff „Layer 8“ – mit einem Augenzwinkern, was im IT-Alltag damit gemeint ist (und dass es in der Prüfung bei sieben Schichten bleibt).
 - TTL (Netzwerkgrundlagen): verständlicher erklärt – zählt Router statt Zeit, Ablauf in drei Schritten mit Beispiel, Switch (Schicht 2) ändert die TTL nicht, L3-Switch schon; Hinweis, dass die TTL bei DNS etwas anderes ist. Start-TTL: erklärt, welche Pakete ein Router oder Switch selbst erzeugt (Antwort auf ping, „Time Exceeded“ bei tracert, Verwaltung per SSH) und dass viele Heimrouter mit 64 starten.
