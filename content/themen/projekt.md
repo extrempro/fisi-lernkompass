@@ -243,9 +243,9 @@ Ein Unternehmen mit 200 Arbeitsplätzen an drei Standorten stellt auf ein neues 
 ## Projektdoku Abschlussprüfung {#projektdoku}
 
 ### Kernbegriffe
-- **Projektantrag:** Wird vor Beginn bei der Handelskammer eingereicht und muss genehmigt sein, bevor du startest.
+- **Projektantrag:** Wird vor Beginn bei der Kammer eingereicht und muss genehmigt sein, bevor du startest.
 - **Zeitrahmen:** Die betriebliche Projektarbeit umfasst höchstens 40 Stunden.
-- **Projektdokumentation:** Prozessorientierter Bericht über dein Vorgehen; Umfang und Form nach den Vorgaben der Handelskammer.
+- **Projektdokumentation:** Prozessorientierter Bericht über dein Vorgehen; Umfang und Form nach den Vorgaben der Kammer.
 - **Präsentation und Fachgespräch:** Zusammen rund 30 Minuten; im Fachgespräch wird dein Projekt und das fachliche Umfeld hinterfragt.
 - **Eigenleistung:** Die Doku muss zeigen, was du selbst geplant, entschieden und umgesetzt hast.
 
@@ -273,5 +273,5 @@ Nicht nur was du gemacht hast, sondern warum – jede Entscheidung braucht eine 
 - Ein neues System ohne Pilot oder Rückfallplan auf einen Schlag für alle einführen.
 
 ## Links
-- [Handelskammer Hamburg – IT-Berufe](https://www.handelskammer-hamburg.de/aus-und-weiterbildung/ausbildung-und-umschulung/ausbildungsberufsbilder-und-ansprechpartner/it-berufe/fachinformatiker-6776088) – Berufsseite mit Prüfungsinfos
-- [Merkblatt Fachinformatiker (PDF)](https://www.handelskammer-hamburg.de/blueprint/servlet/resource/blob/4206506/7cfd874f69f0e7b73dec87e201be5b82/merkblatt-fachinformatiker-data.pdf) – Vorgaben der Handelskammer zur Prüfung
+- [IT-Berufe bei einer Kammer (Beispiel)](https://www.handelskammer-hamburg.de/aus-und-weiterbildung/ausbildung-und-umschulung/ausbildungsberufsbilder-und-ansprechpartner/it-berufe/fachinformatiker-6776088) – Berufsseite mit Prüfungsinfos
+- [Merkblatt Fachinformatiker (PDF)](https://www.handelskammer-hamburg.de/blueprint/servlet/resource/blob/4206506/7cfd874f69f0e7b73dec87e201be5b82/merkblatt-fachinformatiker-data.pdf) – Vorgaben der Kammer zur Prüfung

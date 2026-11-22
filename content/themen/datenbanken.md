@@ -67,7 +67,7 @@ Ein Kunde kann mehrere Artikel bestellen, ein Artikel kann von vielen Kunden bes
 | ORDER BY | sortieren (ASC/DESC) |
 
 ### Befehle
-- `SELECT name, ort FROM kunde WHERE ort = 'Hamburg' ORDER BY name;` – filtern und sortieren
+- `SELECT name, ort FROM kunde WHERE ort = 'Musterstadt' ORDER BY name;` – filtern und sortieren
 - `SELECT k.name, b.datum FROM kunde k INNER JOIN bestellung b ON b.kunde_id = k.kunde_id;` – Tabellen verknüpfen
 - `UPDATE geraet SET standort = 'Raum 2.14' WHERE inventar_nr = 'IT-0042';` – Datensatz ändern
 - `INSERT INTO abteilung (name) VALUES ('Vertrieb');` – Datensatz einfügen
@@ -129,7 +129,7 @@ Gib für jede Abteilung die Anzahl der Geräte aus – auch Abteilungen ohne Ger
 | 9 | ); |
 
 ### Befehle
-- `SELECT COUNT(*) FROM Kunde WHERE Ort = 'Hamburg' AND Aktiv = TRUE;` – aktive Kunden in Hamburg zählen
+- `SELECT COUNT(*) FROM Kunde WHERE Ort = 'Musterstadt' AND Aktiv = TRUE;` – aktive Kunden in Musterstadt zählen
 - `SELECT COUNT(*) FROM Ausleihe a JOIN Geraet g ON g.GeraetID = a.GeraetID WHERE a.Ausgabe < '2026-01-01' AND g.Bezeichnung LIKE 'Notebook%';` – Ausleihen von Notebooks vor 2026 zählen
 - `ALTER TABLE Geraet ADD COLUMN Seriennummer VARCHAR(50);` – Spalte nachträglich hinzufügen
 - `DROP TABLE Test_Ausleihe;` – Tabelle löschen
@@ -157,7 +157,7 @@ Eine Tabelle Mitarbeiter (PersNr als Primärschlüssel) existiert. Lege eine Tab
 ### Tabelle: Normalformen
 | Normalform | Regel | Typischer Verstoß |
 | --- | --- | --- |
-| 1. NF | jedes Feld enthält nur einen (atomaren) Wert | „Max Muster, Hamburg“ in einer Spalte |
+| 1. NF | jedes Feld enthält nur einen (atomaren) Wert | „Max Muster, Musterstadt“ in einer Spalte |
 | 2. NF | 1. NF und jedes Nicht-Schlüssel-Attribut hängt vom ganzen Schlüssel ab | Artikelname in einer Tabelle mit Schlüssel (Bestellung, Artikel) |
 | 3. NF | 2. NF und keine transitiven Abhängigkeiten | Ort in der Kundentabelle neben der PLZ |
 

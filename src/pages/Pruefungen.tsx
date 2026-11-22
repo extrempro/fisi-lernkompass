@@ -97,7 +97,7 @@ export function Pruefungen() {
           ) : (
             <>
               <p className="text-xl font-semibold">Noch kein Termin</p>
-              <p className="text-sm text-muted">Trag das Datum ein, sobald die Handelskammer es bekannt gibt.</p>
+              <p className="text-sm text-muted">Trag das Datum ein, sobald die Kammer es bekannt gibt.</p>
             </>
           )}
           <div className="mt-auto flex flex-col">
@@ -111,7 +111,7 @@ export function Pruefungen() {
               rel="noopener noreferrer"
               className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-accent"
             >
-              Prüfungstermine der Handelskammer
+              Prüfungstermine der Kammer
               <ExternalLink size={16} aria-hidden="true" />
             </a>
           </div>
@@ -138,7 +138,7 @@ export function Pruefungen() {
           <span>
             Bei der Anmeldung zu jedem Prüfungsteil lädst du alle bisherigen Ausbildungsnachweise im Azubi-Infocenter hoch.{' '}
             <a href={KAMMER_LINKS.ausbildungsnachweise} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent">
-              Regeln der Handelskammer
+              Regeln der Kammer
             </a>
           </span>
         </p>
@@ -252,7 +252,7 @@ function VerkuerzungKarte({ e }: { e: Einstellungen }) {
         {dauer && (dauer.verkuerzung > 0 || vorzeitig) && (
           <ul className="flex flex-col gap-2 rounded-lg bg-accent-soft p-4 text-sm">
             <li>
-              <strong>Teil 2</strong> legst du in der letzten Prüfungsrunde vor deinem Vertragsende ab – Sommer (schriftlich meist April/Mai) oder Winter (meist November/Dezember). Die genauen Termine nennt die Handelskammer.
+              <strong>Teil 2</strong> legst du in der letzten Prüfungsrunde vor deinem Vertragsende ab – Sommer (schriftlich meist April/Mai) oder Winter (meist November/Dezember). Die genauen Termine nennt die Kammer.
             </li>
             {dauer.verkuerzung > 0 && (
               <li>
@@ -294,11 +294,11 @@ function VerkuerzungKarte({ e }: { e: Einstellungen }) {
             <ArrowRight size={16} aria-hidden="true" />
           </Link>
           <a href={KAMMER_LINKS.verkuerzung} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-accent">
-            Regeln der Handelskammer Hamburg
+            Regeln der Kammer
             <ExternalLink size={16} aria-hidden="true" />
           </a>
         </div>
-        <p className="text-xs text-muted">Grundlage: Berufsbildungsgesetz (BBiG) §§ 7, 8, 21 und 45; Hinweise der Handelskammer Hamburg. Im Einzelfall entscheidet die Kammer.</p>
+        <p className="text-xs text-muted">Grundlage: Berufsbildungsgesetz (BBiG) §§ 7, 8, 21 und 45; Hinweise der Kammer. Im Einzelfall entscheidet die Kammer.</p>
       </div>
     </details>
   );

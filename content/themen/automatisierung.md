@@ -70,7 +70,7 @@ Was macht diese Zeile: [ -f /etc/passwd ] && echo "vorhanden" || echo "fehlt"?
 - **Prozedural (imperativ):** Das Programm ist eine Folge von Anweisungen und Funktionen, die Daten verändern. Beispiele: C, Bash, einfache Python- und PowerShell-Skripte.
 - **Objektorientiert (OOP):** Daten und Funktionen werden in Objekten gebündelt. Eine Klasse ist der Bauplan, ein Objekt ein konkretes Exemplar davon. Beispiele: Java, C#, Python.
 - **Funktional:** Programme bestehen aus Funktionen ohne Seiteneffekte; Daten werden nicht verändert, sondern neu erzeugt. Beispiele: Haskell, Teile von JavaScript und Python.
-- **Deklarativ:** Man beschreibt, was man will, nicht wie. Beispiel: SQL („gib mir alle Kunden aus Hamburg“).
+- **Deklarativ:** Man beschreibt, was man will, nicht wie. Beispiel: SQL („gib mir alle Kunden aus Musterstadt“).
 - **Kapselung:** Ein Objekt verbirgt seine inneren Daten und bietet nur festgelegte Methoden an.
 - **Vererbung:** Eine Klasse übernimmt Eigenschaften und Methoden einer anderen, z. B. „Laserdrucker“ erbt von „Drucker“.
 - **Polymorphie:** Gleicher Methodenaufruf, unterschiedliches Verhalten je nach Objekt – drucken() funktioniert beim Laser- wie beim Tintendrucker, aber intern anders.

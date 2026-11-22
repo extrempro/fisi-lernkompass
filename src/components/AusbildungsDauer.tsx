@@ -136,7 +136,7 @@ export function AusbildungsDauer({ e, setze }: { e: Einstellungen; setze: (x: Pa
         <p role="alert" className="flex gap-2 rounded-md bg-warn px-3 py-2 text-sm text-warn-ink">
           <AlertTriangle size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
           <span>
-            Bis zum neuen Ende bleiben nur noch {restMonate} Monate. Für einen nachträglichen Antrag erwartet die Handelskammer, dass mindestens ein Jahr Ausbildungszeit verbleibt – stimm den Antrag rechtzeitig mit deinem Betrieb ab. Ist die Verkürzung schon genehmigt, gilt dieser Hinweis nicht.
+            Bis zum neuen Ende bleiben nur noch {restMonate} Monate. Für einen nachträglichen Antrag erwartet die Kammer, dass mindestens ein Jahr Ausbildungszeit verbleibt – stimm den Antrag rechtzeitig mit deinem Betrieb ab. Ist die Verkürzung schon genehmigt, gilt dieser Hinweis nicht.
           </span>
         </p>
       )}
@@ -157,7 +157,7 @@ export function AusbildungsDauer({ e, setze }: { e: Einstellungen; setze: (x: Pa
       </label>
 
       <a href={KAMMER_LINKS.verkuerzung} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] w-fit items-center gap-2 text-sm font-semibold text-accent">
-        Regeln und Antrag bei der Handelskammer Hamburg
+        Regeln und Antrag bei der Kammer
         <ExternalLink size={16} aria-hidden="true" />
       </a>
     </div>

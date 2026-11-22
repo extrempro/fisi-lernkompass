@@ -106,8 +106,8 @@ export function Einstellungen() {
           </div>
         </div>
         <p className="text-sm text-muted">
-          Das Ausbildungsjahr und die Wochen im Ausbildungsplan rechnet die App aus dem Startdatum und der Ausbildungsdauer aus. Berufsschule ITECH · Prüfende Stelle:
-          Handelskammer Hamburg.
+          Das Ausbildungsjahr und die Wochen im Ausbildungsplan rechnet die App aus dem Startdatum und der Ausbildungsdauer aus. Prüfende Stelle ist die
+          zuständige Kammer.
         </p>
         <AusbildungsDauer e={e} setze={setze} />
       </Karte>
@@ -461,7 +461,7 @@ function TextEinstellung({
 }
 
 /**
- * Eigene Unterschrift (optional): Auf dem Heft ist sie laut Handelskammer nicht nötig –
+ * Eigene Unterschrift (optional): Auf dem Heft ist sie laut Kammer nicht nötig –
  * manche Betriebe möchten sie trotzdem. Einmal hinterlegen, auf Wunsch auf jedem Nachweis drucken.
  */
 function EigeneUnterschrift({ name, drucken, onDrucken }: { name: string; drucken: boolean; onDrucken: (ja: boolean) => void }) {
@@ -475,7 +475,7 @@ function EigeneUnterschrift({ name, drucken, onDrucken }: { name: string; drucke
       <div>
         <strong className="block">Deine Unterschrift (optional)</strong>
         <span className="text-sm text-muted">
-          Für die Handelskammer nicht nötig – du bestätigst auf dem Anmeldeformular. Nur wenn dein Betrieb sie auf jedem Nachweis möchte.
+          Für die Kammer nicht nötig – du bestätigst auf dem Anmeldeformular. Nur wenn dein Betrieb sie auf jedem Nachweis möchte.
         </span>
       </div>
       {u ? (

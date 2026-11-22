@@ -1,8 +1,8 @@
 # FISI-Lernkompass
 
-Persönlicher Lern-Kompass für Auszubildende zum Fachinformatiker Systemintegration in Hamburg (Berufsschule ITECH, Prüfung vor der Handelskammer Hamburg). Zeigt per Ampel, welche Themen sitzen, sammelt Lernpunkte, liefert zu jedem Thema ein Cheatsheet und plant die Ausbildung Woche für Woche.
+Persönlicher Lern-Kompass für Auszubildende zum Fachinformatiker Systemintegration. Zeigt per Ampel, welche Themen sitzen, sammelt Lernpunkte, liefert zu jedem Thema ein Cheatsheet und plant die Ausbildung Woche für Woche.
 
-Version 1.28.1 · Code unter [MIT](LICENSE), Lerninhalte in `content/` unter [CC BY-SA 4.0](content/LICENSE).
+Version 1.28.2 · Code unter [MIT](LICENSE), Lerninhalte in `content/` unter [CC BY-SA 4.0](content/LICENSE).
 
 > **Kein Login:** Die App ist für den eigenen Rechner oder das eigene Netz gedacht und darf **nie ungeschützt ins Internet**. Details in [SECURITY.md](SECURITY.md).
 
@@ -192,7 +192,7 @@ Der Menüpunkt **Ausbildungsplan** zeigt jede Kalenderwoche von der Woche des Au
 | Aufgabe | zum Abhaken, z. B. Berichtsheft, auch mit Unteraufgaben; überfällige Aufgaben werden oben gezählt |
 | Notiz | eigener Text, z. B. Urlaub oder Projektwoche |
 
-Prüfungstermine aus den Einstellungen, Ausbildungsbeginn und voraussichtliches Ende erscheinen automatisch in der passenden Woche. Hamburger Schulferien (aus `content/ferien-hamburg.json`, Ferienordnung bis Schuljahr 2029/30) und gesetzliche Feiertage (berechnet) stehen ebenfalls in den Wochen. Neue Schuljahre trägt man in der JSON-Datei nach; `npm run check-content` prüft sie. Die Seitenleiste zeigt beim Scrollen Ausbildungsjahr, Monat und KW und springt per Klick zu jedem Jahr, Monat oder jeder Woche. Die Einträge liegen in der Datenbank (Tabelle `plan_eintrag`) und sind in Export und Import enthalten; „Fortschritt zurücksetzen“ lässt den Plan unangetastet.
+Prüfungstermine aus den Einstellungen, Ausbildungsbeginn und voraussichtliches Ende erscheinen automatisch in der passenden Woche. Schulferien (aus `content/ferien-hamburg.json`, Ferienordnung bis Schuljahr 2029/30) und gesetzliche Feiertage (berechnet) stehen ebenfalls in den Wochen. Neue Schuljahre trägt man in der JSON-Datei nach; `npm run check-content` prüft sie. Die Seitenleiste zeigt beim Scrollen Ausbildungsjahr, Monat und KW und springt per Klick zu jedem Jahr, Monat oder jeder Woche. Die Einträge liegen in der Datenbank (Tabelle `plan_eintrag`) und sind in Export und Import enthalten; „Fortschritt zurücksetzen“ lässt den Plan unangetastet.
 
 ## Üben
 
@@ -210,15 +210,15 @@ Unter **Prüfungen → Prüfungstechnik** erklärt die App die Arbeitsaufträge 
 
 ## Abschlussprojekt
 
-Unter **Prüfungen → Abschlussprojekt** begleitet die App die betriebliche Projektarbeit (Teil 2): Termine der Handelskammer (erscheinen auch im Ausbildungsplan), Checklisten für Projektantrag und Dokumentation nach dem Merkblatt der Handelskammer Hamburg, eine Zeitplanung mit höchstens 40 Stunden, ein 15-Minuten-Timer zum Üben der Präsentation und typische Fragen im Fachgespräch mit eigenen Stichworten. Die Inhalte stehen in `src/lib/projekt.ts`, die eigenen Eingaben in der Tabelle `projekt` (in Export und Import enthalten). Maßgeblich bleibt immer das aktuelle Merkblatt der Kammer.
+Unter **Prüfungen → Abschlussprojekt** begleitet die App die betriebliche Projektarbeit (Teil 2): Termine der Kammer (erscheinen auch im Ausbildungsplan), Checklisten für Projektantrag und Dokumentation nach dem Merkblatt der Kammer, eine Zeitplanung mit höchstens 40 Stunden, ein 15-Minuten-Timer zum Üben der Präsentation und typische Fragen im Fachgespräch mit eigenen Stichworten. Die Inhalte stehen in `src/lib/projekt.ts`, die eigenen Eingaben in der Tabelle `projekt` (in Export und Import enthalten). Maßgeblich bleibt immer das aktuelle Merkblatt der Kammer.
 
 ## Berichtsheft
 
 Ausbildungsnachweise werden wöchentlich geführt (Menüpunkt **Berichtsheft** oder der Status-Knopf an jeder Woche im Ausbildungsplan). Pro Woche: betriebliche Tätigkeiten, Unterweisungen, Berufsschule und Abwesenheit, jeweils mit Stunden. Name, Betrieb, Ausbilder/in und Wochenarbeitszeit stehen unter Einstellungen → Berichtsheft.
 
-**Drucken / PDF:** Auf der Berichtsheft-Seite „Alle drucken“, „Auswahl drucken“ oder das Drucker-Symbol einer Woche wählen; im Druckdialog des Browsers „Als PDF speichern“. Eine A4-Seite pro Woche, auf Wunsch mit Deckblatt. Diese Datei lädst du bei der Anmeldung zu Teil 1 und Teil 2 im Azubi-Infocenter der Handelskammer hoch (höchstens 20 MB pro Datei).
+**Drucken / PDF:** Auf der Berichtsheft-Seite „Alle drucken“, „Auswahl drucken“ oder das Drucker-Symbol einer Woche wählen; im Druckdialog des Browsers „Als PDF speichern“. Eine A4-Seite pro Woche, auf Wunsch mit Deckblatt. Diese Datei lädst du bei der Anmeldung zu Teil 1 und Teil 2 im Azubi-Infocenter der Kammer hoch (höchstens 20 MB pro Datei).
 
-**Digital abzeichnen:** Auf der Berichtsheft-Seite „Digital abzeichnen lassen“ – die Ausbilderin oder der Ausbilder wählt die fertigen Berichte aus und unterschreibt einmal im Feld (Finger, Stift oder Maus). Die Unterschrift erscheint mit Name und Datum auf jedem ausgewählten Nachweis im PDF. Ändert man einen unterschriebenen Bericht danach, entfällt seine Unterschrift. Rechtlich ist das eine einfache elektronische Signatur; die Handelskammer lässt bei elektronischen Berichtsheften eine elektronische Bestätigung zu – im Zweifel mit dem Betrieb abstimmen.
+**Digital abzeichnen:** Auf der Berichtsheft-Seite „Digital abzeichnen lassen“ – die Ausbilderin oder der Ausbilder wählt die fertigen Berichte aus und unterschreibt einmal im Feld (Finger, Stift oder Maus). Die Unterschrift erscheint mit Name und Datum auf jedem ausgewählten Nachweis im PDF. Ändert man einen unterschriebenen Bericht danach, entfällt seine Unterschrift. Rechtlich ist das eine einfache elektronische Signatur; die Kammer lässt bei elektronischen Berichtsheften eine elektronische Bestätigung zu – im Zweifel mit dem Betrieb abstimmen.
 
 Die Berichte liegen in der Tabelle `bericht`, Unterschriften in `unterschrift`; beides ist in Export und Import enthalten.
 

@@ -1,6 +1,6 @@
 /**
  * Inhalte des Projekt-Begleiters. Grundlage: Merkblatt „Betriebliche Projektarbeit IT-Berufe 2026“
- * der Handelskammer Hamburg und FIAusbV § 20 (Fachinformatiker Systemintegration).
+ * der Kammer und FIAusbV § 20 (Fachinformatiker Systemintegration).
  */
 export const MERKBLATT_URL =
   'https://www.handelskammer-hamburg.de/blueprint/servlet/resource/blob/7140672/8fe3a3dd5f599945a10aa367fbcebdad/merkblatt-betriebliche-projektarbeit-it-berufe-2026-data.pdf';
@@ -10,7 +10,7 @@ export const MAX_STUNDEN = 40;
 export const TERMINE: { key: string; label: string; kurz: string; hinweis: string }[] = [
   { key: 'antrag', label: 'Projektantrag abgeben bis', kurz: 'Projektantrag fällig', hinweis: 'Das Portal schließt um 24 Uhr am Abgabetag – lieber früher hochladen.' },
   { key: 'genehmigung', label: 'Antrag genehmigt am', kurz: 'Antrag genehmigt', hinweis: 'Vorher darfst du mit dem Projekt nicht beginnen.' },
-  { key: 'start', label: 'Durchführungszeitraum ab', kurz: 'Projektstart', hinweis: 'Gibt die Handelskammer vor.' },
+  { key: 'start', label: 'Durchführungszeitraum ab', kurz: 'Projektstart', hinweis: 'Gibt die Kammer vor.' },
   { key: 'ende', label: 'Durchführungszeitraum bis', kurz: 'Projektende', hinweis: 'Spätestens jetzt muss die Dokumentation hochgeladen sein.' },
   { key: 'doku', label: 'Dokumentation hochladen bis', kurz: 'Projektdoku fällig', hinweis: 'Verspätete Abgabe kann mit 0 Punkten bewertet werden.' },
   { key: 'praesentation', label: 'Präsentation und Fachgespräch am', kurz: 'Präsentation + Fachgespräch', hinweis: 'Präsentation höchstens 15 Minuten, zusammen höchstens 30 Minuten.' },
@@ -66,7 +66,7 @@ export const ANTRAG: { titel: string; punkte: Punkt[] }[] = [
 
 export const DOKU: { titel: string; punkte: Punkt[] }[] = [
   {
-    titel: 'Aufbau (Empfehlung der Handelskammer)',
+    titel: 'Aufbau (Empfehlung der Kammer)',
     punkte: [
       { id: 'deckblatt', text: 'Deckblatt', hilfe: 'Name, Thema, Ausbildungsberuf, Prüfungszeitraum.' },
       { id: 'inhalt', text: 'Inhaltsverzeichnis mit Seitenzahlen' },

@@ -9,7 +9,7 @@ Deine Rechte und Pflichten in Ausbildung und Beruf: Ausbildungsvertrag, Berufsbi
 ### Kernbegriffe
 - **Form:** Der wesentliche Vertragsinhalt muss vor Beginn der Ausbildung festgehalten werden (§ 11 BBiG – Berufsbildungsgesetz); der Azubi erhält eine Ausfertigung.
 - **Probezeit:** Mindestens 1, höchstens 4 Monate (§ 20 BBiG).
-- **Verzeichnis:** Der Betrieb meldet den Vertrag bei der Handelskammer zur Eintragung ins Verzeichnis der Ausbildungsverhältnisse.
+- **Verzeichnis:** Der Betrieb meldet den Vertrag bei der Kammer zur Eintragung ins Verzeichnis der Ausbildungsverhältnisse.
 - **Ende:** Mit Ablauf der Ausbildungszeit oder schon mit Bekanntgabe des Ergebnisses der bestandenen Abschlussprüfung (§ 21 BBiG).
 - **Verlängerung:** Bei nicht bestandener Prüfung auf Verlangen des Azubis bis zur nächsten Wiederholungsprüfung, höchstens um ein Jahr.
 

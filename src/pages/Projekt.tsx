@@ -54,7 +54,7 @@ function ProjektSeite({ start }: { start: ProjektTyp }) {
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-[32px] font-bold leading-tight">Prüfungen</h1>
-          <p className="text-sm text-muted">Dein Abschlussprojekt Schritt für Schritt – nach dem Merkblatt der Handelskammer Hamburg.</p>
+          <p className="text-sm text-muted">Dein Abschlussprojekt Schritt für Schritt – nach dem Merkblatt der Kammer.</p>
         </div>
       </header>
       <PruefungsReiter />
@@ -95,11 +95,11 @@ function ProjektSeite({ start }: { start: ProjektTyp }) {
               </span>
             </>
           ) : (
-            <span className="text-sm text-muted">Trag unten die Termine der Handelskammer ein – sie erscheinen dann auch im Ausbildungsplan.</span>
+            <span className="text-sm text-muted">Trag unten die Termine der Kammer ein – sie erscheinen dann auch im Ausbildungsplan.</span>
           )}
           <div className="mt-auto flex flex-col gap-1 border-t border-line pt-3 text-sm">
             <a href={MERKBLATT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[36px] items-center gap-1.5 font-semibold text-accent">
-              Merkblatt Projektarbeit (Handelskammer)
+              Merkblatt Projektarbeit (Kammer)
               <ExternalLink size={14} aria-hidden="true" />
             </a>
             <a href={ANTRAGSPORTAL_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[36px] items-center gap-1.5 font-semibold text-accent">
@@ -110,7 +110,7 @@ function ProjektSeite({ start }: { start: ProjektTyp }) {
         </div>
       </section>
 
-      <Abschnitt titel="Termine" untertitel="Die Handelskammer gibt Antragsfrist und Durchführungszeitraum vor. Die Termine erscheinen im Ausbildungsplan." offen>
+      <Abschnitt titel="Termine" untertitel="Die Kammer gibt Antragsfrist und Durchführungszeitraum vor. Die Termine erscheinen im Ausbildungsplan." offen>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {TERMINE.map((t) => (
             <label key={t.key} className="flex flex-col gap-1">

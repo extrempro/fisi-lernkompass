@@ -364,7 +364,7 @@ Ein Besucher steckt seinen Laptop in eine Netzwerkdose im Besprechungsraum und i
 - **Kerberos:** Anmeldeprotokoll in AD-Domänen (Port 88), arbeitet mit Tickets.
 
 ### Abbildung: Active Directory und AGDLP
-![Links: Eine Gesamtstruktur enthält die Domäne ad.firma.de mit zwei Domänencontrollern und der OU Hamburg mit den Unter-OUs Benutzer, Computer und Gruppen; eine Gruppenrichtlinie ist mit einer OU verknüpft und wirkt auf alle Objekte darin. Rechts die Kette AGDLP: Account mmuster ist Mitglied der globalen Gruppe GG_Vertrieb, diese ist Mitglied der domänenlokalen Gruppe DL_Share_Vertrieb_Lesen, und nur diese bekommt die Berechtigung Lesen auf die Freigabe des Vertriebs.](ad-struktur.svg)
+![Links: Eine Gesamtstruktur enthält die Domäne ad.firma.de mit zwei Domänencontrollern und der OU Musterstadt mit den Unter-OUs Benutzer, Computer und Gruppen; eine Gruppenrichtlinie ist mit einer OU verknüpft und wirkt auf alle Objekte darin. Rechts die Kette AGDLP: Account mmuster ist Mitglied der globalen Gruppe GG_Vertrieb, diese ist Mitglied der domänenlokalen Gruppe DL_Share_Vertrieb_Lesen, und nur diese bekommt die Berechtigung Lesen auf die Freigabe des Vertriebs.](ad-struktur.svg)
 
 ### Tabelle: Gruppenbereiche
 | Bereich | Mitglieder aus | Einsatz |
